@@ -14,6 +14,7 @@ import Experience from '../../img/Experience.png';
 import Check from '../../img/Check.png';
 import Safety from '../../img/Safety.png';
 import Lanida from '../../img/Lanida.png';
+import AM from '../../img/AM.png';
 import { FaFacebookF, FaTiktok, FaLinkedinIn, FaInstagram, FaYoutube } from 'react-icons/fa';
 
 function Sakumlapa() {
@@ -108,7 +109,7 @@ function Sakumlapa() {
                                 {/* Title */}
                                 <div className="text-2xl font-bold text-white">UZTICAMĪBA</div>
                                 {/* Description */}
-                                <p className="text-sm">Reģistrēta Ekonomikas ministrijas datu bāzē Nr.7224</p>
+                                <p className="text-sm">Reģistrēta Ekonomikas ministrijas starpnieku reģistrā ar nr.224</p>
                             </div>
 
                             {/* Card 3 */}
@@ -122,7 +123,7 @@ function Sakumlapa() {
                                 {/* Title */}
                                 <div className="text-2xl font-bold text-white">DROŠĪBA</div>
                                 {/* Description */}
-                                <p className="text-sm">Darbība ar licencēti apdrošināta</p>
+                                <p className="text-sm">Darbība civiltiesiski apdrošināta</p>
                             </div>
 
                             {/* Card 4 */}
@@ -136,7 +137,11 @@ function Sakumlapa() {
                                 {/* Title */}
                                 <div className="text-2xl font-bold text-white">PROFESIONALITĀTE</div>
                                 {/* Description */}
-                                <p className="text-sm">Latvijas nekustamo īpašumu asociācijas “LANĪDA” biedrs</p>
+                                <a href="https://lanida.lv/biedri/guna-jasko-2/" className="text-sm underline">
+                                    profesionalitāte
+                                    Latvijas nekustamo īpašumu
+                                    asociācijas “Lanīda” biedrs
+                                </a>
                             </div>
                         </div>
 
@@ -294,53 +299,55 @@ function Sakumlapa() {
             </section>
 
             {/* Atsauksmes Section */}
-            <section>
-                <div className="flex justify-center items-center w-full h-[711px] absolute">
-                    <div
-                        className="w-[1225px] h-[645px]"
-                        style={{
-                            backgroundImage: `url(${Vannasistaba})`,
-                            backgroundSize: 'contain', // Ensures the full image is visible without cropping
-                            backgroundRepeat: 'no-repeat',
-                            backgroundPosition: 'center',
-                        }}
-                    ></div>
-                </div>
+            <section className="relative w-full flex items-center justify-center min-h-screen">
                 {/* Background Image */}
-                <div className="absolute inset-0"></div>
+                <div
+                    className="absolute flex items-center justify-center w-[1225px] h-[645px]"
+                    style={{
+                        backgroundImage: `url(${Vannasistaba})`,
+                        backgroundSize: 'cover', // Keeps the image covering the container
+                        backgroundPosition: 'center', // Centers the image
+                    }}
+                ></div>
 
-                {/* Testimonial Section */}
-                <div className="max-w-screen-xl mx-auto px-8 text-center relative z-10">
-                    <h2 className="text-[#CDC697] text-4xl font-bold mb-8 pt-16">ATSAUKSMES</h2>
+                {/* Content Section */}
+                <div className="relative z-10 flex flex-col items-center justify-center h-full">
+                    {/* Heading */}
+                    <h2 className="text-[#CDC697] text-4xl font-bold mb-12">ATSAUKSMES</h2>
 
                     {/* Testimonial Box */}
-                    <div className="mt-16 bg-white text-[#5B3767] p-8 mx-auto w-[782px] h-[380px] relative opacity-90">
-                        {/* Centered Circle */}
+                    <div
+                        className="relative bg-white w-[782px] h-[380px] opacity-90 p-12 flex flex-col items-center">
+                        {/* Centered Image */}
                         <div
-                            className="absolute left-1/2 transform -translate-x-1/2 -translate-y-10 w-20 h-20 bg-[#CDC697] text-white flex items-center justify-center rounded-full">
-                            <span className="text-2xl font-bold">AM</span>
-                        </div>
+                            className="w-[100px] h-[100px] object-cover flex items-center justify-center -mt-4 mb-6"
+                            style={{
+                                backgroundImage: `url(${AM})`,
+                                backgroundSize: 'cover',
+                                backgroundPosition: 'center'
+                            }}
+                        ></div>
 
                         {/* Testimonial Content */}
-                        <p className="text-xl mb-4 mt-16">
+                        <p className="text-[#5B3767] text-lg mb-4 leading-relaxed text-center">
                             Labdien, Guna! Ar vēlēšanos gribu pateikties par padarīto agenta darbu mājas pārdošanā un
-                            dzīvokļa iegādē! Nemoti vērā, ka viss notika attālināti, tādējādi uzticēt vārdi, jo viss
+                            dzīvokļa iegādē! Nemot vērā, ka viss notika attālināti, tādējādi uzticēt vārdi, jo viss
                             noritēja kā pa notīm! Paši mēs noteikti ieteiksim kādas lamatas! Pie iespējas noteikti Jūs
                             rekomendēsim citiem. Veiksmi Jums it visā!
                         </p>
-                        <p className="font-semibold text-[#9C9150] mt-4">Andrej Mihailovs</p>
+                        <p className="font-semibold text-[#9C9150] mt-4 text-center">Andrejs Mihailovs</p>
                     </div>
                 </div>
             </section>
 
 
             {/* Sadarbības Partneri Section */}
-            <section className="w-[1225px] mx-auto mt-52">
+            <section className="w-[1225px] mx-auto">
                 <div className="max-w-screen-xl mx-auto px-8 text-center">
                     <h1 className="text-[#6C256B] text-4xl font-bold mb-24">SADARBIĪBAS PARTNERI</h1>
 
                     {/* Partners Logos */}
-                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-8 justify-center">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-8 justify-center items-center">
                         {/* Partner 1 */}
                         <div className="flex justify-center">
                             <div className="w-[216px] h-[48px] mx-auto relative object-cover"
@@ -372,13 +379,13 @@ function Sakumlapa() {
                                  style={{backgroundImage: `url(${Citadele})`}}></div>
                         </div>
                     </div>
-                    <div className="w-full max-w-screen-xl mx-auto px-8 mt-16">
+                    <div className="w-full max-w-screen-xl mx-auto mt-16">
                         <div className="border-b-[1px] border-[#CDC697]"></div>
                     </div>
                 </div>
             </section>
             {/* Saziņas Forma Section */}
-            <section className="w-full py-16 relative mt-16">
+            <section className="w-full py-16 relative mt-16 min-h-screen">
                 {/* Background Image */}
                 <div className="flex justify-center items-center w-full h-[711px] absolute">
                     <div
@@ -394,118 +401,122 @@ function Sakumlapa() {
 
 
                 {/* Form Container */}
-                <div className="mr-80 -top-12 relative z-10 w-[760px] mx-auto bg-[#E8E1D3] p-10 shadow-lg">
-                    <h2 className="text-[#6C256B] text-4xl font-bold mb-8 text-left ml-14">SAZIŅAS FORMA</h2>
+                <div className="relative z-10 w-[760px] mx-auto bg-[#E8E1D3] p-10 shadow-lg -mt-16 mr-80">
+                    <h2 className="text-[#6C256B] text-4xl font-bold mb-8 text-left">SAZIŅAS FORMA</h2>
+
                     {/* Form */}
-                    <div className="flex justify-center items-center">
-                        <form className="">
-                            <div className="grid grid-cols-2 gap-y-12 gap-x-6">
-                                {/* Vārds (First Name) */}
-                                <div className="w-[320px]">
-                                    <input
-                                        type="text"
-                                        placeholder="Vārds"
-                                        className="placeholder-[#9C9150] w-[320px] p-5"
-                                    />
-                                </div>
-
-                                {/* Uzvārds (Last Name) */}
-                                <div className="w-[320px]">
-                                    <input
-                                        type="text"
-                                        placeholder="Uzvārds"
-                                        className="placeholder-[#9C9150] w-[320px] p-5"
-                                    />
-                                </div>
-
-                                {/* E-pasts (Email) */}
-                                <div className="w-[320px]">
-                                    <input
-                                        type="email"
-                                        placeholder="E-pasts"
-                                        className="placeholder-[#9C9150] w-[320px] p-5"
-                                    />
-                                </div>
-
-                                {/* Tālrunis (Phone Number) */}
-                                <div className="w-[320px]">
-                                    <input
-                                        type="tel"
-                                        placeholder="Tālrunis"
-                                        className="placeholder-[#9C9150] w-[320px] p-5"
-                                    />
-                                </div>
+                    <form className="grid gap-6">
+                        {/* Vārds (First Name) & Uzvārds (Last Name) */}
+                        <div className="grid grid-cols-2 gap-6">
+                            <div>
+                                <input
+                                    type="text"
+                                    placeholder="Vārds"
+                                    className="w-full p-4 placeholder-[#9C9150] border border-[#E8E1D3] focus:outline-none hover:border-[#CDC697] focus:border-[#CDC697] focus:ring-0"
+                                />
                             </div>
-                            <div className="grid grid-cols-3 mt-6 gap-x-2">
-                                {/* Darījuma veids (Transaction Type) */}
-                                <div>
-                                    <select
-                                        className="w-full p-5 text-[#9C9150]">
-                                        <option>Izvēlēties</option>
-                                        <option>Pirkšana</option>
-                                        <option>Pārdošana</option>
-                                    </select>
-                                </div>
+                            <div>
+                                <input
+                                    type="text"
+                                    placeholder="Uzvārds"
+                                    className="w-full p-4 placeholder-[#9C9150] border border-[#E8E1D3] focus:outline-none hover:border-[#CDC697] focus:border-[#CDC697] focus:ring-0"
+                                />
+                            </div>
+                        </div>
 
-                                {/* Reģions (Region) */}
-                                <div>
-                                    <select
-                                        className="w-full p-5 text-[#9C9150]">
-                                        <option>Izvēlēties</option>
-                                        <option>Rīga</option>
-                                        <option>Latgale</option>
-                                    </select>
-                                </div>
+                        {/* E-pasts (Email) & Tālrunis (Phone Number) */}
+                        <div className="grid grid-cols-2 gap-6">
+                            <div>
+                                <input
+                                    type="email"
+                                    placeholder="E-pasts"
+                                    className="w-full p-4 placeholder-[#9C9150] border border-[#E8E1D3] focus:outline-none hover:border-[#CDC697] focus:border-[#CDC697] focus:ring-0"
+                                />
+                            </div>
+                            <div>
+                                <input
+                                    type="tel"
+                                    placeholder="Tālrunis"
+                                    className="w-full p-4 placeholder-[#9C9150] border border-[#E8E1D3] focus:outline-none hover:border-[#CDC697] focus:border-[#CDC697] focus:ring-0"
+                                />
+                            </div>
+                        </div>
 
-                                {/* Īpašuma tips (Property Type) */}
-                                <div>
-                                    <select
-                                        className="w-full p-5 text-[#9C9150]">
-                                        <option>Izvēlēties</option>
-                                        <option>Dzīvoklis</option>
-                                        <option>Māja</option>
-                                    </select>
-                                </div>
+                        {/* Darījuma veids (Transaction Type), Reģions (Region), Īpašuma tips (Property Type) */}
+                        <div className="grid grid-cols-3 gap-6">
+                            <div>
+                                <select
+                                    className="w-full p-4 text-[#9C9150] placeholder-[#9C9150] border border-[#E8E1D3] focus:outline-none hover:border-[#CDC697] focus:border-[#CDC697] focus:ring-0"
+                                >
+                                    <option>Izvēlēties</option>
+                                    <option>Pirkšana</option>
+                                    <option>Pārdošana</option>
+                                </select>
+                            </div>
+                            <div>
+                                <select
+                                    className="w-full p-4 text-[#9C9150] placeholder-[#9C9150] border border-[#E8E1D3] focus:outline-none hover:border-[#CDC697] focus:border-[#CDC697] focus:ring-0"
+                                >
+                                    <option>Izvēlēties</option>
+                                    <option>Rīga</option>
+                                    <option>Latgale</option>
+                                </select>
+                            </div>
+                            <div>
+                                <select
+                                    className="w-full p-4 text-[#9C9150] placeholder-[#9C9150] border border-[#E8E1D3] focus:outline-none hover:border-[#CDC697] focus:border-[#CDC697] focus:ring-0"
+                                >
+                                    <option>Izvēlēties</option>
+                                    <option>Dzīvoklis</option>
+                                    <option>Māja</option>
+                                </select>
                             </div>
 
-                            {/* Komentārs (Comments) */}
-                            <div className="mt-8">
-                                <textarea
-                                    placeholder="Komentārs"
-                                    rows="4"
-                                    className="w-full p-5 placeholder-[#9C9150]"
-                                ></textarea>
-                            </div>
+                        </div>
 
-                            {/* Checkbox */}
-                            <div className="flex items-center justify-left mt-6">
-                                <input type="checkbox" id="agree" className="mr-2 focus:ring-[#6C256B]"/>
-                                <label htmlFor="agree" className="text-sm text-[#5B3767]">
-                                    Piekrītu personas datu apstrādes noteikumiem.
-                                </label>
-                            </div>
+                        {/* Komentārs (Comments) */}
+                        <div>
+            <textarea
+                placeholder="Komentārs"
+                rows="4"
+                className="w-full p-4 placeholder-[#9C9150]"
+            ></textarea>
+                        </div>
 
-                            {/* Submit Button */}
-                            <div className="text-center mt-12">
-                                <button
-                                    className="w-[238px] h-[55px] bg-[#5B3767] text-white font-medium text-sm hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-[#CDC697]">
-                                    SŪTĪT
-                                </button>
-                            </div>
-                        </form>
-                    </div>
+                        {/* Checkbox */}
+                        <div className="flex items-center">
+                            <input
+                                type="checkbox"
+                                id="agree"
+                                className="mr-2 w-4 h-4 border-4 border-[#6C256B] bg-[#FFD700] checked:bg-[#6C256B] focus:ring-0"
+                            />
+                            <label htmlFor="agree" className="text-sm text-[#5B3767]">
+                                Piekrītu personas datu apstrādes noteikumiem.
+                            </label>
+                        </div>
+
+                        {/* Submit Button */}
+                        <div className="text-center mt-6">
+                            <button
+                                className="w-[238px] h-[55px] bg-[#5B3767] text-[#CDC697] font-medium text-sm hover:bg-opacity-90"
+                            >
+                                SŪTĪT
+                            </button>
+                        </div>
+                    </form>
                 </div>
+
             </section>
             <div className="footer bg-[#5B3767] text-white py-6">
                 {/* Top Divider */}
-                <div className="w-full max-w-screen-xl mx-auto px-8 mt-2">
-                    <div className="border-b-[1px] border-[#CDC697]"></div>
+                <div className="w-full max-w-screen-xl mx-auto mt-2">
+                    <div className="border-b-[1px] border-[#9C9150]"></div>
                 </div>
 
                 {/* Footer Content */}
                 <div className="flex justify-between items-center mx-auto w-[1200px] mt-4">
                     {/* Left Section */}
-                    <div className="text-lg font-semibold">
+                    <div className="text-3xl font-semibold p-2">
                         GUNA JASKO
                     </div>
 
@@ -513,35 +524,36 @@ function Sakumlapa() {
                     <div className="flex gap-4">
                         <a
                             href="#"
-                            className="w-8 h-8 border border-white flex items-center justify-center rounded hover:bg-[#54204D] transition"
+                            className="w-8 h-8 flex items-center justify-center border-2 border-white rounded-md hover:bg-[#6C256B] transition-all"
                         >
-                            <FaFacebookF/>
+                            <FaFacebookF className="text-white"/>
                         </a>
                         <a
                             href="#"
-                            className="w-8 h-8 border border-white flex items-center justify-center rounded hover:bg-[#54204D] transition"
+                            className="w-8 h-8 flex items-center justify-center border-2 border-white rounded-md hover:bg-[#6C256B] transition-all"
                         >
-                            <FaTiktok/>
+                            <FaTiktok className="text-white"/>
                         </a>
                         <a
                             href="#"
-                            className="w-8 h-8 border border-white flex items-center justify-center rounded hover:bg-[#54204D] transition"
+                            className="w-8 h-8 flex items-center justify-center border-2 border-white rounded-md hover:bg-[#6C256B] transition-all"
                         >
-                            <FaLinkedinIn/>
+                            <FaLinkedinIn className="text-white"/>
                         </a>
                         <a
                             href="#"
-                            className="w-8 h-8 border border-white flex items-center justify-center rounded hover:bg-[#54204D] transition"
+                            className="w-8 h-8 flex items-center justify-center border-2 border-white rounded-md hover:bg-[#6C256B] transition-all"
                         >
-                            <FaInstagram/>
+                            <FaInstagram className="text-white"/>
                         </a>
                         <a
                             href="#"
-                            className="w-8 h-8 border border-white flex items-center justify-center rounded hover:bg-[#54204D] transition"
+                            className="w-8 h-8 flex items-center justify-center border-2 border-white rounded-md hover:bg-[#6C256B] transition-all"
                         >
-                            <FaYoutube/>
+                            <FaYoutube className="text-white"/>
                         </a>
                     </div>
+
 
                     {/* Right Section */}
                     <div className="text-right text-sm">
