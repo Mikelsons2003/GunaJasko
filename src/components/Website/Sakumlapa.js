@@ -21,18 +21,19 @@ function Sakumlapa() {
         <div className="mx-auto font-sans text-white">
             {/* Bilde */}
             <header className="bg-cover bg-center h-[812px] relative" style={{backgroundImage: `url(${BedroomImage})`}}>
-                <div className="absolute inset-0 bg-black bg-opacity-40"></div>
-                <div className="absolute top-4 w-full flex flex-col items-center">
+                {/* Overlay with pointer-events: none */}
+                <div className="absolute inset-0 bg-black bg-opacity-40 pointer-events-none"></div>
 
-                    {/* Header Sekcija */}
+                <div className="absolute top-4 w-full flex flex-col items-center z-10">
+                    {/* Header Section */}
                     <div className="w-full max-w-screen-xl mx-auto px-8 flex justify-between items-center">
-                        {/* Logo Sekcija */}
-                        <h1 className="text-3xl text-[#CDC697] font-marcellus tracking-wide">
+                        {/* Logo Section */}
+                        <h1 className="text-5xl text-[#CDC697] font-marcellus tracking-wide p-3">
                             GUNA JASKO
                         </h1>
 
-                        {/* Navigācija */}
-                        <nav className="flex space-x-8 text-white text-sm">
+                        {/* Navigation */}
+                        <nav className="flex space-x-8 text-white text-sm z-10">
                             <a href="#home"
                                className="hover:text-[#CDC697] transition duration-300 ease-in-out">SĀKUMS</a>
                             <a href="#about" className="hover:text-[#CDC697] transition duration-300 ease-in-out">PAR
@@ -47,13 +48,14 @@ function Sakumlapa() {
                         </nav>
                     </div>
 
-                    {/* Dzeltanā līnija*/}
+                    {/* Yellow Line */}
                     <div className="w-full max-w-screen-xl mx-auto px-8 mt-2">
                         <div className="border-b-[1px] border-[#CDC697]"></div>
                     </div>
                 </div>
-                {/* Teksts */}
-                <div className="absolute bottom-80 left-[22rem] text-white space-y-6">
+
+                {/* Text Section */}
+                <div className="absolute bottom-80 left-[22rem] text-white space-y-6 z-10">
                     <h2 className="text-4xl font-bold text-left">
                         NEKUSTAMO ĪPAŠUMU AĢENTS
                     </h2>
@@ -63,12 +65,13 @@ function Sakumlapa() {
                     </p>
                     <div className="text-left">
                         <button
-                            className="w-[317px] h-[55px] bg-[#5B3767] hover:bg-[#371243] transition duration-300 ease-in-out text-[#CDC697] font-medium hover:bg-opacity-90">
+                            className="w-[317px] h-[55px] bg-[#5B3767] hover:bg-[#371243] transition duration-300 ease-in-out text-[#CDC697] font-medium">
                             PIETEIKT ĪPAŠUMU
                         </button>
                     </div>
                 </div>
             </header>
+
 
             {/* about section */}
             <section className="bg-[#5B3767] text-white py-16">
@@ -142,7 +145,7 @@ function Sakumlapa() {
                         <div className="mt-12 text-left">
                             <button
                                 className="w-[317px] h-[55px] border border-[#CDC697] text-[#CDC697] hover:text-[#9C9150] hover:border-[#9C9150] transition duration-300 ease-in-out font-medium text-sm">
-                                SAZINĀTIES
+                                UZZINĀT VAIRĀK
                             </button>
                         </div>
                     </div>
@@ -150,113 +153,140 @@ function Sakumlapa() {
                     {/* Right Side: Image */}
                     <div className="lg:w-1/2 mt-10 lg:mt-0 flex justify-center">
                         <div className="">
-                        <img
+                            <div
                                 className="-top-28 bg-cover bg-center w-[558px] h-[837px] relative"
-                                style={{backgroundImage: `url(${GunaJasko})`}}
-                            />
+                                style={{backgroundImage: `url(${GunaJasko})`}}>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
             {/* Newest objects */}
-            <section className="py-16 bg-white">
-                <div className="container mx-auto px-6 lg:px-20">
+            <section className="py-16 bg-white flex items-center justify-center min-h-screen">
+                <div className="container mx-auto px-6 lg:px-20 text-center">
                     {/* Heading */}
                     <h1 className="text-center text-[#5B3767] text-4xl font-bold mb-12">JAUNĀKIE OBJEKTI</h1>
 
                     {/* Card Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-center">
                         {/* Card 1 */}
-                        <div className="border border-[#CDC697] rounded shadow-md w-[340px] h-[523px]">
+                        <div className="border border-[#CDC697] w-[340px] h-[523px] mx-auto">
                             <div className="w-full h-[200px] bg-gray-200">
                                 <img
                                     className="object-cover w-full h-full"
-                                    src={JaunakieObjekti} // replace with the actual image URL or import
+                                    src={JaunakieObjekti} // Replace with the actual image URL or import
                                     alt="Property Image"
                                 />
                             </div>
                             <div className="p-6">
-                                <h2 className="text-[#5B3767] text-2xl font-bold">120 000 EUR</h2>
-                                <div className="grid grid-cols-2">
-                                <ul className="mt-4 text-sm text-[#5B3767]">
-                                    <li>
-                                        <span className="font-bold">Adrese:</span> Alberta 1, Rīga
-                                    </li>
-                                    <li>
-                                        <span className="font-bold">Īpašuma tips:</span> Dzīvoklis
-                                    </li>
-                                    <li>
-                                        <span className="font-bold">Istabu sk.:</span> 5
-                                    </li>
-                                </ul>
+                                <div className="text-left mt-10">
+                                    <h2 className="text-[#5B3767] text-2xl font-bold mb-4">120 000 EUR</h2>
                                 </div>
-                                <a href="#" className="text-[#5B3767] text-sm font-bold mt-6 inline-flex items-center">
-                                    SKATĪT <span className="ml-1">&rarr;</span>
-                                </a>
+                                <div className="w-full max-w-screen-xl mx-auto mb-4">
+                                    <div className="border-b-[1px] border-[#CDC697]"></div>
+                                </div>
+                                {/* Two-Column Layout for Text */}
+                                <div className="grid grid-cols-2 text-sm text-[#5B3767] gap-y-2">
+                                    <span className="text-left py-1">Adrese:</span>
+                                    <span className="text-right font-bold">Alberta 1, Rīga</span>
+
+                                    <span className="text-left pb-1">Īpašuma tips:</span>
+                                    <span className="text-right font-bold">Dzīvoklis</span>
+
+                                    <span className="text-left">Istabu sk.:</span>
+                                    <span className="text-right font-bold">5</span>
+                                </div>
+
+                                <div className="text-left">
+                                    <a href="#"
+                                       className="text-[#CDC697] text-sm font-bold mt-6 inline-flex items-center">
+                                        SKATĪT <span className="ml-1">&rarr;</span>
+                                    </a>
+                                </div>
                             </div>
                         </div>
 
                         {/* Card 2 */}
-                        <div className="border border-[#CDC697] rounded shadow-md w-[340px] h-[523px]">
+                        <div className="border border-[#CDC697] w-[340px] h-[523px] mx-auto">
                             <div className="w-full h-[200px] bg-gray-200">
                                 <img
                                     className="object-cover w-full h-full"
-                                    src={JaunakieObjekti} // replace with the actual image URL or import
+                                    src={JaunakieObjekti} // Replace with the actual image URL or import
                                     alt="Property Image"
                                 />
                             </div>
                             <div className="p-6">
-                                <h2 className="text-[#5B3767] text-2xl font-bold">760 EUR / mēn</h2>
-                                <ul className="mt-4 text-sm text-[#5B3767]">
-                                    <li>
-                                        <span className="font-bold">Adrese:</span> Alberta 1, Rīga
-                                    </li>
-                                    <li>
-                                        <span className="font-bold">Īpašuma tips:</span> Dzīvoklis
-                                    </li>
-                                    <li>
-                                        <span className="font-bold">Istabu sk.:</span> 5
-                                    </li>
-                                </ul>
-                                <a href="#" className="text-[#5B3767] text-sm font-bold mt-6 inline-flex items-center">
-                                    SKATĪT <span className="ml-1">&rarr;</span>
-                                </a>
+                                <div className="text-left">
+                                    <h1 className="text-[#5B3767] text-xl mb-3">Izīrē</h1>
+                                    <h2 className="text-[#5B3767] text-2xl font-bold mb-4">760 EUR / mēn</h2>
+                                </div>
+                                <div className="w-full max-w-screen-xl mx-auto mb-4">
+                                    <div className="border-b-[1px] border-[#CDC697]"></div>
+                                </div>
+                                {/* Two-Column Layout for Text */}
+                                <div className="grid grid-cols-2 text-sm text-[#5B3767] gap-y-2">
+                                    <span className="text-left py-1">Adrese:</span>
+                                    <span className="text-right font-bold">Alberta 1, Rīga</span>
+
+                                    <span className="text-left pb-1">Īpašuma tips:</span>
+                                    <span className="text-right font-bold">Dzīvoklis</span>
+
+                                    <span className="text-left">Istabu sk.:</span>
+                                    <span className="text-right font-bold">5</span>
+                                </div>
+
+                                <div className="text-left">
+                                    <a href="#"
+                                       className="text-[#CDC697] text-sm font-bold mt-6 inline-flex items-center">
+                                        SKATĪT <span className="ml-1">&rarr;</span>
+                                    </a>
+                                </div>
                             </div>
                         </div>
 
                         {/* Card 3 */}
-                        <div className="border border-[#CDC697] rounded shadow-md w-[340px] h-[523px]">
+                        <div className="border border-[#CDC697] w-[340px] h-[523px] mx-auto">
                             <div className="w-full h-[200px] bg-gray-200">
                                 <img
                                     className="object-cover w-full h-full"
-                                    src={JaunakieObjekti} // replace with the actual image URL or import
+                                    src={JaunakieObjekti} // Replace with the actual image URL or import
                                     alt="Property Image"
                                 />
                             </div>
                             <div className="p-6">
-                                <h2 className="text-[#5B3767] text-2xl font-bold">120 000 EUR</h2>
-                                <ul className="mt-4 text-sm text-[#5B3767]">
-                                    <li>
-                                        <span className="font-bold">Adrese:</span> Alberta 1, Rīga
-                                    </li>
-                                    <li>
-                                        <span className="font-bold">Īpašuma tips:</span> Dzīvoklis
-                                    </li>
-                                    <li>
-                                        <span className="font-bold">Istabu sk.:</span> 5
-                                    </li>
-                                </ul>
-                                <a href="#" className="text-[#5B3767] text-sm font-bold mt-6 inline-flex items-center">
-                                    SKATĪT <span className="ml-1">&rarr;</span>
-                                </a>
+                                <div className="text-left">
+                                    <h1 className="text-[#5B3767] text-xl mb-3">Pārdod</h1>
+                                    <h2 className="text-[#5B3767] text-2xl font-bold mb-4">120 000 EUR</h2>
+                                </div>
+                                <div className="w-full max-w-screen-xl mx-auto mb-4">
+                                    <div className="border-b-[1px] border-[#CDC697]"></div>
+                                </div>
+                                {/* Two-Column Layout for Text */}
+                                <div className="grid grid-cols-2 text-sm text-[#5B3767] gap-y-2">
+                                    <span className="text-left py-1">Adrese:</span>
+                                    <span className="text-right font-bold">Alberta 1, Rīga</span>
+
+                                    <span className="text-left pb-1">Īpašuma tips:</span>
+                                    <span className="text-right font-bold">Dzīvoklis</span>
+
+                                    <span className="text-left">Istabu sk.:</span>
+                                    <span className="text-right font-bold">5</span>
+                                </div>
+
+                                <div className="text-left">
+                                    <a href="#"
+                                       className="text-[#CDC697] text-sm font-bold mt-6 inline-flex items-center">
+                                        SKATĪT <span className="ml-1">&rarr;</span>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     {/* Button */}
-                    <div className="text-center mt-12">
+                    <div className="mt-12 flex justify-center">
                         <button
-                            className="w-[317px] h-[55px] bg-[#5B3767] text-white font-medium text-sm rounded hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-[#CDC697]">
+                            className="w-[356px] h-[55px] bg-[#5B3767] text-[#CDC697] font-medium text-sm hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-[#CDC697]">
                             SKATĪT VISUS OBJEKTUS
                         </button>
                     </div>
@@ -265,17 +295,17 @@ function Sakumlapa() {
 
             {/* Atsauksmes Section */}
             <section>
-            <div className="flex justify-center items-center w-full h-[711px] absolute">
-                <div
-                    className="w-[1225px] h-[645px]"
-                    style={{
-                        backgroundImage: `url(${Vannasistaba})`,
-                        backgroundSize: 'contain', // Ensures the full image is visible without cropping
-                        backgroundRepeat: 'no-repeat',
-                        backgroundPosition: 'center',
-                    }}
-                ></div>
-            </div>
+                <div className="flex justify-center items-center w-full h-[711px] absolute">
+                    <div
+                        className="w-[1225px] h-[645px]"
+                        style={{
+                            backgroundImage: `url(${Vannasistaba})`,
+                            backgroundSize: 'contain', // Ensures the full image is visible without cropping
+                            backgroundRepeat: 'no-repeat',
+                            backgroundPosition: 'center',
+                        }}
+                    ></div>
+                </div>
                 {/* Background Image */}
                 <div className="absolute inset-0"></div>
 
@@ -369,7 +399,7 @@ function Sakumlapa() {
                     {/* Form */}
                     <div className="flex justify-center items-center">
                         <form className="">
-                        <div className="grid grid-cols-2 gap-y-12 gap-x-6">
+                            <div className="grid grid-cols-2 gap-y-12 gap-x-6">
                                 {/* Vārds (First Name) */}
                                 <div className="w-[320px]">
                                     <input
