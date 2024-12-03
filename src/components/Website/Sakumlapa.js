@@ -15,8 +15,6 @@ import Check from '../../img/Check.png';
 import Safety from '../../img/Safety.png';
 import Lanida from '../../img/Lanida.png';
 import AM from '../../img/AM.png';
-import { FaFacebookF, FaTiktok, FaLinkedinIn, FaInstagram, FaYoutube } from 'react-icons/fa';
-
 
 function Sakumlapa() {
     return (
