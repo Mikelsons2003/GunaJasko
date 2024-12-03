@@ -1,5 +1,5 @@
 import React from "react";
-import BedroomImage from '../../img/BedroomImage.png';
+import HeaderSakums from "./HeaderSakums";
 import GunaJasko from '../../img/GunaJasko.png';
 import JaunakieObjekti from '../../img/JaunakieObjekti.png';
 import Vannasistaba from '../../img/Vannasistaba.png';
@@ -17,63 +17,11 @@ import Lanida from '../../img/Lanida.png';
 import AM from '../../img/AM.png';
 import { FaFacebookF, FaTiktok, FaLinkedinIn, FaInstagram, FaYoutube } from 'react-icons/fa';
 
+
 function Sakumlapa() {
     return (
         <div className="mx-auto font-sans text-white">
-            {/* Bilde */}
-            <header className="bg-cover bg-center h-[812px] relative" style={{backgroundImage: `url(${BedroomImage})`}}>
-                {/* Overlay with pointer-events: none */}
-                <div className="absolute inset-0 bg-black bg-opacity-40 pointer-events-none"></div>
-
-                <div className="absolute top-4 w-full flex flex-col items-center z-10">
-                    {/* Header Section */}
-                    <div className="w-full max-w-screen-xl mx-auto px-8 flex justify-between items-center">
-                        {/* Logo Section */}
-                        <h1 className="text-5xl text-[#CDC697] font-marcellus tracking-wide p-3">
-                            GUNA JASKO
-                        </h1>
-
-                        {/* Navigation */}
-                        <nav className="flex space-x-8 text-white text-sm z-10">
-                            <a href="#home"
-                               className="hover:text-[#CDC697] transition duration-300 ease-in-out">SĀKUMS</a>
-                            <a href="#about" className="hover:text-[#CDC697] transition duration-300 ease-in-out">PAR
-                                MANI</a>
-                            <a href="#services"
-                               className="hover:text-[#CDC697] transition duration-300 ease-in-out">PAKALPOJUMI</a>
-                            <a href="#properties"
-                               className="hover:text-[#CDC697] transition duration-300 ease-in-out">OBJEKTI</a>
-                            <a href="#contact"
-                               className="hover:text-[#CDC697] transition duration-300 ease-in-out">KONTAKTI</a>
-                            <a href="#contact" className="text-[#371243] transition duration-300 ease-in-out">LV</a>
-                        </nav>
-                    </div>
-
-                    {/* Yellow Line */}
-                    <div className="w-full max-w-screen-xl mx-auto px-8 mt-2">
-                        <div className="border-b-[1px] border-[#CDC697]"></div>
-                    </div>
-                </div>
-
-                {/* Text Section */}
-                <div className="absolute bottom-80 left-[22rem] text-white space-y-6 z-10">
-                    <h2 className="text-4xl font-bold text-left">
-                        NEKUSTAMO ĪPAŠUMU AĢENTS
-                    </h2>
-                    <p className="max-w-lg leading-relaxed text-left">
-                        Nekustamo īpašumu pārdošana kopš 2006. gada, specializācija - dzīvojamais fonds: dzīvokļi,
-                        privātmājas un zemju tirdzniecība un īre Rīgā un Rīgas rajonā.
-                    </p>
-                    <div className="text-left">
-                        <button
-                            className="w-[317px] h-[55px] bg-[#5B3767] hover:bg-[#371243] transition duration-300 ease-in-out text-[#CDC697] font-medium">
-                            PIETEIKT ĪPAŠUMU
-                        </button>
-                    </div>
-                </div>
-            </header>
-
-
+            <HeaderSakums />
             {/* about section */}
             <section className="bg-[#5B3767] text-white py-16">
                 <div className="container mx-auto px-6 lg:px-20 flex flex-col lg:flex-row items-center">
@@ -505,66 +453,7 @@ function Sakumlapa() {
                         </div>
                     </form>
                 </div>
-
             </section>
-            <div className="footer bg-[#5B3767] text-white py-6">
-                {/* Top Divider */}
-                <div className="w-full max-w-screen-xl mx-auto mt-2">
-                    <div className="border-b-[1px] border-[#9C9150]"></div>
-                </div>
-
-                {/* Footer Content */}
-                <div className="flex justify-between items-center mx-auto w-[1200px] mt-4">
-                    {/* Left Section */}
-                    <div className="text-3xl font-semibold p-2">
-                        GUNA JASKO
-                    </div>
-
-                    {/* Social Icons */}
-                    <div className="flex gap-4">
-                        <a
-                            href="#"
-                            className="w-8 h-8 flex items-center justify-center border-2 border-white rounded-md hover:bg-[#6C256B] transition-all"
-                        >
-                            <FaFacebookF className="text-white"/>
-                        </a>
-                        <a
-                            href="#"
-                            className="w-8 h-8 flex items-center justify-center border-2 border-white rounded-md hover:bg-[#6C256B] transition-all"
-                        >
-                            <FaTiktok className="text-white"/>
-                        </a>
-                        <a
-                            href="#"
-                            className="w-8 h-8 flex items-center justify-center border-2 border-white rounded-md hover:bg-[#6C256B] transition-all"
-                        >
-                            <FaLinkedinIn className="text-white"/>
-                        </a>
-                        <a
-                            href="#"
-                            className="w-8 h-8 flex items-center justify-center border-2 border-white rounded-md hover:bg-[#6C256B] transition-all"
-                        >
-                            <FaInstagram className="text-white"/>
-                        </a>
-                        <a
-                            href="#"
-                            className="w-8 h-8 flex items-center justify-center border-2 border-white rounded-md hover:bg-[#6C256B] transition-all"
-                        >
-                            <FaYoutube className="text-white"/>
-                        </a>
-                    </div>
-
-
-                    {/* Right Section */}
-                    <div className="text-right text-sm">
-                        <a href="#" className="hover:underline">
-                            PRIVĀTUMA POLITIKA
-                        </a>
-                        <br/>
-                        <span className="text-xs">Dizaina izstrāde: Edīte Šatkowska</span>
-                    </div>
-                </div>
-            </div>
         </div>
     );
 }
