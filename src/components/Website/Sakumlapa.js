@@ -77,7 +77,7 @@ function Sakumlapa() {
                                 className="w-[273px] h-[212px] text-left border border-[#CDC697] p-6 flex flex-col items-start space-y-4">
                                 {/* Image */}
                                 <div
-                                    className="w-16 h-16 bg-contain bg-no-repeat bg-left"
+                                    className="w-[95px] h-[72px] bg-contain bg-no-repeat bg-left"
                                     style={{backgroundImage: `url(${Lanida})`}}>
                                 </div>
                                 {/* Title */}

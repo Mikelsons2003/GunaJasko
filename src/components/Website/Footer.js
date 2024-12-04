@@ -6,14 +6,14 @@ function Footer() {
         <div className="mx-auto font-sans text-white">
             <div className="footer bg-[#5B3767] text-white py-6">
                 {/* Top Divider */}
-                <div className="w-full max-w-screen-xl mx-auto mt-2">
+                <div className="w-full max-w-screen-xl mx-auto">
                     <div className="border-b-[1px] border-[#9C9150]"></div>
                 </div>
 
                 {/* Footer Content */}
                 <div className="flex justify-between items-center mx-auto w-[1200px] mt-4">
                     {/* Left Section */}
-                    <div className="text-3xl font-semibold p-2">
+                    <div className="text-4xl p-2">
                         GUNA JASKO
                     </div>
 

@@ -13,7 +13,7 @@ const HeaderSakums = () => {
                     {/* HeaderSakums Section */}
                     <div className="w-full max-w-screen-xl mx-auto px-8 flex justify-between items-center">
                         {/* Logo Section */}
-                        <h1 className="text-5xl text-[#CDC697] font-marcellus tracking-wide p-3">
+                        <h1 className="text-6xl text-[#CDC697] font-marcellus tracking-wide p-3">
                             GUNA JASKO
                         </h1>
 
