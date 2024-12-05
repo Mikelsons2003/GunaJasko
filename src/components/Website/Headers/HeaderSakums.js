@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import BedroomImage from '../../img/BedroomImage.png';
+import BedroomImage from '../../../img/BedroomImage.png';
 
 const HeaderSakums = () => {
     return (
@@ -21,9 +21,9 @@ const HeaderSakums = () => {
                         <nav className="flex space-x-8 text-white text-sm z-10">
                             <Link to="/" className="hover:text-[#CDC697] transition duration-300 ease-in-out">SĀKUMS</Link>
                             <Link to="/par-mani" className="hover:text-[#CDC697] transition duration-300 ease-in-out">PAR MANI</Link>
-                            <Link to="/" className="hover:text-[#CDC697] transition duration-300 ease-in-out">PAKALPOJUMI</Link>
-                            <Link to="/" className="hover:text-[#CDC697] transition duration-300 ease-in-out">OBJEKTI</Link>
-                            <Link to="/" className="hover:text-[#CDC697] transition duration-300 ease-in-out">KONTAKTI</Link>
+                            <Link to="/pakalpojumi" className="hover:text-[#CDC697] transition duration-300 ease-in-out">PAKALPOJUMI</Link>
+                            <Link to="/objekti" className="hover:text-[#CDC697] transition duration-300 ease-in-out">OBJEKTI</Link>
+                            <Link to="/kontakti" className="hover:text-[#CDC697] transition duration-300 ease-in-out">KONTAKTI</Link>
                             <Link to="/" className="text-[#371243] transition duration-300 ease-in-out">LV</Link>
                         </nav>
                     </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import { FaFacebookF, FaTiktok, FaLinkedinIn, FaInstagram, FaYoutube } from 'react-icons/fa';
+import {Link} from "react-router-dom";
 
 function Footer() {
     return (
@@ -54,9 +55,9 @@ function Footer() {
 
                     {/* Right Section */}
                     <div className="text-right text-sm">
-                        <a href="#" className="hover:underline">
+                        <Link to="/privatuma-politika" className="hover:underline">
                             PRIVĀTUMA POLITIKA
-                        </a>
+                        </Link>
                         <br/>
                         <span className="text-xs">Dizaina izstrāde: Edīte Šatkowska</span>
                     </div>

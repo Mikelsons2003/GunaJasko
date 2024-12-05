@@ -1,5 +1,5 @@
 import React from "react";
-import HeaderSakums from "./HeaderSakums";
+import HeaderSakums from "./Headers/HeaderSakums";
 import GunaJasko from '../../img/GunaJasko.png';
 import JaunakieObjekti from '../../img/JaunakieObjekti.png';
 import Vannasistaba from '../../img/Vannasistaba.png';
@@ -422,11 +422,11 @@ function Sakumlapa() {
 
                         {/* Komentārs (Comments) */}
                         <div>
-            <textarea
-                placeholder="Komentārs"
-                rows="4"
-                className="w-full p-4 placeholder-[#9C9150]"
-            ></textarea>
+                            <textarea
+                                placeholder="Komentārs"
+                                rows="4"
+                                className="w-full p-4 placeholder-[#9C9150]"
+                            ></textarea>
                         </div>
 
                         {/* Checkbox */}

@@ -1,5 +1,5 @@
 import React from "react";
-import HeaderParMani from "./HeaderParMani";
+import HeaderParMani from "./Headers/HeaderParMani";
 import Kapnutelpa from '../../img/Kapnutelpa.png';
 import Viesistaba from '../../img/Viesistaba.png';
 import Experience from "../../img/Experience.png";
@@ -66,7 +66,7 @@ function ParMani() {
                         Klienta ieguvums no sadarbības
                     </h2>
                     <ul className="space-y-4 text-[#5B3767]">
-                        <li className="flex items-center">
+                        <li className="flex items-center w-[430px] text-left">
                             <span className="text-[#CDC697] text-4xl mr-4">✔</span>
                             Pilnīgi drošs, mierīgs un paredzams sava īpašuma pārdošanas process
                         </li>
@@ -78,7 +78,7 @@ function ParMani() {
                             <span className="text-[#CDC697] text-4xl mr-4">✔</span>
                             Nestandarta darījumu risinājumi
                         </li>
-                        <li className="flex items-center">
+                        <li className="flex items-center w-[358px] text-left">
                             <span className="text-[#CDC697] text-4xl mr-4">✔</span>
                             Augstākās kvalitātes klientu serviss no darījuma sākuma līdz beigām
                         </li>
