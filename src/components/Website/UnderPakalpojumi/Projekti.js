@@ -1,19 +1,38 @@
 import React from "react";
-import Header from "../Headers/Header";
+import Header from "../Header";
 import Pakalpojumaimg3 from "../../../img/Pakalpojumaimg3.png";
 import {Link} from "react-router-dom";
+import Kabinets from "../../../img/Kabinets.png";
 
 function Pakalpojumi() {
     return (
         <div className="mx-auto font-sans text-[#5B3767] bg-[#FBF8FB]">
             <Header/>
+            <div className="w-full mx-auto px-8 flex items-center h-[586px] bg-[#5B3767]">
+                {/* Left: Text Section */}
+                <div className="w-1/2 space-y-6 text-white ml-72 mt-24">
+                    <h1 className="text-4xl">PAKALPOJUMI</h1>
+                </div>
 
+                {/* Right: Image Section */}
+                <div
+                    className="w-[709px] h-[436px] flex-shrink-0 mt-56 mr-[310px]"
+                    style={{
+                        backgroundImage: `url(${Kabinets})`,
+                        backgroundSize: "cover", // Ensures the image covers the entire box
+                        backgroundPosition: "center", // Centers the image in the container
+                    }}
+                >
+                </div>
+            </div>
             {/* Header Links */}
             <nav className="text-center py-6 text-sm mt-24">
                 <ul className="inline-flex space-x-6 font-medium">
-                    <Link to="/starpniecibas" className="hover:underline text-xl w-[288px]">STARPNECĪBAS PAKALPOJUMI</Link>
+                    <Link to="/starpniecibas" className="hover:underline text-xl w-[288px]">STARPNECĪBAS
+                        PAKALPOJUMI</Link>
                     <Link to="/darijuma" className="hover:underline text-xl w-[288px]">DARĪJUMA NOFORMĒŠANA</Link>
-                    <Link to="/projekti" className="hover:underline text-xl w-[320px]">JAUNO PROJEKTU ATTĪSTĪTĀJIEM</Link>
+                    <Link to="/projekti" className="hover:underline text-xl w-[320px]">JAUNO PROJEKTU
+                        ATTĪSTĪTĀJIEM</Link>
                 </ul>
             </nav>
 
@@ -46,13 +65,16 @@ function Pakalpojumi() {
                                 <span className="absolute left-0">—</span> Pilna cikla juridiskais serviss
                             </li>
                             <li className="pl-6 relative">
-                                <span className="absolute left-0">—</span> Pārdošanas cikla vadīšana: zvanu pieņemšana, potenciālo pircēju klasificēšana, īpašumu prezentācija, pārrunu veikšana
+                                <span className="absolute left-0">—</span> Pārdošanas cikla vadīšana: zvanu pieņemšana,
+                                potenciālo pircēju klasificēšana, īpašumu prezentācija, pārrunu veikšana
                             </li>
                             <li className="pl-6 relative">
                                 <span className="absolute left-0">—</span> Pilna cikla pārdošanas serviss
                             </li>
                             <li className="pl-6 relative">
-                                <span className="absolute left-0">—</span> Dažādas pārdošanu veicinošas klātienes aktivitātes kā piemēram atvērto durvju dienas, organizētie pasākumi (jauno mājokļu tirdziņi), aģentu dienas utt.
+                                <span className="absolute left-0">—</span> Dažādas pārdošanu veicinošas klātienes
+                                aktivitātes kā piemēram atvērto durvju dienas, organizētie pasākumi (jauno mājokļu
+                                tirdziņi), aģentu dienas utt.
                             </li>
                         </ul>
                     </div>

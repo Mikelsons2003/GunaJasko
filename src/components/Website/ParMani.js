@@ -1,20 +1,54 @@
 import React from "react";
-import HeaderParMani from "./Headers/HeaderParMani";
+import Header from "./Header";
 import Kapnutelpa from '../../img/Kapnutelpa.png';
 import Viesistaba from '../../img/Viesistaba.png';
 import Experience from "../../img/Experience.png";
 import Check from "../../img/Check.png";
 import Safety from "../../img/Safety.png";
 import Lanida from "../../img/Lanida.png";
+import GunaParMani from "../../img/GunaParMani.png";
 
 function ParMani() {
     return (
         <div className="mx-auto font-sans text-white">
-            <HeaderParMani/>
+            <Header/>
+            <div className="bg-[#5B3767] w-full mx-auto px-8 flex items-center h-[810px]">
+                {/* Left: Text Section */}
+                <div className="w-1/2 space-y-6 ml-80">
+                    <div className="w-[628px] h-[367px] mt-32">
+                        <h2 className="text-4xl text-left">Par aģentu</h2>
+                        <p className="text-lg leading-relaxed text-left mt-10">
+                            Nekustamo īpašumu pārdošanā kopš 2006. gada, specializācija – dzīvojamais fonds:
+                            dzīvokļu, privātmāju un zemju tirdzniecība un īre Rīgā un Rīgas rajonā.
+                            Pieredze apjomīgu projektu tirdzniecībā kā projektu vadītājai (attīstītāju projekti virs 100
+                            dzīvokļiem).
+                        </p>
+                        <p className="text-lg leading-relaxed text-left mt-20">
+                            Vairāk ka 600 pārdošanas un īres darījumi.
+                        </p>
+                        <p className="text-lg leading-relaxed text-left mt-10">
+                            Brīvi runāju trīs valodās – latviešu, krievu un angļu valodā.
+                        </p>
+                    </div>
+                    <div className="flex justify-start">
+                        <button
+                            className="w-[274px] h-[55px] border border-[#CDC697] text-[#CDC697] mt-10">
+                            SAZINĀTIES
+                        </button>
+                    </div>
+                </div>
 
+                {/* Right: Image Section */}
+                <div className="w-1/2 flex justify-end mr-80 mt-32">
+                    <div className="w-[433px] h-[605px] object-contain -mb-48"
+                         style={{backgroundImage: `url(${GunaParMani})`}}
+                    >
+                    </div>
+                </div>
+            </div>
             {/* Main Container */}
             <div
-                className="w-[1221px] h-[938px] mx-auto grid grid-cols-2 grid-rows-2 gap-4 border-[1px] border-[#CDC697] mt-24"
+                className="w-[1221px] h-[938px] mx-auto grid grid-cols-2 grid-rows-2 gap-4 border-[1px] border-[#CDC697] mt-28"
                 style={{backgroundColor: "#F8F8F8"}}
             >
                 {/* Top Left (Text) */}

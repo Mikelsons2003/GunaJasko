@@ -1,6 +1,6 @@
 import React from "react";
 import { FaFacebookF, FaTiktok, FaLinkedinIn, FaInstagram, FaYoutube } from 'react-icons/fa';
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Footer() {
     return (
@@ -12,53 +12,52 @@ function Footer() {
                 </div>
 
                 {/* Footer Content */}
-                <div className="flex justify-between items-center mx-auto w-[1200px] mt-4">
+                <div className="flex flex-col sm:flex-row justify-between items-center mx-auto w-full max-w-screen-xl mt-4 px-6">
                     {/* Left Section */}
-                    <div className="text-4xl p-2">
+                    <div className="text-4xl p-2 text-center sm:text-left">
                         GUNA JASKO
                     </div>
 
                     {/* Social Icons */}
-                    <div className="flex gap-4">
+                    <div className="flex gap-4 mt-4 sm:mt-0 justify-center sm:justify-start">
                         <a
                             href="#"
                             className="w-8 h-8 flex items-center justify-center border-2 border-white rounded-md hover:bg-[#6C256B] transition-all"
                         >
-                            <FaFacebookF className="text-white"/>
+                            <FaFacebookF className="text-white" />
                         </a>
                         <a
                             href="#"
                             className="w-8 h-8 flex items-center justify-center border-2 border-white rounded-md hover:bg-[#6C256B] transition-all"
                         >
-                            <FaTiktok className="text-white"/>
+                            <FaTiktok className="text-white" />
                         </a>
                         <a
                             href="#"
                             className="w-8 h-8 flex items-center justify-center border-2 border-white rounded-md hover:bg-[#6C256B] transition-all"
                         >
-                            <FaLinkedinIn className="text-white"/>
+                            <FaLinkedinIn className="text-white" />
                         </a>
                         <a
                             href="#"
                             className="w-8 h-8 flex items-center justify-center border-2 border-white rounded-md hover:bg-[#6C256B] transition-all"
                         >
-                            <FaInstagram className="text-white"/>
+                            <FaInstagram className="text-white" />
                         </a>
                         <a
                             href="#"
                             className="w-8 h-8 flex items-center justify-center border-2 border-white rounded-md hover:bg-[#6C256B] transition-all"
                         >
-                            <FaYoutube className="text-white"/>
+                            <FaYoutube className="text-white" />
                         </a>
                     </div>
 
-
                     {/* Right Section */}
-                    <div className="text-right text-sm">
+                    <div className="text-right text-sm mt-4 sm:mt-0">
                         <Link to="/privatuma-politika" className="hover:underline">
                             PRIVĀTUMA POLITIKA
                         </Link>
-                        <br/>
+                        <br />
                         <span className="text-xs">Dizaina izstrāde: Edīte Šatkowska</span>
                     </div>
                 </div>

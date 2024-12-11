@@ -1,5 +1,5 @@
 import React from "react";
-import HeaderSakums from "./Headers/HeaderSakums";
+import Header from "./Header";
 import GunaJasko from '../../img/GunaJasko.png';
 import JaunakieObjekti from '../../img/JaunakieObjekti.png';
 import Vannasistaba from '../../img/Vannasistaba.png';
@@ -15,87 +15,102 @@ import Check from '../../img/Check.png';
 import Safety from '../../img/Safety.png';
 import Lanida from '../../img/Lanida.png';
 import AM from '../../img/AM.png';
+import BedroomImage from "../../img/BedroomImage.png";
 
 function Sakumlapa() {
     return (
         <div className="mx-auto font-sans text-white">
-            <HeaderSakums />
+            <Header/>
+            <header className="bg-cover bg-center h-[812px] relative" style={{backgroundImage: `url(${BedroomImage})`}}>
+                {/* Overlay with pointer-events: none */}
+                <div className="absolute inset-0 bg-black bg-opacity-40 pointer-events-none"></div>
+
+                {/* Text Section */}
+                <div className="absolute top-72 left-1/2 transform -translate-x-1/2 text-white space-y-6 px-4 sm:px-8">
+                    <h2 className="text-4xl font-bold text-center xs:text-left">
+                        NEKUSTAMO ĪPAŠUMU AĢENTS
+                    </h2>
+                    <p className="max-w-lg leading-relaxed text-center xs:text-left">
+                        Nekustamo īpašumu pārdošana kopš 2006. gada, specializācija - dzīvojamais fonds: dzīvokļi,
+                        privātmājas un zemju tirdzniecība un īre Rīgā un Rīgas rajonā.
+                    </p>
+                    <div className="text-center xs:text-left">
+                        <button
+                            className="w-[317px] h-[55px] bg-[#5B3767] hover:bg-[#371243] transition duration-300 ease-in-out text-[#CDC697] font-medium">
+                            PIETEIKT ĪPAŠUMU
+                        </button>
+                    </div>
+                </div>
+            </header>
             {/* about section */}
             <section className="bg-[#5B3767] text-white py-16">
                 <div className="container mx-auto px-6 lg:px-20 flex flex-col lg:flex-row items-center">
-                    {/* left side */}
+                    {/* Left Side */}
                     <div className="lg:w-1/2">
                         {/* Heading */}
-                        <h1 className="text-[#CDC697] text-4xl font-bold mb-12 text-left">KĀPĒC SADARBOTIES AR MANI</h1>
+                        <h1 className="text-[#CDC697] text-4xl font-bold mb-12 text-center lg:text-left">
+                            KĀPĒC SADARBOTIES AR MANI
+                        </h1>
 
                         {/* Information Cards */}
-                        <div className="grid grid-cols-2 gap-6">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
                             {/* Card 1 */}
                             <div
-                                className="w-[273px] h-[212px] text-left border border-[#CDC697] p-6 flex flex-col items-start space-y-4">
-                                {/* Image */}
+                                className="w-full text-left border border-[#CDC697] p-6 flex flex-col items-start space-y-4">
                                 <div
                                     className="w-16 h-16 bg-contain bg-no-repeat bg-left"
-                                    style={{backgroundImage: `url(${Experience})`}}>
-                                </div>
-                                {/* Title */}
+                                    style={{backgroundImage: `url(${Experience})`}}
+                                ></div>
                                 <div className="text-2xl font-bold text-white">PIEREDZE</div>
-                                {/* Description */}
                                 <p className="text-sm">Tirgū kopš 2006. gada</p>
                             </div>
 
                             {/* Card 2 */}
                             <div
-                                className="w-[273px] h-[212px] text-left border border-[#CDC697] p-6 flex flex-col items-start space-y-4">
-                                {/* Image */}
+                                className="w-full text-left border border-[#CDC697] p-6 flex flex-col items-start space-y-4">
                                 <div
                                     className="w-16 h-16 bg-contain bg-no-repeat bg-left"
-                                    style={{backgroundImage: `url(${Check})`}}>
-                                </div>
-                                {/* Title */}
+                                    style={{backgroundImage: `url(${Check})`}}
+                                ></div>
                                 <div className="text-2xl font-bold text-white">UZTICAMĪBA</div>
-                                {/* Description */}
-                                <p className="text-sm">Reģistrēta Ekonomikas ministrijas starpnieku reģistrā ar nr.224</p>
+                                <p className="text-sm">
+                                    Reģistrēta Ekonomikas ministrijas starpnieku reģistrā ar nr.224
+                                </p>
                             </div>
 
                             {/* Card 3 */}
                             <div
-                                className="w-[273px] h-[212px] text-left border border-[#CDC697] p-6 flex flex-col items-start space-y-4">
-                                {/* Image */}
+                                className="w-full text-left border border-[#CDC697] p-6 flex flex-col items-start space-y-4">
                                 <div
                                     className="w-16 h-16 bg-contain bg-no-repeat bg-left"
-                                    style={{backgroundImage: `url(${Safety})`}}>
-                                </div>
-                                {/* Title */}
+                                    style={{backgroundImage: `url(${Safety})`}}
+                                ></div>
                                 <div className="text-2xl font-bold text-white">DROŠĪBA</div>
-                                {/* Description */}
                                 <p className="text-sm">Darbība civiltiesiski apdrošināta</p>
                             </div>
 
                             {/* Card 4 */}
                             <div
-                                className="w-[273px] h-[212px] text-left border border-[#CDC697] p-6 flex flex-col items-start space-y-4">
-                                {/* Image */}
+                                className="w-full text-left border border-[#CDC697] p-6 flex flex-col items-start space-y-4">
                                 <div
                                     className="w-[95px] h-[72px] bg-contain bg-no-repeat bg-left"
-                                    style={{backgroundImage: `url(${Lanida})`}}>
-                                </div>
-                                {/* Title */}
+                                    style={{backgroundImage: `url(${Lanida})`}}
+                                ></div>
                                 <div className="text-2xl font-bold text-white">PROFESIONALITĀTE</div>
-                                {/* Description */}
-                                <a href="https://lanida.lv/biedri/guna-jasko-2/" className="text-sm underline">
+                                <a
+                                    href="https://lanida.lv/biedri/guna-jasko-2/"
+                                    className="text-sm underline"
+                                >
                                     profesionalitāte
-                                    Latvijas nekustamo īpašumu
-                                    asociācijas “Lanīda” biedrs
+                                    Latvijas nekustamo īpašumu asociācijas “Lanīda” biedrs
                                 </a>
                             </div>
                         </div>
 
-
                         {/* Button */}
-                        <div className="mt-12 text-left">
+                        <div className="mt-12 text-center lg:text-left">
                             <button
-                                className="w-[317px] h-[55px] border border-[#CDC697] text-[#CDC697] hover:text-[#9C9150] hover:border-[#9C9150] transition duration-300 ease-in-out font-medium text-sm">
+                                className="w-full lg:w-[317px] h-[55px] border border-[#CDC697] text-[#CDC697] hover:text-[#9C9150] hover:border-[#9C9150] transition duration-300 ease-in-out font-medium text-sm">
                                 UZZINĀT VAIRĀK
                             </button>
                         </div>
@@ -103,28 +118,29 @@ function Sakumlapa() {
 
                     {/* Right Side: Image */}
                     <div className="lg:w-1/2 mt-10 lg:mt-0 flex justify-center">
-                        <div className="">
+                        <div className="w-full">
                             <div
-                                className="-top-28 bg-cover bg-center w-[558px] h-[837px] relative"
-                                style={{backgroundImage: `url(${GunaJasko})`}}>
-                            </div>
+                                className="bg-cover bg-center w-[300px] sm:w-[558px] h-[500px] sm:h-[837px] relative"
+                                style={{backgroundImage: `url(${GunaJasko})`}}
+                            ></div>
                         </div>
                     </div>
                 </div>
             </section>
+
             {/* Newest objects */}
             <section className="py-16 bg-white flex items-center justify-center min-h-screen">
-                <div className="container mx-auto px-6 lg:px-20 text-center">
+                <div className="container mx-auto lg:px-20 text-center">
                     {/* Heading */}
                     <h1 className="text-center text-[#5B3767] text-4xl font-bold mb-12">JAUNĀKIE OBJEKTI</h1>
 
                     {/* Card Grid */}
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-center">
                         {/* Card 1 */}
-                        <div className="border border-[#CDC697] w-[340px] h-[523px] mx-auto">
+                        <div className="border border-[#CDC697] w-[310px] xs:w-[340px] h-[523px] mx-auto">
                             <div className="w-full h-[200px] bg-gray-200">
                                 <img
-                                    className="object-cover w-full h-full"
+                                    className="object-cover w-[310px] xs:w-full h-full"
                                     src={JaunakieObjekti} // Replace with the actual image URL or import
                                     alt="Property Image"
                                 />
@@ -158,10 +174,10 @@ function Sakumlapa() {
                         </div>
 
                         {/* Card 2 */}
-                        <div className="border border-[#CDC697] w-[340px] h-[523px] mx-auto">
+                        <div className="border border-[#CDC697] w-[310px] xs:w-[340px] h-[523px] mx-auto">
                             <div className="w-full h-[200px] bg-gray-200">
                                 <img
-                                    className="object-cover w-full h-full"
+                                    className="object-cover w-[310px] xs:w-full h-full"
                                     src={JaunakieObjekti} // Replace with the actual image URL or import
                                     alt="Property Image"
                                 />
@@ -196,10 +212,10 @@ function Sakumlapa() {
                         </div>
 
                         {/* Card 3 */}
-                        <div className="border border-[#CDC697] w-[340px] h-[523px] mx-auto">
+                        <div className="border border-[#CDC697] w-[310px] xs:w-[340px] h-[523px] mx-auto">
                             <div className="w-full h-[200px] bg-gray-200">
                                 <img
-                                    className="object-cover w-full h-full"
+                                    className="object-cover w-[310px] xs:w-full h-full"
                                     src={JaunakieObjekti} // Replace with the actual image URL or import
                                     alt="Property Image"
                                 />
@@ -237,7 +253,7 @@ function Sakumlapa() {
                     {/* Button */}
                     <div className="mt-12 flex justify-center">
                         <button
-                            className="w-[356px] h-[55px] bg-[#5B3767] text-[#CDC697] font-medium text-sm hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-[#CDC697]">
+                            className="w-[280px] xs:w-[356px] h-[55px] bg-[#5B3767] text-[#CDC697] font-medium text-sm hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-[#CDC697]">
                             SKATĪT VISUS OBJEKTUS
                         </button>
                     </div>
@@ -248,7 +264,7 @@ function Sakumlapa() {
             <section className="relative w-full flex items-center justify-center min-h-screen">
                 {/* Background Image */}
                 <div
-                    className="absolute flex items-center justify-center w-[1225px] h-[645px]"
+                    className="hidden absolute lg:flex items-center justify-center w-4/6 h-[645px]"
                     style={{
                         backgroundImage: `url(${Vannasistaba})`,
                         backgroundSize: 'cover', // Keeps the image covering the container
@@ -257,13 +273,14 @@ function Sakumlapa() {
                 ></div>
 
                 {/* Content Section */}
-                <div className="relative z-10 flex flex-col items-center justify-center h-full">
+                <div className="relative z-10 flex flex-col items-center justify-center h-full px-4">
                     {/* Heading */}
                     <h2 className="text-[#CDC697] text-4xl font-bold mb-12">ATSAUKSMES</h2>
 
                     {/* Testimonial Box */}
                     <div
-                        className="relative bg-white w-[782px] h-[380px] opacity-90 p-12 flex flex-col items-center">
+                        className="relative bg-white w-full md:w-[782px] h-auto md:h-[380px] opacity-90 p-12 flex flex-col items-center"
+                    >
                         {/* Centered Image */}
                         <div
                             className="w-[100px] h-[100px] object-cover flex items-center justify-center -mt-4 mb-6"
@@ -288,48 +305,35 @@ function Sakumlapa() {
 
 
             {/* Sadarbības Partneri Section */}
-            <section className="w-[1225px] mx-auto">
-                <div className="max-w-screen-xl mx-auto px-8 text-center">
-                    <h1 className="text-[#6C256B] text-4xl font-bold mb-24">SADARBIĪBAS PARTNERI</h1>
+            <section className="mx-auto">
+                <div className="mx-auto px-4 sm:px-8 text-center">
+                    <h1 className="text-[#6C256B] text-4xl font-bold mb-12 sm:mb-24">SADARBIĪBAS PARTNERI</h1>
 
                     {/* Partners Logos */}
-                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-8 justify-center items-center">
+                    <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-8 justify-items-center">
                         {/* Partner 1 */}
-                        <div className="flex justify-center">
-                            <div className="w-[216px] h-[48px] mx-auto relative object-cover"
-                                 style={{backgroundImage: `url(${Swedbank})`}}></div>
-                        </div>
+                        <div className="w-[216px] h-[48px] bg-cover"
+                             style={{backgroundImage: `url(${Swedbank})`}}></div>
                         {/* Partner 2 */}
-                        <div className="flex justify-center">
-                            <div className="w-[107px] h-[160px] mx-auto relative object-cover"
-                                 style={{backgroundImage: `url(${LatvijasNotars})`}}></div>
-                        </div>
+                        <div className="w-[107px] h-[160px] bg-cover"
+                             style={{backgroundImage: `url(${LatvijasNotars})`}}></div>
                         {/* Partner 3 */}
-                        <div className="flex justify-center">
-                            <div className="w-[152px] h-[80px] mx-auto relative object-cover"
-                                 style={{backgroundImage: `url(${Altum})`}}></div>
-                        </div>
+                        <div className="w-[152px] h-[80px] bg-cover" style={{backgroundImage: `url(${Altum})`}}></div>
                         {/* Partner 4 */}
-                        <div className="flex justify-center">
-                            <div className="w-[165px] h-[60px] mx-auto relative object-cover"
-                                 style={{backgroundImage: `url(${Luminor})`}}></div>
-                        </div>
+                        <div className="w-[165px] h-[60px] bg-cover" style={{backgroundImage: `url(${Luminor})`}}></div>
                         {/* Partner 5 */}
-                        <div className="flex justify-center">
-                            <div className="w-[136px] h-[60px] mx-auto relative object-cover"
-                                 style={{backgroundImage: `url(${Seb})`}}></div>
-                        </div>
+                        <div className="w-[136px] h-[60px] bg-cover" style={{backgroundImage: `url(${Seb})`}}></div>
                         {/* Partner 6 */}
-                        <div className="flex justify-center">
-                            <div className="w-[158px] h-[88px] mx-auto relative object-cover"
-                                 style={{backgroundImage: `url(${Citadele})`}}></div>
-                        </div>
+                        <div className="w-[158px] h-[88px] bg-cover"
+                             style={{backgroundImage: `url(${Citadele})`}}></div>
                     </div>
+
                     <div className="w-full max-w-screen-xl mx-auto mt-16">
                         <div className="border-b-[1px] border-[#CDC697]"></div>
                     </div>
                 </div>
             </section>
+
             {/* Saziņas Forma Section */}
             <section className="w-full py-16 relative mt-16 min-h-screen">
                 {/* Background Image */}
@@ -347,13 +351,13 @@ function Sakumlapa() {
 
 
                 {/* Form Container */}
-                <div className="relative z-10 w-[760px] mx-auto bg-[#E8E1D3] p-10 shadow-lg -mt-16 mr-80">
-                    <h2 className="text-[#6C256B] text-4xl font-bold mb-8 text-left">SAZIŅAS FORMA</h2>
+                <div className="relative z-10 w-full lg:w-5/12 mx-auto bg-[#E8E1D3] p-6 sm:p-10 shadow-lg -mt-16">
+                    <h2 className="text-[#6C256B] text-4xl font-bold mb-8 text-center xs:text-left">SAZIŅAS FORMA</h2>
 
                     {/* Form */}
                     <form className="grid gap-6">
                         {/* Vārds (First Name) & Uzvārds (Last Name) */}
-                        <div className="grid grid-cols-2 gap-6">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             <div>
                                 <input
                                     type="text"
@@ -371,7 +375,7 @@ function Sakumlapa() {
                         </div>
 
                         {/* E-pasts (Email) & Tālrunis (Phone Number) */}
-                        <div className="grid grid-cols-2 gap-6">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             <div>
                                 <input
                                     type="email"
@@ -389,7 +393,7 @@ function Sakumlapa() {
                         </div>
 
                         {/* Darījuma veids (Transaction Type), Reģions (Region), Īpašuma tips (Property Type) */}
-                        <div className="grid grid-cols-3 gap-6">
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                             <div>
                                 <select
                                     className="w-full p-4 text-[#9C9150] placeholder-[#9C9150] border border-[#E8E1D3] focus:outline-none hover:border-[#CDC697] focus:border-[#CDC697] focus:ring-0"
@@ -417,16 +421,15 @@ function Sakumlapa() {
                                     <option>Māja</option>
                                 </select>
                             </div>
-
                         </div>
 
                         {/* Komentārs (Comments) */}
                         <div>
-                            <textarea
-                                placeholder="Komentārs"
-                                rows="4"
-                                className="w-full p-4 placeholder-[#9C9150]"
-                            ></textarea>
+            <textarea
+                placeholder="Komentārs"
+                rows="4"
+                className="w-full p-4 placeholder-[#9C9150] border border-[#E8E1D3] focus:outline-none hover:border-[#CDC697] focus:border-[#CDC697] focus:ring-0"
+            ></textarea>
                         </div>
 
                         {/* Checkbox */}
@@ -444,7 +447,7 @@ function Sakumlapa() {
                         {/* Submit Button */}
                         <div className="text-center mt-6">
                             <button
-                                className="w-[238px] h-[55px] bg-[#5B3767] text-[#CDC697] font-medium text-sm hover:bg-opacity-90"
+                                className="w-full sm:w-[238px] h-[55px] bg-[#5B3767] text-[#CDC697] font-medium text-sm hover:bg-opacity-90"
                             >
                                 SŪTĪT
                             </button>
