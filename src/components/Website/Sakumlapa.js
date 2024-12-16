@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "./Header";
+import JaunakieObjekti from "./JaunakieObjekti";
 import GunaJasko from '../../img/GunaJasko.png';
-import JaunakieObjekti from '../../img/JaunakieObjekti.png';
 import Vannasistaba from '../../img/Vannasistaba.png';
 import Swedbank from '../../img/Swedbank.png';
 import LatvijasNotars from '../../img/LatvijasNotars.png';
@@ -9,13 +9,13 @@ import Altum from '../../img/Altum.png';
 import Luminor from '../../img/Luminor.png';
 import Seb from '../../img/Seb.png';
 import Citadele from '../../img/Citadele.png';
-import SazinasForma from '../../img/SazinasForma.png';
 import Experience from '../../img/Experience.png';
 import Check from '../../img/Check.png';
 import Safety from '../../img/Safety.png';
 import Lanida from '../../img/Lanida.png';
 import AM from '../../img/AM.png';
 import BedroomImage from "../../img/BedroomImage.png";
+import ContactForm from "./ContactForm";
 
 function Sakumlapa() {
     return (
@@ -26,7 +26,7 @@ function Sakumlapa() {
                 <div className="absolute inset-0 bg-black bg-opacity-40 pointer-events-none"></div>
 
                 {/* Text Section */}
-                <div className="absolute top-72 left-1/2 transform -translate-x-1/2 text-white space-y-6 px-4 sm:px-8">
+                <div className="w-full max-w-screen-xl mx-auto absolute top-72 left-1/2 transform -translate-x-1/2 text-white space-y-6 sm:px-8">
                     <h2 className="text-4xl font-bold text-center xs:text-left">
                         NEKUSTAMO ĪPAŠUMU AĢENTS
                     </h2>
@@ -35,63 +35,63 @@ function Sakumlapa() {
                         privātmājas un zemju tirdzniecība un īre Rīgā un Rīgas rajonā.
                     </p>
                     <div className="text-center xs:text-left">
-                        <button
+                        <a href="https://guna.lucid-websites.com/pakalpojumi"><button
                             className="w-[317px] h-[55px] bg-[#5B3767] hover:bg-[#371243] transition duration-300 ease-in-out text-[#CDC697] font-medium">
                             PIETEIKT ĪPAŠUMU
-                        </button>
+                        </button></a>
                     </div>
                 </div>
             </header>
             {/* about section */}
             <section className="bg-[#5B3767] text-white py-16">
-                <div className="container mx-auto px-6 lg:px-20 flex flex-col lg:flex-row items-center">
+                <div className="w-full max-w-screen-xl mx-auto container px-6 flex flex-col xl:flex-row items-center xl:items-start text-center xl:text-left">
                     {/* Left Side */}
-                    <div className="lg:w-1/2">
+                    <div className="xl:w-1/2">
                         {/* Heading */}
-                        <h1 className="text-[#CDC697] text-4xl font-bold mb-12 text-center lg:text-left">
+                        <h1 className="text-[#CDC697] text-4xl font-bold mb-12">
                             KĀPĒC SADARBOTIES AR MANI
                         </h1>
 
                         {/* Information Cards */}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 justify-center">
                             {/* Card 1 */}
                             <div
-                                className="w-full text-left border border-[#CDC697] p-6 flex flex-col items-start space-y-4">
+                                className="w-full text-left border border-[#CDC697] p-6 flex flex-col items-center xl:items-start space-y-4">
                                 <div
                                     className="w-16 h-16 bg-contain bg-no-repeat bg-left"
                                     style={{backgroundImage: `url(${Experience})`}}
                                 ></div>
                                 <div className="text-2xl font-bold text-white">PIEREDZE</div>
-                                <p className="text-sm">Tirgū kopš 2006. gada</p>
+                                <p className="text-sm text-center xl:text-left">Tirgū kopš 2006. gada</p>
                             </div>
 
                             {/* Card 2 */}
                             <div
-                                className="w-full text-left border border-[#CDC697] p-6 flex flex-col items-start space-y-4">
+                                className="w-full text-left border border-[#CDC697] p-6 flex flex-col items-center xl:items-start space-y-4">
                                 <div
                                     className="w-16 h-16 bg-contain bg-no-repeat bg-left"
                                     style={{backgroundImage: `url(${Check})`}}
                                 ></div>
                                 <div className="text-2xl font-bold text-white">UZTICAMĪBA</div>
-                                <p className="text-sm">
+                                <p className="text-sm text-center xl:text-left">
                                     Reģistrēta Ekonomikas ministrijas starpnieku reģistrā ar nr.224
                                 </p>
                             </div>
 
                             {/* Card 3 */}
                             <div
-                                className="w-full text-left border border-[#CDC697] p-6 flex flex-col items-start space-y-4">
+                                className="w-full text-left border border-[#CDC697] p-6 flex flex-col items-center xl:items-start space-y-4">
                                 <div
                                     className="w-16 h-16 bg-contain bg-no-repeat bg-left"
                                     style={{backgroundImage: `url(${Safety})`}}
                                 ></div>
                                 <div className="text-2xl font-bold text-white">DROŠĪBA</div>
-                                <p className="text-sm">Darbība civiltiesiski apdrošināta</p>
+                                <p className="text-sm text-center xl:text-left">Darbība civiltiesiski apdrošināta</p>
                             </div>
 
                             {/* Card 4 */}
                             <div
-                                className="w-full text-left border border-[#CDC697] p-6 flex flex-col items-start space-y-4">
+                                className="w-full text-left border border-[#CDC697] p-6 flex flex-col items-center xl:items-start space-y-4">
                                 <div
                                     className="w-[95px] h-[72px] bg-contain bg-no-repeat bg-left"
                                     style={{backgroundImage: `url(${Lanida})`}}
@@ -99,7 +99,7 @@ function Sakumlapa() {
                                 <div className="text-2xl font-bold text-white">PROFESIONALITĀTE</div>
                                 <a
                                     href="https://lanida.lv/biedri/guna-jasko-2/"
-                                    className="text-sm underline"
+                                    className="text-sm underline text-center xl:text-left"
                                 >
                                     profesionalitāte
                                     Latvijas nekustamo īpašumu asociācijas “Lanīda” biedrs
@@ -108,16 +108,16 @@ function Sakumlapa() {
                         </div>
 
                         {/* Button */}
-                        <div className="mt-12 text-center lg:text-left">
-                            <button
-                                className="w-full lg:w-[317px] h-[55px] border border-[#CDC697] text-[#CDC697] hover:text-[#9C9150] hover:border-[#9C9150] transition duration-300 ease-in-out font-medium text-sm">
+                        <div className="mt-12">
+                            <a href="https://guna.lucid-websites.com/par-mani"><button
+                                className="w-full xl:w-[317px] h-[55px] border border-[#CDC697] text-[#CDC697] hover:text-[#9C9150] hover:border-[#9C9150] transition duration-300 ease-in-out font-medium text-sm">
                                 UZZINĀT VAIRĀK
-                            </button>
+                            </button></a>
                         </div>
                     </div>
 
                     {/* Right Side: Image */}
-                    <div className="lg:w-1/2 mt-10 lg:mt-0 flex justify-center">
+                    <div className="xl:w-1/2 mt-10 xl:-mt-28 xl:ml-12 flex justify-center">
                         <div className="w-full">
                             <div
                                 className="bg-cover bg-center w-[300px] sm:w-[558px] h-[500px] sm:h-[837px] relative"
@@ -128,137 +128,7 @@ function Sakumlapa() {
                 </div>
             </section>
 
-            {/* Newest objects */}
-            <section className="py-16 bg-white flex items-center justify-center min-h-screen">
-                <div className="container mx-auto lg:px-20 text-center">
-                    {/* Heading */}
-                    <h1 className="text-center text-[#5B3767] text-4xl font-bold mb-12">JAUNĀKIE OBJEKTI</h1>
-
-                    {/* Card Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-center">
-                        {/* Card 1 */}
-                        <div className="border border-[#CDC697] w-[310px] xs:w-[340px] h-[523px] mx-auto">
-                            <div className="w-full h-[200px] bg-gray-200">
-                                <img
-                                    className="object-cover w-[310px] xs:w-full h-full"
-                                    src={JaunakieObjekti} // Replace with the actual image URL or import
-                                    alt="Property Image"
-                                />
-                            </div>
-                            <div className="p-6">
-                                <div className="text-left mt-10">
-                                    <h2 className="text-[#5B3767] text-2xl font-bold mb-4">120 000 EUR</h2>
-                                </div>
-                                <div className="w-full max-w-screen-xl mx-auto mb-4">
-                                    <div className="border-b-[1px] border-[#CDC697]"></div>
-                                </div>
-                                {/* Two-Column Layout for Text */}
-                                <div className="grid grid-cols-2 text-sm text-[#5B3767] gap-y-2">
-                                    <span className="text-left py-1">Adrese:</span>
-                                    <span className="text-right font-bold">Alberta 1, Rīga</span>
-
-                                    <span className="text-left pb-1">Īpašuma tips:</span>
-                                    <span className="text-right font-bold">Dzīvoklis</span>
-
-                                    <span className="text-left">Istabu sk.:</span>
-                                    <span className="text-right font-bold">5</span>
-                                </div>
-
-                                <div className="text-left">
-                                    <a href="#"
-                                       className="text-[#CDC697] text-sm font-bold mt-6 inline-flex items-center">
-                                        SKATĪT <span className="ml-1">&rarr;</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Card 2 */}
-                        <div className="border border-[#CDC697] w-[310px] xs:w-[340px] h-[523px] mx-auto">
-                            <div className="w-full h-[200px] bg-gray-200">
-                                <img
-                                    className="object-cover w-[310px] xs:w-full h-full"
-                                    src={JaunakieObjekti} // Replace with the actual image URL or import
-                                    alt="Property Image"
-                                />
-                            </div>
-                            <div className="p-6">
-                                <div className="text-left">
-                                    <h1 className="text-[#5B3767] text-xl mb-3">Izīrē</h1>
-                                    <h2 className="text-[#5B3767] text-2xl font-bold mb-4">760 EUR / mēn</h2>
-                                </div>
-                                <div className="w-full max-w-screen-xl mx-auto mb-4">
-                                    <div className="border-b-[1px] border-[#CDC697]"></div>
-                                </div>
-                                {/* Two-Column Layout for Text */}
-                                <div className="grid grid-cols-2 text-sm text-[#5B3767] gap-y-2">
-                                    <span className="text-left py-1">Adrese:</span>
-                                    <span className="text-right font-bold">Alberta 1, Rīga</span>
-
-                                    <span className="text-left pb-1">Īpašuma tips:</span>
-                                    <span className="text-right font-bold">Dzīvoklis</span>
-
-                                    <span className="text-left">Istabu sk.:</span>
-                                    <span className="text-right font-bold">5</span>
-                                </div>
-
-                                <div className="text-left">
-                                    <a href="#"
-                                       className="text-[#CDC697] text-sm font-bold mt-6 inline-flex items-center">
-                                        SKATĪT <span className="ml-1">&rarr;</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Card 3 */}
-                        <div className="border border-[#CDC697] w-[310px] xs:w-[340px] h-[523px] mx-auto">
-                            <div className="w-full h-[200px] bg-gray-200">
-                                <img
-                                    className="object-cover w-[310px] xs:w-full h-full"
-                                    src={JaunakieObjekti} // Replace with the actual image URL or import
-                                    alt="Property Image"
-                                />
-                            </div>
-                            <div className="p-6">
-                                <div className="text-left">
-                                    <h1 className="text-[#5B3767] text-xl mb-3">Pārdod</h1>
-                                    <h2 className="text-[#5B3767] text-2xl font-bold mb-4">120 000 EUR</h2>
-                                </div>
-                                <div className="w-full max-w-screen-xl mx-auto mb-4">
-                                    <div className="border-b-[1px] border-[#CDC697]"></div>
-                                </div>
-                                {/* Two-Column Layout for Text */}
-                                <div className="grid grid-cols-2 text-sm text-[#5B3767] gap-y-2">
-                                    <span className="text-left py-1">Adrese:</span>
-                                    <span className="text-right font-bold">Alberta 1, Rīga</span>
-
-                                    <span className="text-left pb-1">Īpašuma tips:</span>
-                                    <span className="text-right font-bold">Dzīvoklis</span>
-
-                                    <span className="text-left">Istabu sk.:</span>
-                                    <span className="text-right font-bold">5</span>
-                                </div>
-
-                                <div className="text-left">
-                                    <a href="#"
-                                       className="text-[#CDC697] text-sm font-bold mt-6 inline-flex items-center">
-                                        SKATĪT <span className="ml-1">&rarr;</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Button */}
-                    <div className="mt-12 flex justify-center">
-                        <button
-                            className="w-[280px] xs:w-[356px] h-[55px] bg-[#5B3767] text-[#CDC697] font-medium text-sm hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-[#CDC697]">
-                            SKATĪT VISUS OBJEKTUS
-                        </button>
-                    </div>
-                </div>
-            </section>
+            <JaunakieObjekti/>
 
             {/* Atsauksmes Section */}
             <section className="relative w-full flex items-center justify-center min-h-screen">
@@ -273,7 +143,7 @@ function Sakumlapa() {
                 ></div>
 
                 {/* Content Section */}
-                <div className="relative z-10 flex flex-col items-center justify-center h-full px-4">
+                <div className="relative z-10 flex flex-col items-center justify-center h-full">
                     {/* Heading */}
                     <h2 className="text-[#CDC697] text-4xl font-bold mb-12">ATSAUKSMES</h2>
 
@@ -310,21 +180,22 @@ function Sakumlapa() {
                     <h1 className="text-[#6C256B] text-4xl font-bold mb-12 sm:mb-24">SADARBIĪBAS PARTNERI</h1>
 
                     {/* Partners Logos */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-8 justify-items-center">
+                    <div
+                        className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-6 lg:mx-32 place-items-center">
                         {/* Partner 1 */}
-                        <div className="w-[216px] h-[48px] bg-cover"
+                        <div className="w-[216px] h-[48px] bg-cover my-4"
                              style={{backgroundImage: `url(${Swedbank})`}}></div>
                         {/* Partner 2 */}
-                        <div className="w-[107px] h-[160px] bg-cover"
+                        <div className="w-[107px] h-[160px] bg-cover my-4"
                              style={{backgroundImage: `url(${LatvijasNotars})`}}></div>
                         {/* Partner 3 */}
-                        <div className="w-[152px] h-[80px] bg-cover" style={{backgroundImage: `url(${Altum})`}}></div>
+                        <div className="w-[152px] h-[80px] bg-cover my-4" style={{backgroundImage: `url(${Altum})`}}></div>
                         {/* Partner 4 */}
-                        <div className="w-[165px] h-[60px] bg-cover" style={{backgroundImage: `url(${Luminor})`}}></div>
+                        <div className="w-[165px] h-[60px] bg-cover my-4" style={{backgroundImage: `url(${Luminor})`}}></div>
                         {/* Partner 5 */}
-                        <div className="w-[136px] h-[60px] bg-cover" style={{backgroundImage: `url(${Seb})`}}></div>
+                        <div className="w-[136px] h-[60px] bg-cover my-4" style={{backgroundImage: `url(${Seb})`}}></div>
                         {/* Partner 6 */}
-                        <div className="w-[158px] h-[88px] bg-cover"
+                        <div className="w-[158px] h-[88px] bg-cover my-4"
                              style={{backgroundImage: `url(${Citadele})`}}></div>
                     </div>
 
@@ -333,128 +204,7 @@ function Sakumlapa() {
                     </div>
                 </div>
             </section>
-
-            {/* Saziņas Forma Section */}
-            <section className="w-full py-16 relative mt-16 min-h-screen">
-                {/* Background Image */}
-                <div className="flex justify-center items-center w-full h-[711px] absolute">
-                    <div
-                        className="w-[1440px] h-[711px]"
-                        style={{
-                            backgroundImage: `url(${SazinasForma})`,
-                            backgroundSize: 'contain', // Ensures the full image is visible without cropping
-                            backgroundRepeat: 'no-repeat',
-                            backgroundPosition: 'center',
-                        }}
-                    ></div>
-                </div>
-
-
-                {/* Form Container */}
-                <div className="relative z-10 w-full lg:w-5/12 mx-auto bg-[#E8E1D3] p-6 sm:p-10 shadow-lg -mt-16">
-                    <h2 className="text-[#6C256B] text-4xl font-bold mb-8 text-center xs:text-left">SAZIŅAS FORMA</h2>
-
-                    {/* Form */}
-                    <form className="grid gap-6">
-                        {/* Vārds (First Name) & Uzvārds (Last Name) */}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                            <div>
-                                <input
-                                    type="text"
-                                    placeholder="Vārds"
-                                    className="w-full p-4 placeholder-[#9C9150] border border-[#E8E1D3] focus:outline-none hover:border-[#CDC697] focus:border-[#CDC697] focus:ring-0"
-                                />
-                            </div>
-                            <div>
-                                <input
-                                    type="text"
-                                    placeholder="Uzvārds"
-                                    className="w-full p-4 placeholder-[#9C9150] border border-[#E8E1D3] focus:outline-none hover:border-[#CDC697] focus:border-[#CDC697] focus:ring-0"
-                                />
-                            </div>
-                        </div>
-
-                        {/* E-pasts (Email) & Tālrunis (Phone Number) */}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                            <div>
-                                <input
-                                    type="email"
-                                    placeholder="E-pasts"
-                                    className="w-full p-4 placeholder-[#9C9150] border border-[#E8E1D3] focus:outline-none hover:border-[#CDC697] focus:border-[#CDC697] focus:ring-0"
-                                />
-                            </div>
-                            <div>
-                                <input
-                                    type="tel"
-                                    placeholder="Tālrunis"
-                                    className="w-full p-4 placeholder-[#9C9150] border border-[#E8E1D3] focus:outline-none hover:border-[#CDC697] focus:border-[#CDC697] focus:ring-0"
-                                />
-                            </div>
-                        </div>
-
-                        {/* Darījuma veids (Transaction Type), Reģions (Region), Īpašuma tips (Property Type) */}
-                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                            <div>
-                                <select
-                                    className="w-full p-4 text-[#9C9150] placeholder-[#9C9150] border border-[#E8E1D3] focus:outline-none hover:border-[#CDC697] focus:border-[#CDC697] focus:ring-0"
-                                >
-                                    <option>Izvēlēties</option>
-                                    <option>Pirkšana</option>
-                                    <option>Pārdošana</option>
-                                </select>
-                            </div>
-                            <div>
-                                <select
-                                    className="w-full p-4 text-[#9C9150] placeholder-[#9C9150] border border-[#E8E1D3] focus:outline-none hover:border-[#CDC697] focus:border-[#CDC697] focus:ring-0"
-                                >
-                                    <option>Izvēlēties</option>
-                                    <option>Rīga</option>
-                                    <option>Latgale</option>
-                                </select>
-                            </div>
-                            <div>
-                                <select
-                                    className="w-full p-4 text-[#9C9150] placeholder-[#9C9150] border border-[#E8E1D3] focus:outline-none hover:border-[#CDC697] focus:border-[#CDC697] focus:ring-0"
-                                >
-                                    <option>Izvēlēties</option>
-                                    <option>Dzīvoklis</option>
-                                    <option>Māja</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        {/* Komentārs (Comments) */}
-                        <div>
-            <textarea
-                placeholder="Komentārs"
-                rows="4"
-                className="w-full p-4 placeholder-[#9C9150] border border-[#E8E1D3] focus:outline-none hover:border-[#CDC697] focus:border-[#CDC697] focus:ring-0"
-            ></textarea>
-                        </div>
-
-                        {/* Checkbox */}
-                        <div className="flex items-center">
-                            <input
-                                type="checkbox"
-                                id="agree"
-                                className="mr-2 w-4 h-4 border-4 border-[#6C256B] bg-[#FFD700] checked:bg-[#6C256B] focus:ring-0"
-                            />
-                            <label htmlFor="agree" className="text-sm text-[#5B3767]">
-                                Piekrītu personas datu apstrādes noteikumiem.
-                            </label>
-                        </div>
-
-                        {/* Submit Button */}
-                        <div className="text-center mt-6">
-                            <button
-                                className="w-full sm:w-[238px] h-[55px] bg-[#5B3767] text-[#CDC697] font-medium text-sm hover:bg-opacity-90"
-                            >
-                                SŪTĪT
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </section>
+            <ContactForm/>
         </div>
     );
 }
