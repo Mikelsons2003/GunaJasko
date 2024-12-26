@@ -50,19 +50,19 @@ function Objekti() {
                 <div className="relative w-full h-full flex flex-col items-center justify-center">
                     {/* Navigation Container */}
                     <nav
-                        className="w-full max-w-[1267px] flex justify-between items-center text-white text-sm lg:text-xl uppercase font-medium tracking-wide px-6">
-                        <ul className="flex space-x-4 lg:space-x-8">
+                        className="w-full max-w-[1267px] flex items-center justify-center md:justify-start text-white text-sm lg:text-xl uppercase font-medium tracking-wide px-6">
+                        <ul className="grid grid-cols-1 md:flex md:space-x-4 lg:space-x-8 text-center">
                             <li>Dzīvokļi</li>
-                            <li>Mājas</li>
-                            <li>Zeme</li>
-                            <li>Jaunie projekti</li>
-                            <li>Projekti no attīstītāja</li>
-                            <li>Komercobjekti</li>
+                            <li className="mt-3 md:mt-0">Mājas</li>
+                            <li className="mt-3 md:mt-0">Zeme</li>
+                            <li className="mt-3 md:mt-0">Jaunie projekti</li>
+                            <li className="mt-3 md:mt-0">Projekti no attīstītāja</li>
+                            <li className="mt-3 md:mt-0">Komercobjekti</li>
                         </ul>
                     </nav>
                     {/* Secondary Navigation */}
                     <nav
-                        className="w-full max-w-[1267px] flex justify-between items-center text-white text-sm lg:text-lg uppercase font-medium tracking-wide px-6">
+                        className="w-full max-w-[1267px] flex justify-center md:justify-start items-center text-white text-sm lg:text-lg uppercase font-medium tracking-wide px-6">
                         <ul className="flex space-x-4 lg:space-x-8 mt-12">
                             <li>Pārdod</li>
                             <li>Izīrē</li>

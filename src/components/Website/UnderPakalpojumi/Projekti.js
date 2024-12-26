@@ -10,7 +10,7 @@ function Projekti() {
         <div className="mx-auto font-sans text-white bg-[#FBF8FB] overflow-hidden">
             <Header/>
             <div
-                className="w-full mx-auto px-6 sm:px-8 flex flex-col lg:flex-row items-center lg:h-[586px] bg-[#5B3767] pt-20 sm:pt-24 md:pt-32 relative z-0"
+                className="w-full mx-auto px-6 sm:px-8 flex flex-col lg:flex-row items-center lg:h-[586px] bg-[#5B3767] pt-28 md:pt-36 relative z-0"
             >
                 {/* Left: Text Section */}
                 <div

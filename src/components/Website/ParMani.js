@@ -15,7 +15,7 @@ function ParMani() {
             <div
                 className="bg-[#5B3767] w-full mx-auto px-4 sm:px-8 flex flex-col lg:flex-row items-center lg:h-[810px]">
                 {/* Left: Text Section */}
-                <div className="w-full lg:w-1/2 space-y-6 px-6 lg:px-12 xl:pl-20 2xl:pl-40 mt-10 lg:mt-0">
+                <div className="w-full lg:w-1/2 space-y-6 px-6 lg:px-12 xl:pl-20 2xl:pl-40 mt-14 sm:mt-20 lg:mt-0">
                     <div className="mt-16 lg:mt-32 2xl:ml-40">
                         <h2 className="text-3xl sm:text-4xl text-center lg:text-left text-white">Par aģentu</h2>
                         <p className="text-sm sm:text-lg leading-relaxed text-center lg:text-left mt-6 sm:mt-10 text-white">
@@ -32,7 +32,7 @@ function ParMani() {
                         </p>
                     </div>
                     <div className="flex justify-center lg:justify-start 2xl:ml-40">
-                        <a href="https://guna.lucid-websites.com/kontakti"><button className="w-full sm:w-[274px] h-[55px] border border-[#CDC697] text-[#CDC697] mt-10">
+                        <a href="https://guna.lucid-websites.com/kontakti"><button className="w-[274px] h-[55px] border border-[#CDC697] text-[#CDC697] mt-10">
                             SAZINĀTIES
                         </button></a>
                     </div>
