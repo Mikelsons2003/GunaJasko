@@ -71,7 +71,7 @@ const JaunakieObjektiSection = () => {
                                 } lg:border lg:border-[#CDC697]`}
                             >
                                 <div className="border border-[#CDC697] w-full h-full mx-auto lg:border-none">
-                                    <div className="w-[320px] h-[254px] bg-gray-200">
+                                    <div className="w-full h-[254px] bg-gray-200">
                                         <img
                                             className="object-cover w-full h-full"
                                             src={card.image}
@@ -119,11 +119,11 @@ const JaunakieObjektiSection = () => {
                     </div>
 
                     {/* Mobile: Right Arrow */}
-                    <a href="https://guna.lucid-websites.com/objekti"><button
+                    <button
                         onClick={handleNext}
                         className="absolute right-4 md:right-12 bg-[#5B3767] text-white p-2 rounded-full hover:bg-opacity-90 focus:outline-none z-10 lg:hidden">
                         &rarr;
-                    </button></a>
+                    </button>
                 </div>
 
                 {/* Button */}

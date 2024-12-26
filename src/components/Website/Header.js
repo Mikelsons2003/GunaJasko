@@ -23,9 +23,9 @@ const Header = () => {
     }, []);
 
     return (
-        <div className="relative z-10">
+        <div className="relative z-50">
             <header className="bg-cover bg-center relative">
-                <div className="absolute top-0 w-full flex flex-col items-center z-10">
+                <div className="absolute top-7 w-full flex flex-col items-center z-50">
                     {/* Header Section */}
                     <div className="w-full max-w-screen-xl mx-auto px-8 flex justify-between items-center">
                         {/* Logo Section */}
@@ -75,7 +75,7 @@ const Header = () => {
 
                         {/* Hamburger Menu Icon */}
                         <div
-                            className="lg:hidden text-3xl cursor-pointer z-20 mr-1 xs:mr-3 md:mr-6"
+                            className="lg:hidden text-3xl cursor-pointer z-50 mr-1 xs:mr-3 md:mr-6"
                             onClick={toggleMenu}
                         >
                             {!menuOpen && <FaBars/>}

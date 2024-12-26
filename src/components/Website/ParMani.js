@@ -12,171 +12,177 @@ function ParMani() {
     return (
         <div className="mx-auto font-sans text-white">
             <Header/>
-            <div className="bg-[#5B3767] w-full mx-auto px-8 flex items-center h-[810px]">
+            <div
+                className="bg-[#5B3767] w-full mx-auto px-4 sm:px-8 flex flex-col lg:flex-row items-center lg:h-[810px]">
                 {/* Left: Text Section */}
-                <div className="w-1/2 space-y-6 ml-80">
-                    <div className="w-[628px] h-[367px] mt-32">
-                        <h2 className="text-4xl text-left">Par aģentu</h2>
-                        <p className="text-lg leading-relaxed text-left mt-10">
+                <div className="w-full lg:w-1/2 space-y-6 px-6 lg:px-12 xl:pl-20 2xl:pl-40 mt-10 lg:mt-0">
+                    <div className="mt-16 lg:mt-32 2xl:ml-40">
+                        <h2 className="text-3xl sm:text-4xl text-center lg:text-left text-white">Par aģentu</h2>
+                        <p className="text-sm sm:text-lg leading-relaxed text-center lg:text-left mt-6 sm:mt-10 text-white">
                             Nekustamo īpašumu pārdošanā kopš 2006. gada, specializācija – dzīvojamais fonds:
-                            dzīvokļu, privātmāju un zemju tirdzniecība un īre Rīgā un Rīgas rajonā.
-                            Pieredze apjomīgu projektu tirdzniecībā kā projektu vadītājai (attīstītāju projekti virs 100
+                            dzīvokļu, privātmāju un zemju tirdzniecība un īre Rīgā un Rīgas rajonā. Pieredze
+                            apjomīgu projektu tirdzniecībā kā projektu vadītājai (attīstītāju projekti virs 100
                             dzīvokļiem).
                         </p>
-                        <p className="text-lg leading-relaxed text-left mt-20">
-                            Vairāk ka 600 pārdošanas un īres darījumi.
+                        <p className="text-sm sm:text-lg leading-relaxed text-center lg:text-left mt-6 sm:mt-20 text-white">
+                            Vairāk kā 600 pārdošanas un īres darījumi.
                         </p>
-                        <p className="text-lg leading-relaxed text-left mt-10">
+                        <p className="text-sm sm:text-lg leading-relaxed text-center lg:text-left mt-6 sm:mt-10 text-white">
                             Brīvi runāju trīs valodās – latviešu, krievu un angļu valodā.
                         </p>
                     </div>
-                    <div className="flex justify-start">
-                        <button
-                            className="w-[274px] h-[55px] border border-[#CDC697] text-[#CDC697] mt-10">
+                    <div className="flex justify-center lg:justify-start 2xl:ml-40">
+                        <a href="https://guna.lucid-websites.com/kontakti"><button className="w-full sm:w-[274px] h-[55px] border border-[#CDC697] text-[#CDC697] mt-10">
                             SAZINĀTIES
-                        </button>
+                        </button></a>
                     </div>
                 </div>
 
                 {/* Right: Image Section */}
-                <div className="w-1/2 flex justify-end mr-80 mt-32">
-                    <div className="w-[433px] h-[605px] object-contain -mb-48"
-                         style={{backgroundImage: `url(${GunaParMani})`}}
-                    >
-                    </div>
+                <div
+                    className="w-full lg:w-1/2 flex justify-center lg:justify-end lg:mr-12 xl:mr-20 2xl:mr-80 mt-10 lg:mt-32">
+                    <div
+                        className="w-[300px] sm:w-[433px] h-[400px] sm:h-[605px] bg-cover bg-center mb-6 lg:mb-0"
+                        style={{backgroundImage: `url(${GunaParMani})`}}
+                    ></div>
                 </div>
             </div>
+
             {/* Main Container */}
             <div
-                className="w-[1221px] h-[938px] mx-auto grid grid-cols-2 grid-rows-2 gap-4 border-[1px] border-[#CDC697] mt-28"
-                style={{backgroundColor: "#F8F8F8"}}
+                className="w-full max-w-[1221px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 border border-[#CDC697] mt-10 mb-10 lg:mt-28 bg-[#F8F8F8]"
             >
                 {/* Top Left (Text) */}
-                <div className="w-[611px] h-[469px] pt-10 pl-12">
-                    <h2 className="w-[422px] text-[#5B3767] text-4xl mb-6 text-left">
+                <div className="p-4 md:p-10">
+                    <h2 className="text-[#5B3767] text-2xl sm:text-4xl mb-4 sm:mb-6 text-left">
                         Specializācija - dzīvojamais fonds
                     </h2>
                     <ul className="space-y-4 text-[#5B3767] pt-4">
                         <li className="flex items-center">
-                            <span className="text-[#CDC697] text-4xl mr-4">✔</span>
+                            <span className="text-[#CDC697] text-2xl sm:text-4xl mr-4">✔</span>
                             Mājas un jaunbūves
                         </li>
-                        <li className="flex items-center">
-                            <span className="text-[#CDC697] text-4xl mr-4">✔</span>
+                        <li className="flex items-center text-left">
+                            <span className="text-[#CDC697] text-2xl sm:text-4xl mr-4">✔</span>
                             Dzīvokļi sērijveida un jaunajās mājās
                         </li>
-                        <li className="flex items-center">
-                            <span className="text-[#CDC697] text-4xl mr-4">✔</span>
+                        <li className="flex items-center text-left">
+                            <span className="text-[#CDC697] text-2xl sm:text-4xl mr-4">✔</span>
                             Apbūves zemesgabali un zemesgabali ciematos
                         </li>
-                        <li className="flex items-center text-left w-[430px]">
-                            <span className="text-[#CDC697] text-4xl mr-4">✔</span>
+                        <li className="flex items-center text-left">
+                            <span className="text-[#CDC697] text-2xl sm:text-4xl mr-4">✔</span>
                             Premium klases dzīvokļi un mājas (Jūrmala, Baltezers, klusais centrs, Vecrīga)
                         </li>
                         <li className="flex items-center">
-                            <span className="text-[#CDC697] text-4xl mr-4">✔</span>
+                            <span className="text-[#CDC697] text-2xl sm:text-4xl mr-4">✔</span>
                             Ekskluzīvi īpašumi
                         </li>
                     </ul>
                 </div>
 
                 {/* Top Right (Image) */}
-                <div className="w-[611px] h-[469px] -ml-[9px]">
-                    <div className="w-full h-full object-cover"
-                         style={{backgroundImage: `url(${Kapnutelpa})`}}>
-                    </div>
+                <div className="h-[300px] md:h-[469px]">
+                    <div
+                        className="w-full h-full bg-cover bg-center"
+                        style={{backgroundImage: `url(${Kapnutelpa})`}}
+                    ></div>
                 </div>
 
                 {/* Bottom Left (Image) */}
-                <div className="w-[611px] h-[469px] -mt-[8px]">
-                    <div className="w-full h-full object-cover"
-                         style={{backgroundImage: `url(${Viesistaba})`}}>
-                    </div>
+                <div className="h-[300px] md:h-[469px]">
+                    <div
+                        className="w-full h-full bg-cover bg-center"
+                        style={{backgroundImage: `url(${Viesistaba})`}}
+                    ></div>
                 </div>
 
                 {/* Bottom Right (Text) */}
-                <div className="w-[611px] h-[469px] p-8">
-                    <h2 className="text-[#5B3767] text-4xl mb-6 text-left w-[422px]">
+                <div className="p-4 md:p-8">
+                    <h2 className="text-[#5B3767] text-2xl sm:text-4xl mb-4 sm:mb-6 text-left">
                         Klienta ieguvums no sadarbības
                     </h2>
                     <ul className="space-y-4 text-[#5B3767]">
-                        <li className="flex items-center w-[430px] text-left">
-                            <span className="text-[#CDC697] text-4xl mr-4">✔</span>
+                        <li className="flex items-center text-left">
+                            <span className="text-[#CDC697] text-2xl sm:text-4xl mr-4">✔</span>
                             Pilnīgi drošs, mierīgs un paredzams sava īpašuma pārdošanas process
                         </li>
                         <li className="flex items-center">
-                            <span className="text-[#CDC697] text-4xl mr-4">✔</span>
+                            <span className="text-[#CDC697] text-2xl sm:text-4xl mr-4">✔</span>
                             Kvalitatīvs juridiskais atbalsts
                         </li>
                         <li className="flex items-center">
-                            <span className="text-[#CDC697] text-4xl mr-4">✔</span>
+                            <span className="text-[#CDC697] text-2xl sm:text-4xl mr-4">✔</span>
                             Nestandarta darījumu risinājumi
                         </li>
-                        <li className="flex items-center w-[358px] text-left">
-                            <span className="text-[#CDC697] text-4xl mr-4">✔</span>
+                        <li className="flex items-center text-left">
+                            <span className="text-[#CDC697] text-2xl sm:text-4xl mr-4">✔</span>
                             Augstākās kvalitātes klientu serviss no darījuma sākuma līdz beigām
                         </li>
                     </ul>
                 </div>
             </div>
 
-            <section className="bg-[#5B3767] text-white h-[602px] flex items-center justify-center mt-28">
-                <div className="container mx-auto px-36 text-center">
+            <section className="bg-[#5B3767] text-white py-12 lg:py-28 flex items-center justify-center">
+                <div className="container mx-auto px-4 sm:px-8 lg:px-24 2xl:px-36 text-center">
                     {/* Heading */}
-                    <h1 className="text-[#CDC697] text-4xl mb-20">KĀPĒC SADARBOTIES AR MANI</h1>
+                    <h1 className="text-[#CDC697] text-2xl sm:text-3xl lg:text-4xl mb-12 lg:mb-20">
+                        KĀPĒC SADARBOTIES AR MANI
+                    </h1>
 
-                    {/* Information Cards in a Single Row */}
-                    <div className="grid grid-cols-4">
+                    {/* Information Cards */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 lg:gap-8">
                         {/* Card 1 */}
                         <div
-                            className="w-[273px] h-[212px] text-left border border-[#CDC697] p-6 flex flex-col items-start space-y-4">
+                            className="w-full max-w-[273px] mx-auto text-left border border-[#CDC697] p-6 flex flex-col items-start space-y-4">
                             {/* Icon */}
                             <div className="w-16 h-16 bg-contain bg-no-repeat bg-left"
                                  style={{backgroundImage: `url(${Experience})`}}>
                             </div>
                             {/* Title */}
-                            <div className="text-2xl font-bold text-white">PIEREDZE</div>
+                            <div className="text-xl lg:text-2xl font-bold text-white">PIEREDZE</div>
                             {/* Description */}
                             <p className="text-sm">Tirgū kopš 2006. gada</p>
                         </div>
 
                         {/* Card 2 */}
                         <div
-                            className="w-[273px] h-[212px] text-left border border-[#CDC697] p-6 flex flex-col items-start space-y-4">
+                            className="w-full max-w-[273px] mx-auto text-left border border-[#CDC697] p-6 flex flex-col items-start space-y-4">
                             {/* Icon */}
                             <div className="w-16 h-16 bg-contain bg-no-repeat bg-left"
                                  style={{backgroundImage: `url(${Check})`}}>
                             </div>
                             {/* Title */}
-                            <div className="text-2xl font-bold text-white">UZTICAMĪBA</div>
+                            <div className="text-xl lg:text-2xl font-bold text-white">UZTICAMĪBA</div>
                             {/* Description */}
                             <p className="text-sm">Reģistrēta Ekonomikas ministrijas starpnieku reģistrā ar nr.224</p>
                         </div>
 
                         {/* Card 3 */}
                         <div
-                            className="w-[273px] h-[212px] text-left border border-[#CDC697] p-6 flex flex-col items-start space-y-4">
+                            className="w-full max-w-[273px] mx-auto text-left border border-[#CDC697] p-6 flex flex-col items-start space-y-4">
                             {/* Icon */}
                             <div className="w-16 h-16 bg-contain bg-no-repeat bg-left"
                                  style={{backgroundImage: `url(${Safety})`}}>
                             </div>
                             {/* Title */}
-                            <div className="text-2xl font-bold text-white">DROŠĪBA</div>
+                            <div className="text-xl lg:text-2xl font-bold text-white">DROŠĪBA</div>
                             {/* Description */}
                             <p className="text-sm">Darbība civiltiesiski apdrošināta</p>
                         </div>
 
                         {/* Card 4 */}
                         <div
-                            className="w-[273px] h-[212px] text-left border border-[#CDC697] p-6 flex flex-col items-start space-y-4">
+                            className="w-full max-w-[273px] mx-auto text-left border border-[#CDC697] p-6 flex flex-col items-start space-y-4">
                             {/* Icon */}
                             <div className="w-[95px] h-[72px] bg-contain bg-no-repeat bg-left"
                                  style={{backgroundImage: `url(${Lanida})`}}>
                             </div>
                             {/* Title */}
-                            <div className="text-2xl font-bold text-white">PROFESIONALITĀTE</div>
+                            <div className="text-xl lg:text-2xl font-bold text-white">PROFESIONALITĀTE</div>
                             {/* Description */}
-                            <a href="https://lanida.lv/biedri/guna-jasko-2/" className="text-sm">
+                            <a href="https://lanida.lv/biedri/guna-jasko-2/"
+                               className="text-sm underline text-[#CDC697] hover:text-[#9C9150] transition duration-300">
                                 Latvijas nekustamo īpašumu asociācijas “Lanīda” biedrs
                             </a>
                         </div>
@@ -184,20 +190,22 @@ function ParMani() {
 
                     {/* Button */}
                     <div className="mt-12">
-                        <button
-                            className="w-[317px] h-[55px] border border-[#CDC697] text-[#CDC697] hover:text-[#9C9150] hover:border-[#9C9150] transition duration-300 ease-in-out font-medium text-sm">
+                        <a href="https://guna.lucid-websites.com/pakalpojumi"><button
+                            className="w-full max-w-[317px] h-[55px] border border-[#CDC697] text-[#CDC697] hover:text-[#9C9150] hover:border-[#9C9150] transition duration-300 ease-in-out font-medium text-sm">
                             UZZINĀT VAIRĀK
-                        </button>
+                        </button></a>
                     </div>
                 </div>
             </section>
 
             <section className="bg-[#FBF8FB] text-[#5B3767] py-20 px-6 flex items-center justify-center">
-                <div className="container mx-auto text-center">
+                <div className="container mx-auto text-center sm:text-left">
                     {/* Education Section */}
                     <div className="mb-16">
-                        <h2 className="text-4xl font-serif mb-6 text-left ml-48">Izglītība</h2>
-                        <p className="text-lg leading-relaxed mx-auto max-w-6xl text-left">
+                        <h2 className="text-4xl font-serif mb-6 text-left sm:text-left sm:ml-10">
+                            Izglītība
+                        </h2>
+                        <p className="text-lg leading-relaxed mx-auto max-w-6xl text-left sm:text-left sm:ml-10">
                             Esmu pabeigusi uzņēmējdarbības vadības studijas Rīgas Stradiņa universitātē
                             (bakalaura grāds) un digitālā mārketinga studijas BA Turība. Esmu apmeklējusi
                             neskaitāmus kvalifikācijas paaugstināšanas un pārdošanas kursus, kas ir
@@ -208,24 +216,24 @@ function ParMani() {
 
                     {/* Personal Attributes Section */}
                     <div className="mb-16">
-                        <h2 className="text-4xl font-serif mb-6 text-left ml-48">Personīgās īpašības</h2>
-                        <p className="text-lg leading-relaxed mx-auto max-w-6xl text-left">
+                        <h2 className="text-4xl font-serif mb-6 text-left sm:text-left sm:ml-10">
+                            Personīgās īpašības
+                        </h2>
+                        <p className="text-lg leading-relaxed mx-auto max-w-6xl text-left sm:text-left sm:ml-10">
                             Esmu profesionāla, korekta un ātra, pieejama saviem klientiem, ar elastīgu darba laiku.
                             Spēju pielāgoties klienta laika grafikam.
                         </p>
                     </div>
 
                     {/* Button */}
-                    <div>
-                        <button
+                    <div className="flex justify-center">
+                        <a href="https://guna.lucid-websites.com/objekti"><button
                             className="w-[317px] h-[55px] bg-[#5B3767] hover:bg-[#371243] transition duration-300 ease-in-out text-[#CDC697] font-medium">
                             PIETEIKT ĪPAŠUMU
-                        </button>
+                        </button></a>
                     </div>
                 </div>
             </section>
-
-
         </div>
     );
 }
