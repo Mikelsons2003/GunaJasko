@@ -1,0 +1,258 @@
+import React, {useEffect, useState} from 'react';
+import axios from 'axios';
+import {useNavigate} from 'react-router-dom';
+import {MdDeleteForever} from 'react-icons/md';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
+
+const ImageWithLoading = ({src}) => {
+    const [isImageLoading, setIsImageLoading] = useState(true);
+
+    return (
+        <div className="w-full h-52 sm:h-72 bg-gray-300 rounded-md flex items-center justify-center mt-4 mb-4 relative">
+            {isImageLoading && (
+                <div className="absolute inset-0 flex items-center justify-center bg-gray-200">
+                    <div
+                        className="spinner-border animate-spin text-gray-400 w-6 h-6 rounded-full border-4 border-gray-400 border-t-transparent"></div>
+                </div>
+            )}
+            {src ? (
+                <img
+                    src={src}
+                    alt="Property"
+                    onLoad={() => setIsImageLoading(false)}
+                    onError={() => setIsImageLoading(false)}
+                    className={`w-full h-52 sm:h-72 object-fill rounded-md transition-opacity duration-500 ${
+                        isImageLoading ? 'opacity-0' : 'opacity-100'
+                    }`}
+                />
+            ) : (
+                <span className="text-gray-500">No Image</span>
+            )}
+        </div>
+    );
+};
+
+const Properties = () => {
+    const [properties, setProperties] = useState([]);
+    const [sortedProperties, setSortedProperties] = useState([]);
+    const [sortCriteria, setSortCriteria] = useState(null);
+    const [sortOrder, setSortOrder] = useState('asc'); // 'asc' for ascending, 'desc' for descending
+    const [searchQuery, setSearchQuery] = useState('');
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const fetchProperties = async () => {
+            try {
+                const token = localStorage.getItem('token');
+                if (!token) {
+                    console.error('No token found. Please log in.');
+                    return;
+                }
+
+                const response = await axios.get('http://localhost:5000/api/properties', {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                });
+
+                setProperties(response.data);
+                setSortedProperties(response.data);
+            } catch (error) {
+                console.error('Error fetching properties:', error.response?.data || error.message);
+            }
+        };
+
+        fetchProperties();
+    }, []);
+
+    const handleSort = (criteria) => {
+        if (sortCriteria === criteria) {
+            // Toggle the sort order if the same criteria is selected
+            setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
+        } else {
+            // Set to ascending order if a new criteria is selected
+            setSortOrder('asc');
+            setSortCriteria(criteria);
+        }
+
+        const sorted = [...properties];
+        switch (criteria) {
+            case 'time':
+                sorted.sort((a, b) => {
+                    return sortOrder === 'asc'
+                        ? new Date(a.createdAt) - new Date(b.createdAt)
+                        : new Date(b.createdAt) - new Date(a.createdAt);
+                });
+                break;
+            case 'price':
+                sorted.sort((a, b) => {
+                    return sortOrder === 'asc'
+                        ? (a.price || 0) - (b.price || 0)
+                        : (b.price || 0) - (a.price || 0);
+                });
+                break;
+            case 'category':
+                sorted.sort((a, b) => {
+                    return sortOrder === 'asc'
+                        ? (a.category || '').localeCompare(b.category || '')
+                        : (b.category || '').localeCompare(a.category || '');
+                });
+                break;
+            default:
+                break;
+        }
+
+        setSortedProperties(sorted);
+    };
+
+    const handleSearch = (query) => {
+        setSearchQuery(query);
+
+        const filtered = properties.filter((property) =>
+            property.title.toLowerCase().includes(query.toLowerCase()) ||
+            property.category?.toLowerCase().includes(query.toLowerCase()) ||
+            property.address?.toLowerCase().includes(query.toLowerCase())
+        );
+
+        setSortedProperties(filtered);
+    };
+
+    const handleAddProperty = () => {
+        navigate('/add-property');
+    };
+
+    const handleDelete = async (id) => {
+        const updatedProperties = properties.filter((property) => property.id !== id);
+        setProperties(updatedProperties);
+        setSortedProperties(updatedProperties);
+
+        try {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                console.error('No token found. Please log in again.');
+                return;
+            }
+
+            await axios.delete(`http://localhost:5000/api/properties/${id}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+        } catch (error) {
+            setProperties(properties);
+            setSortedProperties(properties);
+            console.error('Error deleting property:', error.response?.data || error.message);
+        }
+    };
+
+    const handleUpdate = (id) => {
+        navigate(`/update-property/${id}`);
+    };
+
+    return (
+        <div className="p-4">
+            {/* Header Section */}
+            <div className="flex flex-col sm:flex-row justify-between items-center mb-8 gap-4">
+                <h1 className="text-2xl sm:text-3xl font-bold text-gray-800">Properties</h1>
+                <div className="flex flex-col sm:flex-row gap-4">
+                    {/* Search Input */}
+                    <input
+                        type="text"
+                        placeholder="Search properties..."
+                        value={searchQuery}
+                        onChange={(e) => handleSearch(e.target.value)}
+                        className="border rounded-md px-4 py-2 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-[#3F1E47]"
+                    />
+
+                    {/* Sort Dropdown */}
+                    <div className="relative">
+                        <button
+                            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                            className="bg-gold font-bold text-sm sm:text-base px-4 py-2 rounded-md hover:bg-[#B18E58] text-white ease-in-out duration-500"
+                        >
+                            Sort Properties
+                        </button>
+                        {isDropdownOpen && (
+                            <div className="absolute right-0 mt-2 w-48 bg-white border rounded-md shadow-lg z-10 ">
+                                <button
+                                    onClick={() => handleSort('time')}
+                                    className="w-full text-left px-4 py-2 hover:bg-gray-100 ease-in-out duration-500"
+                                >
+                                    Sort by Time {sortCriteria === 'time' && (sortOrder === 'asc' ? '↑' : '↓')}
+                                </button>
+                                <button
+                                    onClick={() => handleSort('price')}
+                                    className="w-full text-left px-4 py-2 hover:bg-gray-100 ease-in-out duration-500"
+                                >
+                                    Sort by Price {sortCriteria === 'price' && (sortOrder === 'asc' ? '↑' : '↓')}
+                                </button>
+                                <button
+                                    onClick={() => handleSort('category')}
+                                    className="w-full text-left px-4 py-2 hover:bg-gray-100 ease-in-out duration-500"
+                                >
+                                    Sort by Category {sortCriteria === 'category' && (sortOrder === 'asc' ? '↑' : '↓')}
+                                </button>
+                            </div>
+                        )}
+                    </div>
+
+                    {/* Add Property Button */}
+                    <button
+                        onClick={handleAddProperty}
+                        className="bg-[#5B3767] hover:bg-[#7A4D8F] active:bg-[#3F1E47] text-white font-bold py-2 px-4 sm:px-6 rounded-md shadow-md ease-in-out duration-500"
+                    >
+                        Add Property
+                    </button>
+                </div>
+            </div>
+
+            {/* Properties Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
+                {sortedProperties.length === 0 ? (
+                    <p className="col-span-3 text-center text-gray-500">No properties available.</p>
+                ) : (
+                    sortedProperties.map((property) => (
+                        <div key={property.id} className="relative bg-white p-4 sm:p-6 rounded-lg shadow-lg">
+                            <button
+                                onClick={() => handleDelete(property.id)}
+                                className="absolute top-2 right-2 text-red-500 hover:text-red-700 text-xl sm:text-2xl font-bold ease-in-out duration-500"
+                            >
+                                <MdDeleteForever/>
+                            </button>
+
+                            <ImageWithLoading
+                                src={property.mainImage ? `http://localhost:5000${property.mainImage}` : null}
+                            />
+
+                            <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2">
+                                {property.title || <Skeleton/>}
+                            </h3>
+                            <p className="text-sm sm:text-base text-gray-500">
+                                {property.category || <Skeleton width={100}/>}
+                            </p>
+                            <p className="text-sm sm:text-base text-gray-500">
+                                ${property.price || <Skeleton width={60}/>}
+                            </p>
+                            <p className="text-sm sm:text-base text-gray-500">
+                                {property.address || <Skeleton width={120}/>}
+                            </p>
+                            <p className="text-xs sm:text-sm text-gray-600 mt-2">
+                                {property.description || <Skeleton count={2}/>}
+                            </p>
+                            <button
+                                onClick={() => handleUpdate(property.id)}
+                                className="mt-4 bg-[#5B3767] hover:bg-[#7A4D8F] active:bg-[#3F1E47] text-white font-bold py-2 px-4 sm:px-6 rounded-md shadow-md ease-in-out duration-500"
+                            >
+                                Update
+                            </button>
+                        </div>
+                    ))
+                )}
+            </div>
+        </div>
+    );
+};
+
+export default Properties;
