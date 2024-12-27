@@ -9,6 +9,9 @@ module.exports = {
             fontFamily: {
                 sans: ['Marcellus', 'serif', 'Cormorant Infant', 'Cormorant Garamond', 'Barlow Semi Condensed'], // Fix capitalization for consistency
             },
+            screens: {
+                xs: '500px', // Add a custom breakpoint at 500px
+            },
             colors: {
                 gold: "#C9A96B",
             },
