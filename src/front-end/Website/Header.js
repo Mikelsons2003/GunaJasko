@@ -29,9 +29,11 @@ const Header = () => {
                     {/* Header Section */}
                     <div className="w-full max-w-screen-xl mx-auto px-8 flex justify-between items-center">
                         {/* Logo Section */}
-                        <a href="https://guna.lucid-websites.com/"><h1 className="text-3xl xs:text-4xl md:text-6xl text-[#CDC697] font-marcellus tracking-wide p-3">
-                            GUNA JASKO
-                        </h1></a>
+                        <a href="https://guna.lucid-websites.com/">
+                            <h1 className="text-3xl xs:text-4xl md:text-6xl text-[#CDC697] font-marcellus tracking-wide p-3">
+                                GUNA JASKO
+                            </h1>
+                        </a>
 
                         {/* Desktop Navigation */}
                         <nav className="hidden lg:flex lg:space-x-8 text-white text-sm">
@@ -78,7 +80,7 @@ const Header = () => {
                             className="lg:hidden text-3xl cursor-pointer z-50 mr-1 xs:mr-3 md:mr-6"
                             onClick={toggleMenu}
                         >
-                            {!menuOpen && <FaBars/>}
+                            {!menuOpen && <FaBars />}
                         </div>
                     </div>
                     {/* Yellow Line */}
@@ -102,7 +104,7 @@ const Header = () => {
                                 className="text-3xl text-white cursor-pointer"
                                 onClick={toggleMenu}
                             >
-                                <FaTimes/>
+                                <FaTimes />
                             </div>
                         </div>
                         <div className="w-full max-w-screen-xl mx-auto px-4">

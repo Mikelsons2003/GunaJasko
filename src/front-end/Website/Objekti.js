@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Header from "./Header";
 import objekts1 from '../../img/objekts1.png';
 import Pakalpojumaimg1 from "../../img/Pakalpojumaimg1.png";
 
@@ -37,7 +36,6 @@ function Objekti() {
 
     return (
         <div className="mx-auto font-sans text-white">
-            <Header />
             <section
                 className="relative w-full h-[428px] bg-cover bg-center pt-24"
                 style={{

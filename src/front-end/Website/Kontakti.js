@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import PopupMessage from "./PopupMessage"; // Import the PopupMessage component
 import Kontaktu from "../../img/Kontaktu.png";
 import GunaKontakti from "../../img/GunaKontakti.png";
-import Header from "./Header";
 
 const Kontakti = () => {
     const [popupVisible, setPopupVisible] = useState(false); // State to handle popup visibility
@@ -21,7 +20,6 @@ const Kontakti = () => {
             className="bg-cover bg-center text-white min-h-screen relative"
             style={{ backgroundImage: `url(${Kontaktu})` }}
         >
-            <Header />
             {/* Contact Form and Image Layout */}
             <div className="flex justify-center items-center min-h-screen px-4 md:px-8 lg:px-0">
                 <div

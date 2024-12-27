@@ -1,5 +1,4 @@
 import React from "react";
-import Header from "./Header";
 import JaunakieObjekti from "./JaunakieObjekti";
 import GunaJasko from '../../img/GunaJasko.png';
 import Vannasistaba from '../../img/Vannasistaba.png';
@@ -20,7 +19,6 @@ import ContactForm from "./ContactForm";
 function Sakumlapa() {
     return (
         <div className="mx-auto font-sans text-white">
-            <Header/>
             <header className="bg-cover bg-center h-[812px] relative" style={{backgroundImage: `url(${BedroomImage})`}}>
                 {/* Overlay with pointer-events: none */}
                 <div className="absolute inset-0 bg-black bg-opacity-40 pointer-events-none"></div>

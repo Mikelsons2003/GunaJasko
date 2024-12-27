@@ -1,5 +1,4 @@
 import React from "react";
-import Header from "./Header";
 import Kapnutelpa from '../../img/Kapnutelpa.png';
 import Viesistaba from '../../img/Viesistaba.png';
 import Experience from "../../img/Experience.png";
@@ -11,7 +10,6 @@ import GunaParMani from "../../img/GunaParMani.png";
 function ParMani() {
     return (
         <div className="mx-auto font-sans text-white">
-            <Header/>
             <div
                 className="bg-[#5B3767] w-full mx-auto px-4 sm:px-8 flex flex-col lg:flex-row items-center lg:h-[810px]">
                 {/* Left: Text Section */}

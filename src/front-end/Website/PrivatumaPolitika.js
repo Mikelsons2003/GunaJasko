@@ -1,11 +1,9 @@
 import React from "react";
 import PrivatumaPolitikaImg from '../../img/PrivatumaPolitikaImg.png';
-import Header from "./Header";
 
 function PrivatumaPolitika() {
     return (
         <div className="mx-auto font-sans text-white bg-[#FBF8FB]">
-            <Header />
             <div className="font-sans text-[#5B3767] bg-[#5B3767] py-10 lg:h-[761px]">
                 {/* Content Section */}
                 <div className="w-full max-w-screen-xl mx-auto flex flex-col lg:flex-row items-center px-6 sm:px-8">

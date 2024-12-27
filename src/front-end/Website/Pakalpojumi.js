@@ -1,5 +1,4 @@
 import React from "react";
-import Header from "./Header";
 import Pakalpojumaimg1 from "../../img/Pakalpojumaimg1.png";
 import {Link} from "react-router-dom";
 import Kabinets from "../../img/Kabinets.png";
@@ -8,7 +7,6 @@ import Kabinets from "../../img/Kabinets.png";
 function Pakalpojumi() {
     return (
         <div className="mx-auto font-sans text-white bg-[#FBF8FB] overflow-hidden">
-            <Header/>
             <div
                 className="w-full mx-auto px-6 sm:px-8 flex flex-col lg:flex-row items-center lg:h-[586px] bg-[#5B3767] pt-28 md:pt-36 relative z-0"
             >
