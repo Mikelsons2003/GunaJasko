@@ -1,11 +1,11 @@
 import React from "react";
-import Kapnutelpa from '../../img/Kapnutelpa.png';
-import Viesistaba from '../../img/Viesistaba.png';
-import Experience from "../../img/Experience.png";
-import Check from "../../img/Check.png";
-import Safety from "../../img/Safety.png";
-import Lanida from "../../img/Lanida.png";
-import GunaParMani from "../../img/GunaParMani.png";
+import Kapnutelpa from '../../img/Kapnutelpa.webp';
+import Viesistaba from '../../img/Viesistaba.webp';
+import Experience from "../../img/Experience.webp";
+import Check from "../../img/Check.webp";
+import Safety from "../../img/Safety.webp";
+import Lanida from "../../img/Lanida.webp";
+import GunaParMani from "../../img/GunaParMani.webp";
 
 function ParMani() {
     return (

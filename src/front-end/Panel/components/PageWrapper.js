@@ -10,7 +10,7 @@ const PageWrapper = ({ hideHeaderAndFooter, children }) => {
     const showHeaderAndFooter = !hideHeaderAndFooter;
 
     return (
-        <div className="min-h-screen bg-gray-900 text-white relative">
+        <div className="min-h-screen text-white relative">
             {showHeaderAndFooter && <Header />}
             <main>{children}</main>
             {showHeaderAndFooter && <Footer />}

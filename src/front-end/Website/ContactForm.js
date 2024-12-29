@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PopupMessage from './PopupMessage';
-import SazinasForma from '../../img/SazinasForma.png';
+import SazinasForma from '../../img/SazinasForma.webp';
 
 export default function ContactForm() {
     const [isPopupVisible, setPopupVisible] = useState(false);

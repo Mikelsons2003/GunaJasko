@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import Kabinets from "../../../img/Kabinets.png";
-import Pakalpojumaimg1 from "../../../img/Pakalpojumaimg1.png";
+import Kabinets from "../../../img/Kabinets.webp";
+import Pakalpojumaimg1 from "../../../img/Pakalpojumaimg1.webp";
 
 function Darijuma() {
     return (

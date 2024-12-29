@@ -57,7 +57,7 @@ const Header = () => {
                         </a>
 
                         {/* Desktop Navigation */}
-                        <nav className="hidden lg:flex lg:space-x-8 text-white text-sm">
+                        <nav className="hidden lg:flex lg:space-x-8 text-white text-sm font-barlow400">
                             <Link
                                 to="/"
                                 className="hover:text-[#CDC697] transition duration-300 ease-in-out"

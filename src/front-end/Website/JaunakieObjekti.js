@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import JaunakieObjekti from '../../img/JaunakieObjekti.png';
+import JaunakieObjekti from '../../img/JaunakieObjekti.webp';
 
 const JaunakieObjektiSection = () => {
     const [currentIndex, setCurrentIndex] = useState(0);

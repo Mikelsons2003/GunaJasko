@@ -1,7 +1,7 @@
 import React from "react";
-import Pakalpojumaimg2 from "../../../img/Pakalpojumaimg2.png";
+import Pakalpojumaimg2 from "../../../img/Pakalpojumaimg2.webp";
 import {Link} from "react-router-dom";
-import Kabinets from "../../../img/Kabinets.png";
+import Kabinets from "../../../img/Kabinets.webp";
 
 
 function Projekti() {

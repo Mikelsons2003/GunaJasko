@@ -4,7 +4,11 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Marcellus', 'serif', 'cormorant infant', 'Cormorant Garamond', 'Barlow Semi Condensed'],// Add your Google Fonts
+                marcellus: ['Marcellus', 'serif'],
+                barlow400: ['Barlow Semi Condensed', 'sans-serif'], // For weight 400
+                barlow500: ['Barlow Semi Condensed', 'sans-serif'], // For weight 500
+                garamond500: ['Cormorant Garamond', 'serif'], // For weight 500
+                infant600: ['Cormorant Infant', 'serif'], // For weight 600
             },
             screens: {
                 xs: '500px', // Add a custom breakpoint at 500px

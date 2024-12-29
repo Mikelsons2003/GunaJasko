@@ -1,5 +1,5 @@
 import React from "react";
-import PrivatumaPolitikaImg from '../../img/PrivatumaPolitikaImg.png';
+import PrivatumaPolitikaImg from '../../img/PrivatumaPolitikaImg.webp';
 
 function PrivatumaPolitika() {
     return (

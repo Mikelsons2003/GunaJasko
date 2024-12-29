@@ -1,19 +1,19 @@
 import React from "react";
 import JaunakieObjekti from "./JaunakieObjekti";
-import GunaJasko from '../../img/GunaJasko.png';
-import Vannasistaba from '../../img/Vannasistaba.png';
-import Swedbank from '../../img/Swedbank.png';
-import LatvijasNotars from '../../img/LatvijasNotars.png';
-import Altum from '../../img/Altum.png';
-import Luminor from '../../img/Luminor.png';
-import Seb from '../../img/Seb.png';
-import Citadele from '../../img/Citadele.png';
-import Experience from '../../img/Experience.png';
-import Check from '../../img/Check.png';
-import Safety from '../../img/Safety.png';
-import Lanida from '../../img/Lanida.png';
-import AM from '../../img/AM.png';
-import BedroomImage from "../../img/BedroomImage.png";
+import GunaJasko from '../../img/GunaJasko.webp';
+import Vannasistaba from '../../img/Vannasistaba.webp';
+import Swedbank from '../../img/Swedbank.webp';
+import LatvijasNotars from '../../img/LatvijasNotars.webp';
+import Altum from '../../img/Altum.webp';
+import Luminor from '../../img/Luminor.webp';
+import Seb from '../../img/Seb.webp';
+import Citadele from '../../img/Citadele.webp';
+import Experience from '../../img/Experience.webp';
+import Check from '../../img/Check.webp';
+import Safety from '../../img/Safety.webp';
+import Lanida from '../../img/Lanida.webp';
+import AM from '../../img/AM.webp';
+import BedroomImage from "../../img/BedroomImage.webp";
 import ContactForm from "./ContactForm";
 
 function Sakumlapa() {
@@ -25,16 +25,18 @@ function Sakumlapa() {
 
                 {/* Text Section */}
                 <div className="w-full max-w-screen-xl mx-auto absolute top-72 left-1/2 transform -translate-x-1/2 text-white space-y-6 xs:px-8">
-                    <h2 className="text-4xl font-bold text-center xs:text-left">
+                    <h2 className="text-4xl text-center xs:text-left font-garamond500">
                         NEKUSTAMO ĪPAŠUMU AĢENTS
                     </h2>
-                    <p className="max-w-lg leading-relaxed text-center xs:text-left">
-                        Nekustamo īpašumu pārdošana kopš 2006. gada, specializācija - dzīvojamais fonds: dzīvokļi,
-                        privātmājas un zemju tirdzniecība un īre Rīgā un Rīgas rajonā.
+                    <p className="max-w-lg text-center xs:text-left font-barlow400">
+                        Nekustamo īpašumu pārdošanā kopš 2006. gada, specializācija – dzīvojamais fonds:
+                        dzīvokļu, privātmāju un zemju tirdzniecība un īre Rīgā un Rīgas rajonā. Pieredze
+                        apjomīgu projektu tirdzniecībā kā projektu vadītājai
+                        (attīstītāju projekti virs 100 dzīvokļiem).
                     </p>
                     <div className="text-center xs:text-left">
                         <a href="https://guna.lucid-websites.com/pakalpojumi"><button
-                            className="w-[317px] h-[55px] bg-[#5B3767] hover:bg-[#371243] transition duration-300 ease-in-out text-[#CDC697] font-medium">
+                            className="font-barlow500 w-[317px] h-[55px] bg-[#5B3767] hover:bg-[#371243] transition duration-300 ease-in-out text-[#CDC697] font-medium">
                             PIETEIKT ĪPAŠUMU
                         </button></a>
                     </div>

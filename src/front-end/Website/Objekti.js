@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import objekts1 from '../../img/objekts1.png';
-import Pakalpojumaimg1 from "../../img/Pakalpojumaimg1.png";
+import objekts1 from '../../img/objekts1.webp';
+import Pakalpojumaimg1 from "../../img/Pakalpojumaimg1.webp";
 
 function Objekti() {
     const properties = [

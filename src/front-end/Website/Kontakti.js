@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PopupMessage from "./PopupMessage"; // Import the PopupMessage component
-import Kontaktu from "../../img/Kontaktu.png";
-import GunaKontakti from "../../img/GunaKontakti.png";
+import Kontaktu from "../../img/Kontaktu.webp";
+import GunaKontakti from "../../img/GunaKontakti.webp";
 
 const Kontakti = () => {
     const [popupVisible, setPopupVisible] = useState(false); // State to handle popup visibility

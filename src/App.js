@@ -27,7 +27,7 @@ function Layout() {
     const showHeaderAndFooter = !hideHeaderAndFooterRoutes.includes(location.pathname);
 
     return (
-        <div className="min-h-screen bg-gray-900 text-white relative">
+        <div className="min-h-screen text-white relative">
             {showHeaderAndFooter && <Header />}
             <Routes>
                 {/* Main Website Routes */}
