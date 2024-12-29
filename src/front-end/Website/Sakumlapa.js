@@ -19,12 +19,12 @@ import ContactForm from "./ContactForm";
 function Sakumlapa() {
     return (
         <div className="mx-auto font-sans text-white">
-            <header className="bg-cover bg-center h-[812px] relative" style={{backgroundImage: `url(${BedroomImage})`}}>
+            <header className="bg-cover bg-center h-[812px] lg:h-[900px] 2xl:h-[970px] relative" style={{backgroundImage: `url(${BedroomImage})`}}>
                 {/* Overlay with pointer-events: none */}
                 <div className="absolute inset-0 bg-black bg-opacity-40 pointer-events-none"></div>
 
                 {/* Text Section */}
-                <div className="w-full max-w-screen-xl mx-auto absolute top-72 left-1/2 transform -translate-x-1/2 text-white space-y-6 sm:px-8">
+                <div className="w-full max-w-screen-xl mx-auto absolute top-72 left-1/2 transform -translate-x-1/2 text-white space-y-6 xs:px-8">
                     <h2 className="text-4xl font-bold text-center xs:text-left">
                         NEKUSTAMO ĪPAŠUMU AĢENTS
                     </h2>
@@ -129,7 +129,7 @@ function Sakumlapa() {
             <JaunakieObjekti/>
 
             {/* Atsauksmes Section */}
-            <section className="relative w-full flex items-center justify-center min-h-screen">
+            <section className="bg-white relative w-full flex items-center justify-center min-h-screen">
                 {/* Background Image */}
                 <div
                     className="hidden absolute lg:flex items-center justify-center w-4/6 h-[645px]"
@@ -173,7 +173,7 @@ function Sakumlapa() {
 
 
             {/* Sadarbības Partneri Section */}
-            <section className="mx-auto">
+            <section className="mx-auto bg-white">
                 <div className="mx-auto px-4 sm:px-8 text-center">
                     <h1 className="text-[#6C256B] text-4xl font-bold mb-12 sm:mb-24">SADARBIĪBAS PARTNERI</h1>
 

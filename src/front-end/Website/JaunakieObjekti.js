@@ -129,7 +129,7 @@ const JaunakieObjektiSection = () => {
                 {/* Button */}
                 <div className="mt-12 flex justify-center">
                     <a href="https://guna.lucid-websites.com/objekti"><button
-                        className="w-[280px] xs:w-[356px] h-[55px] bg-[#5B3767] text-[#CDC697] font-medium text-sm hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-[#CDC697]">
+                        className="w-[280px] xs:w-[356px] h-[55px] bg-[#5B3767] text-[#CDC697] font-medium text-sm hover:bg-[#371243] transition duration-300 ease-in-out">
                         SKATĪT VISUS OBJEKTUS
                     </button></a>
                 </div>

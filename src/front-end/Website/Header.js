@@ -4,10 +4,29 @@ import { FaBars, FaTimes } from "react-icons/fa";
 
 const Header = () => {
     const [menuOpen, setMenuOpen] = useState(false);
+    const [scrolling, setScrolling] = useState(false); // State to detect scroll
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
     };
+
+    const handleScroll = () => {
+        // When user scrolls down, set scrolling to true
+        if (window.scrollY > 0) {
+            setScrolling(true);
+        } else {
+            setScrolling(false);
+        }
+    };
+
+    useEffect(() => {
+        // Add scroll event listener
+        window.addEventListener("scroll", handleScroll);
+        // Clean up the event listener on unmount
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
 
     useEffect(() => {
         const handleResize = () => {
@@ -24,8 +43,10 @@ const Header = () => {
 
     return (
         <div className="relative z-50">
+            {/* Fixed position header with black background on scroll */}
             <header className="bg-cover bg-center relative">
-                <div className="absolute top-7 w-full flex flex-col items-center z-50">
+                <div className={`fixed top-0 w-full ${scrolling ? "bg-black bg-opacity-40 backdrop-blur-md h-[73px] md:h-[93px]" : "bg-transparent"} transition-all duration-300 ease-in-out`}
+                >
                     {/* Header Section */}
                     <div className="w-full max-w-screen-xl mx-auto px-8 flex justify-between items-center">
                         {/* Logo Section */}
@@ -77,7 +98,7 @@ const Header = () => {
 
                         {/* Hamburger Menu Icon */}
                         <div
-                            className="lg:hidden text-3xl cursor-pointer z-50 mr-1 xs:mr-3 md:mr-6"
+                            className="lg:hidden text-3xl cursor-pointer z-50 mr-1 xs:mr-3 md:mr-6 text-white"
                             onClick={toggleMenu}
                         >
                             {!menuOpen && <FaBars />}

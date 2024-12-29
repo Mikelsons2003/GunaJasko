@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from "react";
-import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
-import {jwtDecode} from "jwt-decode";
+import React, { useEffect, useState } from "react";
+import { BrowserRouter as Router, Route, Routes, Navigate, useLocation } from "react-router-dom";
+import { jwtDecode } from "jwt-decode";
 import "./App.css";
 import Sakumlapa from "./front-end/Website/Sakumlapa";
 import ParMani from "./front-end/Website/ParMani";
@@ -16,12 +16,73 @@ import Login from "./front-end/Panel/Login"; // Login page component
 import Dashboard from "./front-end/Panel/Dashboard"; // Dashboard page component
 import Properties from "./front-end/Panel/Properties"; // Properties page component
 import AddProperty from "./front-end/Panel/AddProperty"; // Add Property page component
-import Layout from "./front-end/Panel/components/Layout";
 import UpdateProperty from "./front-end/Panel/UpdateProperty"; // Update Property page component
 import Header from "./front-end/Website/Header"; // Import Header component
 
-function App() {
-    const [token, setToken] = useState(localStorage.getItem('token'));
+function Layout() {
+    const location = useLocation(); // Get the current route
+
+    // Conditionally render the Header and Footer based on the route
+    const hideHeaderAndFooterRoutes = ["/login", "/dashboard"];
+    const showHeaderAndFooter = !hideHeaderAndFooterRoutes.includes(location.pathname);
+
+    return (
+        <div className="min-h-screen bg-gray-900 text-white relative">
+            {showHeaderAndFooter && <Header />}
+            <Routes>
+                {/* Main Website Routes */}
+                <Route path="/" element={<Sakumlapa />} />
+                <Route path="/par-mani" element={<ParMani />} />
+                <Route path="/pakalpojumi" element={<Pakalpojumi />} />
+                <Route path="/starpniecibas" element={<Starpniecibas />} />
+                <Route path="/darijuma" element={<Darijuma />} />
+                <Route path="/projekti" element={<Projekti />} />
+                <Route path="/objekti" element={<Objekti />} />
+                <Route path="/kontakti" element={<Kontakti />} />
+                <Route path="/privatuma-politika" element={<PrivatumaPolitika />} />
+
+                {/* Admin Panel Routes */}
+                <Route path="/login" element={<Login />} />
+                <Route
+                    path="/dashboard"
+                    element={
+                        <ProtectedRoute>
+                            <Dashboard />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path="/properties"
+                    element={
+                        <ProtectedRoute>
+                            <Properties />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path="/add-property"
+                    element={
+                        <ProtectedRoute>
+                            <AddProperty />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path="/update-property/:id"
+                    element={
+                        <ProtectedRoute>
+                            <UpdateProperty />
+                        </ProtectedRoute>
+                    }
+                />
+            </Routes>
+            {showHeaderAndFooter && <Footer />}
+        </div>
+    );
+}
+
+function ProtectedRoute({ children }) {
+    const [token] = useState(localStorage.getItem("token"));
     const [isTokenValid, setIsTokenValid] = useState(true);
 
     useEffect(() => {
@@ -32,60 +93,32 @@ function App() {
 
                 if (decodedToken.exp < currentTime) {
                     setIsTokenValid(false); // Token is expired
-                    localStorage.removeItem('token'); // Remove the expired token
-                    setToken(null); // Set token state to null
+                    localStorage.removeItem("token"); // Remove the expired token
                 } else {
                     setIsTokenValid(true); // Token is valid
                 }
             } catch (error) {
-                console.error('Error decoding token:', error);
+                console.error("Error decoding token:", error);
                 setIsTokenValid(false);
-                localStorage.removeItem('token'); // In case of any error in decoding
-                setToken(null);
+                localStorage.removeItem("token");
             }
+        } else {
+            setIsTokenValid(false); // No token found
         }
-    }, [token]); // Re-run this effect when token changes
+    }, [token]);
 
+    if (!isTokenValid) {
+        return <Navigate to="/login" />;
+    }
+
+    return children;
+}
+
+function App() {
     return (
-        <div className="App">
-            <BrowserRouter>
-                <Header/> {/* Ensure Header is inside BrowserRouter */}
-                <Routes>
-                    {/* Main Website Routes */}
-                    <Route path="/" element={<Sakumlapa/>}/>
-                    <Route path="/par-mani" element={<ParMani/>}/>
-                    <Route path="/pakalpojumi" element={<Pakalpojumi/>}/>
-                    <Route path="/starpniecibas" element={<Starpniecibas/>}/>
-                    <Route path="/darijuma" element={<Darijuma/>}/>
-                    <Route path="/projekti" element={<Projekti/>}/>
-                    <Route path="/objekti" element={<Objekti/>}/>
-                    <Route path="/kontakti" element={<Kontakti/>}/>
-                    <Route path="/privatuma-politika" element={<PrivatumaPolitika/>}/>
-
-                    {/* Admin Panel Routes */}
-                    <Route path="/login" element={<Login/>}/>
-
-                    {/* Protected Admin Panel Routes */}
-                    <Route
-                        path="/dashboard"
-                        element={isTokenValid ? <Layout><Dashboard/></Layout> : <Navigate to="/login"/>}
-                    />
-                    <Route
-                        path="/properties"
-                        element={isTokenValid ? <Layout><Properties/></Layout> : <Navigate to="/login"/>}
-                    />
-                    <Route
-                        path="/add-property"
-                        element={isTokenValid ? <Layout><AddProperty/></Layout> : <Navigate to="/login"/>}
-                    />
-                    <Route
-                        path="/update-property/:id"
-                        element={isTokenValid ? <Layout><UpdateProperty/></Layout> : <Navigate to="/login"/>}
-                    />
-                </Routes>
-                <Footer/>
-            </BrowserRouter>
-        </div>
+        <Router>
+            <Layout />
+        </Router>
     );
 }
 

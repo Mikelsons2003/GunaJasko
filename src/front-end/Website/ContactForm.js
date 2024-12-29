@@ -17,7 +17,7 @@ export default function ContactForm() {
     };
 
     return (
-        <section className="w-full py-16 relative mt-16 min-h-screen">
+        <section className="bg-white w-full py-16 relative mt-16 min-h-screen">
             {/* Background Image */}
             <div className="flex justify-center items-center w-full h-[711px] absolute">
                 <div
@@ -174,7 +174,7 @@ export default function ContactForm() {
                     <div className="text-center mt-6">
                         <button
                             type="submit"
-                            className="w-full sm:w-[238px] h-[55px] bg-[#5B3767] text-[#CDC697] font-medium text-sm hover:bg-opacity-90"
+                            className="w-full sm:w-[238px] h-[55px] bg-[#5B3767] text-[#CDC697] font-medium text-sm hover:bg-[#371243] transition duration-300 ease-in-out"
                         >
                             SŪTĪT
                         </button>

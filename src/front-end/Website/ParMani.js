@@ -30,7 +30,7 @@ function ParMani() {
                         </p>
                     </div>
                     <div className="flex justify-center lg:justify-start 2xl:ml-40">
-                        <a href="https://guna.lucid-websites.com/kontakti"><button className="w-[274px] h-[55px] border border-[#CDC697] text-[#CDC697] mt-10">
+                        <a href="https://guna.lucid-websites.com/kontakti"><button className="w-[274px] h-[55px] border border-[#CDC697] text-[#CDC697] mt-10 hover:text-[#9C9150] hover:border-[#9C9150] transition duration-300 ease-in-out">
                             SAZINĀTIES
                         </button></a>
                     </div>
@@ -80,7 +80,7 @@ function ParMani() {
                 </div>
 
                 {/* Top Right (Image) */}
-                <div className="h-[300px] md:h-[469px]">
+                <div className="h-[300px] md:h-[469px] mx-2 lg:mx-0">
                     <div
                         className="w-full h-full bg-cover bg-center"
                         style={{backgroundImage: `url(${Kapnutelpa})`}}
@@ -88,7 +88,7 @@ function ParMani() {
                 </div>
 
                 {/* Bottom Left (Image) */}
-                <div className="h-[300px] md:h-[469px]">
+                <div className="h-[300px] md:h-[469px] mx-2 lg:mx-0">
                     <div
                         className="w-full h-full bg-cover bg-center"
                         style={{backgroundImage: `url(${Viesistaba})`}}
