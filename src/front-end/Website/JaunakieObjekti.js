@@ -46,7 +46,7 @@ const JaunakieObjektiSection = () => {
         <section className="py-16 bg-white flex items-center justify-center min-h-screen">
             <div className="container mx-auto lg:px-20">
                 {/* Heading */}
-                <h1 className="text-center text-[#5B3767] text-4xl font-bold mb-12">JAUNĀKIE OBJEKTI</h1>
+                <h1 className="font-garamond500 text-center text-[#5B3767] text-4xl mb-12">JAUNĀKIE OBJEKTI</h1>
 
                 {/* Cards */}
                 <div className="relative flex lg:flex-row lg:gap-6 items-center justify-center overflow-hidden lg:overflow-visible">
@@ -80,11 +80,11 @@ const JaunakieObjektiSection = () => {
                                     </div>
                                     <div className="p-6">
                                         {/* Header */}
-                                        <div className="text-left">{card.header}</div>
+                                        <div className="font-garamond500 text-left">{card.header}</div>
 
                                         {/* Price */}
                                         <div className="text-left">
-                                            <h2 className="text-[#5B3767] text-2xl font-bold mb-4">{card.price}</h2>
+                                            <h2 className="font-infant600  text-[#5B3767] text-2xl font-bold mb-4">{card.price}</h2>
                                         </div>
 
                                         {/* Divider */}
@@ -93,22 +93,22 @@ const JaunakieObjektiSection = () => {
                                         </div>
 
                                         {/* Two-Column Layout for Text */}
-                                        <div className="grid grid-cols-2 text-sm text-[#5B3767] gap-y-2">
+                                        <div className="font-barlow400 grid grid-cols-2 text-sm text-[#5B3767] gap-y-2">
                                             <span className="text-left py-1">Adrese:</span>
-                                            <span className="text-right font-bold">{card.address}</span>
+                                            <span className="text-right font-semibold">{card.address}</span>
 
                                             <span className="text-left pb-1">Īpašuma tips:</span>
-                                            <span className="text-right font-bold">{card.type}</span>
+                                            <span className="text-right font-semibold">{card.type}</span>
 
                                             <span className="text-left">Istabu sk.:</span>
-                                            <span className="text-right font-bold">{card.rooms}</span>
+                                            <span className="text-right font-semibold">{card.rooms}</span>
                                         </div>
 
                                         {/* View More Link */}
                                         <div className="text-left">
                                             <a
                                                 href="#"
-                                                className="text-[#CDC697] text-sm font-bold mt-6 inline-flex items-center">
+                                                className="font-barlow500 text-[#CDC697] text-sm mt-6 inline-flex items-center">
                                                 SKATĪT <span className="ml-1">&rarr;</span>
                                             </a>
                                         </div>
@@ -129,7 +129,7 @@ const JaunakieObjektiSection = () => {
                 {/* Button */}
                 <div className="mt-12 flex justify-center">
                     <a href="https://guna.lucid-websites.com/objekti"><button
-                        className="w-[280px] xs:w-[356px] h-[55px] bg-[#5B3767] text-[#CDC697] font-medium text-sm hover:bg-[#371243] transition duration-300 ease-in-out">
+                        className="font-barlow500 w-[280px] xs:w-[356px] h-[55px] bg-[#5B3767] text-[#CDC697] text-sm hover:bg-[#371243] transition duration-300 ease-in-out">
                         SKATĪT VISUS OBJEKTUS
                     </button></a>
                 </div>

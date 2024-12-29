@@ -55,7 +55,7 @@ function ParMani() {
                     <h2 className="text-[#5B3767] text-2xl sm:text-4xl mb-4 sm:mb-6 text-left">
                         Specializācija - dzīvojamais fonds
                     </h2>
-                    <ul className="space-y-4 text-[#5B3767] pt-4">
+                    <ul className="font-barlow400 space-y-4 text-[#5B3767] pt-4">
                         <li className="flex items-center">
                             <span className="text-[#CDC697] text-2xl sm:text-4xl mr-4">✔</span>
                             Mājas un jaunbūves
@@ -100,7 +100,7 @@ function ParMani() {
                     <h2 className="text-[#5B3767] text-2xl sm:text-4xl mb-4 sm:mb-6 text-left">
                         Klienta ieguvums no sadarbības
                     </h2>
-                    <ul className="space-y-4 text-[#5B3767]">
+                    <ul className="font-barlow400 space-y-4 text-[#5B3767]">
                         <li className="flex items-center text-left">
                             <span className="text-[#CDC697] text-2xl sm:text-4xl mr-4">✔</span>
                             Pilnīgi drošs, mierīgs un paredzams sava īpašuma pārdošanas process
@@ -124,7 +124,7 @@ function ParMani() {
             <section className="bg-[#5B3767] text-white py-12 lg:py-28 flex items-center justify-center">
                 <div className="container mx-auto px-4 sm:px-8 lg:px-24 2xl:px-36 text-center">
                     {/* Heading */}
-                    <h1 className="text-[#CDC697] text-2xl sm:text-3xl lg:text-4xl mb-12 lg:mb-20">
+                    <h1 className="font-garamond500 text-[#CDC697] text-2xl sm:text-3xl lg:text-4xl mb-12 lg:mb-20">
                         KĀPĒC SADARBOTIES AR MANI
                     </h1>
 
@@ -138,7 +138,7 @@ function ParMani() {
                                  style={{backgroundImage: `url(${Experience})`}}>
                             </div>
                             {/* Title */}
-                            <div className="text-xl lg:text-2xl font-bold text-white">PIEREDZE</div>
+                            <div className="font-barlow400 text-xl lg:text-2xl text-white">PIEREDZE</div>
                             {/* Description */}
                             <p className="text-sm">Tirgū kopš 2006. gada</p>
                         </div>
@@ -151,7 +151,7 @@ function ParMani() {
                                  style={{backgroundImage: `url(${Check})`}}>
                             </div>
                             {/* Title */}
-                            <div className="text-xl lg:text-2xl font-bold text-white">UZTICAMĪBA</div>
+                            <div className="font-barlow400 text-xl lg:text-2xl text-white">UZTICAMĪBA</div>
                             {/* Description */}
                             <p className="text-sm">Reģistrēta Ekonomikas ministrijas starpnieku reģistrā ar nr.224</p>
                         </div>
@@ -164,7 +164,7 @@ function ParMani() {
                                  style={{backgroundImage: `url(${Safety})`}}>
                             </div>
                             {/* Title */}
-                            <div className="text-xl lg:text-2xl font-bold text-white">DROŠĪBA</div>
+                            <div className="font-barlow400 text-xl lg:text-2xl text-white">DROŠĪBA</div>
                             {/* Description */}
                             <p className="text-sm">Darbība civiltiesiski apdrošināta</p>
                         </div>
@@ -177,10 +177,10 @@ function ParMani() {
                                  style={{backgroundImage: `url(${Lanida})`}}>
                             </div>
                             {/* Title */}
-                            <div className="text-xl lg:text-2xl font-bold text-white">PROFESIONALITĀTE</div>
+                            <div className="font-barlow400 text-xl lg:text-2xl text-white">PROFESIONALITĀTE</div>
                             {/* Description */}
                             <a href="https://lanida.lv/biedri/guna-jasko-2/"
-                               className="text-sm underline text-[#CDC697] hover:text-[#9C9150] transition duration-300">
+                               className="font-barlow400 text-sm underline text-[#CDC697] hover:text-[#9C9150] transition duration-300">
                                 Latvijas nekustamo īpašumu asociācijas “Lanīda” biedrs
                             </a>
                         </div>
@@ -189,7 +189,7 @@ function ParMani() {
                     {/* Button */}
                     <div className="mt-12">
                         <a href="https://guna.lucid-websites.com/pakalpojumi"><button
-                            className="w-full max-w-[317px] h-[55px] border border-[#CDC697] text-[#CDC697] hover:text-[#9C9150] hover:border-[#9C9150] transition duration-300 ease-in-out font-medium text-sm">
+                            className="w-full max-w-[317px] h-[55px] border border-[#CDC697] text-[#CDC697] hover:text-[#9C9150] hover:border-[#9C9150] transition duration-300 ease-in-out text-sm">
                             UZZINĀT VAIRĀK
                         </button></a>
                     </div>
@@ -200,7 +200,7 @@ function ParMani() {
                 <div className="container mx-auto text-center sm:text-left">
                     {/* Education Section */}
                     <div className="mb-16">
-                        <h2 className="text-4xl font-serif mb-6 text-left sm:text-left sm:ml-10">
+                        <h2 className="text-4xl mb-6 text-left sm:text-left sm:ml-10">
                             Izglītība
                         </h2>
                         <p className="text-lg leading-relaxed mx-auto max-w-6xl text-left sm:text-left sm:ml-10">
@@ -214,7 +214,7 @@ function ParMani() {
 
                     {/* Personal Attributes Section */}
                     <div className="mb-16">
-                        <h2 className="text-4xl font-serif mb-6 text-left sm:text-left sm:ml-10">
+                        <h2 className="text-4xl mb-6 text-left sm:text-left sm:ml-10">
                             Personīgās īpašības
                         </h2>
                         <p className="text-lg leading-relaxed mx-auto max-w-6xl text-left sm:text-left sm:ml-10">
@@ -226,7 +226,7 @@ function ParMani() {
                     {/* Button */}
                     <div className="flex justify-center">
                         <a href="https://guna.lucid-websites.com/objekti"><button
-                            className="w-[317px] h-[55px] bg-[#5B3767] hover:bg-[#371243] transition duration-300 ease-in-out text-[#CDC697] font-medium">
+                            className="w-[317px] h-[55px] bg-[#5B3767] hover:bg-[#371243] transition duration-300 ease-in-out text-[#CDC697]">
                             PIETEIKT ĪPAŠUMU
                         </button></a>
                     </div>

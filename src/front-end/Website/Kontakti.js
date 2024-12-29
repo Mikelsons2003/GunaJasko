@@ -26,10 +26,10 @@ const Kontakti = () => {
                     className="w-full max-w-[1267px] bg-[#CDC697] flex flex-col lg:flex-row justify-between items-center py-12 px-6 lg:py-16 lg:px-8 mt-32 mb-10">
                     {/* Left Column: Form */}
                     <div className="w-full lg:w-1/2 lg:pr-8">
-                        <h2 className="text-2xl lg:text-3xl font-bold text-[#5B3767] text-left mb-6">
+                        <h2 className="text-2xl lg:text-3xl text-[#5B3767] text-left mb-6">
                             SAZIŅAS FORMA
                         </h2>
-                        <form className="space-y-4" onSubmit={handleFormSubmit}>
+                        <form className="font-barlow400 space-y-4" onSubmit={handleFormSubmit}>
                             <div className="relative">
                                 <input
                                     type="text"
@@ -102,7 +102,7 @@ const Kontakti = () => {
                                     id="agree"
                                     className="mr-2 w-4 h-4 border-4 border-[#6C256B] bg-[#FFD700] checked:bg-[#6C256B] focus:ring-0"
                                 />
-                                <label htmlFor="agree" className="text-sm text-[#5B3767]">
+                                <label htmlFor="agree" className="font-barlow400 text-sm text-[#5B3767]">
                                     Piekrītu personas datu apstrādes noteikumiem.
                                 </label>
                             </div>
@@ -119,10 +119,10 @@ const Kontakti = () => {
                     <div className="w-full lg:w-1/2 flex flex-col lg:flex-row items-center lg:items-end mt-12 lg:mt-0">
                         {/* Text Section */}
                         <div className="flex-1 text-left lg:text-right pr-0 lg:pr-8 text-[#5B3767]">
-                            <h3 className="text-xl lg:text-2xl font-bold">Guna Jasko</h3>
-                            <p className="mt-2 font-bold">NEKUSTAMO ĪPAŠUMU AGENTS</p>
-                            <p className="mt-2 font-bold">TĀLR.: 20 016 688</p>
-                            <p className="mt-2 font-bold">E-PASTS: jaskoguna@gmail.com</p>
+                            <h3 className="font-garamond500 text-xl lg:text-2xl">Guna Jasko</h3>
+                            <p className="font-barlow500 mt-2">NEKUSTAMO ĪPAŠUMU AGENTS</p>
+                            <p className="font-barlow500 mt-2">TĀLR.: 20 016 688</p>
+                            <p className="font-barlow500 mt-2">E-PASTS: jaskoguna@gmail.com</p>
                         </div>
 
                         {/* Image Section */}

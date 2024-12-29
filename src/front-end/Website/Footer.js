@@ -14,7 +14,7 @@ function Footer() {
                 {/* Footer Content */}
                 <div className="flex flex-col sm:flex-row justify-between items-center mx-auto w-full max-w-screen-xl mt-4 px-6">
                     {/* Left Section */}
-                    <div className="text-4xl p-2 text-center sm:text-left">
+                    <div className="font-marcellus text-4xl p-2 text-center sm:text-left">
                         GUNA JASKO
                     </div>
 
@@ -54,11 +54,11 @@ function Footer() {
 
                     {/* Right Section */}
                     <div className="text-right text-sm mt-4 sm:mt-0">
-                        <Link to="/privatuma-politika" className="hover:underline">
+                        <Link to="/privatuma-politika" className="font-barlow500 hover:underline">
                             PRIVĀTUMA POLITIKA
                         </Link>
                         <br />
-                        <span className="text-xs">Dizaina izstrāde: Edīte Šatkowska</span>
+                        <span className="font-barlow400 text-xs">Dizaina izstrāde: Edīte Šatkovska</span>
                     </div>
                 </div>
             </div>
