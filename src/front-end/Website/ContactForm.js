@@ -33,11 +33,11 @@ export default function ContactForm() {
 
             {/* Form Container */}
             <div className="relative z-10 w-full lg:w-8/12 xl:w-5/12 mx-auto bg-[#E8E1D3] p-6 sm:p-10 shadow-lg -mt-16 mr-0 lg:mr-80">
-                <h2 className="text-[#6C256B] text-4xl font-bold mb-8 text-center xs:text-left">SAZIŅAS FORMA</h2>
+                <h2 className="font-garamond500 text-[#6C256B] text-4xl mb-8 text-center xs:text-left">SAZIŅAS FORMA</h2>
 
                 {/* Form */}
                 <form onSubmit={handleSubmit} className="grid gap-6">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div className="font-barlow400 grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div className="relative">
                             <input
                                 type="text"
@@ -73,7 +73,7 @@ export default function ContactForm() {
                     </div>
 
                     {/* E-pasts (Email) & Tālrunis (Phone Number) */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div className="font-barlow400 grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div className="relative">
                             <input
                                 type="Email"
@@ -109,7 +109,7 @@ export default function ContactForm() {
                     </div>
 
                     {/* Darījuma veids (Transaction Type), Reģions (Region), Īpašuma tips (Property Type) */}
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    <div className="font-barlow400 grid grid-cols-1 sm:grid-cols-3 gap-6">
                         <div>
                             <select
                                 className="w-full p-4 text-[#9C9150] placeholder-[#9C9150] border border-[#E8E1D3] focus:outline-none hover:border-[#CDC697] focus:border-[#CDC697] focus:ring-0"
@@ -140,7 +140,7 @@ export default function ContactForm() {
                     </div>
 
                     {/* Komentārs (Comments) */}
-                    <div className="relative">
+                    <div className="font-barlow400 relative">
                             <textarea
                                 id="comment"
                                 rows="4"
@@ -165,7 +165,7 @@ export default function ContactForm() {
                             className="mr-2 w-4 h-4 border-[#6C256B] checked:bg-[#6C256B] focus:ring-0"
                             required
                         />
-                        <label htmlFor="agree" className="text-sm text-[#5B3767]">
+                        <label htmlFor="agree" className="font-barlow400 text-sm text-[#5B3767]">
                             Piekrītu personas datu apstrādes noteikumiem.
                         </label>
                     </div>
@@ -174,7 +174,7 @@ export default function ContactForm() {
                     <div className="text-center mt-6">
                         <button
                             type="submit"
-                            className="w-full sm:w-[238px] h-[55px] bg-[#5B3767] text-[#CDC697] font-medium text-sm hover:bg-[#371243] transition duration-300 ease-in-out"
+                            className="font-barlow500 w-full sm:w-[238px] h-[55px] bg-[#5B3767] text-[#CDC697] text-sm hover:bg-[#371243] transition duration-300 ease-in-out"
                         >
                             SŪTĪT
                         </button>
