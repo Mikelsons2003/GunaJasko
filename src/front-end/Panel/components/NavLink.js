@@ -6,7 +6,7 @@ const NavLink = ({ name, path, icon, isExpanded  }) => {
         <RouterLink
             to={path}
             className={({ isActive }) =>
-                `flex items-center px-6 py-3 text-gold font-bold hover:bg-[#7A4D8F] ${
+                `flex items-center px-4 py-3 text-gold font-bold hover:bg-[#7A4D8F] ${
                     isActive ? 'bg-[#3F1E47] font-bold border-b-2 border-gold' : ''
                 }`
             }

@@ -22,7 +22,7 @@ const ImageWithLoading = ({src}) => {
                     alt="Property"
                     onLoad={() => setIsImageLoading(false)}
                     onError={() => setIsImageLoading(false)}
-                    className={`w-full h-52 sm:h-72 object-fill rounded-md transition-opacity duration-500 ${
+                    className={`w-full h-52 sm:h-72 object-cover rounded-md transition-opacity duration-500 ${
                         isImageLoading ? 'opacity-0' : 'opacity-100'
                     }`}
                 />
@@ -37,7 +37,7 @@ const Properties = () => {
     const [properties, setProperties] = useState([]);
     const [sortedProperties, setSortedProperties] = useState([]);
     const [sortCriteria, setSortCriteria] = useState(null);
-    const [sortOrder, setSortOrder] = useState('asc'); // 'asc' for ascending, 'desc' for descending
+    const [sortOrder, setSortOrder] = useState('asc');
     const [searchQuery, setSearchQuery] = useState('');
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const navigate = useNavigate();
@@ -69,10 +69,8 @@ const Properties = () => {
 
     const handleSort = (criteria) => {
         if (sortCriteria === criteria) {
-            // Toggle the sort order if the same criteria is selected
             setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
         } else {
-            // Set to ascending order if a new criteria is selected
             setSortOrder('asc');
             setSortCriteria(criteria);
         }
@@ -152,15 +150,15 @@ const Properties = () => {
     };
 
     return (
-        <div className="p-4">
+        <div className="p-1 md:p-4">
             {/* Header Section */}
             <div className="flex flex-col sm:flex-row justify-between items-center mb-8 gap-4">
-                <h1 className="text-2xl sm:text-3xl font-bold text-gray-800">Properties</h1>
+                <h1 className="text-2xl sm:text-3xl font-bold text-gray-800">Īpašumi</h1>
                 <div className="flex flex-col sm:flex-row gap-4">
                     {/* Search Input */}
                     <input
                         type="text"
-                        placeholder="Search properties..."
+                        placeholder="Meklēt īpašumu..."
                         value={searchQuery}
                         onChange={(e) => handleSearch(e.target.value)}
                         className="border rounded-md px-4 py-2 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-[#3F1E47]"
@@ -170,29 +168,30 @@ const Properties = () => {
                     <div className="relative">
                         <button
                             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                            className="bg-gold font-bold text-sm sm:text-base px-4 py-2 rounded-md hover:bg-[#B18E58] text-white ease-in-out duration-500"
+                            className="bg-gold font-bold py-1 px-4 sm:px-6 rounded-md hover:bg-[#B18E58] shadow-md text-white ease-in-out duration-500 w-full"
                         >
-                            Sort Properties
+                            Kārtot īpašumus
                         </button>
                         {isDropdownOpen && (
-                            <div className="absolute right-0 mt-2 w-48 bg-white border rounded-md shadow-lg z-10 ">
+                            <div className="absolute right-0 mt-2 w-48 bg-white border rounded-md shadow-lg z-10">
                                 <button
                                     onClick={() => handleSort('time')}
                                     className="w-full text-left px-4 py-2 hover:bg-gray-100 ease-in-out duration-500"
                                 >
-                                    Sort by Time {sortCriteria === 'time' && (sortOrder === 'asc' ? '↑' : '↓')}
+                                    Kārtot pēc laika {sortCriteria === 'time' && (sortOrder === 'asc' ? '↑' : '↓')}
                                 </button>
                                 <button
                                     onClick={() => handleSort('price')}
                                     className="w-full text-left px-4 py-2 hover:bg-gray-100 ease-in-out duration-500"
                                 >
-                                    Sort by Price {sortCriteria === 'price' && (sortOrder === 'asc' ? '↑' : '↓')}
+                                    Kārtot pēc cenas {sortCriteria === 'price' && (sortOrder === 'asc' ? '↑' : '↓')}
                                 </button>
                                 <button
                                     onClick={() => handleSort('category')}
                                     className="w-full text-left px-4 py-2 hover:bg-gray-100 ease-in-out duration-500"
                                 >
-                                    Sort by Category {sortCriteria === 'category' && (sortOrder === 'asc' ? '↑' : '↓')}
+                                    Kārtot pēc
+                                    kategorijas {sortCriteria === 'category' && (sortOrder === 'asc' ? '↑' : '↓')}
                                 </button>
                             </div>
                         )}
@@ -201,15 +200,15 @@ const Properties = () => {
                     {/* Add Property Button */}
                     <button
                         onClick={handleAddProperty}
-                        className="bg-[#5B3767] hover:bg-[#7A4D8F] active:bg-[#3F1E47] text-white font-bold py-2 px-4 sm:px-6 rounded-md shadow-md ease-in-out duration-500"
+                        className="bg-[#5B3767] hover:bg-[#7A4D8F] active:bg-[#3F1E47] text-white font-bold py-1 px-4 sm:px-6 rounded-md shadow-md ease-in-out duration-500 w-full"
                     >
-                        Add Property
+                        Pievienot īpašumu
                     </button>
                 </div>
             </div>
 
             {/* Properties Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-8">
                 {sortedProperties.length === 0 ? (
                     <p className="col-span-3 text-center text-gray-500">No properties available.</p>
                 ) : (
@@ -226,26 +225,29 @@ const Properties = () => {
                                 src={property.mainImage ? `http://localhost:5000${property.mainImage}` : null}
                             />
 
-                            <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2">
-                                {property.title || <Skeleton/>}
-                            </h3>
-                            <p className="text-sm sm:text-base text-gray-500">
-                                {property.category || <Skeleton width={100}/>}
-                            </p>
-                            <p className="text-sm sm:text-base text-gray-500">
-                                ${property.price || <Skeleton width={60}/>}
-                            </p>
-                            <p className="text-sm sm:text-base text-gray-500">
-                                {property.address || <Skeleton width={120}/>}
-                            </p>
-                            <p className="text-xs sm:text-sm text-gray-600 mt-2">
-                                {property.description || <Skeleton count={2}/>}
-                            </p>
+                            <div className="text-center md:text-left">
+                                <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2 overflow-hidden text-ellipsis whitespace-nowrap">
+                                    {property.title || <Skeleton/>}
+                                </h3>
+                                <p className="text-sm sm:text-base text-gray-500 hidden md:flex md:flex-col overflow-hidden text-ellipsis whitespace-nowrap">
+                                    {property.category || <Skeleton width={100}/>}
+                                </p>
+                                <p className="text-sm sm:text-base text-gray-500 hidden md:flex md:flex-col overflow-hidden text-ellipsis whitespace-nowrap">
+                                    ${property.price || <Skeleton width={60}/>}
+                                </p>
+                                <p className="text-sm sm:text-base text-gray-500 hidden md:flex md:flex-col overflow-hidden text-ellipsis whitespace-nowrap">
+                                    {property.address || <Skeleton width={120}/>}
+                                </p>
+                                <p className="text-xs sm:text-sm text-gray-600 mt-2 hidden md:flex md:flex-col overflow-hidden text-ellipsis whitespace-nowrap">
+                                    {property.description || <Skeleton count={2}/>}
+                                </p>
+                            </div>
+
                             <button
                                 onClick={() => handleUpdate(property.id)}
                                 className="mt-4 bg-[#5B3767] hover:bg-[#7A4D8F] active:bg-[#3F1E47] text-white font-bold py-2 px-4 sm:px-6 rounded-md shadow-md ease-in-out duration-500"
                             >
-                                Update
+                                Atjaunināt
                             </button>
                         </div>
                     ))
@@ -256,3 +258,4 @@ const Properties = () => {
 };
 
 export default Properties;
+

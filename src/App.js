@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import {jwtDecode} from "jwt-decode";
 import "./App.css";
 import Sakumlapa from "./front-end/Website/Sakumlapa";
@@ -21,8 +21,10 @@ import UpdateProperty from "./front-end/Panel/UpdateProperty"; // Update Propert
 import Header from "./front-end/Website/Header"; // Import Header component
 
 function App() {
-    const [token, setToken] = useState(localStorage.getItem('token'));
+    const [token, setToken] = useState(localStorage.getItem("token"));
     const [isTokenValid, setIsTokenValid] = useState(true);
+    const location = useLocation(); // Access current location
+
     useEffect(() => {
         if (token) {
             try {
@@ -30,56 +32,91 @@ function App() {
                 const currentTime = Date.now() / 1000; // Current time in seconds
                 if (decodedToken.exp < currentTime) {
                     setIsTokenValid(false); // Token is expired
-                    localStorage.removeItem('token'); // Remove the expired token
-                    setToken(null); // Set token state to null
+                    localStorage.removeItem("token");
+                    setToken(null);
                 } else {
                     setIsTokenValid(true); // Token is valid
                 }
             } catch (error) {
-                console.error('Error decoding token:', error);
+                console.error("Error decoding token:", error);
                 setIsTokenValid(false);
-                localStorage.removeItem('token'); // In case of any error in decoding
+                localStorage.removeItem("token"); // In case of decoding error
                 setToken(null);
             }
         }
-    }, [token]); // Re-run this effect when token changes
+    }, [token]);
+
+    const isAdminRoute =
+        location.pathname.startsWith("/dashboard") ||
+        location.pathname.startsWith("/properties") ||
+        location.pathname.startsWith("/add-property") ||
+        location.pathname.startsWith("/update-property") ||
+        location.pathname.startsWith("/login");
+
     return (
         <div className="App">
-            <BrowserRouter>
-                <Header/> {/* Ensure Header is inside BrowserRouter */}
-                <Routes>
-                    {/* Main Website Routes */}
-                    <Route path="/" element={<Sakumlapa/>}/>
-                    <Route path="/par-mani" element={<ParMani/>}/>
-                    <Route path="/pakalpojumi" element={<Pakalpojumi/>}/>
-                    <Route path="/starpniecibas" element={<Starpniecibas/>}/>
-                    <Route path="/darijuma" element={<Darijuma/>}/>
-                    <Route path="/projekti" element={<Projekti/>}/>
-                    <Route path="/objekti" element={<Objekti/>}/>
-                    <Route path="/kontakti" element={<Kontakti/>}/>
-                    <Route path="/privatuma-politika" element={<PrivatumaPolitika/>}/>
-                    {/* Admin Panel Routes */}
-                    <Route path="/login" element={<Login/>}/>
-                    {/* Protected Admin Panel Routes */}
-                    <Route
-                        path="/dashboard"
-                        element={isTokenValid ? <Layout><Dashboard/></Layout> : <Navigate to="/login"/>}
-                    />
-                    <Route
-                        path="/properties"
-                        element={isTokenValid ? <Layout><Properties/></Layout> : <Navigate to="/login"/>}
-                    />
-                    <Route
-                        path="/add-property"
-                        element={isTokenValid ? <Layout><AddProperty/></Layout> : <Navigate to="/login"/>}
-                    />
-                    <Route
-                        path="/update-property/:id"
-                        element={isTokenValid ? <Layout><UpdateProperty/></Layout> : <Navigate to="/login"/>}
-                    />
-                </Routes>
-                <Footer/>
-            </BrowserRouter>
+            {!isAdminRoute && <Header />} {/* Show Header only on non-admin routes */}
+            <Routes>
+                <Route path="/" element={<Sakumlapa />} />
+                <Route path="/par-mani" element={<ParMani />} />
+                <Route path="/pakalpojumi" element={<Pakalpojumi />} />
+                <Route path="/starpniecibas" element={<Starpniecibas />} />
+                <Route path="/darijuma" element={<Darijuma />} />
+                <Route path="/projekti" element={<Projekti />} />
+                <Route path="/objekti" element={<Objekti />} />
+                <Route path="/kontakti" element={<Kontakti />} />
+                <Route path="/privatuma-politika" element={<PrivatumaPolitika />} />
+                <Route path="/login" element={<Login />} />
+                <Route
+                    path="/dashboard"
+                    element={
+                        isTokenValid ? (
+                            <Layout>
+                                <Dashboard />
+                            </Layout>
+                        ) : (
+                            <Navigate to="/login" />
+                        )
+                    }
+                />
+                <Route
+                    path="/properties"
+                    element={
+                        isTokenValid ? (
+                            <Layout>
+                                <Properties />
+                            </Layout>
+                        ) : (
+                            <Navigate to="/login" />
+                        )
+                    }
+                />
+                <Route
+                    path="/add-property"
+                    element={
+                        isTokenValid ? (
+                            <Layout>
+                                <AddProperty />
+                            </Layout>
+                        ) : (
+                            <Navigate to="/login" />
+                        )
+                    }
+                />
+                <Route
+                    path="/update-property/:id"
+                    element={
+                        isTokenValid ? (
+                            <Layout>
+                                <UpdateProperty />
+                            </Layout>
+                        ) : (
+                            <Navigate to="/login" />
+                        )
+                    }
+                />
+            </Routes>
+            {!isAdminRoute && <Footer />} {/* Show Footer only on non-admin routes */}
         </div>
     );
 }
