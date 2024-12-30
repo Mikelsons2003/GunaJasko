@@ -11,7 +11,7 @@ const Layout = ({ children }) => {
     };
 
     return (
-        <div className="flex">
+        <div className="flex font-poppins500">
             {/* Sidebar */}
             <Sidebar isExpanded={isSidebarExpanded} toggleSidebar={toggleSidebar} />
 

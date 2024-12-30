@@ -16,11 +16,11 @@ app.use(cors({
     methods: ['GET', 'POST', 'DELETE', 'PUT'],
 }));
 
-app.use(express.json()); // Parse JSON requests
+app.use(express.json());
 
 // Routes
-app.use('/api/properties', propertyRoutes); // Use property routes for /api/properties
-app.use('/api/auth', authRoutes); // Use auth routes for /api/auth
+app.use('/api/properties', propertyRoutes);
+app.use('/api/auth', authRoutes);
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Test database connection
@@ -29,7 +29,7 @@ pool.getConnection((err, connection) => {
         console.error('Error connecting to the database:', err.message);
     } else {
         console.log('Database connected successfully!');
-        connection.release(); // Release the connection back to the pool
+        connection.release();
     }
 });
 

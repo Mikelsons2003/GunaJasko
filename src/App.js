@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
-import { Navigate, Route, Routes, useLocation } from "react-router-dom";
-import {jwtDecode} from "jwt-decode";
+import {Navigate, Route, Routes, useLocation} from "react-router-dom";
+import {jwtDecode} from "jwt-decode"; // Fix import statement
 import "./App.css";
 import Sakumlapa from "./front-end/Website/Sakumlapa";
 import ParMani from "./front-end/Website/ParMani";
@@ -54,28 +54,28 @@ function App() {
         location.pathname.startsWith("/login");
 
     return (
-        <div className="App">
-            {!isAdminRoute && <Header />} {/* Show Header only on non-admin routes */}
+        <div className={`App ${isAdminRoute ? "admin-panel" : ""}`}>
+            {!isAdminRoute && <Header/>} {/* Show Header only on non-admin routes */}
             <Routes>
-                <Route path="/" element={<Sakumlapa />} />
-                <Route path="/par-mani" element={<ParMani />} />
-                <Route path="/pakalpojumi" element={<Pakalpojumi />} />
-                <Route path="/starpniecibas" element={<Starpniecibas />} />
-                <Route path="/darijuma" element={<Darijuma />} />
-                <Route path="/projekti" element={<Projekti />} />
-                <Route path="/objekti" element={<Objekti />} />
-                <Route path="/kontakti" element={<Kontakti />} />
-                <Route path="/privatuma-politika" element={<PrivatumaPolitika />} />
-                <Route path="/login" element={<Login />} />
+                <Route path="/" element={<Sakumlapa/>}/>
+                <Route path="/par-mani" element={<ParMani/>}/>
+                <Route path="/pakalpojumi" element={<Pakalpojumi/>}/>
+                <Route path="/starpniecibas" element={<Starpniecibas/>}/>
+                <Route path="/darijuma" element={<Darijuma/>}/>
+                <Route path="/projekti" element={<Projekti/>}/>
+                <Route path="/objekti" element={<Objekti/>}/>
+                <Route path="/kontakti" element={<Kontakti/>}/>
+                <Route path="/privatuma-politika" element={<PrivatumaPolitika/>}/>
+                <Route path="/login" element={<Login/>}/>
                 <Route
                     path="/dashboard"
                     element={
                         isTokenValid ? (
                             <Layout>
-                                <Dashboard />
+                                <Dashboard/>
                             </Layout>
                         ) : (
-                            <Navigate to="/login" />
+                            <Navigate to="/login"/>
                         )
                     }
                 />
@@ -84,10 +84,10 @@ function App() {
                     element={
                         isTokenValid ? (
                             <Layout>
-                                <Properties />
+                                <Properties/>
                             </Layout>
                         ) : (
-                            <Navigate to="/login" />
+                            <Navigate to="/login"/>
                         )
                     }
                 />
@@ -96,10 +96,10 @@ function App() {
                     element={
                         isTokenValid ? (
                             <Layout>
-                                <AddProperty />
+                                <AddProperty/>
                             </Layout>
                         ) : (
-                            <Navigate to="/login" />
+                            <Navigate to="/login"/>
                         )
                     }
                 />
@@ -108,15 +108,15 @@ function App() {
                     element={
                         isTokenValid ? (
                             <Layout>
-                                <UpdateProperty />
+                                <UpdateProperty/>
                             </Layout>
                         ) : (
-                            <Navigate to="/login" />
+                            <Navigate to="/login"/>
                         )
                     }
                 />
             </Routes>
-            {!isAdminRoute && <Footer />} {/* Show Footer only on non-admin routes */}
+            {!isAdminRoute && <Footer/>} {/* Show Footer only on non-admin routes */}
         </div>
     );
 }
