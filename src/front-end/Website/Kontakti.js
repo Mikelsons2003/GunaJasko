@@ -116,9 +116,9 @@ const Kontakti = () => {
                     </div>
 
                     {/* Right Column: Image with Text */}
-                    <div className="w-full lg:w-1/2 flex flex-col lg:flex-row items-center lg:items-end mt-12 lg:mt-0">
+                    <div className="w-full lg:w-1/2 flex flex-col md:flex-row items-center md:items-end mt-12 lg:mt-0">
                         {/* Text Section */}
-                        <div className="flex-1 text-left lg:text-right pr-0 lg:pr-8 text-[#5B3767]">
+                        <div className="flex-1 text-left md:text-right pr-0 lg:pr-8 text-[#5B3767] mr-6">
                             <h3 className="font-garamond500 text-xl lg:text-2xl">Guna Jasko</h3>
                             <p className="font-barlow500 mt-2">NEKUSTAMO ĪPAŠUMU AGENTS</p>
                             <p className="font-barlow500 mt-2">TĀLR.: 20 016 688</p>

@@ -40,7 +40,7 @@ function ParMani() {
                 <div
                     className="w-full lg:w-1/2 flex justify-center lg:justify-end lg:mr-12 xl:mr-20 2xl:mr-80 mt-10 lg:mt-32">
                     <div
-                        className="w-[300px] sm:w-[433px] h-[400px] sm:h-[605px] bg-cover bg-center mb-6 lg:mb-0"
+                        className="w-[300px] sm:w-[433px] h-[400px] sm:h-[605px] bg-cover bg-center mb-6 lg:mb-0 3xl:-mb-48"
                         style={{backgroundImage: `url(${GunaParMani})`}}
                     ></div>
                 </div>
@@ -80,7 +80,7 @@ function ParMani() {
                 </div>
 
                 {/* Top Right (Image) */}
-                <div className="h-[300px] md:h-[469px] mx-2 lg:mx-0">
+                <div className="h-[300px] sm:h-[469px] mx-2 mt-2 2xl:mt-0 2xl:mx-0">
                     <div
                         className="w-full h-full bg-cover bg-center"
                         style={{backgroundImage: `url(${Kapnutelpa})`}}
@@ -88,7 +88,7 @@ function ParMani() {
                 </div>
 
                 {/* Bottom Left (Image) */}
-                <div className="h-[300px] md:h-[469px] mx-2 lg:mx-0">
+                <div className="h-[300px] sm:h-[469px] mx-2 mb-2 2xl:mb-0 2xl:mx-0">
                     <div
                         className="w-full h-full bg-cover bg-center"
                         style={{backgroundImage: `url(${Viesistaba})`}}
@@ -225,8 +225,8 @@ function ParMani() {
 
                     {/* Button */}
                     <div className="flex justify-center">
-                        <a href="https://guna.lucid-websites.com/objekti"><button
-                            className="w-[317px] h-[55px] bg-[#5B3767] hover:bg-[#371243] transition duration-300 ease-in-out text-[#CDC697]">
+                        <a href="https://guna.lucid-websites.com/kontakti"><button
+                            className="w-[272px] h-[55px] sm:w-[317px] sm:h-[55px] bg-[#5B3767] hover:bg-[#371243] transition duration-300 ease-in-out text-[#CDC697]">
                             PIETEIKT ĪPAŠUMU
                         </button></a>
                     </div>

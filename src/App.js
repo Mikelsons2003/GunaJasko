@@ -12,6 +12,7 @@ import Starpniecibas from "./front-end/Website/UnderPakalpojumi/Starpniecibas";
 import Darijuma from "./front-end/Website/UnderPakalpojumi/Darijuma";
 import Projekti from "./front-end/Website/UnderPakalpojumi/Projekti";
 import PrivatumaPolitika from "./front-end/Website/PrivatumaPolitika";
+import ObjektiIeskats from "./front-end/Website/ObjektiIeskats";
 import Login from "./front-end/Panel/Login"; // Login page component
 import Dashboard from "./front-end/Panel/Dashboard"; // Dashboard page component
 import Properties from "./front-end/Panel/Properties"; // Properties page component
@@ -56,6 +57,7 @@ function App() {
                     <Route path="/darijuma" element={<Darijuma/>}/>
                     <Route path="/projekti" element={<Projekti/>}/>
                     <Route path="/objekti" element={<Objekti/>}/>
+                    <Route path="/objektiIeskats" element={<ObjektiIeskats/>}/>
                     <Route path="/kontakti" element={<Kontakti/>}/>
                     <Route path="/privatuma-politika" element={<PrivatumaPolitika/>}/>
                     {/* Admin Panel Routes */}

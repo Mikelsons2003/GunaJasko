@@ -1,6 +1,6 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import JaunakieObjekti from "./JaunakieObjekti";
-import GunaJasko from '../../img/GunaJasko.webp';
+import GunaJasko from '../../img/GunaJasko.png';
 import Vannasistaba from '../../img/Vannasistaba.webp';
 import Swedbank from '../../img/Swedbank.webp';
 import LatvijasNotars from '../../img/LatvijasNotars.webp';
@@ -13,11 +13,43 @@ import Check from '../../img/Check.webp';
 import Safety from '../../img/Safety.webp';
 import Lanida from '../../img/Lanida.webp';
 import AM from '../../img/AM.webp';
+import ArrowLeft from '../../img/ArrowLeft.png';
+import ArrowRight from '../../img/ArrowRight.png';
 import BedroomImage from "../../img/BedroomImage.webp";
 import ContactForm from "./ContactForm";
 
 function Sakumlapa() {
     const contactFormRef = useRef(null); // Create a reference for ContactForm
+    const [currentIndex, setCurrentIndex] = useState(0); // State for testimonials
+
+    const testimonials = [
+        {
+            content: "Labdien, Guna! Ar vēlēšanos gribu pateikties par padarīto agenta darbu mājas pārdošanā un dzīvokļa iegādē! Nemot vērā, ka viss notika attālināti, tādējādi uzticēt vārdi, jo viss noritēja kā pa notīm! Paši mēs noteikti ieteiksim kādas lamatas! Pie iespējas noteikti Jūs rekomendēsim citiem. Veiksmi Jums it visā!",
+            author: "Andrejs Mihailovs",
+        },
+        {
+            content: "Paldies par izcilu darbu! Dzīvokļa pārdošana notika ātri un bez problēmām. Noteikti iesaku citiem izmantot Jūsu pakalpojumus!",
+            author: "Kristīne Ozoliņa",
+        },
+        {
+            content: "Novērtēju jūsu palīdzību, Ieteikšu jūs arī citiem, paldies liels par paveikto darbu",
+            author: "Miks Miķelsons",
+        },
+        // Add more testimonials as needed
+    ];
+
+    // Logic for switching testimonials
+    const handleSwitchContent = (direction) => {
+        if (direction === "left") {
+            setCurrentIndex((prevIndex) =>
+                prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
+            );
+        } else if (direction === "right") {
+            setCurrentIndex((prevIndex) =>
+                prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
+            );
+        }
+    };
 
     // Custom scrolling logic
     const scrollToContactForm = () => {
@@ -49,7 +81,7 @@ function Sakumlapa() {
     };
 
     return (
-        <div className="mx-auto font-sans text-white">
+        <div className="mx-auto text-white">
             <header className="bg-cover bg-center h-[812px] lg:h-[900px] 2xl:h-[970px] relative"
                     style={{backgroundImage: `url(${BedroomImage})`}}>
                 {/* Overlay with pointer-events: none */}
@@ -61,7 +93,7 @@ function Sakumlapa() {
                     <h2 className="text-4xl text-center xs:text-left font-garamond500">
                         NEKUSTAMO ĪPAŠUMU AĢENTS
                     </h2>
-                    <p className="max-w-lg text-center xs:text-left font-barlow400">
+                    <p className="max-w-lg text-center xs:text-left font-barlow400 p-2 sm:p-0">
                         Nekustamo īpašumu pārdošanā kopš 2006. gada, specializācija – dzīvojamais fonds:
                         dzīvokļu, privātmāju un zemju tirdzniecība un īre Rīgā un Rīgas rajonā. Pieredze
                         apjomīgu projektu tirdzniecībā kā projektu vadītājai
@@ -71,7 +103,7 @@ function Sakumlapa() {
                         {/* Button that triggers custom smooth scroll */}
                         <button
                             onClick={scrollToContactForm}
-                            className="font-barlow500 w-[317px] h-[55px] bg-[#5B3767] hover:bg-[#371243] transition duration-300 ease-in-out text-[#CDC697] font-medium"
+                            className="font-barlow500 w-[272px] h-[55px] sm:w-[317px] sm:h-[55px] bg-[#5B3767] hover:bg-[#371243] transition duration-300 ease-in-out text-[#CDC697] font-medium"
                         >
                             PIETEIKT ĪPAŠUMU
                         </button>
@@ -160,7 +192,7 @@ function Sakumlapa() {
                     <div className="xl:w-1/2 mt-10 xl:-mt-28 xl:ml-12 flex justify-center">
                         <div className="w-full">
                             <div
-                                className="bg-cover bg-center w-[300px] sm:w-[558px] h-[500px] sm:h-[837px] relative"
+                                className="bg-cover bg-center w-[300px] h-[500px] md:w-[400px] md:h-[570px] lg:w-[500px] lg:h-[670px] 2xl:w-[558px] 2xl:h-[837px] relative"
                                 style={{backgroundImage: `url(${GunaJasko})`}}
                             ></div>
                         </div>
@@ -171,48 +203,63 @@ function Sakumlapa() {
             <JaunakieObjekti/>
 
             {/* Atsauksmes Section */}
-            <section className="bg-white relative w-full flex items-center justify-center min-h-screen">
+            <section className="bg-white relative w-full flex items-center justify-center min-h-screen px-2">
                 {/* Background Image */}
                 <div
-                    className="hidden absolute lg:flex items-center justify-center w-4/6 h-[645px]"
+                    className="relative flex items-center justify-center w-full lg:w-4/6 h-[500px] sm:h-[645px]"
                     style={{
                         backgroundImage: `url(${Vannasistaba})`,
                         backgroundSize: 'cover', // Keeps the image covering the container
                         backgroundPosition: 'center', // Centers the image
                     }}
-                ></div>
-
-                {/* Content Section */}
-                <div className="relative z-10 flex flex-col items-center justify-center h-full">
-                    {/* Heading */}
-                    <h2 className="font-garamond500 text-[#CDC697] text-4xl mb-12">ATSAUKSMES</h2>
-
-                    {/* Testimonial Box */}
-                    <div
-                        className="relative bg-white w-full md:w-[782px] h-auto md:h-[380px] opacity-90 p-12 flex flex-col items-center"
+                >
+                    {/* Left Arrow */}
+                    <button
+                        className="absolute left-[2%] sm:left-[2%] 2xl:left-[14%] sm:top-[54%] top-1/2 transform -translate-y-1/2 z-20"
+                        onClick={() => handleSwitchContent("left")}
                     >
-                        {/* Centered Image */}
-                        <div
-                            className="w-[100px] h-[100px] object-cover flex items-center justify-center -mt-4 mb-6"
-                            style={{
-                                backgroundImage: `url(${AM})`,
-                                backgroundSize: 'cover',
-                                backgroundPosition: 'center'
-                            }}
-                        ></div>
+                        <img src={ArrowRight} alt="Left Arrow" className="w-[24px] h-[24px]"/>
+                    </button>
 
-                        {/* Testimonial Content */}
-                        <p className="font-barlow400 text-[#5B3767] text-lg mb-4 leading-relaxed text-center">
-                            Labdien, Guna! Ar vēlēšanos gribu pateikties par padarīto agenta darbu mājas pārdošanā un
-                            dzīvokļa iegādē! Nemot vērā, ka viss notika attālināti, tādējādi uzticēt vārdi, jo viss
-                            noritēja kā pa notīm! Paši mēs noteikti ieteiksim kādas lamatas! Pie iespējas noteikti Jūs
-                            rekomendēsim citiem. Veiksmi Jums it visā!
-                        </p>
-                        <p className="font-barlow400 text-[#9C9150] mt-4 text-center">Andrejs Mihailovs</p>
+                    <div className="relative z-10 flex flex-col items-center justify-center h-full w-full">
+                        {/* Heading */}
+                        <h2 className="font-garamond500 text-[#CDC697] text-2xl sm:text-4xl sm:mb-12 text-center">
+                            ATSAUKSMES
+                        </h2>
+
+                        {/* Testimonial Box */}
+                        <div
+                            className="relative bg-white w-full max-w-[320px] sm:max-w-[782px] h-auto opacity-90 p-6 sm:p-12 flex flex-col items-center"
+                        >
+                            {/* Centered Image */}
+                            <div
+                                className="w-[80px] sm:w-[100px] h-[80px] sm:h-[100px] object-cover flex items-center justify-center -mt-4 mb-6"
+                                style={{
+                                    backgroundImage: `url(${AM})`,
+                                    backgroundSize: 'cover',
+                                    backgroundPosition: 'center',
+                                }}
+                            ></div>
+
+                            {/* Testimonial Content */}
+                            <p className="font-barlow400 text-[#5B3767] text-base sm:text-lg mb-4 leading-relaxed text-center">
+                                {testimonials[currentIndex].content}
+                            </p>
+                            <p className="font-barlow400 text-[#9C9150] mt-4 text-center text-sm sm:text-base">
+                                {testimonials[currentIndex].author}
+                            </p>
+                        </div>
                     </div>
+
+                    {/* Right Arrow */}
+                    <button
+                        className="absolute right-[2%] sm:right-[2%] 2xl:right-[14%] sm:top-[54%] top-1/2 transform -translate-y-1/2 z-20"
+                        onClick={() => handleSwitchContent("right")}
+                    >
+                        <img src={ArrowLeft} alt="Right Arrow" className="w-[24px] h-[24px]"/>
+                    </button>
                 </div>
             </section>
-
 
             {/* Sadarbības Partneri Section */}
             <section className="mx-auto bg-white">

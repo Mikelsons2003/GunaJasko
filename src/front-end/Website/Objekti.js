@@ -35,7 +35,7 @@ function Objekti() {
     };
 
     return (
-        <div className="mx-auto font-sans text-white">
+        <div className="mx-auto text-white">
             <section
                 className="relative w-full h-[428px] bg-cover bg-center pt-24"
                 style={{

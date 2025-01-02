@@ -112,16 +112,16 @@ export default function ContactForm() {
                     <div className="font-barlow400 grid grid-cols-1 sm:grid-cols-3 gap-6">
                         <div>
                             <select
-                                className="w-full p-4 text-[#9C9150] placeholder-[#9C9150] border border-[#E8E1D3] focus:outline-none hover:border-[#CDC697] focus:border-[#CDC697] focus:ring-0"
+                                className="w-full p-4 text-[#9C9150] placeholder-[#9C9150] border border-[#E8E1D3] focus:outline-none hover:border-[#CDC697] focus:border-[#CDC697] focus:ring-0 bg-white"
                             >
                                 <option>Darījuma veids</option>
-                                <option>Pirkšana</option>
-                                <option>Pārdošana</option>
+                                <option value="pirkšana">Pirkšana</option>
+                                <option value="pārdošana">Pārdošana</option>
                             </select>
                         </div>
                         <div>
                             <select
-                                className="w-full p-4 text-[#9C9150] placeholder-[#9C9150] border border-[#E8E1D3] focus:outline-none hover:border-[#CDC697] focus:border-[#CDC697] focus:ring-0"
+                                className="w-full p-4 text-[#9C9150] placeholder-[#9C9150] border border-[#E8E1D3] focus:outline-none hover:border-[#CDC697] focus:border-[#CDC697] focus:ring-0 bg-white"
                             >
                                 <option>Reģions</option>
                                 <option>Rīga</option>
@@ -130,7 +130,7 @@ export default function ContactForm() {
                         </div>
                         <div>
                             <select
-                                className="w-full p-4 text-[#9C9150] placeholder-[#9C9150] border border-[#E8E1D3] focus:outline-none hover:border-[#CDC697] focus:border-[#CDC697] focus:ring-0"
+                                className="w-full p-4 text-[#9C9150] placeholder-[#9C9150] border border-[#E8E1D3] focus:outline-none hover:border-[#CDC697] focus:border-[#CDC697] focus:ring-0 bg-white"
                             >
                                 <option>Īpašuma tips</option>
                                 <option>Dzīvoklis</option>
