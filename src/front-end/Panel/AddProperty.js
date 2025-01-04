@@ -113,11 +113,11 @@ const AddProperty = () => {
 
     return (
         <div className="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-md">
-            <h2 className="text-2xl font-bold mb-4">Add New Property</h2>
+            <h2 className="text-2xl font-bold mb-4">Pievienot jaunu īpašumu</h2>
             <form onSubmit={handleSubmit}>
                 {/* Existing Title (Latvian) */}
                 <div className="mb-4">
-                    <label htmlFor="title" className="block text-sm font-medium text-gray-700">Title (Latvian)</label>
+                    <label htmlFor="title" className="block text-sm font-medium text-gray-700">Virsraksts (latviešu valodā)</label>
                     <input
                         type="text"
                         id="title"
@@ -131,7 +131,7 @@ const AddProperty = () => {
 
                 {/* Title (English) */}
                 <div className="mb-4">
-                    <label htmlFor="titleEng" className="block text-sm font-medium text-gray-700">Title (English)</label>
+                    <label htmlFor="titleEng" className="block text-sm font-medium text-gray-700">Virsraksts (angļu valodā)</label>
                     <input
                         type="text"
                         id="titleEng"
@@ -145,7 +145,7 @@ const AddProperty = () => {
 
                 {/* Title (Russian) */}
                 <div className="mb-4">
-                    <label htmlFor="titleRu" className="block text-sm font-medium text-gray-700">Title (Russian)</label>
+                    <label htmlFor="titleRu" className="block text-sm font-medium text-gray-700">Virsraksts (krievu valodā)</label>
                     <input
                         type="text"
                         id="titleRu"
@@ -159,7 +159,7 @@ const AddProperty = () => {
 
                 {/* Category */}
                 <div className="mb-4">
-                    <label htmlFor="category" className="block text-sm font-medium text-gray-700">Category</label>
+                    <label htmlFor="category" className="block text-sm font-medium text-gray-700">Kategorija</label>
                     <select
                         id="category"
                         name="category"
@@ -167,16 +167,15 @@ const AddProperty = () => {
                         onChange={handleChange}
                         className="w-full px-4 py-2 mt-1 border border-gray-300 rounded-md"
                     >
-                        <option value="Apartment">Apartment</option>
-                        <option value="House">House</option>
-                        <option value="Land">Land</option>
+                        <option value="Apartment">Dzīvoklis</option>
+                        <option value="House">Māja</option>
+                        <option value="Land">Zeme</option>
                     </select>
                 </div>
 
                 {/* Transaction Type */}
                 <div className="mb-4">
-                    <label htmlFor="transactionType" className="block text-sm font-medium text-gray-700">Transaction
-                        Type</label>
+                    <label htmlFor="transactionType" className="block text-sm font-medium text-gray-700">Pirkuma veids</label>
                     <select
                         id="transactionType"
                         name="transactionType"
@@ -184,14 +183,14 @@ const AddProperty = () => {
                         onChange={handleChange}
                         className="w-full px-4 py-2 mt-1 border border-gray-300 rounded-md"
                     >
-                        <option value="Sell">Sell</option>
-                        <option value="Rent">Rent</option>
+                        <option value="Sell">Pārdod</option>
+                        <option value="Rent">Izīrē</option>
                     </select>
                 </div>
 
                 {/* Price */}
                 <div className="mb-4">
-                    <label htmlFor="price" className="block text-sm font-medium text-gray-700">Price</label>
+                    <label htmlFor="price" className="block text-sm font-medium text-gray-700">Cena</label>
                     <input
                         type="number"
                         id="price"
@@ -205,7 +204,7 @@ const AddProperty = () => {
 
                 {/* Address */}
                 <div className="mb-4">
-                    <label htmlFor="address" className="block text-sm font-medium text-gray-700">Address</label>
+                    <label htmlFor="address" className="block text-sm font-medium text-gray-700">Adrese</label>
                     <input
                         type="text"
                         id="address"
@@ -219,7 +218,7 @@ const AddProperty = () => {
 
                 {/* Size */}
                 <div className="mb-4">
-                    <label htmlFor="size" className="block text-sm font-medium text-gray-700">Size (sqm)</label>
+                    <label htmlFor="size" className="block text-sm font-medium text-gray-700">Izmērs m2</label>
                     <input
                         type="number"
                         id="size"
@@ -233,7 +232,7 @@ const AddProperty = () => {
 
                 {/* Room Count */}
                 <div className="mb-4">
-                    <label htmlFor="roomCount" className="block text-sm font-medium text-gray-700">Room Count</label>
+                    <label htmlFor="roomCount" className="block text-sm font-medium text-gray-700">Istabu skaits</label>
                     <input
                         type="number"
                         id="roomCount"
@@ -247,7 +246,7 @@ const AddProperty = () => {
 
                 {/* Floor */}
                 <div className="mb-4">
-                    <label htmlFor="floor" className="block text-sm font-medium text-gray-700">Floor</label>
+                    <label htmlFor="floor" className="block text-sm font-medium text-gray-700">Stāvs/i</label>
                     <input
                         type="number"
                         id="floor"
@@ -261,7 +260,7 @@ const AddProperty = () => {
 
                 {/* Existing Description (Latvian) */}
                 <div className="mb-4">
-                    <label htmlFor="description" className="block text-sm font-medium text-gray-700">Description (Latvian)</label>
+                    <label htmlFor="description" className="block text-sm font-medium text-gray-700">Apraksts(latviešu valodā)</label>
                     <textarea
                         id="description"
                         name="description"
@@ -274,7 +273,7 @@ const AddProperty = () => {
 
                 {/* Description (English) */}
                 <div className="mb-4">
-                    <label htmlFor="descriptionEng" className="block text-sm font-medium text-gray-700">Description (English)</label>
+                    <label htmlFor="descriptionEng" className="block text-sm font-medium text-gray-700">Apraksts(angļu valodā)</label>
                     <textarea
                         id="descriptionEng"
                         name="descriptionEng"
@@ -287,7 +286,7 @@ const AddProperty = () => {
 
                 {/* Description (Russian) */}
                 <div className="mb-4">
-                    <label htmlFor="descriptionRu" className="block text-sm font-medium text-gray-700">Description (Russian)</label>
+                    <label htmlFor="descriptionRu" className="block text-sm font-medium text-gray-700">Apraksts(krievu valodā)</label>
                     <textarea
                         id="descriptionRu"
                         name="descriptionRu"
@@ -300,7 +299,7 @@ const AddProperty = () => {
 
                 {/* Main Image */}
                 <div className="mb-4">
-                    <label htmlFor="mainImage" className="block text-sm font-medium text-gray-700">Main Image</label>
+                    <label htmlFor="mainImage" className="block text-sm font-medium text-gray-700">Galvenais attēls</label>
                     <input
                         type="file"
                         id="mainImage"
@@ -313,7 +312,7 @@ const AddProperty = () => {
 
                 {/* Collage Images */}
                 <div className="mb-4">
-                    <label htmlFor="collageImages" className="block text-sm font-medium text-gray-700">Collage Images</label>
+                    <label htmlFor="collageImages" className="block text-sm font-medium text-gray-700">Īpašumu attēli</label>
                     <input
                         type="file"
                         id="collageImages"
@@ -340,7 +339,7 @@ const AddProperty = () => {
                 </div>
 
                 <button onClick={navigateToProperties} type="submit" className="bg-[#5B3767] hover:bg-[#7A4D8F] active:bg-[#3F1E47] text-white font-bold py-2 px-4 sm:px-6 rounded-md shadow-md ease-in-out duration-500">
-                    Add Property
+                    Pievienot
                 </button>
             </form>
         </div>

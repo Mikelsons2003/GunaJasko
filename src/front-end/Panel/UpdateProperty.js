@@ -127,13 +127,13 @@ const UpdateProperty = () => {
 
     return (
         <div className="max-w-4xl mx-auto mt-8">
-            <h1 className="text-2xl font-bold mb-6">Update Property</h1>
+            <h1 className="text-2xl font-bold mb-6">Atjaunināt Īpašumu</h1>
 
             {error && <p className="text-red-500">{error}</p>}
 
             <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                    <label className="block text-gray-700">Title</label>
+                    <label className="block text-gray-700">Virsraksts (latviešu valodā)</label>
                     <input
                         type="text"
                         name="title"
@@ -144,7 +144,7 @@ const UpdateProperty = () => {
                 </div>
 
                 <div>
-                    <label className="block text-gray-700">Title (English)</label>
+                    <label className="block text-gray-700">Virsraksts (angļu valodā)</label>
                     <input
                         type="text"
                         name="titleEng"
@@ -155,7 +155,7 @@ const UpdateProperty = () => {
                 </div>
 
                 <div>
-                    <label className="block text-gray-700">Title (Russian)</label>
+                    <label className="block text-gray-700">Virsraksts (krievu valodā)</label>
                     <input
                         type="text"
                         name="titleRu"
@@ -166,7 +166,7 @@ const UpdateProperty = () => {
                 </div>
 
                 <div>
-                    <label className="block text-gray-700">Description</label>
+                    <label className="block text-gray-700">Apraksts (latviešu valodā)</label>
                     <textarea
                         name="description"
                         value={property.description}
@@ -177,7 +177,7 @@ const UpdateProperty = () => {
                 </div>
 
                 <div>
-                    <label className="block text-gray-700">Description (English)</label>
+                    <label className="block text-gray-700">Apraksts (angļu valodā)</label>
                     <textarea
                         name="descriptionEng"
                         value={property.descriptionEng}
@@ -188,7 +188,7 @@ const UpdateProperty = () => {
                 </div>
 
                 <div>
-                    <label className="block text-gray-700">Description (Russian)</label>
+                    <label className="block text-gray-700">Apraksts (krievu valodā)</label>
                     <textarea
                         name="descriptionRu"
                         value={property.descriptionRu}
@@ -199,7 +199,7 @@ const UpdateProperty = () => {
                 </div>
 
                 <div>
-                    <label className="block text-gray-700">Price</label>
+                    <label className="block text-gray-700">Cena</label>
                     <input
                         type="number"
                         name="price"
@@ -210,7 +210,7 @@ const UpdateProperty = () => {
                 </div>
 
                 <div>
-                    <label className="block text-gray-700">Category</label>
+                    <label className="block text-gray-700">Kategorija</label>
                     <select
                         name="category"
                         value={property.category}
@@ -224,7 +224,7 @@ const UpdateProperty = () => {
                 </div>
 
                 <div>
-                    <label className="block text-gray-700">Transaction Type</label>
+                    <label className="block text-gray-700">Pirkuma veids</label>
                     <select
                         name="transactionType"
                         value={property.transactionType}
@@ -237,7 +237,7 @@ const UpdateProperty = () => {
                 </div>
 
                 <div>
-                    <label className="block text-gray-700">Address</label>
+                    <label className="block text-gray-700">Adrese</label>
                     <input
                         type="text"
                         name="address"
@@ -248,7 +248,7 @@ const UpdateProperty = () => {
                 </div>
 
                 <div>
-                    <label className="block text-gray-700">Size</label>
+                    <label className="block text-gray-700">Izmērs m2</label>
                     <input
                         type="text"
                         name="size"
@@ -259,7 +259,7 @@ const UpdateProperty = () => {
                 </div>
 
                 <div>
-                    <label className="block text-gray-700">Room Count</label>
+                    <label className="block text-gray-700">Istabu skaits</label>
                     <input
                         type="number"
                         name="roomCount"
@@ -270,7 +270,7 @@ const UpdateProperty = () => {
                 </div>
 
                 <div>
-                    <label className="block text-gray-700">Floor</label>
+                    <label className="block text-gray-700">Stāvs/i</label>
                     <input
                         type="number"
                         name="floor"
@@ -281,7 +281,7 @@ const UpdateProperty = () => {
                 </div>
 
                 <div>
-                    <label className="block text-gray-700">Main Image</label>
+                    <label className="block text-gray-700">Galvenais attēls</label>
                     <div className="relative">
                         {property.mainImage && (
                             <div className="relative inline-block">
@@ -312,7 +312,7 @@ const UpdateProperty = () => {
                 </div>
 
                 <div>
-                    <label className="block text-gray-700">Collage Images</label>
+                    <label className="block text-gray-700">Īpašumu attēli</label>
                     <div className="flex flex-wrap gap-2 mb-2">
                         {property.collageImages.map((image, index) => (
                             <div key={index} className="relative m-2">
@@ -344,7 +344,7 @@ const UpdateProperty = () => {
                     disabled={loading}
                     className="bg-[#5B3767] hover:bg-[#7A4D8F] active:bg-[#3F1E47] text-white font-bold py-2 px-4 sm:px-6 rounded-md shadow-md ease-in-out duration-500"
                 >
-                    {loading ? "Updating..." : "Update Property"}
+                    {loading ? "Atjaunina..." : "Atjaunināt īpašumu"}
                 </button>
             </form>
         </div>

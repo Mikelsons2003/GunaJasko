@@ -4,7 +4,7 @@ import {FaUserCircle} from "react-icons/fa";
 
 const Header = () => {
     const navigate = useNavigate();
-    const [username, setUsername] = useState("Not logged in"); // Default username
+    const [username, setUsername] = useState("Savienojums neveiksmīgs"); // Default username
 
     useEffect(() => {
         // Fetch token from localStorage
@@ -13,13 +13,13 @@ const Header = () => {
         if (token) {
             // Decode the token or fetch username (replace this mockup with actual logic)
             const decodedToken = parseJwt(token); // Replace `parseJwt` with your preferred method
-            setUsername(decodedToken?.username || "Logged in");
+            setUsername(decodedToken?.username || "Pievienojies");
         }
     }, []);
 
     const handleLogout = () => {
         localStorage.removeItem('token'); // Clear token
-        setUsername("Not logged in"); // Reset username
+        setUsername("Savienojums neveiksmīgs"); // Reset username
         navigate('/login');
     };
 
@@ -35,7 +35,7 @@ const Header = () => {
                     onClick={handleLogout}
                     className="bg-gold text-white font-bold py-2 px-4 rounded-md hover:bg-[#b59860] active:bg-[#9A7A4C]"
                 >
-                    Log Out
+                    Iziet
                 </button>
             </div>
         </header>

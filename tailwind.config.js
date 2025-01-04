@@ -9,6 +9,7 @@ module.exports = {
                 barlow500: ['Barlow Semi Condensed', 'sans-serif'], // For weight 500
                 garamond500: ['Cormorant Garamond', 'serif'], // For weight 500
                 infant600: ['Cormorant Infant', 'serif'], // For weight 600
+                poppins500: ['Poppins', 'sans-serif'],
             },
             screens: {
                 xs: '500px', // Add a custom breakpoint at 500px
