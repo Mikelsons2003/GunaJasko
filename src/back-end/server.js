@@ -11,7 +11,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-    origin: ['https://guna.lucid-websites.com', 'http://localhost:3000'], // Add localhost for local development
+    origin: ['https://guna.lucid-websites.com', 'http://localhost:3000'],  // Add localhost for local development
     allowedHeaders: ['Authorization', 'Content-Type'],
     methods: ['GET', 'POST', 'DELETE', 'PUT'],
 }));
