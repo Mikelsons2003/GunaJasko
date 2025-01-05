@@ -4,6 +4,7 @@ import {useNavigate} from 'react-router-dom';
 import {MdDeleteForever} from 'react-icons/md';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
+export const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "https://guna.lucid-websites.com/api";
 
 const ImageWithLoading = ({src}) => {
     const [isImageLoading, setIsImageLoading] = useState(true);
@@ -51,7 +52,7 @@ const Properties = () => {
                     return;
                 }
 
-                const response = await axios.get('http://localhost:5000/api/properties', {
+                const response = await axios.get(`${API_BASE_URL}/properties`, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
@@ -133,7 +134,7 @@ const Properties = () => {
                 return;
             }
 
-            await axios.delete(`http://localhost:5000/api/properties/${id}`, {
+            await axios.delete(`${API_BASE_URL}/properties/${id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },

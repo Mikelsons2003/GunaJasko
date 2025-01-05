@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {useNavigate, useParams} from "react-router-dom";
 import {AiOutlineClose} from "react-icons/ai";
+export const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "https://guna.lucid-websites.com/api";
 
 const UpdateProperty = () => {
     const {id} = useParams();
@@ -37,7 +38,7 @@ const UpdateProperty = () => {
                     return;
                 }
 
-                const propertyResponse = await axios.get(`http://localhost:5000/api/properties/${id}`, {
+                const propertyResponse = await axios.get(`${API_BASE_URL}/properties/${id}`, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
@@ -109,7 +110,7 @@ const UpdateProperty = () => {
                 }
             }
 
-            await axios.put(`http://localhost:5000/api/properties/${id}`, formData, {
+            await axios.put(`${API_BASE_URL}/properties/${id}`, formData, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                     "Content-Type": "multipart/form-data",
