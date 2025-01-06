@@ -2,6 +2,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
+export const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "https://guna.lucid-websites.com/api";
 
 const AddProperty = () => {
     const [formData, setFormData] = useState({
@@ -83,7 +84,7 @@ const AddProperty = () => {
             }
 
             console.log("Sending request to add property...");
-            const response = await axios.post("http://localhost:5000/api/properties", requestData, {
+            const response = await axios.post(`${API_BASE_URL}/properties`, requestData, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                     "Content-Type": "multipart/form-data",
