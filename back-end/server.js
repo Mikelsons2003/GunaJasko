@@ -1,27 +1,33 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const cors = require('cors');
-const propertyRoutes = require('./routes/propertyRoutes'); // Import property routes
-const authRoutes = require('./routes/authRoutes'); // Import auth routes
-const pool = require('./db'); // Import database connection
 const path = require('path');
+const pool = require('./db'); // Import database connection
 
+// Load environment variables from .env file
 dotenv.config();
+
 const app = express();
+const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors({
-    origin: ['https://guna.lucid-websites.com', 'http://localhost:3000'],  // Add localhost for local development
+    origin: ['https://guna.lucid-websites.com', 'http://localhost:3000'], // Allowed origins
     allowedHeaders: ['Authorization', 'Content-Type'],
     methods: ['GET', 'POST', 'DELETE', 'PUT'],
+    credentials: true, // Include credentials for cross-origin requests
 }));
 
-app.use(express.json());
+app.use(express.json()); // Parse JSON bodies
+app.use('/uploads', express.static(path.join(__dirname, 'uploads'))); // Serve uploads folder
 
 // Routes
-app.use('/api/properties', propertyRoutes);
+const authRoutes = require('./routes/authRoutes'); // Authentication routes
+const propertyRoutes = require('./routes/propertyRoutes'); // Property management routes
+
+// API Routes
 app.use('/api/auth', authRoutes);
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use('/api/properties', propertyRoutes);
 
 // Test database connection endpoint
 app.get('/test-db-connection', (req, res) => {
@@ -39,8 +45,26 @@ app.get('/test-db-connection', (req, res) => {
     });
 });
 
+// Serve static files for React app
+app.use(express.static(path.join(__dirname, 'frontend/build')));
+
+// Handle unmatched API routes explicitly
+app.use('/api/*', (req, res) => {
+    res.status(404).json({message: 'API route not found'});
+});
+
+// Fallback route for React app
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'frontend/build', 'index.html'));
+});
+
+// General error-handling middleware
+app.use((err, req, res, next) => {
+    console.error('Internal Server Error:', err);
+    res.status(500).json({message: 'Internal Server Error'});
+});
+
 // Start the server
-const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
