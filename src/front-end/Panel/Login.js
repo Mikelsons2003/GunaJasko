@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import {useNavigate} from 'react-router-dom';
-export const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "https://guna.lucid-websites.com/api";
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -23,7 +22,7 @@ const Login = () => {
         setError(''); // Clear previous errors
 
         try {
-            const response = await axios.post(`${API_BASE_URL}/auth/login`, {email, password});
+            const response = await axios.post('http://localhost:5000/api/auth/login', {email, password});
 
             if (response.data.token) {
                 localStorage.setItem('token', response.data.token); // Store token

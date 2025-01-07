@@ -50,7 +50,7 @@ function Darijuma() {
             <div className="container mx-auto px-6 sm:px-8 lg:px-20 py-16 text-[#5B3767]">
                 {/* Centered Title */}
                 <h1 className="text-2xl sm:text-3xl lg:text-4xl text-center mb-12">
-                    Pakalpojums (pilns cikls) ietver:
+                    Pakalpojums ietver:
                 </h1>
 
                 {/* Content Section */}

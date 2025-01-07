@@ -28,12 +28,13 @@ const images = [
 // Reusable grid item component
 const GridItem = ({ src }) => {
     return (
-        <div
-            className="w-full h-64 bg-cover bg-center"
-            style={{
-                backgroundImage: `url(${src})`,
-            }}
-        ></div>
+        <div className="w-[280px]">
+            <img
+                src={src}
+                alt="Grid Image"
+                className="w-[280px] h-[209px] object-cover"
+            />
+        </div>
     );
 };
 
@@ -60,12 +61,12 @@ function ObjektiIeskats() {
                             <li className="mt-3 md:mt-0">Zeme</li>
                             <li className="mt-3 md:mt-0">Jaunie projekti</li>
                             <li className="mt-3 md:mt-0">Projekti no attīstītāja</li>
-                            <li className="mt-3 md:mt-0">Komercobjekti</li>
+                            <li className="mt-3 md:mt-0">InvestīcijuObjekti</li>
                         </ul>
                     </nav>
                     <nav
                         className="font-barlow400 w-full max-w-[1267px] flex justify-center md:justify-start items-center text-white text-sm lg:text-lg uppercase tracking-wide px-6">
-                        <ul className="flex space-x-4 lg:space-x-8 mt-12">
+                        <ul className="flex space-x-4 lg:space-x-8 mt-12 mb-6 md:mb-0">
                             <li>Pārdod</li>
                             <li>Izīrē</li>
                         </ul>
@@ -75,8 +76,10 @@ function ObjektiIeskats() {
 
             {/* Main Content Section */}
             <section className="w-full max-w-screen-xl mx-auto py-12 px-4 lg:px-6 bg-white text-[#5B3767]">
-                <div className="flex flex-col items-start space-y-4 mb-14">
-                    <div className="font-barlow400 flex items-center space-x-2 text-sm uppercase mb-10 mt-6">
+                {/* Text Content */}
+                <div className="flex flex-col sm:items-start lg:items-start space-y-4 mb-14 text-center lg:text-left">
+                    <div
+                        className="font-barlow400 flex items-center justify-center lg:justify-start space-x-2 text-sm uppercase mb-10 mt-6">
                         <span className="font-semibold">Objekti</span>
                         <span>&rarr;</span>
                         <span className="font-semibold">Dzīvokļi</span>
@@ -86,8 +89,10 @@ function ObjektiIeskats() {
                     <h1 className="font-garamond500 text-2xl">Pārdod gleznainu dzīvokli ainaviskajā Klusajā centrā</h1>
                     <h1 className="font-infant600 text-3xl">120 000 EUR</h1>
                 </div>
+
+                {/* Image */}
                 <div
-                    className="relative w-full h-[662px] max-w-[1224px] mx-auto flex items-center justify-center bg-cover bg-center"
+                    className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[662px] max-w-[1224px] mx-auto flex items-center justify-center bg-cover bg-center"
                     style={{
                         backgroundImage: `url(${photo8})`,
                     }}
@@ -96,40 +101,42 @@ function ObjektiIeskats() {
 
             <section className="w-full max-w-screen-xl mx-auto px-4 lg:px-6">
                 {/* Red Section */}
-                <div className="w-[782px] grid grid-cols-4 gap-4">
-                    {/* Column 1 */}
-                    <div className="text-left font-barlow400">
-                        <p className="text-[#5B3767]">Adrese</p>
-                        <p className="text-[#5B3767]">Ēkas tips</p>
-                    </div>
+                <div className="w-full md:w-[742px] py-12 bg-white text-[#5B3767]">
+                    <div className="grid grid-cols-2 lg:grid-cols-4">
+                        {/* Left Column 1 */}
+                        <div className="text-center lg:text-left space-y-2 font-barlow400">
+                            <span className="block">Adrese</span>
+                            <span className="block">Ēkas tips</span>
+                        </div>
 
-                    {/* Column 2 */}
-                    <div className="text-left -ml-16">
-                        <p className="text-[#5B3767] font-semibold">Alberta 1, Rīga</p>
-                        <p className="text-[#5B3767] font-semibold">Ēkas tips</p>
-                    </div>
+                        {/* Left Column 2 */}
+                        <div className="text-center lg:text-left space-y-2 font-barlow500">
+                            <span className="block font-semibold">Alberta 1,Rīga</span>
+                            <span className="block font-semibold">Ēkas tips</span>
+                        </div>
 
-                    {/* Column 3 */}
-                    <div className="text-left ml-28 font-barlow400">
-                        <p className="text-[#5B3767]">Platība</p>
-                        <p className="text-[#5B3767]">Istabu sk.</p>
-                        <p className="text-[#5B3767]">Stāvs</p>
-                    </div>
+                        {/* Right Column 1 */}
+                        <div className="text-center lg:text-right space-y-2 font-barlow400 mt-6 lg:mt-0">
+                            <span className="block">Platība</span>
+                            <span className="block">Istabu sk.</span>
+                            <span className="block">Stāvs</span>
+                        </div>
 
-                    {/* Column 4 */}
-                    <div className="text-right font-barlow500">
-                        <p className="text-[#5B3767] font-semibold">50 m<sup>2</sup></p>
-                        <p className="text-[#5B3767] font-semibold">5</p>
-                        <p className="text-[#5B3767] font-semibold">5</p>
+                        {/* Right Column 2 */}
+                        <div className="text-center lg:text-right space-y-2 font-barlow500 mt-6 lg:mt-0">
+                            <span className="block font-semibold">50 m²</span>
+                            <span className="block font-semibold">5</span>
+                            <span className="block font-semibold">5</span>
+                        </div>
                     </div>
                 </div>
 
-                <div className="w-[847px] max-w-screen-xl mt-2 relative z-10 text-left mt-6 mb-12">
+                <div className="w-full lg:w-[847px] max-w-screen-xl relative z-10 text-left mt-6 mb-12">
                     <div className="border-b-[1px] border-[#CDC697]"></div>
                 </div>
 
                 {/* Green Section */}
-                <div className="w-[850px] text-left">
+                <div className="w-full text-left">
                     <p className="font-barlow400 text-[#5B3767] leading-relaxed">
                         Dzīvoklī veikts kapitālais remonts, nomainīta elektroinstalācija, izbūvēta apsardzes un
                         ugunsdrošības
@@ -157,9 +164,10 @@ function ObjektiIeskats() {
                 </div>
             </section>
 
+
             {/* Image Grid Section */}
-            <div className="w-full max-w-screen-xl mx-auto px-4 py-8">
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="w-full max-w-screen-xl mx-auto px-4 py-8 justify-center items-center">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 place-items-center">
                     {images.map((src, index) => (
                         <GridItem key={index} src={src}/>
                     ))}
@@ -167,7 +175,7 @@ function ObjektiIeskats() {
 
                 {/* Button Section */}
                 <div className="mt-12 flex justify-center">
-                    <a href="https://guna.lucid-websites.com/objekti">
+                    <a href="https://guna.lucid-websites.com/kontakti">
                         <button
                             className="font-barlow500 w-[274px] h-[55px] bg-[#5B3767] text-[#CDC697] text-sm hover:bg-[#371243] transition duration-300 ease-in-out">
                             SAZINĀTIES
@@ -177,19 +185,20 @@ function ObjektiIeskats() {
             </div>
 
             <section className="w-full max-w-screen-xl mx-auto py-12 px-4 lg:px-6 text-[#5B3767] mb-8">
-                <div className="flex flex-col lg:flex-row justify-between items-end lg:space-y-0">
+                <div
+                    className="flex flex-col lg:flex-row justify-center lg:justify-between items-center lg:items-end lg:space-y-0 text-center lg:text-left">
                     {/* Left Section: Image and Agent Information */}
-                    <div className="flex flex-col lg:flex-row items-end lg:space-x-8">
+                    <div className="flex flex-col lg:flex-row items-center lg:items-end lg:space-x-8">
                         {/* Profile Picture */}
                         <div
-                            className="w-[182px] h-[275px] bg-cover bg-center"
+                            className="w-[182px] h-[275px] bg-cover bg-center mb-6 lg:mb-0"
                             style={{
                                 backgroundImage: `url(${GunaJaskoBlue})`,
                             }}
                         ></div>
 
                         {/* Agent Information */}
-                        <div className="flex flex-col space-y-2 text-left">
+                        <div className="flex flex-col space-y-2">
                             <h2 className="font-garamond500 text-4xl">GUNA JASKO</h2>
                             <p className="font-barlow500 text-lg uppercase tracking-wide">
                                 NEKUSTAMO ĪPAŠUMU AĢENTS
@@ -200,20 +209,24 @@ function ObjektiIeskats() {
                     </div>
 
                     {/* Right Section: Social Icons */}
-                    <div className="flex flex-col items-end space-y-4">
+                    <div className="flex flex-col items-center lg:items-end space-y-4 mt-8 lg:mt-0">
                         <h1 className="font-barlow500 text-[#9C9150] text-xl">DALĪTIES</h1>
                         <div className="grid grid-cols-2 gap-4">
                             <a
-                                href="#"
+                                href="https://www.facebook.com/profile.php?id=100062951665076&mibextid=wwXIfr&rdid=hCVlgIdTGejCSuBS&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1u4u65Eu5izWGVmZ%2F%3Fmibextid%3DwwXIfr"
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className="w-8 h-8 flex items-center justify-center border-2 border-[#5B3767] rounded-md"
                             >
                                 <FaFacebookF className="text-[#5B3767]"/>
                             </a>
                             <a
-                                href="#"
+                                href="https://www.instagram.com/gunarealty/"
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className="w-8 h-8 flex items-center justify-center border-2 border-[#5B3767] rounded-md"
                             >
-                                <FaInstagram className="text-[#5B3767]" />
+                                <FaInstagram className="text-[#5B3767]"/>
                             </a>
                         </div>
                     </div>

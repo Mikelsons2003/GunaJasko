@@ -55,7 +55,7 @@ function Objekti() {
                             <li className="mt-3 md:mt-0">Zeme</li>
                             <li className="mt-3 md:mt-0">Jaunie projekti</li>
                             <li className="mt-3 md:mt-0">Projekti no attīstītāja</li>
-                            <li className="mt-3 md:mt-0">Komercobjekti</li>
+                            <li className="mt-3 md:mt-0">InvestīcijuObjekti</li>
                         </ul>
                     </nav>
                     {/* Secondary Navigation */}

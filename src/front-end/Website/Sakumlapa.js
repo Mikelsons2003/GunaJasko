@@ -24,16 +24,16 @@ function Sakumlapa() {
 
     const testimonials = [
         {
-            content: "Labdien, Guna! Ar vēlēšanos gribu pateikties par padarīto agenta darbu mājas pārdošanā un dzīvokļa iegādē! Nemot vērā, ka viss notika attālināti, tādējādi uzticēt vārdi, jo viss noritēja kā pa notīm! Paši mēs noteikti ieteiksim kādas lamatas! Pie iespējas noteikti Jūs rekomendēsim citiem. Veiksmi Jums it visā!",
+            content: "Labdien, Guna! Ar novēlošanos gribu patiekties par padarīto aģenta darbiņu mājas pārdošanā un dzīvokļa iegādē! Ņemot vērā, ka viss notika attālināti, tad vispār trūkst vārdi, jo viss noritēja kā pa notīm! Paši mēs noteikti iekristu kādās lamatās! Pie iespējas noteikti Jūs rekomendēšu citiem. Veiksmi Jums it visā!",
             author: "Andrejs Mihailovs",
         },
         {
-            content: "Paldies par izcilu darbu! Dzīvokļa pārdošana notika ātri un bez problēmām. Noteikti iesaku citiem izmantot Jūsu pakalpojumus!",
-            author: "Kristīne Ozoliņa",
+            content: "Guna Jasko, with her extensive knowledge of the market and her dedication to each client, has been instrumental in bossting my sales. I highly recommend her services to anyone seeking a proactive, reliable real estate agent who is capable of delivering exceptional results.",
+            author: "Mats Johansson",
         },
         {
-            content: "Novērtēju jūsu palīdzību, Ieteikšu jūs arī citiem, paldies liels par paveikto darbu",
-            author: "Miks Miķelsons",
+            content: "Ļoti labi. Milzīgs tev paldies, ka piekriti, uzņēmies, palīdzēji un izdarīji fantastisku darbu. Turklāt ļoti ātri. Godīgi sakot, pirmo reizi dzīvē saskāros ar tik profesionālu cilvēku. Paldies tev <3",
+            author: "Arvis Galdiņš",
         },
         // Add more testimonials as needed
     ];
@@ -89,11 +89,11 @@ function Sakumlapa() {
 
                 {/* Text Section */}
                 <div
-                    className="w-full max-w-screen-xl mx-auto absolute top-72 left-1/2 transform -translate-x-1/2 text-white space-y-6 xs:px-8">
-                    <h2 className="text-4xl text-center xs:text-left font-garamond500">
+                    className="w-full max-w-screen-xl mx-auto absolute top-80 left-1/2 transform -translate-x-1/2 text-white space-y-6 xs:px-8">
+                    <h2 className="text-4xl text-center xs:text-left font-garamond500 pl-3">
                         NEKUSTAMO ĪPAŠUMU AĢENTS
                     </h2>
-                    <p className="max-w-lg text-center xs:text-left font-barlow400 p-2 sm:p-0">
+                    <p className="max-w-lg text-center xs:text-left font-barlow400 pl-3">
                         Nekustamo īpašumu pārdošanā kopš 2006. gada, specializācija – dzīvojamais fonds:
                         dzīvokļu, privātmāju un zemju tirdzniecība un īre Rīgā un Rīgas rajonā. Pieredze
                         apjomīgu projektu tirdzniecībā kā projektu vadītājai
@@ -103,7 +103,7 @@ function Sakumlapa() {
                         {/* Button that triggers custom smooth scroll */}
                         <button
                             onClick={scrollToContactForm}
-                            className="font-barlow500 w-[272px] h-[55px] sm:w-[317px] sm:h-[55px] bg-[#5B3767] hover:bg-[#371243] transition duration-300 ease-in-out text-[#CDC697] font-medium"
+                            className="font-barlow500 w-[272px] h-[55px] sm:w-[317px] sm:h-[55px] bg-[#5B3767] hover:bg-[#371243] transition duration-300 ease-in-out text-[#CDC697] font-medium sm:ml-3"
                         >
                             PIETEIKT ĪPAŠUMU
                         </button>

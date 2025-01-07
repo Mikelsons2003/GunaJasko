@@ -8,6 +8,7 @@ import Footer from "./front-end/Website/Footer";
 import Pakalpojumi from "./front-end/Website/Pakalpojumi";
 import Kontakti from "./front-end/Website/Kontakti";
 import Objekti from "./front-end/Website/Objekti";
+import ObjektiIeskats from "./front-end/Website/ObjektiIeskats";
 import Starpniecibas from "./front-end/Website/UnderPakalpojumi/Starpniecibas";
 import Darijuma from "./front-end/Website/UnderPakalpojumi/Darijuma";
 import Projekti from "./front-end/Website/UnderPakalpojumi/Projekti";
@@ -64,6 +65,7 @@ function App() {
                 <Route path="/darijuma" element={<Darijuma/>}/>
                 <Route path="/projekti" element={<Projekti/>}/>
                 <Route path="/objekti" element={<Objekti/>}/>
+                <Route path="/objektiIeskats" element={<ObjektiIeskats/>}/>
                 <Route path="/kontakti" element={<Kontakti/>}/>
                 <Route path="/privatuma-politika" element={<PrivatumaPolitika/>}/>
                 <Route path="/login" element={<Login/>}/>

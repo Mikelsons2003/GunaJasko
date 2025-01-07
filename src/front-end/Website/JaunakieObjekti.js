@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import JaunakieObjekti from '../../img/JaunakieObjekti.webp';
+import ArrowLeft from '../../img/ArrowLeft.png';
+import ArrowRight from '../../img/ArrowRight.png';
 
 const JaunakieObjektiSection = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [direction, setDirection] = useState("right"); // Default direction
 
     const cards = [
         {
@@ -33,58 +34,60 @@ const JaunakieObjektiSection = () => {
     ];
 
     const handlePrev = () => {
-        setDirection("left");
         setCurrentIndex((prevIndex) => (prevIndex - 1 + cards.length) % cards.length);
     };
 
     const handleNext = () => {
-        setDirection("right");
         setCurrentIndex((prevIndex) => (prevIndex + 1) % cards.length);
     };
 
     return (
         <section className="py-16 bg-white flex items-center justify-center min-h-screen">
-            <div className="container mx-auto lg:px-20">
+            <div className="container mx-auto flex flex-col items-center justify-center">
                 {/* Heading */}
                 <h1 className="font-garamond500 text-center text-[#5B3767] text-4xl mb-12">JAUNĀKIE OBJEKTI</h1>
 
-                {/* Cards */}
-                <div className="relative flex lg:flex-row lg:gap-6 items-center justify-center overflow-hidden lg:overflow-visible">
-                    {/* Mobile: Card Navigation */}
+                {/* Responsive Cards Section */}
+                <div className="relative flex items-center justify-center lg:justify-between">
+                    {/* Arrows: Only visible on small screens */}
                     <button
                         onClick={handlePrev}
-                        className="absolute left-4 md:left-12 bg-[#5B3767] text-white p-2 rounded-full hover:bg-opacity-90 focus:outline-none z-10 lg:hidden">
-                        &larr;
+                        className="absolute left-[2%] sm:left-[2%] top-1/2 transform -translate-y-1/2 z-20 lg:hidden -ml-8 xs:-ml-12"
+                    >
+                        <img src={ArrowRight} alt="Left Arrow" className="w-[24px] h-[24px]"/>
                     </button>
 
                     {/* Cards Container */}
-                    <div className="relative w-[310px] xs:w-[340px] h-[523px] lg:flex lg:gap-6 xl:gap-20 lg:w-auto lg:h-auto">
+                    <div
+                        className="relative w-full flex items-center gap-4 md:gap-6 lg:gap-8 overflow-hidden lg:overflow-visible">
                         {cards.map((card, index) => (
                             <div
                                 key={index}
-                                className={`lg:static lg:visible lg:opacity-100 lg:translate-x-0 ${
+                                className={`w-full md:w-1/2 lg:w-1/3 transition-transform duration-[700ms] ease-in-out ${
                                     index === currentIndex
-                                        ? "absolute inset-0 transition-transform duration-[700ms] ease-in-out translate-x-0 opacity-100 visible"
-                                        : direction === "right"
-                                            ? "absolute inset-0 transition-transform duration-[700ms] ease-in-out translate-x-full opacity-0 invisible"
-                                            : "absolute inset-0 transition-transform duration-[700ms] ease-in-out -translate-x-full opacity-0 invisible"
-                                } lg:border lg:border-[#CDC697]`}
+                                        ? "translate-x-0 opacity-100 visible"
+                                        : "hidden lg:block" // Show all cards on large screens
+                                }`}
                             >
-                                <div className="border border-[#CDC697] w-full h-full mx-auto lg:border-none">
-                                    <div className="w-full h-[254px] bg-gray-200">
-                                        <img
-                                            className="object-cover w-full h-full"
-                                            src={card.image}
-                                            alt="Property"
-                                        />
-                                    </div>
-                                    <div className="p-6">
+                                <div className="border border-[#CDC697] w-[261px] md:w-[311px] 2xl:w-[341px] h-full mx-auto">
+                                    {/* Image */}
+                                    <div
+                                        className="w-[260px] md:w-[310px] 2xl:w-[340px] h-[254px] bg-gray-200"
+                                        style={{
+                                            backgroundImage: `url(${card.image})`,
+                                            backgroundSize: "cover",
+                                            backgroundPosition: "center",
+                                        }}
+                                    ></div>
+
+                                    {/* Content */}
+                                    <div className="p-4 sm:p-6">
                                         {/* Header */}
                                         <div className="font-garamond500 text-left">{card.header}</div>
 
                                         {/* Price */}
                                         <div className="text-left">
-                                            <h2 className="font-infant600  text-[#5B3767] text-2xl font-bold mb-4">{card.price}</h2>
+                                            <h2 className="font-infant600 text-[#5B3767] text-2xl font-bold mb-4">{card.price}</h2>
                                         </div>
 
                                         {/* Divider */}
@@ -92,7 +95,7 @@ const JaunakieObjektiSection = () => {
                                             <div className="border-b-[1px] border-[#CDC697]"></div>
                                         </div>
 
-                                        {/* Two-Column Layout for Text */}
+                                        {/* Details */}
                                         <div className="font-barlow400 grid grid-cols-2 text-sm text-[#5B3767] gap-y-2">
                                             <span className="text-left py-1">Adrese:</span>
                                             <span className="text-right font-semibold">{card.address}</span>
@@ -108,7 +111,8 @@ const JaunakieObjektiSection = () => {
                                         <div className="text-left">
                                             <a
                                                 href="#"
-                                                className="font-barlow500 text-[#CDC697] text-sm mt-6 inline-flex items-center">
+                                                className="font-barlow500 text-[#CDC697] text-sm mt-6 inline-flex items-center"
+                                            >
                                                 SKATĪT <span className="ml-1">&rarr;</span>
                                             </a>
                                         </div>
@@ -118,20 +122,23 @@ const JaunakieObjektiSection = () => {
                         ))}
                     </div>
 
-                    {/* Mobile: Right Arrow */}
+                    {/* Right Arrow: Only visible on small screens */}
                     <button
                         onClick={handleNext}
-                        className="absolute right-4 md:right-12 bg-[#5B3767] text-white p-2 rounded-full hover:bg-opacity-90 focus:outline-none z-10 lg:hidden">
-                        &rarr;
+                        className="absolute right-[2%] sm:right-[2%] top-1/2 transform -translate-y-1/2 z-20 lg:hidden -mr-8 xs:-mr-12"
+                    >
+                        <img src={ArrowLeft} alt="Right Arrow" className="w-[24px] h-[24px]"/>
                     </button>
                 </div>
 
-                {/* Button */}
+                {/* View All Button */}
                 <div className="mt-12 flex justify-center">
-                    <a href="https://guna.lucid-websites.com/objekti"><button
-                        className="font-barlow500 w-[280px] xs:w-[356px] h-[55px] bg-[#5B3767] text-[#CDC697] text-sm hover:bg-[#371243] transition duration-300 ease-in-out">
-                        SKATĪT VISUS OBJEKTUS
-                    </button></a>
+                    <a href="https://guna.lucid-websites.com/objekti">
+                        <button
+                            className="font-barlow500 w-[280px] sm:w-[356px] h-[55px] bg-[#5B3767] text-[#CDC697] text-sm hover:bg-[#371243] transition duration-300 ease-in-out">
+                            SKATĪT VISUS OBJEKTUS
+                        </button>
+                    </a>
                 </div>
             </div>
         </section>
