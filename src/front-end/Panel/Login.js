@@ -1,56 +1,67 @@
-import React, {useEffect, useState} from 'react';
-import axios from 'axios';
-import {useNavigate} from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-export const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "https://guna.lucid-websites.com/api";
+export const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "http://localhost:5000/api"; //CORS error no https://guna.lucid-websites.com/api
 
 const Login = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [error, setError] = useState('');
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
     const navigate = useNavigate();
 
     useEffect(() => {
         // Check if already logged in and redirect to dashboard
-        const token = localStorage.getItem('token');
+        const token = localStorage.getItem("token");
         if (token) {
-            console.log('Token found, navigating to /dashboard');
-            navigate('/dashboard');
+            console.log("Token found, navigating to /dashboard");
+            navigate("/dashboard");
         }
     }, [navigate]);
 
     const handleLogin = async (e) => {
         e.preventDefault();
-        setError(''); // Clear previous errors
+        setError(""); // Clear previous errors
+
+        console.log("Attempting login with email:", email);
 
         try {
-            const response = await axios.post(`${API_BASE_URL}/auth/login`, {email, password});
-            if (response.data.token) {
-                localStorage.setItem('token', response.data.token); // Store token
-                console.log('Token saved to localStorage:', response.data.token);
+            const response = await axios.post(`${API_BASE_URL}/auth/login`, { email, password });
 
-                // Delay navigation to ensure the state update is complete
-                setTimeout(() => {
-                    console.log('Navigating to /dashboard');
-                    navigate('/dashboard');
-                }, 500); // Delay can be adjusted
+            console.log("Login response received:", response);
+
+            // If token is received, store it and navigate to dashboard
+            if (response.data?.token) {
+                localStorage.setItem("token", response.data.token);
+                console.log("Token saved to localStorage:", response.data.token);
+                navigate("/dashboard");
             } else {
-                setError('Failed to log in. Try again.');
+                console.error("Unexpected response format:", response);
+                setError("Failed to log in. Try again.");
             }
         } catch (error) {
-            console.error('Login failed:', error);
-            setError(error.response?.data?.message || 'Invalid credentials');
+            console.error("Login request failed:", error);
+
+            // Show appropriate error messages
+            if (error.response) {
+                setError(error.response.data?.message || "Invalid credentials");
+            } else if (error.request) {
+                setError("No response from server. Please try again later.");
+            } else {
+                setError("An error occurred while setting up the request.");
+            }
         }
     };
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-[#B18E58] to-[#5B3767] p-6">
-            <div
-                className="bg-[#5B3767] p-8 rounded-xl shadow-lg max-w-sm w-full transform transition-transform duration-300 hover:scale-105">
+            <div className="bg-[#5B3767] p-8 rounded-xl shadow-lg max-w-sm w-full transform transition-transform duration-300 hover:scale-105">
                 <h2 className="text-3xl font-extrabold mb-6 text-white text-center">Admin Login</h2>
                 <form onSubmit={handleLogin}>
                     <div className="mb-5">
-                        <label htmlFor="email" className="block text-sm font-medium text-white mb-2">Email</label>
+                        <label htmlFor="email" className="block text-sm font-medium text-white mb-2">
+                            Email
+                        </label>
                         <input
                             type="email"
                             id="email"
@@ -61,7 +72,9 @@ const Login = () => {
                         />
                     </div>
                     <div className="mb-5">
-                        <label htmlFor="password" className="block text-sm font-medium text-white mb-2">Password</label>
+                        <label htmlFor="password" className="block text-sm font-medium text-white mb-2">
+                            Password
+                        </label>
                         <input
                             type="password"
                             id="password"
@@ -85,4 +98,3 @@ const Login = () => {
 };
 
 export default Login;
-

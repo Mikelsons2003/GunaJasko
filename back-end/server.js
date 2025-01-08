@@ -1,5 +1,6 @@
 const express = require('express');
 const dotenv = require('dotenv');
+const router = express.Router();
 const cors = require('cors');
 const path = require('path');
 const pool = require('./db'); // Import database connection
