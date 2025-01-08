@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "https://guna.lucid-websites.com/api";
 
@@ -10,30 +10,17 @@ const Login = () => {
     const [error, setError] = useState('');
     const navigate = useNavigate();
 
-    useEffect(() => {
-        // Check if already logged in and redirect to dashboard
-        const token = localStorage.getItem('token');
-        if (token) {
-            console.log('Token found, navigating to /dashboard');
-            navigate('/dashboard');
-        }
-    }, [navigate]);
-
     const handleLogin = async (e) => {
         e.preventDefault();
         setError(''); // Clear previous errors
 
         try {
-            const response = await axios.post(`${API_BASE_URL}/auth/login`, {email, password});
-            if (response.data.token) {
-                localStorage.setItem('token', response.data.token); // Store token
-                console.log('Token saved to localStorage:', response.data.token);
+            const response = await axios.post(`${API_BASE_URL}/auth/login`, { email, password });
 
-                // Delay navigation to ensure the state update is complete
-                setTimeout(() => {
-                    console.log('Navigating to /dashboard');
-                    navigate('/dashboard');
-                }, 500); // Delay can be adjusted
+            if (response.data) {
+                console.log('Login successful');
+                // Navigate to dashboard directly
+                navigate('/dashboard');
             } else {
                 setError('Failed to log in. Try again.');
             }
@@ -45,8 +32,7 @@ const Login = () => {
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-[#B18E58] to-[#5B3767] p-6">
-            <div
-                className="bg-[#5B3767] p-8 rounded-xl shadow-lg max-w-sm w-full transform transition-transform duration-300 hover:scale-105">
+            <div className="bg-[#5B3767] p-8 rounded-xl shadow-lg max-w-sm w-full transform transition-transform duration-300 hover:scale-105">
                 <h2 className="text-3xl font-extrabold mb-6 text-white text-center">Admin Login</h2>
                 <form onSubmit={handleLogin}>
                     <div className="mb-5">
@@ -85,4 +71,5 @@ const Login = () => {
 };
 
 export default Login;
+
 

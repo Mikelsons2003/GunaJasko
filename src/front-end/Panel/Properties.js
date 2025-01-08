@@ -4,6 +4,7 @@ import {useNavigate} from 'react-router-dom';
 import {MdDeleteForever} from 'react-icons/md';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
+
 export const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "https://guna.lucid-websites.com/api";
 
 const ImageWithLoading = ({src}) => {
@@ -23,9 +24,7 @@ const ImageWithLoading = ({src}) => {
                     alt="Property"
                     onLoad={() => setIsImageLoading(false)}
                     onError={() => setIsImageLoading(false)}
-                    className={`w-full h-52 sm:h-72 object-cover rounded-md transition-opacity duration-500 ${
-                        isImageLoading ? 'opacity-0' : 'opacity-100'
-                    }`}
+                    className={`w-full h-52 sm:h-72 object-cover rounded-md transition-opacity duration-500 ${isImageLoading ? 'opacity-0' : 'opacity-100'}`}
                 />
             ) : (
                 <span className="text-gray-500">No Image</span>
@@ -41,31 +40,32 @@ const Properties = () => {
     const [sortOrder, setSortOrder] = useState('asc');
     const [searchQuery, setSearchQuery] = useState('');
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const [loading, setLoading] = useState(true); // Loading state
     const navigate = useNavigate();
 
     useEffect(() => {
         const fetchProperties = async () => {
             try {
-                const token = localStorage.getItem('token');
-                if (!token) {
-                    console.error('No token found. Please log in.');
-                    return;
-                }
-
-                const response = await axios.get(`${API_BASE_URL}/properties`, {
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                    },
-                });
-
+                const response = await axios.get(`${API_BASE_URL}/properties`);
+                console.log(response.data); // Check what data you receive
                 setProperties(response.data);
-                setSortedProperties(response.data);
+                // Check if the response data is an array
+                if (Array.isArray(response.data)) {
+                    setProperties(response.data);
+                    setSortedProperties(response.data);
+                } else {
+                    console.error("Data is not an array:", response.data);
+                }
             } catch (error) {
                 console.error('Error fetching properties:', error.response?.data || error.message);
+            } finally {
+                setLoading(false); // End loading
             }
         };
 
-        fetchProperties();
+        fetchProperties().catch(error => {
+            console.error("Error in fetchProperties from api in Properties:", error);
+        });
     }, []);
 
     const handleSort = (criteria) => {
@@ -110,9 +110,9 @@ const Properties = () => {
         setSearchQuery(query);
 
         const filtered = properties.filter((property) =>
-            property.title.toLowerCase().includes(query.toLowerCase()) ||
-            property.category?.toLowerCase().includes(query.toLowerCase()) ||
-            property.address?.toLowerCase().includes(query.toLowerCase())
+            (property.title && property.title.toLowerCase().includes(query.toLowerCase())) ||
+            (property.category && property.category.toLowerCase().includes(query.toLowerCase())) ||
+            (property.address && property.address.toLowerCase().includes(query.toLowerCase()))
         );
 
         setSortedProperties(filtered);
@@ -128,17 +128,7 @@ const Properties = () => {
         setSortedProperties(updatedProperties);
 
         try {
-            const token = localStorage.getItem('token');
-            if (!token) {
-                console.error('No token found. Please log in again.');
-                return;
-            }
-
-            await axios.delete(`${API_BASE_URL}/properties/${id}`, {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
-            });
+            await axios.delete(`${API_BASE_URL}/properties/${id}`);
         } catch (error) {
             setProperties(properties);
             setSortedProperties(properties);
@@ -210,7 +200,11 @@ const Properties = () => {
 
             {/* Properties Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-8">
-                {sortedProperties.length === 0 ? (
+                {loading ? (
+                    <div className="col-span-3 text-center">
+                        <Skeleton count={6}/>
+                    </div>
+                ) : sortedProperties.length === 0 ? (
                     <p className="col-span-3 text-center text-gray-500">No properties available.</p>
                 ) : (
                     sortedProperties.map((property) => (
@@ -239,17 +233,16 @@ const Properties = () => {
                                 <p className="text-sm sm:text-base text-gray-500 hidden md:flex md:flex-col overflow-hidden text-ellipsis whitespace-nowrap">
                                     {property.address || <Skeleton width={120}/>}
                                 </p>
-                                <p className="text-xs sm:text-sm text-gray-600 mt-2 hidden md:flex md:flex-col overflow-hidden text-ellipsis whitespace-nowrap">
-                                    {property.description || <Skeleton count={2}/>}
-                                </p>
                             </div>
 
-                            <button
-                                onClick={() => handleUpdate(property.id)}
-                                className="mt-4 bg-[#5B3767] hover:bg-[#7A4D8F] active:bg-[#3F1E47] text-white font-bold py-2 px-4 sm:px-6 rounded-md shadow-md ease-in-out duration-500"
-                            >
-                                Atjaunināt
-                            </button>
+                            <div className="mt-4 flex justify-between items-center">
+                                <button
+                                    onClick={() => handleUpdate(property.id)}
+                                    className="bg-[#5B3767] hover:bg-[#7A4D8F] text-white font-semibold py-2 px-4 rounded-md ease-in-out duration-500"
+                                >
+                                    Rediģēt
+                                </button>
+                            </div>
                         </div>
                     ))
                 )}
@@ -259,4 +252,3 @@ const Properties = () => {
 };
 
 export default Properties;
-

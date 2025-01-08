@@ -1,7 +1,8 @@
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import React, { useState } from "react";
-import { AiOutlineClose } from "react-icons/ai";
+import {useNavigate} from "react-router-dom";
+import React, {useState} from "react";
+import {AiOutlineClose} from "react-icons/ai";
+
 export const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "https://guna.lucid-websites.com/api";
 
 const AddProperty = () => {
@@ -26,8 +27,8 @@ const AddProperty = () => {
     const navigate = useNavigate();
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
+        const {name, value} = e.target;
+        setFormData({...formData, [name]: value});
     };
 
     const handleMainImageChange = (e) => {
@@ -47,7 +48,8 @@ const AddProperty = () => {
         e.preventDefault();
 
         // Check required fields
-        const requiredFields = ["title", "titleEng", "titleRu", "category", "price", "address", "size", "roomCount", "floor", "description", "descriptionEng", "descriptionRu"];        for (let field of requiredFields) {
+        const requiredFields = ["title", "titleEng", "titleRu", "category", "price", "address", "size", "roomCount", "floor", "description", "descriptionEng", "descriptionRu"];
+        for (let field of requiredFields) {
             if (!formData[field]) {
                 alert(`Please fill the ${field} field.`);
                 return;
@@ -77,16 +79,9 @@ const AddProperty = () => {
         });
 
         try {
-            const token = localStorage.getItem("token");
-            if (!token) {
-                alert("You are not authenticated. Please log in.");
-                return;
-            }
-
             console.log("Sending request to add property...");
             const response = await axios.post(`${API_BASE_URL}/properties`, requestData, {
                 headers: {
-                    Authorization: `Bearer ${token}`,
                     "Content-Type": "multipart/form-data",
                 },
             });
@@ -102,6 +97,7 @@ const AddProperty = () => {
             alert("Failed to add property. Please check your inputs and try again.");
         }
     };
+
     // Test navigation function
     const navigateToProperties = () => {
         console.log("Testing navigation to /properties");
@@ -118,7 +114,8 @@ const AddProperty = () => {
             <form onSubmit={handleSubmit}>
                 {/* Existing Title (Latvian) */}
                 <div className="mb-4">
-                    <label htmlFor="title" className="block text-sm font-medium text-gray-700">Virsraksts (latviešu valodā)</label>
+                    <label htmlFor="title" className="block text-sm font-medium text-gray-700">Virsraksts (latviešu
+                        valodā)</label>
                     <input
                         type="text"
                         id="title"
@@ -132,7 +129,8 @@ const AddProperty = () => {
 
                 {/* Title (English) */}
                 <div className="mb-4">
-                    <label htmlFor="titleEng" className="block text-sm font-medium text-gray-700">Virsraksts (angļu valodā)</label>
+                    <label htmlFor="titleEng" className="block text-sm font-medium text-gray-700">Virsraksts (angļu
+                        valodā)</label>
                     <input
                         type="text"
                         id="titleEng"
@@ -146,7 +144,8 @@ const AddProperty = () => {
 
                 {/* Title (Russian) */}
                 <div className="mb-4">
-                    <label htmlFor="titleRu" className="block text-sm font-medium text-gray-700">Virsraksts (krievu valodā)</label>
+                    <label htmlFor="titleRu" className="block text-sm font-medium text-gray-700">Virsraksts (krievu
+                        valodā)</label>
                     <input
                         type="text"
                         id="titleRu"
@@ -176,7 +175,8 @@ const AddProperty = () => {
 
                 {/* Transaction Type */}
                 <div className="mb-4">
-                    <label htmlFor="transactionType" className="block text-sm font-medium text-gray-700">Pirkuma veids</label>
+                    <label htmlFor="transactionType" className="block text-sm font-medium text-gray-700">Pirkuma
+                        veids</label>
                     <select
                         id="transactionType"
                         name="transactionType"
@@ -261,7 +261,8 @@ const AddProperty = () => {
 
                 {/* Existing Description (Latvian) */}
                 <div className="mb-4">
-                    <label htmlFor="description" className="block text-sm font-medium text-gray-700">Apraksts(latviešu valodā)</label>
+                    <label htmlFor="description" className="block text-sm font-medium text-gray-700">Apraksts(latviešu
+                        valodā)</label>
                     <textarea
                         id="description"
                         name="description"
@@ -274,7 +275,8 @@ const AddProperty = () => {
 
                 {/* Description (English) */}
                 <div className="mb-4">
-                    <label htmlFor="descriptionEng" className="block text-sm font-medium text-gray-700">Apraksts(angļu valodā)</label>
+                    <label htmlFor="descriptionEng" className="block text-sm font-medium text-gray-700">Apraksts(angļu
+                        valodā)</label>
                     <textarea
                         id="descriptionEng"
                         name="descriptionEng"
@@ -287,7 +289,8 @@ const AddProperty = () => {
 
                 {/* Description (Russian) */}
                 <div className="mb-4">
-                    <label htmlFor="descriptionRu" className="block text-sm font-medium text-gray-700">Apraksts(krievu valodā)</label>
+                    <label htmlFor="descriptionRu" className="block text-sm font-medium text-gray-700">Apraksts(krievu
+                        valodā)</label>
                     <textarea
                         id="descriptionRu"
                         name="descriptionRu"
@@ -300,7 +303,8 @@ const AddProperty = () => {
 
                 {/* Main Image */}
                 <div className="mb-4">
-                    <label htmlFor="mainImage" className="block text-sm font-medium text-gray-700">Galvenais attēls</label>
+                    <label htmlFor="mainImage" className="block text-sm font-medium text-gray-700">Galvenais
+                        attēls</label>
                     <input
                         type="file"
                         id="mainImage"
@@ -313,7 +317,8 @@ const AddProperty = () => {
 
                 {/* Collage Images */}
                 <div className="mb-4">
-                    <label htmlFor="collageImages" className="block text-sm font-medium text-gray-700">Īpašumu attēli</label>
+                    <label htmlFor="collageImages" className="block text-sm font-medium text-gray-700">Īpašumu
+                        attēli</label>
                     <input
                         type="file"
                         id="collageImages"
@@ -326,20 +331,22 @@ const AddProperty = () => {
                     <div className="mt-2 flex flex-wrap">
                         {collageImages.map((image, index) => (
                             <div key={index} className="relative m-2">
-                                <img src={URL.createObjectURL(image)} alt={`Collage ${index}`} className="w-24 h-24 object-cover" />
+                                <img src={URL.createObjectURL(image)} alt={`Collage ${index}`}
+                                     className="w-24 h-24 object-cover"/>
                                 <button
                                     type="button"
                                     onClick={() => handleRemoveCollageImage(index)}
                                     className="absolute top-0 right-0 bg-red-500 text-white rounded-full p-1"
                                 >
-                                    <AiOutlineClose />
+                                    <AiOutlineClose/>
                                 </button>
                             </div>
                         ))}
                     </div>
                 </div>
 
-                <button onClick={navigateToProperties} type="submit" className="bg-[#5B3767] hover:bg-[#7A4D8F] active:bg-[#3F1E47] text-white font-bold py-2 px-4 sm:px-6 rounded-md shadow-md ease-in-out duration-500">
+                <button onClick={navigateToProperties} type="submit"
+                        className="bg-[#5B3767] hover:bg-[#7A4D8F] active:bg-[#3F1E47] text-white font-bold py-2 px-4 sm:px-6 rounded-md shadow-md ease-in-out duration-500">
                     Pievienot
                 </button>
             </form>
