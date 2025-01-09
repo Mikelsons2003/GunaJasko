@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
-import {Navigate, Route, Routes, useLocation} from "react-router-dom";
-import {jwtDecode} from "jwt-decode"; // Fix import statement
+import axios from "axios";
+import {Route, Routes, useLocation} from "react-router-dom";
 import "./App.css";
 import Sakumlapa from "./front-end/Website/Sakumlapa";
 import ParMani from "./front-end/Website/ParMani";
@@ -22,30 +22,28 @@ import UpdateProperty from "./front-end/Panel/UpdateProperty"; // Update Propert
 import Header from "./front-end/Website/Header"; // Import Header component
 
 function App() {
-    const [token, setToken] = useState(localStorage.getItem("token"));
-    const [isTokenValid, setIsTokenValid] = useState(true);
     const location = useLocation(); // Access current location
+    const [properties, setProperties] = useState([]);
 
     useEffect(() => {
-        if (token) {
+        // Fetch properties data from API when component mounts
+        const fetchProperties = async () => {
             try {
-                const decodedToken = jwtDecode(token);
-                const currentTime = Date.now() / 1000; // Current time in seconds
-                if (decodedToken.exp < currentTime) {
-                    setIsTokenValid(false); // Token is expired
-                    localStorage.removeItem("token");
-                    setToken(null);
+                const response = await axios.get('/api/properties'); // API call to fetch properties
+                if (Array.isArray(response.data)) {
+                    setProperties(response.data);
                 } else {
-                    setIsTokenValid(true); // Token is valid
+                    console.error("Data is not an array:", response.data);
                 }
             } catch (error) {
-                console.error("Error decoding token:", error);
-                setIsTokenValid(false);
-                localStorage.removeItem("token"); // In case of decoding error
-                setToken(null);
+                console.error("Error fetching properties:", error);
             }
-        }
-    }, [token]);
+        };
+
+        fetchProperties().catch(error => {
+            console.error("Error in fetchProperties from api in App:", error);
+        });
+    }, []);
 
     const isAdminRoute =
         location.pathname.startsWith("/dashboard") ||
@@ -69,54 +67,10 @@ function App() {
                 <Route path="/kontakti" element={<Kontakti/>}/>
                 <Route path="/privatuma-politika" element={<PrivatumaPolitika/>}/>
                 <Route path="/login" element={<Login/>}/>
-                <Route
-                    path="/dashboard"
-                    element={
-                        isTokenValid ? (
-                            <Layout>
-                                <Dashboard/>
-                            </Layout>
-                        ) : (
-                            <Navigate to="/login"/>
-                        )
-                    }
-                />
-                <Route
-                    path="/properties"
-                    element={
-                        isTokenValid ? (
-                            <Layout>
-                                <Properties/>
-                            </Layout>
-                        ) : (
-                            <Navigate to="/login"/>
-                        )
-                    }
-                />
-                <Route
-                    path="/add-property"
-                    element={
-                        isTokenValid ? (
-                            <Layout>
-                                <AddProperty/>
-                            </Layout>
-                        ) : (
-                            <Navigate to="/login"/>
-                        )
-                    }
-                />
-                <Route
-                    path="/update-property/:id"
-                    element={
-                        isTokenValid ? (
-                            <Layout>
-                                <UpdateProperty/>
-                            </Layout>
-                        ) : (
-                            <Navigate to="/login"/>
-                        )
-                    }
-                />
+                <Route path="/dashboard" element={<Layout><Dashboard/></Layout>}/>
+                <Route path="/properties" element={<Layout><Properties properties={properties}/></Layout>}/>
+                <Route path="/add-property" element={<Layout><AddProperty/></Layout>}/>
+                <Route path="/update-property/:id" element={<Layout><UpdateProperty/></Layout>}/>
             </Routes>
             {!isAdminRoute && <Footer/>} {/* Show Footer only on non-admin routes */}
         </div>

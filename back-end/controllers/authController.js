@@ -2,40 +2,37 @@ const bcrypt = require("bcryptjs");
 const pool = require("../db");
 const jwt = require("jsonwebtoken");
 
-// Middleware to authenticate the user using JWT token
+// Middleware to authenticate the user (JWT removed)
 const authenticate = (req, res, next) => {
-  const token = req.headers["authorization"]?.split(" ")[1]; // Extract token from 'Bearer <token>'
-  if (!token) {
-    return res.status(401).json({ message: "No token provided" });
-  }
-
-  jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
-    if (err) {
-      return res.status(401).json({ message: "Invalid token" });
-    }
-    req.user = decoded; // Attach decoded token to the request object
-    next(); // Continue to the next middleware/route handler
-  });
+    // Authentication bypassed since JWT is removed
+    next();
 };
 
-// Login function to generate a token after successful login
+// Login function without JWT
 const login = async (req, res) => {
-  const { email, password } = req.body;
-  try {
-    // Log incoming login attempt
-    console.log(`Attempting login with email: ${email}`);
+    const { email, password } = req.body;
+    try {
+        const [result] = await pool.query('SELECT * FROM users WHERE email = ?', [email]);
+        if (result.length === 0) {
+            return res.status(400).json({ message: 'Invalid email or password' });
+        }
+        const user = result[0];
+        const isMatch = await bcrypt.compare(password, user.password);
+        if (!isMatch) {
+            return res.status(400).json({ message: 'Invalid email or password' });
+        }
 
-    // Query to find the user by email
-    const [result] = await pool.query("SELECT * FROM users WHERE email = ?", [
-      email,
-    ]);
-
-    // If no user is found
-    if (result.length === 0) {
-      console.log(`Login failed: Invalid email (${email})`);
-      return res
-        .status(400)
-        .json({ message: "Invalid email or password. Please try again." });
+        // Instead of generating a token, return a success message or user details
+        res.json({
+            message: 'Login successful',
+            user: {
+                id: user.id,
+                email: user.email,
+            },
+        });
+    } catch (error) {
+        console.error('Error during login:', error);
+        res.status(500).json({ message: 'Server error' });
     }
 
     const user = result[0];
@@ -61,13 +58,8 @@ const login = async (req, res) => {
 
     // Send the token in the response
     res.json({ token });
-  } catch (error) {
-    console.error("Error during login:", error);
-    res.status(500).json({
-      message: "Server error. Please try again later.",
-      error: error.message,
-    });
-  }
+
 };
 
 module.exports = { login, authenticate };
+

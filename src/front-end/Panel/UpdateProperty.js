@@ -1,11 +1,12 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
-import {useNavigate, useParams} from "react-router-dom";
-import {AiOutlineClose} from "react-icons/ai";
+import { useNavigate, useParams } from "react-router-dom";
+import { AiOutlineClose } from "react-icons/ai";
+
 export const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "https://guna.lucid-websites.com/api";
 
 const UpdateProperty = () => {
-    const {id} = useParams();
+    const { id } = useParams();
     const navigate = useNavigate();
 
     const [property, setProperty] = useState({
@@ -32,18 +33,7 @@ const UpdateProperty = () => {
     useEffect(() => {
         const fetchProperty = async () => {
             try {
-                const token = localStorage.getItem("token");
-                if (!token) {
-                    console.error("No token found. Please log in.");
-                    return;
-                }
-
-                const propertyResponse = await axios.get(`${API_BASE_URL}/properties/${id}`, {
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                    },
-                });
-
+                const propertyResponse = await axios.get(`${API_BASE_URL}/properties/${id}`);
                 setProperty({
                     ...propertyResponse.data,
                     collageImages: propertyResponse.data.collageImages || [],
@@ -54,20 +44,23 @@ const UpdateProperty = () => {
             }
         };
 
-        fetchProperty();
+        fetchProperty().catch(err => {
+            console.error("Error in fetchProperty:", err);
+            setError("Failed to fetch property details.");
+        });
     }, [id]);
 
     const handleChange = (e) => {
-        const {name, value} = e.target;
-        setProperty((prev) => ({...prev, [name]: value}));
+        const { name, value } = e.target;
+        setProperty((prev) => ({ ...prev, [name]: value }));
     };
 
     const handleMainImageChange = (e) => {
-        setProperty((prev) => ({...prev, mainImage: e.target.files[0]}));
+        setProperty((prev) => ({ ...prev, mainImage: e.target.files[0] }));
     };
 
     const handleRemoveMainImage = () => {
-        setProperty((prev) => ({...prev, mainImage: ""}));
+        setProperty((prev) => ({ ...prev, mainImage: "" }));
     };
 
     const handleCollageImagesChange = (e) => {
@@ -91,12 +84,6 @@ const UpdateProperty = () => {
         setError(null);
 
         try {
-            const token = localStorage.getItem("token");
-            if (!token) {
-                console.error("No token found. Please log in.");
-                return;
-            }
-
             const formData = new FormData();
             for (const key in property) {
                 if (key === "collageImages") {
@@ -112,7 +99,6 @@ const UpdateProperty = () => {
 
             await axios.put(`${API_BASE_URL}/properties/${id}`, formData, {
                 headers: {
-                    Authorization: `Bearer ${token}`,
                     "Content-Type": "multipart/form-data",
                 },
             });
@@ -300,7 +286,7 @@ const UpdateProperty = () => {
                                     onClick={handleRemoveMainImage}
                                     className="absolute top-0 right-0 bg-red-500 text-white p-1 rounded-full"
                                 >
-                                    <AiOutlineClose/>
+                                    <AiOutlineClose />
                                 </button>
                             </div>
                         )}
@@ -327,7 +313,7 @@ const UpdateProperty = () => {
                                     onClick={() => handleRemoveCollageImage(index)}
                                     className="absolute top-0 right-0 bg-red-500 text-white rounded-full p-1"
                                 >
-                                    <AiOutlineClose/>
+                                    <AiOutlineClose />
                                 </button>
                             </div>
                         ))}
@@ -353,3 +339,4 @@ const UpdateProperty = () => {
 };
 
 export default UpdateProperty;
+

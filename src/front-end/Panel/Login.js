@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 export const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "http://localhost:5000/api"; //CORS error no https://guna.lucid-websites.com/api
 
@@ -9,15 +9,6 @@ const Login = () => {
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const navigate = useNavigate();
-
-    useEffect(() => {
-        // Check if already logged in and redirect to dashboard
-        const token = localStorage.getItem("token");
-        if (token) {
-            console.log("Token found, navigating to /dashboard");
-            navigate("/dashboard");
-        }
-    }, [navigate]);
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -28,13 +19,10 @@ const Login = () => {
         try {
             const response = await axios.post(`${API_BASE_URL}/auth/login`, { email, password });
 
-            console.log("Login response received:", response);
-
-            // If token is received, store it and navigate to dashboard
-            if (response.data?.token) {
-                localStorage.setItem("token", response.data.token);
-                console.log("Token saved to localStorage:", response.data.token);
-                navigate("/dashboard");
+            if (response.data) {
+                console.log('Login successful');
+                // Navigate to dashboard directly
+                navigate('/dashboard');
             } else {
                 console.error("Unexpected response format:", response);
                 setError("Failed to log in. Try again.");
@@ -98,3 +86,5 @@ const Login = () => {
 };
 
 export default Login;
+
+

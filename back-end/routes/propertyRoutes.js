@@ -11,9 +11,4 @@ router.put('/:id', authMiddleware, uploadMiddleware, propertyController.updatePr
 router.delete('/:id', authMiddleware, propertyController.deleteProperty);
 router.get('/:id', authMiddleware, propertyController.getPropertyById);
 
-
-
 module.exports = router;
-
-
-
