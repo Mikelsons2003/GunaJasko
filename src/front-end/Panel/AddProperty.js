@@ -3,7 +3,7 @@ import {useNavigate} from "react-router-dom";
 import React, {useState} from "react";
 import {AiOutlineClose} from "react-icons/ai";
 
-export const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "https://guna.lucid-websites.com/api";
+export const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "https://backend.lucid-websites.com/api";
 
 const AddProperty = () => {
     const [formData, setFormData] = useState({

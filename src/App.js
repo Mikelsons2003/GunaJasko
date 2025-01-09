@@ -20,10 +20,15 @@ import Layout from "./front-end/Panel/components/Layout";
 import UpdateProperty from "./front-end/Panel/UpdateProperty"; // Update Property page component
 import Header from "./front-end/Website/Header";
 import axios from "axios"; // Import Header component
-axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL;
+
+axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL || "https://backend.lucid-websites.com/api";
 
 // Example API call
-axios.get('/properties')
+axios.get('/properties', {
+    headers: {
+        'Accept': 'application/json'
+    }
+})
     .then(response => console.log(response.data))
     .catch(error => console.error(error));
 

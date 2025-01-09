@@ -5,7 +5,7 @@ import {MdDeleteForever} from 'react-icons/md';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
-export const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "https://guna.lucid-websites.com/api";
+export const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "https://backend.lucid-websites.com/api";
 
 const ImageWithLoading = ({src}) => {
     const [isImageLoading, setIsImageLoading] = useState(true);

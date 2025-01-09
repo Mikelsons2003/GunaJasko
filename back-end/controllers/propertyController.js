@@ -210,11 +210,11 @@ const getPropertyById = async (req, res) => {
 
     try {
         const query = `
-            SELECT properties.*, GROUP_CONCAT(property_images.image_path) AS collageImages
-            FROM properties
-                     LEFT JOIN property_images ON properties.id = property_images.property_id
-            WHERE properties.id = ?
-            GROUP BY properties.id;
+            SELECT p.*, GROUP_CONCAT(pi.image_path) AS collageImages
+            FROM properties p
+                     LEFT JOIN property_images pi ON p.id = pi.property_id
+            WHERE p.id = ?
+            GROUP BY p.id;
         `;
 
         const [result] = await pool.query(query, [id]);

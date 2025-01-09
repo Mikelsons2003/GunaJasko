@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-export const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "https://guna.lucid-websites.com/api";
+export const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "https://backend.lucid-websites.com/api";
 
 const Login = () => {
     const [email, setEmail] = useState('');

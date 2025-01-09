@@ -16,17 +16,22 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors({
-    origin: true, // Allow all origins
-    allowedHeaders: ['Content-Type'],
-    methods: ['GET', 'POST', 'DELETE', 'PUT'],
-    credentials: true, // Include credentials for cross-origin requests
+    origin: ['https://guna.lucid-websites.com', 'http://localhost:3000'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,
+    preflightContinue: false,
+    optionsSuccessStatus: 204
 }));
+
+// Make sure this is placed before your routes
+app.options('*', cors());
 app.use(morgan('dev')); // Logging middleware
 app.use(express.json()); // Parse JSON bodies
 
 // API Routes - Handle API routes first
 app.use('/api/auth', authRoutes); // Authentication API routes
-app.use('/api/properties', propertyRoutes); // Property management API routes
+app.use('/api/properties', propertyRoutes);
 
 // Serve static files for uploads and React app
 app.use('/uploads', express.static(path.join(__dirname, 'uploads'))); // Serve uploads folder
@@ -35,6 +40,11 @@ app.use(express.static(path.join(__dirname, '../public_html'))); // Adjust path 
 // Handle unmatched API routes explicitly (Not found)
 app.use('/api/*', (req, res) => {
     res.status(404).json({ message: 'API route not found' });
+});
+
+app.use((req, res, next) => {
+    console.log(`${req.method} request to ${req.url}`);
+    next();
 });
 
 // Fallback route for React app (catch-all for non-API requests)
