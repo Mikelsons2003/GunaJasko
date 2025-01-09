@@ -1,5 +1,4 @@
-import React, {useEffect, useState} from "react";
-import axios from "axios";
+import React from "react";
 import {Route, Routes, useLocation} from "react-router-dom";
 import "./App.css";
 import Sakumlapa from "./front-end/Website/Sakumlapa";
@@ -19,31 +18,17 @@ import Properties from "./front-end/Panel/Properties"; // Properties page compon
 import AddProperty from "./front-end/Panel/AddProperty"; // Add Property page component
 import Layout from "./front-end/Panel/components/Layout";
 import UpdateProperty from "./front-end/Panel/UpdateProperty"; // Update Property page component
-import Header from "./front-end/Website/Header"; // Import Header component
+import Header from "./front-end/Website/Header";
+import axios from "axios"; // Import Header component
+axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL;
+
+// Example API call
+axios.get('/properties')
+    .then(response => console.log(response.data))
+    .catch(error => console.error(error));
 
 function App() {
     const location = useLocation(); // Access current location
-    const [properties, setProperties] = useState([]);
-
-    useEffect(() => {
-        // Fetch properties data from API when component mounts
-        const fetchProperties = async () => {
-            try {
-                const response = await axios.get('/api/properties'); // API call to fetch properties
-                if (Array.isArray(response.data)) {
-                    setProperties(response.data);
-                } else {
-                    console.error("Data is not an array:", response.data);
-                }
-            } catch (error) {
-                console.error("Error fetching properties:", error);
-            }
-        };
-
-        fetchProperties().catch(error => {
-            console.error("Error in fetchProperties from api in App:", error);
-        });
-    }, []);
 
     const isAdminRoute =
         location.pathname.startsWith("/dashboard") ||
@@ -68,7 +53,7 @@ function App() {
                 <Route path="/privatuma-politika" element={<PrivatumaPolitika/>}/>
                 <Route path="/login" element={<Login/>}/>
                 <Route path="/dashboard" element={<Layout><Dashboard/></Layout>}/>
-                <Route path="/properties" element={<Layout><Properties properties={properties}/></Layout>}/>
+                <Route path="/properties" element={<Layout><Properties/></Layout>}/>
                 <Route path="/add-property" element={<Layout><AddProperty/></Layout>}/>
                 <Route path="/update-property/:id" element={<Layout><UpdateProperty/></Layout>}/>
             </Routes>
