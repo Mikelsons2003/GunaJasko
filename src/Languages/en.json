@@ -1,0 +1,75 @@
+{
+  "menu": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "sakumlapa": {
+    "header": "REAL ESTATE AGENT",
+    "p": "Selling real estate since 2006, specializing in housing stock: sale and rent of apartments, private houses and land in Riga and the Riga region. Experience in the sale of large-scale projects as a project manager (developer projects over 100 apartments).",
+    "button": "CLAIM PROPERTY"
+  },
+  "sakumlapaAbout": {
+    "headerAbout": "WHY WORK WITH ME",
+    "divAbout1": "EXPERIENCE",
+    "divAbout2": "RELIABILITY",
+    "divAbout3": "SECURITY",
+    "divAbout4": "PROFESSIONALISM",
+    "pAbout1": "On the market since 2006",
+    "pAbout2": "Registered in the register of intermediaries of the Ministry of Economy with no. 224",
+    "pAbout3": "The activity is insured under civil law",
+    "pAbout4": "Member of the Latvian real estate association “Lanīda”.",
+    "buttonAbout": "LEARN MORE"
+  },
+  "jaunakieObjekti" : {
+    "headerObjekti": "NEWEST OBJECTS",
+    "spanObjekti1": "Address",
+    "spanObjekti2": "Property type",
+    "spanObjekti3": "See the room",
+    "aObjekti": "SEE",
+    "buttonObjekti": "SEE ALL OBJECTS",
+    "h1Objekti1": "For Rent",
+    "h1Objekti2": "For Sale"
+  },
+  "atsauksmes" : {
+    "h1Atsauksmes": "REVIEWS",
+    "pAtsauksmes1": "Hello Guna! Belatedly, I want to thank you for the agent's work in the sale of the house and the purchase of the apartment! Considering that everything happened remotely, there are no words at all, because everything went according to plan! We ourselves would surely fall into some trap! If possible, I will definitely recommend you to others. Good luck to you in everything!",
+    "pAtsauksmes2": "Guna Jasko, with her extensive knowledge of the market and her dedication to each client, has been instrumental in bossting my sales. I highly recommend her services to anyone seeking a proactive, reliable real estate agent who is capable of delivering exceptional results.",
+    "pAtsauksmes3": "Very well. A huge thank you for agreeing, taking on, helping and doing a fantastic job. Also very fast. To be honest, for the first time in my life I met such a professional person. Thank you <3"
+  },
+  "partneri": {
+    "h1Partneri": "COOPERATION PARTNERS"
+  },
+  "politika": {
+    "h1Politika": "PRIVACY POLICY",
+    "pPolitika": "In accordance with Regulation 2016/679 of the European Parliament and of the Council, SIA \"City 55\" (E-mail jaskoguna@gmail.com Tel.: +371200166088) receives, stores and processes personal data provided by me for 2 years (E-mail, name, surname and phone number), with the aim of ensuring communication, providing more complete content and more relevant advertisements. By agreeing to data processing, I am informed that my personal data will not be sent to other EU companies, or to a third country, or an international organization. I am aware of my rights in connection with the deletion, correction, restriction of processing, etc. of my personal data. (more info:"
+  },
+  "footer": {
+    "h1Footer": "PRIVACY POLICY",
+    "pFooter": "Design development"
+  },
+  "sazina": {
+    "h1Sazina": "FORM OF COMMUNICATION",
+    "placeholderSazina1": "Name",
+    "placeholderSazina2": "Surname",
+    "placeholderSazina3": "E-mail",
+    "placeholderSazina4": "Number",
+    "optionSazina1": "Type of transaction",
+    "optionSazina2": "Buy",
+    "optionSazina3": "Sell",
+    "optionSazina4": "Region",
+    "optionSazina5": "Riga",
+    "optionSazina6": "Latgale",
+    "optionSazina7": "Property type",
+    "optionSazina8": "Apartment",
+    "optionSazina9": "House",
+    "placeholderSazina5": "Comment",
+    "pSazina": "I agree to the terms of personal data processing.",
+    "buttonSazina": "SEND"
+  },
+  "button": {
+    "language": "EN"
+  }
+}

@@ -17,22 +17,25 @@ import ArrowLeft from '../../img/ArrowLeft.png';
 import ArrowRight from '../../img/ArrowRight.png';
 import BedroomImage from "../../img/BedroomImage.webp";
 import ContactForm from "./ContactForm";
+import { useTranslation } from "react-i18next";
 
 function Sakumlapa() {
+    const { t } = useTranslation();
+
     const contactFormRef = useRef(null); // Create a reference for ContactForm
     const [currentIndex, setCurrentIndex] = useState(0); // State for testimonials
 
     const testimonials = [
         {
-            content: "Labdien, Guna! Ar novēlošanos gribu patiekties par padarīto aģenta darbiņu mājas pārdošanā un dzīvokļa iegādē! Ņemot vērā, ka viss notika attālināti, tad vispār trūkst vārdi, jo viss noritēja kā pa notīm! Paši mēs noteikti iekristu kādās lamatās! Pie iespējas noteikti Jūs rekomendēšu citiem. Veiksmi Jums it visā!",
+            content: t("atsauksmes.pAtsauksmes1"),
             author: "Andrejs Mihailovs",
         },
         {
-            content: "Guna Jasko, with her extensive knowledge of the market and her dedication to each client, has been instrumental in bossting my sales. I highly recommend her services to anyone seeking a proactive, reliable real estate agent who is capable of delivering exceptional results.",
+            content: t("atsauksmes.pAtsauksmes2"),
             author: "Mats Johansson",
         },
         {
-            content: "Ļoti labi. Milzīgs tev paldies, ka piekriti, uzņēmies, palīdzēji un izdarīji fantastisku darbu. Turklāt ļoti ātri. Godīgi sakot, pirmo reizi dzīvē saskāros ar tik profesionālu cilvēku. Paldies tev <3",
+            content: t("atsauksmes.pAtsauksmes3"),
             author: "Arvis Galdiņš",
         },
         // Add more testimonials as needed
@@ -91,13 +94,10 @@ function Sakumlapa() {
                 <div
                     className="w-full max-w-screen-xl mx-auto absolute top-80 left-1/2 transform -translate-x-1/2 text-white space-y-6 xs:px-8">
                     <h2 className="text-4xl text-center xs:text-left font-garamond500 pl-3">
-                        NEKUSTAMO ĪPAŠUMU AĢENTS
+                        {t("sakumlapa.header")}
                     </h2>
                     <p className="max-w-lg text-center xs:text-left font-barlow400 pl-3">
-                        Nekustamo īpašumu pārdošanā kopš 2006. gada, specializācija – dzīvojamais fonds:
-                        dzīvokļu, privātmāju un zemju tirdzniecība un īre Rīgā un Rīgas rajonā. Pieredze
-                        apjomīgu projektu tirdzniecībā kā projektu vadītājai
-                        (attīstītāju projekti virs 100 dzīvokļiem).
+                        {t("sakumlapa.p")}
                     </p>
                     <div className="text-center xs:text-left">
                         {/* Button that triggers custom smooth scroll */}
@@ -105,7 +105,7 @@ function Sakumlapa() {
                             onClick={scrollToContactForm}
                             className="font-barlow500 w-[272px] h-[55px] sm:w-[317px] sm:h-[55px] bg-[#5B3767] hover:bg-[#371243] transition duration-300 ease-in-out text-[#CDC697] font-medium sm:ml-3"
                         >
-                            PIETEIKT ĪPAŠUMU
+                            {t("sakumlapa.button")}
                         </button>
                     </div>
                 </div>
@@ -118,61 +118,59 @@ function Sakumlapa() {
                     <div className="xl:w-1/2">
                         {/* Heading */}
                         <h1 className="font-garamond500 text-[#CDC697] text-4xl mb-12">
-                            KĀPĒC SADARBOTIES AR MANI
+                            {t("sakumlapaAbout.headerAbout")}
                         </h1>
 
                         {/* Information Cards */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 justify-center">
                             {/* Card 1 */}
                             <div
-                                className="w-full text-left border border-[#CDC697] p-6 flex flex-col items-center xl:items-start space-y-4">
+                                className="w-full text-left border border-[#CDC697] p-5 flex flex-col items-center xl:items-start space-y-4">
                                 <div
                                     className="w-16 h-16 bg-contain bg-no-repeat bg-left"
                                     style={{backgroundImage: `url(${Experience})`}}
                                 ></div>
-                                <div className="font-barlow400 text-2xl text-white">PIEREDZE</div>
-                                <p className="font-barlow400 text-sm text-center xl:text-left">Tirgū kopš 2006. gada</p>
+                                <div className="font-barlow400 text-2xl text-white">{t("sakumlapaAbout.divAbout1")}</div>
+                                <p className="font-barlow400 text-sm text-center xl:text-left">{t("sakumlapaAbout.pAbout1")}</p>
                             </div>
 
                             {/* Card 2 */}
                             <div
-                                className="w-full text-left border border-[#CDC697] p-6 flex flex-col items-center xl:items-start space-y-4">
+                                className="w-full text-left border border-[#CDC697] p-5 flex flex-col items-center xl:items-start space-y-4">
                                 <div
                                     className="w-16 h-16 bg-contain bg-no-repeat bg-left"
                                     style={{backgroundImage: `url(${Check})`}}
                                 ></div>
-                                <div className="text-2xl font-barlow400 text-white">UZTICAMĪBA</div>
+                                <div className="text-2xl font-barlow400 text-white">{t("sakumlapaAbout.divAbout2")}</div>
                                 <p className="font-barlow400 text-sm text-center xl:text-left">
-                                    Reģistrēta Ekonomikas ministrijas starpnieku reģistrā ar nr.224
+                                    {t("sakumlapaAbout.pAbout2")}
                                 </p>
                             </div>
 
                             {/* Card 3 */}
                             <div
-                                className="w-full text-left border border-[#CDC697] p-6 flex flex-col items-center xl:items-start space-y-4">
+                                className="w-full text-left border border-[#CDC697] p-5 flex flex-col items-center xl:items-start space-y-4">
                                 <div
                                     className="w-16 h-16 bg-contain bg-no-repeat bg-left"
                                     style={{backgroundImage: `url(${Safety})`}}
                                 ></div>
-                                <div className="text-2xl font-barlow400 text-white">DROŠĪBA</div>
-                                <p className="font-barlow400 text-sm text-center xl:text-left">Darbība civiltiesiski
-                                    apdrošināta</p>
+                                <div className="text-2xl font-barlow400 text-white">{t("sakumlapaAbout.divAbout3")}</div>
+                                <p className="font-barlow400 text-sm text-center xl:text-left">{t("sakumlapaAbout.pAbout3")}</p>
                             </div>
 
                             {/* Card 4 */}
                             <div
-                                className="w-full text-left border border-[#CDC697] p-6 flex flex-col items-center xl:items-start space-y-4">
+                                className="w-full text-left border border-[#CDC697] p-5 flex flex-col items-center xl:items-start space-y-4">
                                 <div
                                     className="w-[95px] h-[72px] bg-contain bg-no-repeat bg-left"
                                     style={{backgroundImage: `url(${Lanida})`}}
                                 ></div>
-                                <div className="text-2xl font-barlow400 text-white">PROFESIONALITĀTE</div>
+                                <div className="text-2xl font-barlow400 text-white">{t("sakumlapaAbout.divAbout4")}</div>
                                 <a
                                     href="https://lanida.lv/biedri/guna-jasko-2/"
                                     className="font-barlow400 text-sm underline text-center xl:text-left"
                                 >
-                                    profesionalitāte
-                                    Latvijas nekustamo īpašumu asociācijas “Lanīda” biedrs
+                                    {t("sakumlapaAbout.pAbout4")}
                                 </a>
                             </div>
                         </div>
@@ -182,7 +180,7 @@ function Sakumlapa() {
                             <a href="https://guna.lucid-websites.com/par-mani">
                                 <button
                                     className="font-barlow500 w-full xl:w-[317px] h-[55px] border border-[#CDC697] text-[#CDC697] hover:text-[#9C9150] hover:border-[#9C9150] transition duration-300 ease-in-out font-medium text-sm">
-                                    UZZINĀT VAIRĀK
+                                    {t("sakumlapaAbout.buttonAbout")}
                                 </button>
                             </a>
                         </div>
@@ -224,7 +222,7 @@ function Sakumlapa() {
                     <div className="relative z-10 flex flex-col items-center justify-center h-full w-full">
                         {/* Heading */}
                         <h2 className="font-garamond500 text-[#CDC697] text-2xl sm:text-4xl sm:mb-12 text-center">
-                            ATSAUKSMES
+                            {t("atsauksmes.h1Atsauksmes")}
                         </h2>
 
                         {/* Testimonial Box */}
@@ -264,7 +262,7 @@ function Sakumlapa() {
             {/* Sadarbības Partneri Section */}
             <section className="mx-auto bg-white">
                 <div className="mx-auto px-4 sm:px-8 text-center">
-                    <h1 className="font-garamond500 text-[#6C256B] text-4xl mb-12 sm:mb-24">SADARBIĪBAS PARTNERI</h1>
+                    <h1 className="font-garamond500 text-[#6C256B] text-4xl mb-12 sm:mb-24">{t("partneri.h1Partneri")}</h1>
 
                     {/* Partners Logos */}
                     <div

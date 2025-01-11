@@ -1,6 +1,8 @@
-import React from "react";
+import React, { Suspense } from "react";
 import {Route, Routes, useLocation} from "react-router-dom";
 import "./App.css";
+import './i18n';
+import { useTranslation } from 'react-i18next';
 import Sakumlapa from "./front-end/Website/Sakumlapa";
 import ParMani from "./front-end/Website/ParMani";
 import Footer from "./front-end/Website/Footer";
@@ -33,6 +35,8 @@ axios.get('/properties', {
     .catch(error => console.error(error));
 
 function App() {
+    const { t } = useTranslation();
+
     const location = useLocation(); // Access current location
 
     const isAdminRoute =
@@ -43,6 +47,7 @@ function App() {
         location.pathname.startsWith("/login");
 
     return (
+        <Suspense fallback={<div>Loading...</div>}>
         <div className={`App ${isAdminRoute ? "admin-panel" : ""}`}>
             {!isAdminRoute && <Header/>} {/* Show Header only on non-admin routes */}
             <Routes>
@@ -64,6 +69,7 @@ function App() {
             </Routes>
             {!isAdminRoute && <Footer/>} {/* Show Footer only on non-admin routes */}
         </div>
+        </Suspense>
     );
 }
 

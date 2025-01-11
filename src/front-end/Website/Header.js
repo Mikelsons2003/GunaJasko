@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 
 const Header = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     const [scrolling, setScrolling] = useState(false); // State to detect scroll
+    const { t, i18n } = useTranslation(); // Use translation hook
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
     };
 
     const handleScroll = () => {
-        // When user scrolls down, set scrolling to true
         if (window.scrollY > 0) {
             setScrolling(true);
         } else {
@@ -19,10 +20,16 @@ const Header = () => {
         }
     };
 
+    const toggleLanguage = () => {
+        // Cycle through the languages: 'en', 'lv', 'ru'
+        const languages = ["en", "lv", "ru"];
+        const currentIndex = languages.indexOf(i18n.language);
+        const nextIndex = (currentIndex + 1) % languages.length;
+        i18n.changeLanguage(languages[nextIndex]);
+    };
+
     useEffect(() => {
-        // Add scroll event listener
         window.addEventListener("scroll", handleScroll);
-        // Clean up the event listener on unmount
         return () => {
             window.removeEventListener("scroll", handleScroll);
         };
@@ -45,7 +52,12 @@ const Header = () => {
         <div className="relative z-50">
             {/* Fixed position header with black background on scroll */}
             <header className="bg-cover bg-center relative">
-                <div className={`fixed top-0 w-full ${scrolling ? "bg-black bg-opacity-40 backdrop-blur-md h-[73px] md:h-[93px]" : "bg-transparent"} transition-all duration-300 ease-in-out`}
+                <div
+                    className={`fixed top-0 w-full ${
+                        scrolling
+                            ? "bg-black bg-opacity-40 backdrop-blur-md h-[73px] md:h-[93px]"
+                            : "bg-transparent"
+                    } transition-all duration-300 ease-in-out`}
                 >
                     {/* Header Section */}
                     <div className="w-full max-w-screen-xl mx-auto px-8 flex justify-between items-center">
@@ -62,38 +74,38 @@ const Header = () => {
                                 to="/"
                                 className="hover:text-[#CDC697] transition duration-300 ease-in-out"
                             >
-                                SĀKUMS
+                                {t("menu.home")}
                             </Link>
                             <Link
                                 to="/par-mani"
                                 className="hover:text-[#CDC697] transition duration-300 ease-in-out"
                             >
-                                PAR MANI
+                                {t("menu.about")}
                             </Link>
                             <Link
                                 to="/pakalpojumi"
                                 className="hover:text-[#CDC697] transition duration-300 ease-in-out"
                             >
-                                PAKALPOJUMI
+                                {t("menu.services")}
                             </Link>
                             <Link
                                 to="/objekti"
                                 className="hover:text-[#CDC697] transition duration-300 ease-in-out"
                             >
-                                OBJEKTI
+                                {t("menu.projects")}
                             </Link>
                             <Link
                                 to="/kontakti"
                                 className="hover:text-[#CDC697] transition duration-300 ease-in-out"
                             >
-                                KONTAKTI
+                                {t("menu.contact")}
                             </Link>
-                            <Link
-                                to="/"
+                            <button
+                                onClick={toggleLanguage}
                                 className="hover:text-[#CDC697] transition duration-300 ease-in-out"
                             >
-                                LV
-                            </Link>
+                                {t("button.language")}
+                            </button>
                         </nav>
 
                         {/* Hamburger Menu Icon */}
@@ -136,43 +148,44 @@ const Header = () => {
                             className="p-1 block hover:text-[#CDC697] transition duration-300 ease-in-out"
                             onClick={() => setMenuOpen(false)}
                         >
-                            SĀKUMS
+                            {t("menu.home")}
                         </Link>
                         <Link
                             to="/par-mani"
                             className="p-1 block hover:text-[#CDC697] transition duration-300 ease-in-out"
                             onClick={() => setMenuOpen(false)}
                         >
-                            PAR MANI
+                            {t("menu.about")}
                         </Link>
                         <Link
                             to="/pakalpojumi"
                             className="p-1 block hover:text-[#CDC697] transition duration-300 ease-in-out"
                             onClick={() => setMenuOpen(false)}
                         >
-                            PAKALPOJUMI
+                            {t("menu.services")}
                         </Link>
                         <Link
                             to="/objekti"
                             className="p-1 block hover:text-[#CDC697] transition duration-300 ease-in-out"
                             onClick={() => setMenuOpen(false)}
                         >
-                            OBJEKTI
+                            {t("menu.projects")}
                         </Link>
                         <Link
                             to="/kontakti"
                             className="p-1 block hover:text-[#CDC697] transition duration-300 ease-in-out"
                             onClick={() => setMenuOpen(false)}
                         >
-                            KONTAKTI
+                            {t("menu.contact")}
                         </Link>
-                        <Link
-                            to="/"
-                            className="p-1 block hover:text-[#CDC697] transition duration-300 ease-in-out"
-                            onClick={() => setMenuOpen(false)}
-                        >
-                            LV
-                        </Link>
+                        <div className="flex items-center justify-center">
+                            <button
+                                onClick={toggleLanguage}
+                                className="p-1 block hover:text-[#CDC697] transition duration-300 ease-in-out"
+                            >
+                                {t("button.language")}
+                            </button>
+                        </div>
                     </nav>
                 </div>
             </header>

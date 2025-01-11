@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import JaunakieObjekti from '../../img/JaunakieObjekti.webp';
 import ArrowLeft from '../../img/ArrowLeft.png';
 import ArrowRight from '../../img/ArrowRight.png';
+import { useTranslation } from "react-i18next";
 
 const JaunakieObjektiSection = () => {
+    const { t } = useTranslation();
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const cards = [
@@ -16,7 +18,7 @@ const JaunakieObjektiSection = () => {
             image: JaunakieObjekti,
         },
         {
-            header: <h1 className="text-[#5B3767] text-xl mb-3">Izīrē</h1>, // Header for the second box
+            header: <h1 className="text-[#5B3767] text-xl mb-3">{t("jaunakieObjekti.h1Objekti1")}</h1>, // Header for the second box
             price: "760 EUR / mēn",
             address: "Alberta 1, Rīga",
             type: "Dzīvoklis",
@@ -24,7 +26,7 @@ const JaunakieObjektiSection = () => {
             image: JaunakieObjekti,
         },
         {
-            header: <h1 className="text-[#5B3767] text-xl mb-3">Pārdod</h1>, // Header for the third box
+            header: <h1 className="text-[#5B3767] text-xl mb-3">{t("jaunakieObjekti.h1Objekti2")}</h1>, // Header for the third box
             price: "120 000 EUR",
             address: "Alberta 1, Rīga",
             type: "Dzīvoklis",
@@ -45,7 +47,7 @@ const JaunakieObjektiSection = () => {
         <section className="py-16 bg-white flex items-center justify-center min-h-screen">
             <div className="container mx-auto flex flex-col items-center justify-center">
                 {/* Heading */}
-                <h1 className="font-garamond500 text-center text-[#5B3767] text-4xl mb-12">JAUNĀKIE OBJEKTI</h1>
+                <h1 className="font-garamond500 text-center text-[#5B3767] text-4xl mb-12">{t("jaunakieObjekti.headerObjekti")}</h1>
 
                 {/* Responsive Cards Section */}
                 <div className="relative flex items-center justify-center lg:justify-between">
@@ -97,13 +99,13 @@ const JaunakieObjektiSection = () => {
 
                                         {/* Details */}
                                         <div className="font-barlow400 grid grid-cols-2 text-sm text-[#5B3767] gap-y-2">
-                                            <span className="text-left py-1">Adrese:</span>
+                                            <span className="text-left py-1">{t("jaunakieObjekti.spanObjekti1")}:</span>
                                             <span className="text-right font-semibold">{card.address}</span>
 
-                                            <span className="text-left pb-1">Īpašuma tips:</span>
+                                            <span className="text-left pb-1">{t("jaunakieObjekti.spanObjekti2")}:</span>
                                             <span className="text-right font-semibold">{card.type}</span>
 
-                                            <span className="text-left">Istabu sk.:</span>
+                                            <span className="text-left">{t("jaunakieObjekti.spanObjekti3")}.:</span>
                                             <span className="text-right font-semibold">{card.rooms}</span>
                                         </div>
 
@@ -113,7 +115,7 @@ const JaunakieObjektiSection = () => {
                                                 href="#"
                                                 className="font-barlow500 text-[#CDC697] text-sm mt-6 inline-flex items-center"
                                             >
-                                                SKATĪT <span className="ml-1">&rarr;</span>
+                                                {t("jaunakieObjekti.aObjekti")} <span className="ml-1">&rarr;</span>
                                             </a>
                                         </div>
                                     </div>
@@ -136,7 +138,7 @@ const JaunakieObjektiSection = () => {
                     <a href="https://guna.lucid-websites.com/objekti">
                         <button
                             className="font-barlow500 w-[280px] sm:w-[356px] h-[55px] bg-[#5B3767] text-[#CDC697] text-sm hover:bg-[#371243] transition duration-300 ease-in-out">
-                            SKATĪT VISUS OBJEKTUS
+                            {t("jaunakieObjekti.buttonObjekti")}
                         </button>
                     </a>
                 </div>

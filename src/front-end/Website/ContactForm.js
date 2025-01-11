@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import PopupMessage from './PopupMessage';
 import SazinasForma from '../../img/SazinasForma.webp';
+import { useTranslation } from "react-i18next";
 
 export default function ContactForm() {
+    const { t } = useTranslation();
     const [isPopupVisible, setPopupVisible] = useState(false);
 
     // Function to open popup
@@ -33,7 +35,7 @@ export default function ContactForm() {
 
             {/* Form Container */}
             <div className="relative z-10 w-full lg:w-8/12 xl:w-5/12 mx-auto bg-[#E8E1D3] p-6 sm:p-10 shadow-lg -mt-16 mr-0 lg:mr-80">
-                <h2 className="font-garamond500 text-[#6C256B] text-4xl mb-8 text-center xs:text-left">SAZIŅAS FORMA</h2>
+                <h2 className="font-garamond500 text-[#6C256B] text-4xl mb-8 text-center xs:text-left">{t("sazina.h1Sazina")}</h2>
 
                 {/* Form */}
                 <form onSubmit={handleSubmit} className="grid gap-6">
@@ -51,7 +53,7 @@ export default function ContactForm() {
                                        peer-focus:top-2 peer-focus:text-sm peer-focus:text-[#9C9150]
                                        peer-placeholder-shown:top-4 peer-placeholder-shown:text-[#9C9150]"
                             >
-                                Vārds
+                                {t("sazina.placeholderSazina1")}
                             </label>
                         </div>
                         <div className="relative">
@@ -67,7 +69,7 @@ export default function ContactForm() {
                                        peer-focus:top-2 peer-focus:text-sm peer-focus:text-[#9C9150]
                                        peer-placeholder-shown:top-4 peer-placeholder-shown:text-[#9C9150]"
                             >
-                                Uzvārds
+                                {t("sazina.placeholderSazina2")}
                             </label>
                         </div>
                     </div>
@@ -87,7 +89,7 @@ export default function ContactForm() {
                                        peer-focus:top-2 peer-focus:text-sm peer-focus:text-[#9C9150]
                                        peer-placeholder-shown:top-4 peer-placeholder-shown:text-[#9C9150]"
                             >
-                                E-pasts
+                                {t("sazina.placeholderSazina3")}
                             </label>
                         </div>
                         <div className="relative">
@@ -103,7 +105,7 @@ export default function ContactForm() {
                                        peer-focus:top-2 peer-focus:text-sm peer-focus:text-[#9C9150]
                                        peer-placeholder-shown:top-4 peer-placeholder-shown:text-[#9C9150]"
                             >
-                                Tālrunis
+                                {t("sazina.placeholderSazina4")}
                             </label>
                         </div>
                     </div>
@@ -114,27 +116,27 @@ export default function ContactForm() {
                             <select
                                 className="w-full p-4 text-[#9C9150] placeholder-[#9C9150] border border-[#E8E1D3] focus:outline-none hover:border-[#CDC697] focus:border-[#CDC697] focus:ring-0 bg-white"
                             >
-                                <option>Darījuma veids</option>
-                                <option value="pirkšana">Pirkšana</option>
-                                <option value="pārdošana">Pārdošana</option>
+                                <option>{t("sazina.optionSazina1")}</option>
+                                <option value="pirkšana">{t("sazina.optionSazina2")}</option>
+                                <option value="pārdošana">{t("sazina.optionSazina3")}</option>
                             </select>
                         </div>
                         <div>
                             <select
                                 className="w-full p-4 text-[#9C9150] placeholder-[#9C9150] border border-[#E8E1D3] focus:outline-none hover:border-[#CDC697] focus:border-[#CDC697] focus:ring-0 bg-white"
                             >
-                                <option>Reģions</option>
-                                <option>Rīga</option>
-                                <option>Latgale</option>
+                                <option>{t("sazina.optionSazina4")}</option>
+                                <option>{t("sazina.optionSazina5")}</option>
+                                <option>{t("sazina.optionSazina6")}</option>
                             </select>
                         </div>
                         <div>
                             <select
                                 className="w-full p-4 text-[#9C9150] placeholder-[#9C9150] border border-[#E8E1D3] focus:outline-none hover:border-[#CDC697] focus:border-[#CDC697] focus:ring-0 bg-white"
                             >
-                                <option>Īpašuma tips</option>
-                                <option>Dzīvoklis</option>
-                                <option>Māja</option>
+                                <option>{t("sazina.optionSazina7")}</option>
+                                <option>{t("sazina.optionSazina8")}</option>
+                                <option>{t("sazina.optionSazina9")}</option>
                             </select>
                         </div>
                     </div>
@@ -153,7 +155,7 @@ export default function ContactForm() {
                                        peer-focus:top-2 peer-focus:text-sm peer-focus:text-[#9C9150]
                                        peer-placeholder-shown:top-4 peer-placeholder-shown:text-[#9C9150]"
                         >
-                            Komentārs
+                            {t("sazina.placeholderSazina5")}
                         </label>
                     </div>
 
@@ -166,7 +168,7 @@ export default function ContactForm() {
                             required
                         />
                         <label htmlFor="agree" className="font-barlow400 text-sm text-[#5B3767]">
-                            Piekrītu personas datu apstrādes noteikumiem.
+                            {t("sazina.pSazina")}
                         </label>
                     </div>
 
@@ -176,7 +178,7 @@ export default function ContactForm() {
                             type="submit"
                             className="font-barlow500 w-full sm:w-[238px] h-[55px] bg-[#5B3767] text-[#CDC697] text-sm hover:bg-[#371243] transition duration-300 ease-in-out"
                         >
-                            SŪTĪT
+                            {t("sazina.buttonSazina")}
                         </button>
                     </div>
                 </form>

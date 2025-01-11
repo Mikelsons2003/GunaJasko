@@ -1,8 +1,10 @@
 import React from "react";
 import { FaFacebookF, FaTiktok, FaLinkedinIn, FaInstagram, FaYoutube } from 'react-icons/fa';
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 function Footer() {
+    const { t } = useTranslation();
     return (
         <div className="mx-auto font-sans text-white">
             <div className="footer bg-[#5B3767] text-white py-6">
@@ -58,10 +60,10 @@ function Footer() {
                     {/* Right Section */}
                     <div className="text-right text-sm mt-4 sm:mt-0">
                         <Link to="/privatuma-politika" className="font-barlow500 hover:underline">
-                            PRIVĀTUMA POLITIKA
+                            {t("footer.h1Footer")}
                         </Link>
                         <br/>
-                        <span className="font-barlow400 text-xs">Dizaina izstrāde: Edīte Šatkovska</span>
+                        <span className="font-barlow400 text-xs">{t("footer.pFooter")}: Edīte Šatkovska</span>
                     </div>
                 </div>
             </div>

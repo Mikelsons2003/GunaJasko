@@ -1,0 +1,75 @@
+{
+  "menu": {
+    "home": "Sākums",
+    "about": "Par Mani",
+    "services": "Pakalpojumi",
+    "projects": "Objekti",
+    "contact": "Kontakti"
+  },
+  "sakumlapa": {
+    "header": "NEKUSTAMO ĪPAŠUMU AĢENTS",
+    "p": "Nekustamo īpašumu pārdošanā kopš 2006. gada, specializācija – dzīvojamais fonds: dzīvokļu, privātmāju un zemju tirdzniecība un īre Rīgā un Rīgas rajonā. Pieredze apjomīgu projektu tirdzniecībā kā projektu vadītājai (attīstītāju projekti virs 100 dzīvokļiem).",
+    "button": "PIETEIKT ĪPAŠUMU"
+  },
+  "sakumlapaAbout": {
+    "headerAbout": "KĀPĒC SADARBOTIES AR MANI",
+    "divAbout1": "PIEREDZE",
+    "divAbout2": "UZTICAMĪBA",
+    "divAbout3": "DROŠĪBA",
+    "divAbout4": "PROFESIONALITĀTE",
+    "pAbout1": "Tirgū kopš 2006. gada",
+    "pAbout2": "Reģistrēta Ekonomikas ministrijas starpnieku reģistrā ar nr.224",
+    "pAbout3": "Darbība civiltiesiski apdrošināta",
+    "pAbout4": "Latvijas nekustamo īpašumu asociācijas “Lanīda” biedrs",
+    "buttonAbout": "UZZINĀT VAIRĀK"
+  },
+  "jaunakieObjekti" : {
+    "headerObjekti": "JAUNĀKIE OBJEKTI",
+    "spanObjekti1": "Adrese",
+    "spanObjekti2": "Īpašuma tips",
+    "spanObjekti3": "istabu sk",
+    "aObjekti": "SKATĪT",
+    "buttonObjekti": "SKATĪT VISUS OBJEKTUS",
+    "h1Objekti1": "Izīrē",
+    "h1Objekti2": "Pārdod"
+  },
+  "atsauksmes" : {
+    "h1Atsauksmes": "ATSAUKSMES",
+    "pAtsauksmes1": "Labdien, Guna! Ar novēlošanos gribu patiekties par padarīto aģenta darbiņu mājas pārdošanā un dzīvokļa iegādē! Ņemot vērā, ka viss notika attālināti, tad vispār trūkst vārdi, jo viss noritēja kā pa notīm! Paši mēs noteikti iekristu kādās lamatās! Pie iespējas noteikti Jūs rekomendēšu citiem. Veiksmi Jums it visā!",
+    "pAtsauksmes2": "Guna Jasko ar savām plašajām zināšanām par tirgu un savu uzticību katram klientam ir palīdzējusi manā pārdošanas apjomā. Es ļoti iesaku viņas pakalpojumus ikvienam, kurš meklē proaktīvu, uzticamu nekustamā īpašuma aģentu, kas spēj sniegt izcilus rezultātus.",
+    "pAtsauksmes3": "Ļoti labi. Milzīgs tev paldies, ka piekriti, uzņēmies, palīdzēji un izdarīji fantastisku darbu. Turklāt ļoti ātri. Godīgi sakot, pirmo reizi dzīvē saskāros ar tik profesionālu cilvēku. Paldies tev <3"
+  },
+  "partneri": {
+    "h1Partneri": "SADARBĪBAS PARTNERI"
+  },
+  "politika": {
+    "h1Politika": "PRIVĀTUMA POLITIKA",
+    "pPolitika": "Atbilstoši Eiropas Parlamenta un Padomes Regulai 2016/679, SIA „City 55” (E-pasts jaskoguna@gmail.com Tel.: +371200166088) saņem, 2 gadus uzglabā un apstrādā manis nodotos personas datus (E-pasts, vārdu, uzvārdu un tālruņa numuru), ar mērķi nodrošināt saziņu, sniegt pilnvērtīgāku saturu un atbilstošākas reklāmas. Piekrītot datu apstrādei, tieku informēts, ka mani personas dati netiks nosūtīti citiem ES uzņēmumiem, vai uz trešo valsti, vai starptautisku organizāciju. Apzinos savas tiesības saistībā ar manu personas datu dzēšanu, labošanu, apstrādes ierobežošanu, u.c. (vairāk info:"
+  },
+  "footer": {
+    "h1Footer": "PRIVĀTUMA POLITIKA",
+    "pFooter": "Dizaina izstrāde"
+  },
+  "sazina": {
+    "h1Sazina": "Saziņas forma",
+    "placeholderSazina1": "Vārds",
+    "placeholderSazina2": "Uzvārds",
+    "placeholderSazina3": "E-pasts",
+    "placeholderSazina4": "Tālrunis",
+    "optionSazina1": "Darījuma veids",
+    "optionSazina2": "Pirkt",
+    "optionSazina3": "Pārdot",
+    "optionSazina4": "Reģions",
+    "optionSazina5": "Rīga",
+    "optionSazina6": "Latgale",
+    "optionSazina7": "Īpašuma tips",
+    "optionSazina8": "Dzīvoklis",
+    "optionSazina9": "Māja",
+    "placeholderSazina5": "Komentārs",
+    "pSazina": "Piekrītu personas datu apstrādes noteikumiem.",
+    "buttonSazina": "SŪTĪT"
+  },
+  "button": {
+    "language": "LV"
+  }
+}
