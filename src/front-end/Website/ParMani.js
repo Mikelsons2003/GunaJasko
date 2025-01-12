@@ -6,8 +6,10 @@ import Check from "../../img/Check.webp";
 import Safety from "../../img/Safety.webp";
 import Lanida from "../../img/Lanida.webp";
 import GunaParMani from "../../img/GunaParMani.webp";
+import { useTranslation } from "react-i18next";
 
 function ParMani() {
+    const {t} = useTranslation();
     return (
         <div className="mx-auto font-sans text-white">
             <div
@@ -15,23 +17,20 @@ function ParMani() {
                 {/* Left: Text Section */}
                 <div className="w-full lg:w-1/2 space-y-6 px-6 lg:px-12 xl:pl-20 2xl:pl-40 mt-14 sm:mt-20 lg:mt-0">
                     <div className="mt-16 lg:mt-32 2xl:ml-40">
-                        <h2 className="text-3xl sm:text-4xl text-center lg:text-left text-white">Par aģentu</h2>
+                        <h2 className="text-3xl sm:text-4xl text-center lg:text-left text-white">{t("parmani.h1Parmani")}</h2>
                         <p className="text-sm sm:text-lg leading-relaxed text-center lg:text-left mt-6 sm:mt-10 text-white">
-                            Nekustamo īpašumu pārdošanā kopš 2006. gada, specializācija – dzīvojamais fonds:
-                            dzīvokļu, privātmāju un zemju tirdzniecība un īre Rīgā un Rīgas rajonā. Pieredze
-                            apjomīgu projektu tirdzniecībā kā projektu vadītājai (attīstītāju projekti virs 100
-                            dzīvokļiem).
+                            {t("parmani.pParmani1")}
                         </p>
                         <p className="text-sm sm:text-lg leading-relaxed text-center lg:text-left mt-6 sm:mt-20 text-white">
-                            Vairāk kā 600 pārdošanas un īres darījumi.
+                            {t("parmani.pParmani2")}
                         </p>
                         <p className="text-sm sm:text-lg leading-relaxed text-center lg:text-left mt-6 sm:mt-10 text-white">
-                            Brīvi runāju trīs valodās – latviešu, krievu un angļu valodā.
+                            {t("parmani.pParmani3")}
                         </p>
                     </div>
                     <div className="flex justify-center lg:justify-start 2xl:ml-40">
                         <a href="https://guna.lucid-websites.com/kontakti"><button className="w-[274px] h-[55px] border border-[#CDC697] text-[#CDC697] mt-10 hover:text-[#9C9150] hover:border-[#9C9150] transition duration-300 ease-in-out">
-                            SAZINĀTIES
+                            {t("parmani.buttonParmani")}
                         </button></a>
                     </div>
                 </div>
@@ -53,28 +52,28 @@ function ParMani() {
                 {/* Top Left (Text) */}
                 <div className="p-4 md:p-10">
                     <h2 className="text-[#5B3767] text-2xl sm:text-4xl mb-4 sm:mb-6 text-left">
-                        Specializācija - dzīvojamais fonds
+                        {t("ramis.h1Ramis1")}
                     </h2>
                     <ul className="font-barlow400 space-y-4 text-[#5B3767] pt-4">
                         <li className="flex items-center">
                             <span className="text-[#CDC697] text-2xl sm:text-4xl mr-4">✔</span>
-                            Mājas un jaunbūves
+                            {t("ramis.liRamis1")}
                         </li>
                         <li className="flex items-center text-left">
                             <span className="text-[#CDC697] text-2xl sm:text-4xl mr-4">✔</span>
-                            Dzīvokļi sērijveida un jaunajās mājās
+                            {t("ramis.liRamis2")}
                         </li>
                         <li className="flex items-center text-left">
                             <span className="text-[#CDC697] text-2xl sm:text-4xl mr-4">✔</span>
-                            Apbūves zemesgabali un zemesgabali ciematos
+                            {t("ramis.liRamis3")}
                         </li>
                         <li className="flex items-center text-left">
                             <span className="text-[#CDC697] text-2xl sm:text-4xl mr-4">✔</span>
-                            Premium klases dzīvokļi un mājas (Jūrmala, Baltezers, klusais centrs, Vecrīga)
+                            {t("ramis.liRamis4")}
                         </li>
                         <li className="flex items-center">
                             <span className="text-[#CDC697] text-2xl sm:text-4xl mr-4">✔</span>
-                            Ekskluzīvi īpašumi
+                            {t("ramis.liRamis5")}
                         </li>
                     </ul>
                 </div>
@@ -98,24 +97,24 @@ function ParMani() {
                 {/* Bottom Right (Text) */}
                 <div className="p-4 md:p-8">
                     <h2 className="text-[#5B3767] text-2xl sm:text-4xl mb-4 sm:mb-6 text-left">
-                        Klienta ieguvums no sadarbības
+                        {t("ramis.h1Ramis2")}
                     </h2>
                     <ul className="font-barlow400 space-y-4 text-[#5B3767]">
                         <li className="flex items-center text-left">
                             <span className="text-[#CDC697] text-2xl sm:text-4xl mr-4">✔</span>
-                            Pilnīgi drošs, mierīgs un paredzams sava īpašuma pārdošanas process
+                            {t("ramis.liRamis6")}
                         </li>
                         <li className="flex items-center">
                             <span className="text-[#CDC697] text-2xl sm:text-4xl mr-4">✔</span>
-                            Kvalitatīvs juridiskais atbalsts
+                            {t("ramis.liRamis7")}
                         </li>
                         <li className="flex items-center">
                             <span className="text-[#CDC697] text-2xl sm:text-4xl mr-4">✔</span>
-                            Nestandarta darījumu risinājumi
+                            {t("ramis.liRamis8")}
                         </li>
                         <li className="flex items-center text-left">
                             <span className="text-[#CDC697] text-2xl sm:text-4xl mr-4">✔</span>
-                            Augstākās kvalitātes klientu serviss no darījuma sākuma līdz beigām
+                            {t("ramis.liRamis9")}
                         </li>
                     </ul>
                 </div>
@@ -125,7 +124,7 @@ function ParMani() {
                 <div className="container mx-auto px-4 sm:px-8 lg:px-24 2xl:px-36 text-center">
                     {/* Heading */}
                     <h1 className="font-garamond500 text-[#CDC697] text-2xl sm:text-3xl lg:text-4xl mb-12 lg:mb-20">
-                        KĀPĒC SADARBOTIES AR MANI
+                        {t("sakumlapaAbout.headerAbout")}
                     </h1>
 
                     {/* Information Cards */}
@@ -138,9 +137,9 @@ function ParMani() {
                                  style={{backgroundImage: `url(${Experience})`}}>
                             </div>
                             {/* Title */}
-                            <div className="font-barlow400 text-xl lg:text-2xl text-white">PIEREDZE</div>
+                            <div className="font-barlow400 text-xl lg:text-2xl text-white">{t("sakumlapaAbout.divAbout1")}</div>
                             {/* Description */}
-                            <p className="text-sm">Tirgū kopš 2006. gada</p>
+                            <p className="text-sm">{t("sakumlapaAbout.pAbout1")}</p>
                         </div>
 
                         {/* Card 2 */}
@@ -151,9 +150,9 @@ function ParMani() {
                                  style={{backgroundImage: `url(${Check})`}}>
                             </div>
                             {/* Title */}
-                            <div className="font-barlow400 text-xl lg:text-2xl text-white">UZTICAMĪBA</div>
+                            <div className="font-barlow400 text-xl lg:text-2xl text-white">{t("sakumlapaAbout.divAbout2")}</div>
                             {/* Description */}
-                            <p className="text-sm">Reģistrēta Ekonomikas ministrijas starpnieku reģistrā ar nr.224</p>
+                            <p className="text-sm">{t("sakumlapaAbout.pAbout2")}</p>
                         </div>
 
                         {/* Card 3 */}
@@ -164,9 +163,9 @@ function ParMani() {
                                  style={{backgroundImage: `url(${Safety})`}}>
                             </div>
                             {/* Title */}
-                            <div className="font-barlow400 text-xl lg:text-2xl text-white">DROŠĪBA</div>
+                            <div className="font-barlow400 text-xl lg:text-2xl text-white">{t("sakumlapaAbout.divAbout3")}</div>
                             {/* Description */}
-                            <p className="text-sm">Darbība civiltiesiski apdrošināta</p>
+                            <p className="text-sm">{t("sakumlapaAbout.pAbout3")}</p>
                         </div>
 
                         {/* Card 4 */}
@@ -177,11 +176,11 @@ function ParMani() {
                                  style={{backgroundImage: `url(${Lanida})`}}>
                             </div>
                             {/* Title */}
-                            <div className="font-barlow400 text-xl lg:text-2xl text-white">PROFESIONALITĀTE</div>
+                            <div className="font-barlow400 text-xl lg:text-xl text-white">{t("sakumlapaAbout.divAbout4")}</div>
                             {/* Description */}
                             <a href="https://lanida.lv/biedri/guna-jasko-2/"
                                className="font-barlow400 text-sm underline text-[#CDC697] hover:text-[#9C9150] transition duration-300">
-                                Latvijas nekustamo īpašumu asociācijas “Lanīda” biedrs
+                                {t("sakumlapaAbout.pAbout4")}
                             </a>
                         </div>
                     </div>
@@ -190,7 +189,7 @@ function ParMani() {
                     <div className="mt-12">
                         <a href="https://guna.lucid-websites.com/pakalpojumi"><button
                             className="w-full max-w-[317px] h-[55px] border border-[#CDC697] text-[#CDC697] hover:text-[#9C9150] hover:border-[#9C9150] transition duration-300 ease-in-out text-sm">
-                            UZZINĀT VAIRĀK
+                            {t("sakumlapaAbout.buttonAbout")}
                         </button></a>
                     </div>
                 </div>
@@ -201,25 +200,20 @@ function ParMani() {
                     {/* Education Section */}
                     <div className="mb-16">
                         <h2 className="text-4xl mb-6 text-left sm:text-left sm:ml-10">
-                            Izglītība
+                            {t("izglitiba.h1Izglitiba1")}
                         </h2>
                         <p className="text-lg leading-relaxed mx-auto max-w-6xl text-left sm:text-left sm:ml-10">
-                            Esmu pabeigusi uzņēmējdarbības vadības studijas Rīgas Stradiņa universitātē
-                            (bakalaura grāds) un digitālā mārketinga studijas BA Turība. Esmu apmeklējusi
-                            neskaitāmus kvalifikācijas paaugstināšanas un pārdošanas kursus, kas ir
-                            apliecināti ar sertifikātiem, regulāri piedalos LANĪDA rīkotajās konferencēs
-                            nozares speciālistiem. Angļu valodu esmu apguvusi Lielbritānijā (Oxford school branch).
+                            {t("izglitiba.pIzglitiba1")}
                         </p>
                     </div>
 
                     {/* Personal Attributes Section */}
                     <div className="mb-16">
                         <h2 className="text-4xl mb-6 text-left sm:text-left sm:ml-10">
-                            Personīgās īpašības
+                            {t("izglitiba.h1Izglitiba2")}
                         </h2>
                         <p className="text-lg leading-relaxed mx-auto max-w-6xl text-left sm:text-left sm:ml-10">
-                            Esmu profesionāla, korekta un ātra, pieejama saviem klientiem, ar elastīgu darba laiku.
-                            Spēju pielāgoties klienta laika grafikam.
+                            {t("izglitiba.pIzglitiba2")}
                         </p>
                     </div>
 
@@ -227,7 +221,7 @@ function ParMani() {
                     <div className="flex justify-center">
                         <a href="https://guna.lucid-websites.com/kontakti"><button
                             className="w-[272px] h-[55px] sm:w-[317px] sm:h-[55px] bg-[#5B3767] hover:bg-[#371243] transition duration-300 ease-in-out text-[#CDC697]">
-                            PIETEIKT ĪPAŠUMU
+                            {t("izglitiba.buttonIzglitiba")}
                         </button></a>
                     </div>
                 </div>

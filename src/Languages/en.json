@@ -69,6 +69,67 @@
     "pSazina": "I agree to the terms of personal data processing.",
     "buttonSazina": "SEND"
   },
+  "parmani": {
+    "h1Parmani": "About the agent",
+    "pParmani1": "In real estate sales since 2006, specialization – residential property: sale and rental of apartments, private houses and land in Riga and Riga district. Experience in sales of large-scale projects as a project manager (developer projects with over 100 apartments).",
+    "pParmani2": "More than 600 sales and rental transactions.",
+    "pParmani3": "I speak three languages fluently – Latvian, Russian, and English.",
+    "buttonParmani": "CONTACT US"
+  },
+  "ramis": {
+    "h1Ramis1": "Specialization - housing stock",
+    "h1Ramis2": "Customer benefit from cooperation",
+    "liRamis1": "Houses and new construction",
+    "liRamis2": "Apartments in serial and new houses",
+    "liRamis3": "Building plots and plots in villages",
+    "liRamis4": "Premium class apartments and houses (Jūrmala, Baltezers, quiet center, Old Riga)",
+    "liRamis5": "Exclusive properties",
+    "liRamis6": "A completely safe, calm and predictable process for selling your property",
+    "liRamis7": "Quality legal support",
+    "liRamis8": "Non-standard business solutions",
+    "liRamis9": "Top-quality customer service from start to finish"
+  },
+  "izglitiba": {
+    "h1Izglitiba1": "Education",
+    "h1Izglitiba2": "Personal qualities",
+    "pIzglitiba1": "I have completed business management studies at Riga Stradins University (bachelor's degree) and digital marketing studies at BA Turība. I have attended countless qualification improvement and sales courses, which are confirmed by certificates, I regularly participate in conferences for industry specialists organized by LANĪDA. I have learned English in the UK (Oxford school branch).",
+    "pIzglitiba2": "I am professional, correct and fast, available to my clients, with flexible working hours. I am able to adapt to the client's schedule.",
+    "buttonIzglitiba": "APPLY FOR PROPERTY"
+  },
+  "pakalpojumi": {
+    "h1Pakalpojumi1": "SERVICES",
+    "h1Pakalpojumi2": "INTERMEDIATION SERVICES",
+    "h1Pakalpojumi3": "TRANSACTION FORMULATION",
+    "h1Pakalpojumi4": "FOR NEW PROJECT DEVELOPERS",
+    "h1Pakalpojumi5": "The service (full cycle) includes:",
+    "h1Pakalpojumi6": "The service includes:",
+    "pPakalpojumi1": "Market research and analysis of the object, price determination",
+    "pPakalpojumi2": "Marketing activities – creating advertisements, professional photos, 3D tours, aerial photos, videos",
+    "pPakalpojumi3": "Extensive database available (personal as well as 350 agent database)",
+    "pPakalpojumi4": "Active advertising on social networks – FB, Instagram, Tiktok (total around 4,000 followers)",
+    "pPakalpojumi5": "Sales cycle management: answering calls, classifying potential buyers, presenting properties, conducting negotiations",
+    "pPakalpojumi6": "Solving legal issues and preparing contracts (contracts are prepared by a qualified lawyer), scheduling a visit to a notary in person or digitally, submitting documents for registration in the land register",
+    "pPakalpojumi7": "Closing of the transaction: acceptance and handover certificate and key handover",
+    "specialpPakalpojumi1": "Service price:",
+    "specialpPakalpojumi2": "3-5 % of the transaction amount.",
+    "specialpPakalpojumi3": "For rental transactions:",
+    "specialpPakalpojumi4": "one month's rent",
+    "pPakalpojumi8": "Legal strategy and steps of the transaction",
+    "pPakalpojumi9": "Preparation of a down payment or preliminary contract",
+    "pPakalpojumi10": "Preparation of the purchase contract",
+    "pPakalpojumi11": "Preparation of the acceptance and handover certificate",
+    "specialpPakalpojumi5": "% of the transaction amount.",
+    "specialpPakalpojumi6": "but not less than",
+    "pPakalpojumi12": "Competitor and market research",
+    "pPakalpojumi13": "Research on pricing policy",
+    "pPakalpojumi14": "Marketing plan and sales strategy",
+    "pPakalpojumi15": "Full-cycle legal service",
+    "pPakalpojumi16": "Sales cycle management: answering calls, classifying potential buyers, presenting properties, conducting negotiations",
+    "pPakalpojumi17": "Full-cycle sales service",
+    "pPakalpojumi18": "Various in-person sales promotion activities such as open houses, organized events (new home fairs), agent days, etc.",
+    "pPakalpojumi19": "by agreement",
+    "buttonPakalpojumi": "CONTACT US"
+  },
   "button": {
     "language": "EN"
   }

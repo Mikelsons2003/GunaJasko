@@ -2,8 +2,10 @@ import React from "react";
 import {Link} from "react-router-dom";
 import Kabinets from "../../../img/Kabinets.webp";
 import Pakalpojumaimg1 from "../../../img/Pakalpojumaimg1.webp";
+import { useTranslation } from "react-i18next";
 
 function Darijuma() {
+    const {t} = useTranslation();
     return (
         <div className="mx-auto font-sans text-white bg-[#FBF8FB] overflow-hidden">
             <div
@@ -13,7 +15,7 @@ function Darijuma() {
                 <div
                     className="lg:w-1/2 text-white text-center lg:text-left space-y-6"
                 >
-                    <h1 className="text-3xl sm:text-4xl lg:mr-6 xl:ml-40 2xl:ml-80">PAKALPOJUMI</h1>
+                    <h1 className="text-3xl sm:text-4xl lg:mr-6 xl:ml-40 2xl:ml-80">{t("pakalpojumi.h1Pakalpojumi1")}</h1>
                 </div>
 
                 {/* Right: Image Section */}
@@ -31,13 +33,13 @@ function Darijuma() {
             <nav className="text-center py-6 text-sm mt-4 xl:mt-24 text-[#5B3767]">
                 <ul className="font-barlow500 flex flex-col lg:inline-flex space-y-4 lg:space-y-0 items-center">
                     <Link to="/starpniecibas" className="hover:underline text-lg lg:text-xl w-full lg:w-[288px]">
-                        STARPNECĪBAS PAKALPOJUMI
+                        {t("pakalpojumi.h1Pakalpojumi2")}
                     </Link>
                     <Link to="/darijuma" className="hover:underline text-lg lg:text-xl w-full lg:w-[288px]">
-                        DARĪJUMA NOFORMĒŠANA
+                        {t("pakalpojumi.h1Pakalpojumi3")}
                     </Link>
                     <Link to="/projekti" className="hover:underline text-lg lg:text-xl w-full lg:w-[320px]">
-                        JAUNO PROJEKTU ATTĪSTĪTĀJIEM
+                        {t("pakalpojumi.h1Pakalpojumi4")}
                     </Link>
                 </ul>
             </nav>
@@ -50,7 +52,7 @@ function Darijuma() {
             <div className="container mx-auto px-6 sm:px-8 lg:px-20 py-16 text-[#5B3767]">
                 {/* Centered Title */}
                 <h1 className="text-2xl sm:text-3xl lg:text-4xl text-center mb-12">
-                    Pakalpojums ietver:
+                    {t("pakalpojumi.h1Pakalpojumi6")}
                 </h1>
 
                 {/* Content Section */}
@@ -59,16 +61,16 @@ function Darijuma() {
                     <div className="font-barlow400 w-full lg:w-2/3 text-left">
                         <ul className="space-y-6 text-base sm:text-lg leading-relaxed">
                             <li className="pl-6 relative">
-                                <span className="absolute left-0">—</span> Darījuma juridiskā stratēģija un soļi
+                                <span className="absolute left-0">—</span> {t("pakalpojumi.pPakalpojumi8")}
                             </li>
                             <li className="pl-6 relative">
-                                <span className="absolute left-0">—</span> Rokasnaudas vai priekšlīguma sagatave
+                                <span className="absolute left-0">—</span> {t("pakalpojumi.pPakalpojumi9")}
                             </li>
                             <li className="pl-6 relative">
-                                <span className="absolute left-0">—</span> Pirkuma līguma sagatave
+                                <span className="absolute left-0">—</span> {t("pakalpojumi.pPakalpojumi10")}
                             </li>
                             <li className="pl-6 relative">
-                                <span className="absolute left-0">—</span> Pieņemšanas-nodošanas akta sagatavošana
+                                <span className="absolute left-0">—</span> {t("pakalpojumi.pPakalpojumi11")}
                             </li>
                         </ul>
                     </div>
@@ -76,9 +78,9 @@ function Darijuma() {
                     {/* Right Column (Yellow Text) */}
                     <div
                         className="w-full lg:w-1/3 text-[#9C9150] text-lg sm:text-xl text-left lg:text-right flex flex-col justify-end space-y-4"> {/* Adjust this value */}
-                        <p className="font-garamond500">Pakalpojuma cena:</p>
-                        <p className="font-garamond500"><span className="font-infant600 font-bold text-2xl">1</span>% no darījuma summas.</p>
-                        <p className="font-garamond500">bet ne mazāk kā <span className="font-infant600 text-2xl font-bold">500</span> EUR</p>
+                        <p className="font-garamond500">{t("pakalpojumi.specialpPakalpojumi1")}</p>
+                        <p className="font-garamond500"><span className="font-infant600 font-bold text-2xl">1</span>{t("pakalpojumi.specialpPakalpojumi5")}</p>
+                        <p className="font-garamond500">{t("pakalpojumi.specialpPakalpojumi6")}<span className="font-infant600 text-2xl font-bold"> 500</span> EUR</p>
                     </div>
                 </div>
 
@@ -86,7 +88,7 @@ function Darijuma() {
                 <div className="flex justify-center mt-12">
                     <a href="https://guna.lucid-websites.com/kontakti"><button
                             className="w-[274px] h-[55px] bg-[#5B3767] hover:bg-[#371243] transition duration-300 ease-in-out text-[#CDC697] font-medium">
-                            SAZINĀTIES
+                        {t("pakalpojumi.buttonPakalpojumi")}
                         </button></a>
                 </div>
 

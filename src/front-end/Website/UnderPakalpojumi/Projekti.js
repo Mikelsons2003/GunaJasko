@@ -2,9 +2,11 @@ import React from "react";
 import Pakalpojumaimg2 from "../../../img/Pakalpojumaimg2.webp";
 import {Link} from "react-router-dom";
 import Kabinets from "../../../img/Kabinets.webp";
+import { useTranslation } from "react-i18next";
 
 
 function Projekti() {
+    const {t} = useTranslation();
     return (
         <div className="mx-auto font-sans text-white bg-[#FBF8FB] overflow-hidden">
             <div
@@ -14,7 +16,7 @@ function Projekti() {
                 <div
                     className="lg:w-1/2 text-white text-center lg:text-left space-y-6"
                 >
-                    <h1 className="text-3xl sm:text-4xl lg:mr-6 xl:ml-40 2xl:ml-80">PAKALPOJUMI</h1>
+                    <h1 className="text-3xl sm:text-4xl lg:mr-6 xl:ml-40 2xl:ml-80">{t("pakalpojumi.h1Pakalpojumi1")}</h1>
                 </div>
 
                 {/* Right: Image Section */}
@@ -32,13 +34,13 @@ function Projekti() {
             <nav className="text-center py-6 text-sm mt-4 xl:mt-24 text-[#5B3767]">
                 <ul className="font-barlow500 flex flex-col lg:inline-flex space-y-4 lg:space-y-0 items-center">
                     <Link to="/starpniecibas" className="hover:underline text-lg lg:text-xl w-full lg:w-[288px]">
-                        STARPNECĪBAS PAKALPOJUMI
+                        {t("pakalpojumi.h1Pakalpojumi2")}
                     </Link>
                     <Link to="/darijuma" className="hover:underline text-lg lg:text-xl w-full lg:w-[288px]">
-                        DARĪJUMA NOFORMĒŠANA
+                        {t("pakalpojumi.h1Pakalpojumi3")}
                     </Link>
                     <Link to="/projekti" className="hover:underline text-lg lg:text-xl w-full lg:w-[320px]">
-                        JAUNO PROJEKTU ATTĪSTĪTĀJIEM
+                        {t("pakalpojumi.h1Pakalpojumi4")}
                     </Link>
                 </ul>
             </nav>
@@ -51,7 +53,7 @@ function Projekti() {
             <div className="container mx-auto px-6 sm:px-8 lg:px-20 py-16 text-[#5B3767]">
                 {/* Centered Title */}
                 <h1 className="text-2xl sm:text-3xl lg:text-4xl text-center mb-12">
-                    Pakalpojums (pilns cikls) ietver:
+                    {t("pakalpojumi.h1Pakalpojumi5")}
                 </h1>
 
                 {/* Content Section */}
@@ -60,25 +62,25 @@ function Projekti() {
                     <div className="font-barlow400 w-full lg:w-2/3 text-left">
                         <ul className="space-y-6 text-base sm:text-lg leading-relaxed">
                             <li className="pl-6 relative">
-                                <span className="absolute left-0">—</span> Konkurentu un tirgus izpēte
+                                <span className="absolute left-0">—</span> {t("pakalpojumi.pPakalpojumi12")}
                             </li>
                             <li className="pl-6 relative">
-                                <span className="absolute left-0">—</span> Cenu politikas izpēte
+                                <span className="absolute left-0">—</span> {t("pakalpojumi.pPakalpojumi13")}
                             </li>
                             <li className="pl-6 relative">
-                                <span className="absolute left-0">—</span> Mārketinga plāns un pārdošanas stratēģija
+                                <span className="absolute left-0">—</span> {t("pakalpojumi.pPakalpojumi14")}
                             </li>
                             <li className="pl-6 relative">
-                                <span className="absolute left-0">—</span> Pilna cikla juridiskais serviss
+                                <span className="absolute left-0">—</span> {t("pakalpojumi.pPakalpojumi15")}
                             </li>
                             <li className="pl-6 relative">
-                                <span className="absolute left-0">—</span> Pārdošanas cikla vadīšana: zvanu pieņemšana, potenciālo pircēju klasificēšana, īpašumu prezentācija, pārrunu veikšana
+                                <span className="absolute left-0">—</span> {t("pakalpojumi.pPakalpojumi16")}
                             </li>
                             <li className="pl-6 relative">
-                                <span className="absolute left-0">—</span> Pilna cikla pārdošanas serviss
+                                <span className="absolute left-0">—</span> {t("pakalpojumi.pPakalpojumi17")}
                             </li>
                             <li className="pl-6 relative">
-                                <span className="absolute left-0">—</span> Dažādas pārdošanu veicinošas klātienes aktivitātes kā piemēram atvērto durvju dienas,   organizētie pasākumi (jauno mājokļu tirdziņi), aģentu dienas utt.
+                                <span className="absolute left-0">—</span> {t("pakalpojumi.pPakalpojumi18")}
                             </li>
                         </ul>
                     </div>
@@ -86,8 +88,8 @@ function Projekti() {
                     {/* Right Column (Yellow Text) */}
                     <div
                         className="w-full lg:w-1/3 text-[#9C9150] text-lg sm:text-xl text-left lg:text-right flex flex-col justify-end space-y-4">
-                        <p className="font-garamond500">Pakalpojuma cena:</p>
-                        <p className="font-garamond500">pēc vienošanās</p>
+                        <p className="font-garamond500">{t("pakalpojumi.specialpPakalpojumi1")}</p>
+                        <p className="font-garamond500">{t("pakalpojumi.pPakalpojumi19")}</p>
                     </div>
                 </div>
 
@@ -96,7 +98,7 @@ function Projekti() {
                     <a href="https://guna.lucid-websites.com/kontakti">
                         <button
                             className="w-[274px] h-[55px] bg-[#5B3767] hover:bg-[#371243] transition duration-300 ease-in-out text-[#CDC697] font-medium">
-                            SAZINĀTIES
+                            {t("pakalpojumi.buttonPakalpojumi")}
                         </button></a>
                 </div>
 
