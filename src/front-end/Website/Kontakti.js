@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import PopupMessage from "./PopupMessage"; // Import the PopupMessage component
 import Kontaktu from "../../img/Kontaktu.webp";
 import GunaKontakti from "../../img/GunaKontakti.webp";
+import { useTranslation } from "react-i18next";
 
 const Kontakti = () => {
+    const { t } = useTranslation();
     const [popupVisible, setPopupVisible] = useState(false); // State to handle popup visibility
 
     const handleFormSubmit = (e) => {
@@ -27,7 +29,7 @@ const Kontakti = () => {
                     {/* Left Column: Form */}
                     <div className="w-full lg:w-1/2 lg:pr-8">
                         <h2 className="text-2xl lg:text-3xl text-[#5B3767] text-left mb-6">
-                            SAZIŅAS FORMA
+                            {t("kontakti.h1Kontakti")}
                         </h2>
                         <form className="font-barlow400 space-y-4" onSubmit={handleFormSubmit}>
                             <div className="relative">
@@ -43,7 +45,7 @@ const Kontakti = () => {
                                        peer-focus:top-2 peer-focus:text-sm peer-focus:text-[#9C9150]
                                        peer-placeholder-shown:top-4 peer-placeholder-shown:text-[#9C9150]"
                                 >
-                                    Vārds, Uzvārds
+                                    {t("kontakti.placeholderKontakti")}
                                 </label>
                             </div>
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -60,7 +62,7 @@ const Kontakti = () => {
                                        peer-focus:top-2 peer-focus:text-sm peer-focus:text-[#9C9150]
                                        peer-placeholder-shown:top-4 peer-placeholder-shown:text-[#9C9150]"
                                     >
-                                        E-pasts
+                                        {t("sazina.placeholderSazina3")}
                                     </label>
                                 </div>
                                 <div className="relative">
@@ -76,7 +78,7 @@ const Kontakti = () => {
                                        peer-focus:top-2 peer-focus:text-sm peer-focus:text-[#9C9150]
                                        peer-placeholder-shown:top-4 peer-placeholder-shown:text-[#9C9150]"
                                     >
-                                        Tālrunis
+                                        {t("sazina.placeholderSazina4")}
                                     </label>
                                 </div>
                             </div>
@@ -93,7 +95,7 @@ const Kontakti = () => {
                                        peer-focus:top-2 peer-focus:text-sm peer-focus:text-[#9C9150]
                                        peer-placeholder-shown:top-4 peer-placeholder-shown:text-[#9C9150]"
                                 >
-                                    Ziņas Teksts
+                                    {t("kontakti.placeholderKontakti1")}
                                 </label>
                             </div>
                             <div className="flex items-center">
@@ -103,14 +105,14 @@ const Kontakti = () => {
                                     className="mr-2 w-4 h-4 border-4 border-[#6C256B] bg-[#FFD700] checked:bg-[#6C256B] focus:ring-0"
                                 />
                                 <label htmlFor="agree" className="font-barlow400 text-sm text-[#5B3767]">
-                                    Piekrītu personas datu apstrādes noteikumiem.
+                                    {t("sazina.pSazina")}
                                 </label>
                             </div>
                             <button
                                 type="submit"
                                 className="w-full lg:w-[274px] h-[55px] bg-[#CDC697] text-[#5B3767] border border-[#5B3767] hover:text-[#9C9150] hover:border-[#9C9150] transition duration-300 ease-in-out py-3 mt-6 lg:mt-12"
                             >
-                                SAZINĀTIES
+                                {t("kontakti.buttonKontakti")}
                             </button>
                         </form>
                     </div>
@@ -120,9 +122,9 @@ const Kontakti = () => {
                         {/* Text Section */}
                         <div className="flex-1 text-left md:text-right pr-0 lg:pr-8 text-[#5B3767] mr-6">
                             <h3 className="font-garamond500 text-xl lg:text-2xl">Guna Jasko</h3>
-                            <p className="font-barlow500 mt-2">NEKUSTAMO ĪPAŠUMU AGENTS</p>
-                            <p className="font-barlow500 mt-2">TĀLR.: 20 016 688</p>
-                            <p className="font-barlow500 mt-2">E-PASTS: jaskoguna@gmail.com</p>
+                            <p className="font-barlow500 mt-2">{t("kontakti.pKontakti1")}</p>
+                            <p className="font-barlow500 mt-2">{t("kontakti.pKontakti2")} 20 016 688</p>
+                            <p className="font-barlow500 mt-2">{t("kontakti.pKontakti3")} jaskoguna@gmail.com</p>
                         </div>
 
                         {/* Image Section */}

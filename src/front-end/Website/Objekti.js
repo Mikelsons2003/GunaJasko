@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import objekts1 from '../../img/objekts1.webp';
 import Pakalpojumaimg1 from "../../img/Pakalpojumaimg1.webp";
+import { useTranslation } from "react-i18next";
 
 function Objekti() {
+    const { t } = useTranslation();
     const properties = [
         { id: 1, header: "Pārdod", price: "120 000 EUR", address: "Alberta 1, Rīga", type: "Dzīvoklis", rooms: "5", image: Pakalpojumaimg1 },
         { id: 2, header: "Izīrē", price: "560 EUR / mēn.", address: "Alberta 1, Rīga", type: "Dzīvoklis", rooms: "5", image: Pakalpojumaimg1 },
@@ -50,20 +52,20 @@ function Objekti() {
                     <nav
                         className="font-garamond500 w-full max-w-[1267px] flex items-center justify-center md:justify-start text-white text-sm lg:text-xl uppercase tracking-wide px-6">
                         <ul className="grid grid-cols-1 md:flex md:space-x-4 lg:space-x-8 text-center">
-                            <li>Dzīvokļi</li>
-                            <li className="mt-3 md:mt-0">Mājas</li>
-                            <li className="mt-3 md:mt-0">Zeme</li>
-                            <li className="mt-3 md:mt-0">Jaunie projekti</li>
-                            <li className="mt-3 md:mt-0">Projekti no attīstītāja</li>
-                            <li className="mt-3 md:mt-0">InvestīcijuObjekti</li>
+                            <li>{t("objekti.liObjekti1")}</li>
+                            <li className="mt-3 md:mt-0">{t("objekti.liObjekti2")}</li>
+                            <li className="mt-3 md:mt-0">{t("objekti.liObjekti3")}</li>
+                            <li className="mt-3 md:mt-0">{t("objekti.liObjekti4")}</li>
+                            <li className="mt-3 md:mt-0">{t("objekti.liObjekti5")}</li>
+                            <li className="mt-3 md:mt-0">{t("objekti.liObjekti6")}</li>
                         </ul>
                     </nav>
                     {/* Secondary Navigation */}
                     <nav
                         className="font-barlow400 w-full max-w-[1267px] flex justify-center md:justify-start items-center text-white text-sm lg:text-lg uppercase tracking-wide px-6">
                         <ul className="flex space-x-4 lg:space-x-8 mt-12">
-                            <li>Pārdod</li>
-                            <li>Izīrē</li>
+                            <li>{t("objekti.liObjekti7")}</li>
+                            <li>{t("objekti.liObjekti8")}</li>
                         </ul>
                     </nav>
                 </div>
@@ -74,15 +76,15 @@ function Objekti() {
                 {/* Breadcrumb and Sort By */}
                 <div className="flex flex-col items-start space-y-4 mb-14">
                     <div className="font-barlow400 flex items-center space-x-2 text-sm uppercase mb-10 mt-6">
-                        <span className="font-semibold">Objekti</span>
+                        <span className="font-semibold">{t("objekti.liObjekti10")}</span>
                         <span>&rarr;</span>
-                        <span className="font-semibold">Dzīvokļi</span>
+                        <span className="font-semibold">{t("objekti.liObjekti1")}</span>
                         <span>&rarr;</span>
-                        <span className="font-semibold">Pārdod</span>
+                        <span className="font-semibold">{t("objekti.liObjekti7")}</span>
                     </div>
                     <button
                         className="font-barlow400 flex justify-between items-center border border-[#9C9150] text-[#9C9150] w-[223px] h-[63px] px-4 py-2">
-                        <span>Grupēt pēc</span>
+                        <span>{t("objekti.liObjekti9")}</span>
                         <span>&darr;</span>
                     </button>
                 </div>
@@ -117,11 +119,11 @@ function Objekti() {
 
                                 {/* Details */}
                                 <div className="font-barlow400 grid grid-cols-2 text-sm gap-y-2 text-left">
-                                    <span>Adrese</span>
+                                    <span>{t("jaunakieObjekti.spanObjekti1")}</span>
                                     <span className="font-bold text-right">{property.address}</span>
-                                    <span>Īpašuma tips</span>
+                                    <span>{t("jaunakieObjekti.spanObjekti2")}</span>
                                     <span className="font-bold text-right">{property.type}</span>
-                                    <span>Istabu sk.</span>
+                                    <span>{t("jaunakieObjekti.spanObjekti3")}</span>
                                     <span className="font-bold text-right">{property.rooms}</span>
                                 </div>
 
@@ -131,7 +133,7 @@ function Objekti() {
                                         href="#"
                                         className="font-barlow500 text-[#CDC697] text-sm mt-6 inline-flex"
                                     >
-                                        SKATĪT <span className="ml-1">&rarr;</span>
+                                        {t("jaunakieObjekti.aObjekti")} <span className="ml-1">&rarr;</span>
                                     </a>
                                 </div>
                             </div>
@@ -146,7 +148,7 @@ function Objekti() {
                         className="text-[#5B3767] font-bold disabled:opacity-50"
                         disabled={currentPage === 1}
                     >
-                        &larr; Iepriekšējā
+                        &larr; {t("objekti.liObjekti11")}
                     </button>
                     <div className="text-sm">
                         {currentPage} / {totalPages}
@@ -156,7 +158,7 @@ function Objekti() {
                         className="text-[#5B3767] font-bold disabled:opacity-50"
                         disabled={currentPage === totalPages}
                     >
-                        Nākamā &rarr;
+                        {t("objekti.liObjekti12")} &rarr;
                     </button>
                 </div>
             </section>

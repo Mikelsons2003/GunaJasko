@@ -130,6 +130,29 @@
     "pPakalpojumi19": "by agreement",
     "buttonPakalpojumi": "CONTACT US"
   },
+  "objekti" : {
+    "liObjekti1": "Apartments",
+    "liObjekti2": "Home",
+    "liObjekti3": "Earth",
+    "liObjekti4": "New projects",
+    "liObjekti5": "Projects from the developer",
+    "liObjekti6": "Investment Objects",
+    "liObjekti7": "For sale",
+    "liObjekti8": "For rent",
+    "liObjekti9": "Group by",
+    "liObjekti10": "Objects",
+    "liObjekti11": "Previous",
+    "liObjekti12": "Next"
+  },
+  "kontakti": {
+    "h1Kontakti": "CONTACT FORM",
+    "buttonKontakti": "CONTACT US",
+    "pKontakti1": "REAL ESTATE AGENT",
+    "pKontakti2": "TEL.: ",
+    "pKontakti3": "EMAIL: ",
+    "placeholderKontakti": "Name, Surname",
+    "placeholderKontakti1": "Message Text"
+  },
   "button": {
     "language": "EN"
   }

@@ -130,6 +130,29 @@
     "pPakalpojumi19": "по соглашению",
     "buttonPakalpojumi": "СВЯЗАТЬСЯ С НАМИ"
   },
+  "objekti" : {
+    "liObjekti1": "Квартиры",
+    "liObjekti2": "Дом",
+    "liObjekti3": "Земля",
+    "liObjekti4": "Новые проекты",
+    "liObjekti5": "Проекты от застройщика",
+    "liObjekti6": "Инвестиционные объекты",
+    "liObjekti7": "Для продажи",
+    "liObjekti8": "В аренду",
+    "liObjekti9": "Группировать по",
+    "liObjekti10": "Объекты",
+    "liObjekti11": "Предыдущий",
+    "liObjekti12": "Далее"
+  },
+  "kontakti": {
+    "h1Kontakti": "ФОРМА ОБЩЕНИЯ",
+    "buttonKontakti": "СВЯЗАТЬСЯ С НАМИ",
+    "pKontakti1": "АГЕНТ ПО НЕДВИЖИМОСТИ",
+    "pKontakti2": "ТЕЛ.: ",
+    "pKontakti3": "ЭЛЕКТРОННАЯ ПОЧТА: ",
+    "placeholderKontakti": "Имя, Фамилия",
+    "placeholderKontakti1": "Текст сообщения"
+  },
   "button": {
     "language": "RU"
   }
