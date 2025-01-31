@@ -100,7 +100,7 @@ function Sakumlapa() {
                         {t("sakumlapa.p")}
                     </p>
                     <div className="text-center xs:text-left">
-                        {/* Button that triggers custom smooth scroll */}
+                        {/* Button that triggers custom smooth scrolll */}
                         <button
                             onClick={scrollToContactForm}
                             className="font-barlow500 w-[272px] h-[55px] sm:w-[317px] sm:h-[55px] bg-[#5B3767] hover:bg-[#371243] transition duration-300 ease-in-out text-[#CDC697] font-medium sm:ml-3"
