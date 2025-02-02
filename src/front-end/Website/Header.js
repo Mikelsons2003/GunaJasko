@@ -69,7 +69,7 @@ const Header = () => {
                         </a>
 
                         {/* Desktop Navigation */}
-                        <nav className="hidden lg:flex lg:space-x-8 text-white text-sm font-barlow400">
+                        <nav className="uppercase hidden lg:flex lg:space-x-8 text-white text-sm font-barlow400">
                             <Link
                                 to="/"
                                 className="hover:text-[#CDC697] transition duration-300 ease-in-out"
@@ -102,7 +102,7 @@ const Header = () => {
                             </Link>
                             <button
                                 onClick={toggleLanguage}
-                                className="hover:text-[#CDC697] transition duration-300 ease-in-out"
+                                className="text-[#371243] hover:text-[#CDC697] transition duration-300 ease-in-out"
                             >
                                 {t("button.language")}
                             </button>
@@ -123,7 +123,7 @@ const Header = () => {
 
                     {/* Mobile Navigation */}
                     <nav
-                        className={`lg:hidden text-white text-sm z-10 transition-all duration-500 ease-in-out ${
+                        className={`uppercase lg:hidden text-white text-sm z-10 transition-all duration-500 ease-in-out ${
                             menuOpen
                                 ? "opacity-100 translate-y-0 visible fixed top-0 left-0 w-full bg-[#5B3767] p-4"
                                 : "opacity-0 translate-y-[-100%] invisible"

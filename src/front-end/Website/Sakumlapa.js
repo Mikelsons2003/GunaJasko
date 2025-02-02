@@ -12,7 +12,6 @@ import Experience from '../../img/Experience.webp';
 import Check from '../../img/Check.webp';
 import Safety from '../../img/Safety.webp';
 import Lanida from '../../img/Lanida.webp';
-import AM from '../../img/AM.webp';
 import ArrowLeft from '../../img/ArrowLeft.png';
 import ArrowRight from '../../img/ArrowRight.png';
 import BedroomImage from "../../img/BedroomImage.webp";
@@ -20,6 +19,13 @@ import ContactForm from "./ContactForm";
 import { useTranslation } from "react-i18next";
 
 function Sakumlapa() {
+    const getInitials = (name) => {
+        const nameParts = name.split(" ");
+        return nameParts.length >= 2
+            ? nameParts[0][0] + nameParts[1][0] // First letter of first & last name
+            : nameParts[0][0]; // If only one name exists
+    };
+
     const { t } = useTranslation();
 
     const contactFormRef = useRef(null); // Create a reference for ContactForm
@@ -85,10 +91,15 @@ function Sakumlapa() {
 
     return (
         <div className="mx-auto text-white">
-            <header className="bg-cover bg-center h-[812px] lg:h-[900px] 2xl:h-[970px] relative"
-                    style={{backgroundImage: `url(${BedroomImage})`}}>
-                {/* Overlay with pointer-events: none */}
-                <div className="absolute inset-0 bg-black bg-opacity-40 pointer-events-none"></div>
+            <header
+                className="bg-cover bg-center h-[812px] lg:h-[900px] 2xl:h-[970px] relative overflow-hidden"
+                style={{
+                    backgroundImage: `url(${BedroomImage})`,
+                    backgroundRepeat: "no-repeat",
+                    backgroundPosition: "center -17px",
+                }}
+                >
+                <div className="absolute inset-0 pointer-events-none"></div>
 
                 {/* Text Section */}
                 <div
@@ -111,7 +122,7 @@ function Sakumlapa() {
                 </div>
             </header>
             {/* about section */}
-            <section className="bg-[#5B3767] text-white py-16">
+            <section className="bg-[#5B3767] text-white py-16 -mt-5">
                 <div
                     className="w-full max-w-screen-xl mx-auto container px-6 flex flex-col xl:flex-row items-center xl:items-start text-center xl:text-left">
                     {/* Left Side */}
@@ -226,23 +237,19 @@ function Sakumlapa() {
                         </h2>
 
                         {/* Testimonial Box */}
-                        <div
-                            className="relative bg-white w-full max-w-[320px] sm:max-w-[782px] h-auto opacity-90 p-6 sm:p-12 flex flex-col items-center"
-                        >
-                            {/* Centered Image */}
-                            <div
-                                className="w-[80px] sm:w-[100px] h-[80px] sm:h-[100px] object-cover flex items-center justify-center -mt-4 mb-6"
-                                style={{
-                                    backgroundImage: `url(${AM})`,
-                                    backgroundSize: 'cover',
-                                    backgroundPosition: 'center',
-                                }}
-                            ></div>
+                        <div className="relative bg-white w-full max-w-[320px] sm:max-w-[782px] h-auto opacity-90 p-6 sm:p-12 flex flex-col items-center">
+
+                            {/* Initials Circle */}
+                            <div className="w-[80px] sm:w-[100px] h-[80px] sm:h-[100px] bg-[#CDC697] rounded-full flex items-center justify-center text-[#5B3767] font-garamond500 text-2xl sm:text-3xl">
+                                {getInitials(testimonials[currentIndex].author)}
+                            </div>
 
                             {/* Testimonial Content */}
                             <p className="font-barlow400 text-[#5B3767] text-base sm:text-lg mb-4 leading-relaxed text-center">
                                 {testimonials[currentIndex].content}
                             </p>
+
+                            {/* Author Name */}
                             <p className="font-barlow400 text-[#9C9150] mt-4 text-center text-sm sm:text-base">
                                 {testimonials[currentIndex].author}
                             </p>

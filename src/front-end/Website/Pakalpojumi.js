@@ -32,14 +32,14 @@ function Pakalpojumi() {
 
             {/* Header Links */}
             <nav className="text-center py-6 text-sm mt-4 xl:mt-24 text-[#5B3767]">
-                <ul className="font-barlow500 flex flex-col lg:inline-flex space-y-4 lg:space-y-0 items-center">
-                    <Link to="/starpniecibas" className="hover:underline text-lg lg:text-xl w-full lg:w-[288px]">
+                <ul className="font-barlow500 flex flex-row justify-center items-center gap-x-6">
+                    <Link to="/starpniecibas" className="hover:underline text-lg lg:text-xl">
                         {t("pakalpojumi.h1Pakalpojumi2")}
                     </Link>
-                    <Link to="/darijuma" className="hover:underline text-lg lg:text-xl w-full lg:w-[288px]">
+                    <Link to="/darijuma" className="hover:underline text-lg lg:text-xl">
                         {t("pakalpojumi.h1Pakalpojumi3")}
                     </Link>
-                    <Link to="/projekti" className="hover:underline text-lg lg:text-xl w-full lg:w-[320px]">
+                    <Link to="/projekti" className="hover:underline text-lg lg:text-xl">
                         {t("pakalpojumi.h1Pakalpojumi4")}
                     </Link>
                 </ul>

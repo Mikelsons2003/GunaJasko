@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PopupMessage from './PopupMessage';
-import SazinasForma from '../../img/SazinasForma.webp';
+import SazinasForma from '../../img/SazinasForma.png';
 import { useTranslation } from "react-i18next";
 
 export default function ContactForm() {
@@ -23,7 +23,7 @@ export default function ContactForm() {
             {/* Background Image */}
             <div className="flex justify-center items-center w-full h-[711px] absolute">
                 <div
-                    className="w-[1440px] h-[711px]"
+                    className="w-full h-[711px]"
                     style={{
                         backgroundImage: `url(${SazinasForma})`,
                         backgroundSize: 'contain', // Ensures the full image is visible without cropping
@@ -34,8 +34,8 @@ export default function ContactForm() {
             </div>
 
             {/* Form Container */}
-            <div className="relative z-10 w-full lg:w-8/12 xl:w-5/12 mx-auto bg-[#E8E1D3] p-6 sm:p-10 shadow-lg -mt-16 mr-0 lg:mr-80">
-                <h2 className="font-garamond500 text-[#6C256B] text-4xl mb-8 text-center xs:text-left">{t("sazina.h1Sazina")}</h2>
+            <div className="relative z-10 w-full lg:w-8/12 xl:w-7/12 2xl:w-5/12 mx-auto bg-[#E8E1D3] p-6 sm:p-10 shadow-lg -mt-16 mr-0 lg:mr-24 2xl:mr-96">
+                <h2 className="uppercase font-garamond500 text-[#6C256B] text-4xl mb-8 text-center xs:text-left">{t("sazina.h1Sazina")}</h2>
 
                 {/* Form */}
                 <form onSubmit={handleSubmit} className="grid gap-6">
@@ -56,7 +56,7 @@ export default function ContactForm() {
                                 {t("sazina.placeholderSazina1")}
                             </label>
                         </div>
-                        <div className="relative">
+                        <div className="relative font-barlow400">
                             <input
                                 type="text"
                                 id="lastName"
@@ -114,7 +114,7 @@ export default function ContactForm() {
                     <div className="font-barlow400 grid grid-cols-1 sm:grid-cols-3 gap-6">
                         <div>
                             <select
-                                className="w-full p-4 text-[#9C9150] placeholder-[#9C9150] border border-[#E8E1D3] focus:outline-none hover:border-[#CDC697] focus:border-[#CDC697] focus:ring-0 bg-white"
+                                className="font-barlow400 w-full p-4 text-[#9C9150] placeholder-[#9C9150] border border-[#E8E1D3] focus:outline-none hover:border-[#CDC697] focus:border-[#CDC697] focus:ring-0 bg-white"
                             >
                                 <option>{t("sazina.optionSazina1")}</option>
                                 <option value="pirkšana">{t("sazina.optionSazina2")}</option>
@@ -123,7 +123,7 @@ export default function ContactForm() {
                         </div>
                         <div>
                             <select
-                                className="w-full p-4 text-[#9C9150] placeholder-[#9C9150] border border-[#E8E1D3] focus:outline-none hover:border-[#CDC697] focus:border-[#CDC697] focus:ring-0 bg-white"
+                                className="font-barlow400 w-full p-4 text-[#9C9150] placeholder-[#9C9150] border border-[#E8E1D3] focus:outline-none hover:border-[#CDC697] focus:border-[#CDC697] focus:ring-0 bg-white"
                             >
                                 <option>{t("sazina.optionSazina4")}</option>
                                 <option>{t("sazina.optionSazina5")}</option>
@@ -132,7 +132,7 @@ export default function ContactForm() {
                         </div>
                         <div>
                             <select
-                                className="w-full p-4 text-[#9C9150] placeholder-[#9C9150] border border-[#E8E1D3] focus:outline-none hover:border-[#CDC697] focus:border-[#CDC697] focus:ring-0 bg-white"
+                                className="font-barlow400 w-full p-4 text-[#9C9150] placeholder-[#9C9150] border border-[#E8E1D3] focus:outline-none hover:border-[#CDC697] focus:border-[#CDC697] focus:ring-0 bg-white"
                             >
                                 <option>{t("sazina.optionSazina7")}</option>
                                 <option>{t("sazina.optionSazina8")}</option>

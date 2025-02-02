@@ -5,7 +5,7 @@ import Experience from "../../img/Experience.webp";
 import Check from "../../img/Check.webp";
 import Safety from "../../img/Safety.webp";
 import Lanida from "../../img/Lanida.webp";
-import GunaParMani from "../../img/GunaParMani.webp";
+import GunaParMani from "../../img/GunaParMani.png";
 import { useTranslation } from "react-i18next";
 
 function ParMani() {

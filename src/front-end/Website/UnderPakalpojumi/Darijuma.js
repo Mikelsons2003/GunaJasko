@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import Kabinets from "../../../img/Kabinets.webp";
-import Pakalpojumaimg1 from "../../../img/Pakalpojumaimg1.webp";
+import Pakalpojumaimg2 from "../../../img/Pakalpojumaimg2.webp";
 import { useTranslation } from "react-i18next";
 
 function Darijuma() {
@@ -31,14 +31,14 @@ function Darijuma() {
 
             {/* Header Links */}
             <nav className="text-center py-6 text-sm mt-4 xl:mt-24 text-[#5B3767]">
-                <ul className="font-barlow500 flex flex-col lg:inline-flex space-y-4 lg:space-y-0 items-center">
-                    <Link to="/starpniecibas" className="hover:underline text-lg lg:text-xl w-full lg:w-[288px]">
+                <ul className="font-barlow500 flex flex-row justify-center items-center gap-x-6">
+                    <Link to="/starpniecibas" className="hover:underline text-lg lg:text-xl">
                         {t("pakalpojumi.h1Pakalpojumi2")}
                     </Link>
-                    <Link to="/darijuma" className="hover:underline text-lg lg:text-xl w-full lg:w-[288px]">
+                    <Link to="/darijuma" className="hover:underline text-lg lg:text-xl">
                         {t("pakalpojumi.h1Pakalpojumi3")}
                     </Link>
-                    <Link to="/projekti" className="hover:underline text-lg lg:text-xl w-full lg:w-[320px]">
+                    <Link to="/projekti" className="hover:underline text-lg lg:text-xl">
                         {t("pakalpojumi.h1Pakalpojumi4")}
                     </Link>
                 </ul>
@@ -56,7 +56,8 @@ function Darijuma() {
                 </h1>
 
                 {/* Content Section */}
-                <div className="flex flex-col lg:flex-row justify-between items-start lg:items-stretch space-y-10 lg:space-y-0">
+                <div
+                    className="flex flex-col lg:flex-row justify-between items-start lg:items-stretch space-y-10 lg:space-y-0">
                     {/* Left Column */}
                     <div className="font-barlow400 w-full lg:w-2/3 text-left">
                         <ul className="space-y-6 text-base sm:text-lg leading-relaxed">
@@ -97,7 +98,7 @@ function Darijuma() {
                     <div
                         className="w-full h-[300px] sm:h-[400px] lg:h-[590px] lg:w-[890px] flex-shrink-0 mt-8 sm:mt-16"
                         style={{
-                            backgroundImage: `url(${Pakalpojumaimg1})`,
+                            backgroundImage: `url(${Pakalpojumaimg2})`,
                             backgroundSize: "cover", // Ensures the image covers the entire box
                             backgroundPosition: "center", // Centers the image in the container
                         }}
