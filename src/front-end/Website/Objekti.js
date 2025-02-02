@@ -1,17 +1,22 @@
 import React, { useState } from "react";
 import objekts1 from '../../img/objekts1.webp';
-import Pakalpojumaimg1 from "../../img/Pakalpojumaimg1.webp";
+import objekts2 from '../../img/objekts2.webp';
+import objekts3 from '../../img/objekts3.webp';
+import objekts4 from '../../img/objekts4.webp';
+import objekts5 from '../../img/objekts5.webp';
+import objekts6 from '../../img/objekts6.webp';
+import objekts7 from '../../img/objekts7.webp';
 import { useTranslation } from "react-i18next";
 
 function Objekti() {
     const { t } = useTranslation();
     const properties = [
-        { id: 1, header: "Pārdod", price: "120 000 EUR", address: "Alberta 1, Rīga", type: "Dzīvoklis", rooms: "5", image: Pakalpojumaimg1 },
-        { id: 2, header: "Izīrē", price: "560 EUR / mēn.", address: "Alberta 1, Rīga", type: "Dzīvoklis", rooms: "5", image: Pakalpojumaimg1 },
-        { id: 3, header: "Pārdod", price: "120 000 EUR", address: "Alberta 1, Rīga", type: "Dzīvoklis", rooms: "5", image: Pakalpojumaimg1 },
-        { id: 4, header: "Izīrē", price: "120 EUR / mēn.", address: "Alberta 1, Rīga", type: "Dzīvoklis", rooms: "5", image: Pakalpojumaimg1 },
-        { id: 5, header: "Pārdod", price: "760 EUR / mēn.", address: "Alberta 1, Rīga", type: "Dzīvoklis", rooms: "5", image: Pakalpojumaimg1 },
-        { id: 6, header: "Pārdod", price: "120 000 EUR", address: "Alberta 1, Rīga", type: "Dzīvoklis", rooms: "5", image: Pakalpojumaimg1 },
+        { id: 1, header: "Pārdod", price: "120 000 EUR", address: "Alberta 1, Rīga", type: "Dzīvoklis", rooms: "5", image: objekts2 },
+        { id: 2, header: "Izīrē", price: "560 EUR / mēn.", address: "Alberta 1, Rīga", type: "Dzīvoklis", rooms: "5", image: objekts3 },
+        { id: 3, header: "Pārdod", price: "120 000 EUR", address: "Alberta 1, Rīga", type: "Dzīvoklis", rooms: "5", image: objekts4 },
+        { id: 4, header: "Izīrē", price: "120 EUR / mēn.", address: "Alberta 1, Rīga", type: "Dzīvoklis", rooms: "5", image: objekts5 },
+        { id: 5, header: "Pārdod", price: "760 EUR / mēn.", address: "Alberta 1, Rīga", type: "Dzīvoklis", rooms: "5", image: objekts6 },
+        { id: 6, header: "Pārdod", price: "120 000 EUR", address: "Alberta 1, Rīga", type: "Dzīvoklis", rooms: "5", image: objekts7 },
     ];
 
     const [currentPage, setCurrentPage] = useState(1);
