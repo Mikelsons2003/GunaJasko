@@ -142,7 +142,9 @@
     "liObjekti9": "Группировать по",
     "liObjekti10": "Объекты",
     "liObjekti11": "Предыдущий",
-    "liObjekti12": "Далее"
+    "liObjekti12": "Далее",
+    "spanSort1": "Сортировать по цене",
+    "spanSort2": "Сортировать по комнатам"
   },
   "kontakti": {
     "h1Kontakti": "ФОРМА ОБЩЕНИЯ",

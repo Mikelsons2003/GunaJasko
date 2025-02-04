@@ -27,7 +27,7 @@
     "headerObjekti": "NEWEST OBJECTS",
     "spanObjekti1": "Address",
     "spanObjekti2": "Property type",
-    "spanObjekti3": "See the room",
+    "spanObjekti3": "Room count",
     "aObjekti": "SEE",
     "buttonObjekti": "SEE ALL OBJECTS",
     "h1Objekti1": "For Rent",
@@ -132,17 +132,19 @@
   },
   "objekti" : {
     "liObjekti1": "Apartments",
-    "liObjekti2": "Home",
-    "liObjekti3": "Earth",
+    "liObjekti2": "Property",
+    "liObjekti3": "Land",
     "liObjekti4": "New projects",
     "liObjekti5": "Projects from the developer",
     "liObjekti6": "Investment Objects",
     "liObjekti7": "For sale",
     "liObjekti8": "For rent",
-    "liObjekti9": "Group by",
+    "liObjekti9": "Sort by",
     "liObjekti10": "Objects",
     "liObjekti11": "Previous",
-    "liObjekti12": "Next"
+    "liObjekti12": "Next",
+    "spanSort1": "Sort by Price",
+    "spanSort2": "Sort by Rooms"
   },
   "kontakti": {
     "h1Kontakti": "CONTACT FORM",

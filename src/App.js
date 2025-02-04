@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, {Suspense, useEffect, useState} from "react";
 import {Route, Routes, useLocation} from "react-router-dom";
 import "./App.css";
 import './i18n';
@@ -14,42 +14,40 @@ import Starpniecibas from "./front-end/Website/UnderPakalpojumi/Starpniecibas";
 import Darijuma from "./front-end/Website/UnderPakalpojumi/Darijuma";
 import Projekti from "./front-end/Website/UnderPakalpojumi/Projekti";
 import PrivatumaPolitika from "./front-end/Website/PrivatumaPolitika";
-import Login from "./front-end/Panel/Login"; // Login page component
-import Dashboard from "./front-end/Panel/Dashboard"; // Dashboard page component
-import Properties from "./front-end/Panel/Properties"; // Properties page component
-import AddProperty from "./front-end/Panel/AddProperty"; // Add Property page component
-import Layout from "./front-end/Panel/components/Layout";
-import UpdateProperty from "./front-end/Panel/UpdateProperty"; // Update Property page component
 import Header from "./front-end/Website/Header";
+
 import axios from "axios"; // Import Header component
 
-axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL || "https://backend.lucid-websites.com/api";
-
-// Example API call
-axios.get('/properties', {
-    headers: {
-        'Accept': 'application/json'
-    }
-})
-    .then(response => console.log(response.data))
-    .catch(error => console.error(error));
+axios.defaults.baseURL = "https://backends.lucid-websites.com/wp-json/wp/v2"; // Updated to WordPress API base URL
 
 function App() {
     const { t } = useTranslation();
+    const [posts, setPosts] = useState([]); // State for posts
+    const [loading, setLoading] = useState(true); // State for loading
 
     const location = useLocation(); // Access current location
 
-    const isAdminRoute =
-        location.pathname.startsWith("/dashboard") ||
-        location.pathname.startsWith("/properties") ||
-        location.pathname.startsWith("/add-property") ||
-        location.pathname.startsWith("/update-property") ||
-        location.pathname.startsWith("/login");
+
+    // Fetch posts when the component mounts
+    useEffect(() => {
+        const fetchPosts = async () => {
+            try {
+                const response = await axios.get("/posts");
+                setPosts(response.data); // Set posts state with fetched data
+            } catch (error) {
+                console.error("Error fetching posts:", error);
+            } finally {
+                setLoading(false); // Stop loading after fetching
+            }
+        };
+
+        fetchPosts();
+    }, []);
 
     return (
         <Suspense fallback={<div>Loading...</div>}>
-        <div className={`App ${isAdminRoute ? "admin-panel" : ""}`}>
-            {!isAdminRoute && <Header/>} {/* Show Header only on non-admin routes */}
+        <div>
+            <Header/>
             <Routes>
                 <Route path="/" element={<Sakumlapa/>}/>
                 <Route path="/par-mani" element={<ParMani/>}/>
@@ -61,13 +59,8 @@ function App() {
                 <Route path="/objektiIeskats" element={<ObjektiIeskats/>}/>
                 <Route path="/kontakti" element={<Kontakti/>}/>
                 <Route path="/privatuma-politika" element={<PrivatumaPolitika/>}/>
-                <Route path="/login" element={<Login/>}/>
-                <Route path="/dashboard" element={<Layout><Dashboard/></Layout>}/>
-                <Route path="/properties" element={<Layout><Properties/></Layout>}/>
-                <Route path="/add-property" element={<Layout><AddProperty/></Layout>}/>
-                <Route path="/update-property/:id" element={<Layout><UpdateProperty/></Layout>}/>
             </Routes>
-            {!isAdminRoute && <Footer/>} {/* Show Footer only on non-admin routes */}
+            <Footer/>
         </div>
         </Suspense>
     );
