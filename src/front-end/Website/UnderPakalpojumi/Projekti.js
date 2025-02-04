@@ -1,11 +1,15 @@
-import React from "react";
+import React, {useState} from "react";
 import Pakalpojumaimg3 from "../../../img/Pakalpojumaimg3.webp";
 import {Link} from "react-router-dom";
 import Kabinets from "../../../img/Kabinets.webp";
 import { useTranslation } from "react-i18next";
+import LazyBackground from "../LazyBackground";
+import Kontaktu from "../../../img/Kontaktu.webp";
 
 
 function Projekti() {
+    const [menuOpen, setMenuOpen] = useState(false);
+    const [scrolling, setScrolling] = useState(false); // State to detect scroll
     const {t} = useTranslation();
     return (
         <div className="mx-auto font-sans text-white bg-[#FBF8FB] overflow-hidden">
@@ -20,26 +24,45 @@ function Projekti() {
                 </div>
 
                 {/* Right: Image Section */}
-                <div
+                <LazyBackground
+                    image={Kabinets}
                     className="w-full lg:w-[709px] h-[300px] sm:h-[400px] lg:h-[436px] flex-shrink-0 mt-6 lg:mt-0 lg:mr-20 2xl:mr-80 mb-6"
-                    style={{
-                        backgroundImage: `url(${Kabinets})`,
-                        backgroundSize: "cover", // Ensures the image covers the entire box
-                        backgroundPosition: "center", // Centers the image in the container
-                    }}
-                ></div>
+                ></LazyBackground>
             </div>
 
             {/* Header Links */}
             <nav className="text-center py-6 text-sm mt-4 xl:mt-24 text-[#5B3767]">
                 <ul className="font-barlow500 flex flex-row justify-center items-center gap-x-6">
-                    <Link to="/starpniecibas" className="hover:underline text-lg lg:text-xl">
+                    <Link
+                        to="/starpniecibas"
+                        className="hover:underline text-lg lg:text-xl"
+                        onClick={() => {
+                            window.scrollTo({ top: 0, behavior: "smooth" });
+                            setMenuOpen(false);
+                        }}
+                    >
                         {t("pakalpojumi.h1Pakalpojumi2")}
                     </Link>
-                    <Link to="/darijuma" className="hover:underline text-lg lg:text-xl">
+
+                    <Link
+                        to="/darijuma"
+                        className="hover:underline text-lg lg:text-xl"
+                        onClick={() => {
+                            window.scrollTo({ top: 0, behavior: "smooth" });
+                            setMenuOpen(false);
+                        }}
+                    >
                         {t("pakalpojumi.h1Pakalpojumi3")}
                     </Link>
-                    <Link to="/projekti" className="hover:underline text-lg lg:text-xl">
+
+                    <Link
+                        to="/projekti"
+                        className="hover:underline text-lg lg:text-xl"
+                        onClick={() => {
+                            window.scrollTo({ top: 0, behavior: "smooth" });
+                            setMenuOpen(false);
+                        }}
+                    >
                         {t("pakalpojumi.h1Pakalpojumi4")}
                     </Link>
                 </ul>
@@ -105,15 +128,11 @@ function Projekti() {
 
                 {/* Image Placeholder */}
                 <div className="w-full max-w-screen-xl mx-auto px-6 sm:px-8 flex justify-center items-center">
-                    <div
+                    <LazyBackground
+                        image={Pakalpojumaimg3}
                         className="w-full h-[300px] sm:h-[400px] lg:h-[590px] lg:w-[890px] flex-shrink-0 mt-8 sm:mt-16"
-                        style={{
-                            backgroundImage: `url(${Pakalpojumaimg3})`,
-                            backgroundSize: "cover", // Ensures the image covers the entire box
-                            backgroundPosition: "center", // Centers the image in the container
-                        }}
                     >
-                    </div>
+                    </LazyBackground>
                 </div>
             </div>
         </div>

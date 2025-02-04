@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import PopupMessage from './PopupMessage';
-import SazinasForma from '../../img/SazinasForma.png';
+import SazinasForma from '../../img/SazinasForma.jpg';
 import { useTranslation } from "react-i18next";
+import LazyBackground from "./LazyBackground";
+import Kontaktu from "../../img/Kontaktu.webp";
 
 export default function ContactForm() {
     const { t } = useTranslation();
@@ -21,20 +23,17 @@ export default function ContactForm() {
     return (
         <section className="bg-white w-full py-16 relative mt-16 min-h-screen">
             {/* Background Image */}
-            <div className="flex justify-center items-center w-full h-[711px] absolute">
-                <div
-                    className="w-full h-[711px]"
-                    style={{
-                        backgroundImage: `url(${SazinasForma})`,
-                        backgroundSize: 'contain', // Ensures the full image is visible without cropping
-                        backgroundRepeat: 'no-repeat',
-                        backgroundPosition: 'center',
-                    }}
-                ></div>
+            <div
+                className="flex justify-center items-center w-[1440px] h-[711px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                <LazyBackground
+                    image={SazinasForma}
+                    className="w-[1440px] h-[711px]"
+                ></LazyBackground>
             </div>
 
             {/* Form Container */}
-            <div className="relative z-10 w-full lg:w-8/12 xl:w-7/12 2xl:w-5/12 mx-auto bg-[#E8E1D3] p-6 sm:p-10 shadow-lg -mt-16 mr-0 lg:mr-24 2xl:mr-96">
+            <div
+                className="relative z-10 w-full lg:w-8/12 xl:w-7/12 2xl:w-5/12 mx-auto bg-[#E8E1D3] p-6 sm:p-10 shadow-lg -mt-16 mr-0 lg:mr-24 2xl:mr-96">
                 <h2 className="uppercase font-garamond500 text-[#6C256B] text-4xl mb-8 text-center xs:text-left">{t("sazina.h1Sazina")}</h2>
 
                 {/* Form */}

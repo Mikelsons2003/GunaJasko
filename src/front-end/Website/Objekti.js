@@ -7,6 +7,8 @@ import objekts5 from '../../img/objekts5.webp';
 import objekts6 from '../../img/objekts6.webp';
 import objekts7 from '../../img/objekts7.webp';
 import { useTranslation } from "react-i18next";
+import LazyBackground from "./LazyBackground";
+import photo8 from "../../img/photo8.png";
 
 function Objekti() {
     const { t } = useTranslation();
@@ -43,13 +45,9 @@ function Objekti() {
 
     return (
         <div className="mx-auto text-white">
-            <section
+            <LazyBackground
+                image={objekts1}
                 className="relative w-full h-[428px] bg-cover bg-center pt-24"
-                style={{
-                    backgroundImage: `url(${objekts1})`,
-                    backgroundSize: "cover", // Ensures the image covers the entire box
-                    backgroundPosition: "center", // Centers the image in the container
-                }}
             >
                 <div className="absolute inset-0 bg-black bg-opacity-50"></div>
                 <div className="relative w-full h-full flex flex-col items-center justify-center">
@@ -74,7 +72,7 @@ function Objekti() {
                         </ul>
                     </nav>
                 </div>
-            </section>
+            </LazyBackground>
 
             {/* Property Grid Section */}
             <section className="w-full max-w-screen-xl mx-auto py-12 px-4 lg:px-12 bg-white text-[#5B3767]">

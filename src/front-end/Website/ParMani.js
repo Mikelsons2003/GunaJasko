@@ -7,6 +7,8 @@ import Safety from "../../img/Safety.webp";
 import Lanida from "../../img/Lanida.webp";
 import GunaParMani from "../../img/GunaParMani.png";
 import { useTranslation } from "react-i18next";
+import LazyBackground from "./LazyBackground";
+import PrivatumaPolitikaImg from "../../img/PrivatumaPolitikaImg.webp";
 
 function ParMani() {
     const {t} = useTranslation();
@@ -38,10 +40,10 @@ function ParMani() {
                 {/* Right: Image Section */}
                 <div
                     className="w-full lg:w-1/2 flex justify-center lg:justify-end lg:mr-12 xl:mr-20 2xl:mr-80 mt-10 lg:mt-32">
-                    <div
+                    <LazyBackground
+                        image={GunaParMani}
                         className="w-[300px] sm:w-[433px] h-[400px] sm:h-[605px] bg-cover bg-center mb-6 lg:mb-0 3xl:-mb-48"
-                        style={{backgroundImage: `url(${GunaParMani})`}}
-                    ></div>
+                    ></LazyBackground>
                 </div>
             </div>
 
@@ -80,18 +82,18 @@ function ParMani() {
 
                 {/* Top Right (Image) */}
                 <div className="h-[300px] sm:h-[469px] mx-2 mt-2 2xl:mt-0 2xl:mx-0">
-                    <div
+                    <LazyBackground
+                        image={Kapnutelpa}
                         className="w-full h-full bg-cover bg-center"
-                        style={{backgroundImage: `url(${Kapnutelpa})`}}
-                    ></div>
+                    ></LazyBackground>
                 </div>
 
                 {/* Bottom Left (Image) */}
                 <div className="h-[300px] sm:h-[469px] mx-2 mb-2 2xl:mb-0 2xl:mx-0">
-                    <div
+                    <LazyBackground
+                        image={Viesistaba}
                         className="w-full h-full bg-cover bg-center"
-                        style={{backgroundImage: `url(${Viesistaba})`}}
-                    ></div>
+                    ></LazyBackground>
                 </div>
 
                 {/* Bottom Right (Text) */}
@@ -133,9 +135,10 @@ function ParMani() {
                         <div
                             className="w-full max-w-[273px] mx-auto text-left border border-[#CDC697] p-6 flex flex-col items-start space-y-4">
                             {/* Icon */}
-                            <div className="w-16 h-16 bg-contain bg-no-repeat bg-left"
-                                 style={{backgroundImage: `url(${Experience})`}}>
-                            </div>
+                            <LazyBackground
+                                image={Experience}
+                                className="w-16 h-16 bg-contain bg-no-repeat bg-left">
+                            </LazyBackground>
                             {/* Title */}
                             <div className="font-barlow400 text-xl lg:text-2xl text-white">{t("sakumlapaAbout.divAbout1")}</div>
                             {/* Description */}
@@ -146,9 +149,10 @@ function ParMani() {
                         <div
                             className="w-full max-w-[273px] mx-auto text-left border border-[#CDC697] p-6 flex flex-col items-start space-y-4">
                             {/* Icon */}
-                            <div className="w-16 h-16 bg-contain bg-no-repeat bg-left"
-                                 style={{backgroundImage: `url(${Check})`}}>
-                            </div>
+                            <LazyBackground
+                                image={Check}
+                                className="w-16 h-16 bg-contain bg-no-repeat bg-left">
+                            </LazyBackground>
                             {/* Title */}
                             <div className="font-barlow400 text-xl lg:text-2xl text-white">{t("sakumlapaAbout.divAbout2")}</div>
                             {/* Description */}
@@ -159,9 +163,10 @@ function ParMani() {
                         <div
                             className="w-full max-w-[273px] mx-auto text-left border border-[#CDC697] p-6 flex flex-col items-start space-y-4">
                             {/* Icon */}
-                            <div className="w-16 h-16 bg-contain bg-no-repeat bg-left"
-                                 style={{backgroundImage: `url(${Safety})`}}>
-                            </div>
+                            <LazyBackground
+                                image={Safety}
+                                className="w-16 h-16 bg-contain bg-no-repeat bg-left">
+                            </LazyBackground>
                             {/* Title */}
                             <div className="font-barlow400 text-xl lg:text-2xl text-white">{t("sakumlapaAbout.divAbout3")}</div>
                             {/* Description */}
@@ -172,9 +177,10 @@ function ParMani() {
                         <div
                             className="w-full max-w-[273px] mx-auto text-left border border-[#CDC697] p-6 flex flex-col items-start space-y-4">
                             {/* Icon */}
-                            <div className="w-[95px] h-[72px] bg-contain bg-no-repeat bg-left"
-                                 style={{backgroundImage: `url(${Lanida})`}}>
-                            </div>
+                            <LazyBackground
+                                image={Lanida}
+                                className="w-[95px] h-[72px] bg-contain bg-no-repeat bg-left">
+                            </LazyBackground>
                             {/* Title */}
                             <div className="font-barlow400 text-xl lg:text-xl text-white">{t("sakumlapaAbout.divAbout4")}</div>
                             {/* Description */}

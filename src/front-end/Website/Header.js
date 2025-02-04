@@ -73,36 +73,56 @@ const Header = () => {
                             <Link
                                 to="/"
                                 className="hover:text-[#CDC697] transition duration-300 ease-in-out"
+                                onClick={() => {
+                                    window.scrollTo({ top: 0, behavior: "smooth" });
+                                    setMenuOpen(false);
+                                }}
                             >
                                 {t("menu.home")}
                             </Link>
                             <Link
                                 to="/par-mani"
                                 className="hover:text-[#CDC697] transition duration-300 ease-in-out"
+                                onClick={() => {
+                                    window.scrollTo({ top: 0, behavior: "smooth" });
+                                    setMenuOpen(false);
+                                }}
                             >
                                 {t("menu.about")}
                             </Link>
                             <Link
                                 to="/pakalpojumi"
                                 className="hover:text-[#CDC697] transition duration-300 ease-in-out"
+                                onClick={() => {
+                                    window.scrollTo({ top: 0, behavior: "smooth" });
+                                    setMenuOpen(false);
+                                }}
                             >
                                 {t("menu.services")}
                             </Link>
                             <Link
                                 to="/objekti"
                                 className="hover:text-[#CDC697] transition duration-300 ease-in-out"
+                                onClick={() => {
+                                    window.scrollTo({ top: 0, behavior: "smooth" });
+                                    setMenuOpen(false);
+                                }}
                             >
                                 {t("menu.projects")}
                             </Link>
                             <Link
                                 to="/kontakti"
                                 className="hover:text-[#CDC697] transition duration-300 ease-in-out"
+                                onClick={() => {
+                                    window.scrollTo({ top: 0, behavior: "smooth" });
+                                    setMenuOpen(false);
+                                }}
                             >
                                 {t("menu.contact")}
                             </Link>
                             <button
                                 onClick={toggleLanguage}
-                                className="text-[#371243] hover:text-[#CDC697] transition duration-300 ease-in-out"
+                                className="hover:text-[#CDC697] transition duration-300 ease-in-out"
                             >
                                 {t("button.language")}
                             </button>
