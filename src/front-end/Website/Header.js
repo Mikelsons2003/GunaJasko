@@ -63,7 +63,7 @@ const Header = () => {
                     <div className="w-full max-w-screen-xl mx-auto px-8 flex justify-between items-center">
                         {/* Logo Section */}
                         <a href="https://guna.lucid-websites.com/">
-                            <h1 className="text-3xl xs:text-4xl md:text-6xl text-[#CDC697] font-marcellus tracking-wide p-3">
+                            <h1 className="text-3xl xs:text-4xl md:text-6xl text-[#CDC697] font-marcellus tracking-wide p-3 drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)]">
                                 GUNA JASKO
                             </h1>
                         </a>
@@ -73,36 +73,56 @@ const Header = () => {
                             <Link
                                 to="/"
                                 className="hover:text-[#CDC697] transition duration-300 ease-in-out"
+                                onClick={() => {
+                                    window.scrollTo({ top: 0, behavior: "smooth" });
+                                    setMenuOpen(false);
+                                }}
                             >
                                 {t("menu.home")}
                             </Link>
                             <Link
                                 to="/par-mani"
                                 className="hover:text-[#CDC697] transition duration-300 ease-in-out"
+                                onClick={() => {
+                                    window.scrollTo({ top: 0, behavior: "smooth" });
+                                    setMenuOpen(false);
+                                }}
                             >
                                 {t("menu.about")}
                             </Link>
                             <Link
                                 to="/pakalpojumi"
                                 className="hover:text-[#CDC697] transition duration-300 ease-in-out"
+                                onClick={() => {
+                                    window.scrollTo({ top: 0, behavior: "smooth" });
+                                    setMenuOpen(false);
+                                }}
                             >
                                 {t("menu.services")}
                             </Link>
                             <Link
                                 to="/objekti"
                                 className="hover:text-[#CDC697] transition duration-300 ease-in-out"
+                                onClick={() => {
+                                    window.scrollTo({ top: 0, behavior: "smooth" });
+                                    setMenuOpen(false);
+                                }}
                             >
                                 {t("menu.projects")}
                             </Link>
                             <Link
                                 to="/kontakti"
                                 className="hover:text-[#CDC697] transition duration-300 ease-in-out"
+                                onClick={() => {
+                                    window.scrollTo({ top: 0, behavior: "smooth" });
+                                    setMenuOpen(false);
+                                }}
                             >
                                 {t("menu.contact")}
                             </Link>
                             <button
                                 onClick={toggleLanguage}
-                                className="text-[#371243] hover:text-[#CDC697] transition duration-300 ease-in-out"
+                                className="hover:text-[#CDC697] transition duration-300 ease-in-out"
                             >
                                 {t("button.language")}
                             </button>

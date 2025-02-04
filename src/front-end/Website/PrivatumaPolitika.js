@@ -1,6 +1,7 @@
 import React from "react";
 import PrivatumaPolitikaImg from '../../img/PrivatumaPolitikaImg.webp';
 import { useTranslation } from "react-i18next";
+import LazyBackground from "./LazyBackground";
 
 function PrivatumaPolitika() {
     const {t} = useTranslation();
@@ -15,15 +16,11 @@ function PrivatumaPolitika() {
                     </div>
 
                     {/* Right: Image Section */}
-                    <div
+                    <LazyBackground
+                        image={PrivatumaPolitikaImg}
                         className="w-full lg:w-[704px] h-[300px] sm:h-[400px] lg:h-[469px] flex-shrink-0 mt-8 lg:mt-48"
-                        style={{
-                            backgroundImage: `url(${PrivatumaPolitikaImg})`,
-                            backgroundSize: "cover", // Ensures the image covers the entire box
-                            backgroundPosition: "center", // Centers the image in the container
-                        }}
                     >
-                    </div>
+                    </LazyBackground>
                 </div>
             </div>
             <div className="w-full max-w-screen-xl mx-auto px-6 sm:px-8 py-10 text-[#5B3767]">

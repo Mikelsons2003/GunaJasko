@@ -3,6 +3,8 @@ import PopupMessage from "./PopupMessage"; // Import the PopupMessage component
 import Kontaktu from "../../img/Kontaktu.webp";
 import GunaKontakti from "../../img/GunaKontakti.webp";
 import { useTranslation } from "react-i18next";
+import LazyBackground from "./LazyBackground";
+import photo8 from "../../img/photo8.png";
 
 const Kontakti = () => {
     const { t } = useTranslation();
@@ -18,9 +20,9 @@ const Kontakti = () => {
     };
 
     return (
-        <div
+        <LazyBackground
+            image={Kontaktu}
             className="bg-cover bg-center text-white min-h-screen relative"
-            style={{ backgroundImage: `url(${Kontaktu})` }}
         >
             {/* Contact Form and Image Layout */}
             <div className="flex justify-center items-center min-h-screen px-4 md:px-8 lg:px-0">
@@ -128,15 +130,10 @@ const Kontakti = () => {
                         </div>
 
                         {/* Image Section */}
-                        <div
+                        <LazyBackground
+                            image={GunaKontakti}
                             className="w-full max-w-[314px] h-[400px] lg:h-[472px] mt-6 lg:mt-0 2xl:-mr-16"
-                            style={{
-                                backgroundImage: `url(${GunaKontakti})`,
-                                backgroundSize: "cover", // Ensure the image covers the box
-                                backgroundPosition: "center", // Center the image within the box
-                                backgroundRepeat: "no-repeat", // Prevent repeating the background image
-                            }}
-                        ></div>
+                        ></LazyBackground>
                     </div>
                 </div>
             </div>
@@ -148,7 +145,7 @@ const Kontakti = () => {
                     onClose={closePopup}
                 />
             )}
-        </div>
+        </LazyBackground>
     );
 };
 

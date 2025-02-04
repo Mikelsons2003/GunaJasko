@@ -17,6 +17,8 @@ import photo14 from "../../img/photo14.png";
 import photo15 from "../../img/photo15.png";
 import GunaJaskoBlue from "../../img/GunaJaskoBlue.png";
 import { FaFacebookF, FaInstagram} from 'react-icons/fa';
+import LazyBackground from "./LazyBackground";
+import PrivatumaPolitikaImg from "../../img/PrivatumaPolitikaImg.webp";
 
 // Array of image imports
 const images = [
@@ -42,13 +44,9 @@ function ObjektiIeskats() {
     return (
         <div className="mx-auto">
             {/* Header Section */}
-            <section
+            <LazyBackground
+                image={objekts1}
                 className="relative w-full h-[341px] bg-cover bg-center pt-24"
-                style={{
-                    backgroundImage: `url(${objekts1})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                }}
             >
                 <div className="absolute inset-0 bg-black bg-opacity-50"></div>
                 <div className="relative w-full h-full flex flex-col items-center justify-center">
@@ -72,7 +70,7 @@ function ObjektiIeskats() {
                         </ul>
                     </nav>
                 </div>
-            </section>
+            </LazyBackground>
 
             {/* Main Content Section */}
             <section className="w-full max-w-screen-xl mx-auto py-12 px-4 lg:px-6 bg-white text-[#5B3767]">
@@ -91,12 +89,10 @@ function ObjektiIeskats() {
                 </div>
 
                 {/* Image */}
-                <div
+                <LazyBackground
+                    image={photo8}
                     className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[662px] max-w-[1224px] mx-auto flex items-center justify-center bg-cover bg-center"
-                    style={{
-                        backgroundImage: `url(${photo8})`,
-                    }}
-                ></div>
+                ></LazyBackground>
             </section>
 
             <section className="w-full max-w-screen-xl mx-auto px-4 lg:px-6">
@@ -190,12 +186,10 @@ function ObjektiIeskats() {
                     {/* Left Section: Image and Agent Information */}
                     <div className="flex flex-col lg:flex-row items-center lg:items-end lg:space-x-8">
                         {/* Profile Picture */}
-                        <div
+                        <LazyBackground
+                            image={GunaJaskoBlue}
                             className="w-[182px] h-[275px] bg-cover bg-center mb-6 lg:mb-0"
-                            style={{
-                                backgroundImage: `url(${GunaJaskoBlue})`,
-                            }}
-                        ></div>
+                        ></LazyBackground>
 
                         {/* Agent Information */}
                         <div className="flex flex-col space-y-2">

@@ -1,7 +1,8 @@
 import React, { useRef, useState } from "react";
 import JaunakieObjekti from "./JaunakieObjekti";
+import BedroomImage from '../../img/BedroomImage.jpg';
 import GunaJasko from '../../img/GunaJasko.png';
-import Vannasistaba from '../../img/Vannasistaba.webp';
+import Vannasistaba from '../../img/Vannasistaba.jpg';
 import Swedbank from '../../img/Swedbank.webp';
 import LatvijasNotars from '../../img/LatvijasNotars.webp';
 import Altum from '../../img/Altum.webp';
@@ -14,9 +15,9 @@ import Safety from '../../img/Safety.webp';
 import Lanida from '../../img/Lanida.webp';
 import ArrowLeft from '../../img/ArrowLeft.png';
 import ArrowRight from '../../img/ArrowRight.png';
-import BedroomImage from "../../img/BedroomImage.webp";
 import ContactForm from "./ContactForm";
 import { useTranslation } from "react-i18next";
+import LazyBackground from "./LazyBackground";
 
 function Sakumlapa() {
     const getInitials = (name) => {
@@ -91,15 +92,11 @@ function Sakumlapa() {
 
     return (
         <div className="mx-auto text-white">
-            <header
-                className="bg-cover bg-center h-[812px] lg:h-[900px] 2xl:h-[970px] relative overflow-hidden"
-                style={{
-                    backgroundImage: `url(${BedroomImage})`,
-                    backgroundRepeat: "no-repeat",
-                    backgroundPosition: "center -17px",
-                }}
-                >
-                <div className="absolute inset-0 pointer-events-none"></div>
+            <LazyBackground
+                image={BedroomImage}
+                className="bg-black bg-opacity-40 h-[812px] lg:h-[900px] 2xl:h-[970px] relative overflow-hidden"
+            >
+                <div className="absolute inset-0  bg-black bg-opacity-60 pointer-events-none"></div>
 
                 {/* Text Section */}
                 <div
@@ -111,7 +108,7 @@ function Sakumlapa() {
                         {t("sakumlapa.p")}
                     </p>
                     <div className="text-center xs:text-left">
-                        {/* Button that triggers custom smooth scrolll */}
+                        {/* Button that triggers custom smooth scroll */}
                         <button
                             onClick={scrollToContactForm}
                             className="font-barlow500 w-[272px] h-[55px] sm:w-[317px] sm:h-[55px] bg-[#5B3767] hover:bg-[#371243] transition duration-300 ease-in-out text-[#CDC697] font-medium sm:ml-3"
@@ -120,7 +117,7 @@ function Sakumlapa() {
                         </button>
                     </div>
                 </div>
-            </header>
+            </LazyBackground>
             {/* about section */}
             <section className="bg-[#5B3767] text-white py-16 -mt-5">
                 <div
@@ -137,10 +134,10 @@ function Sakumlapa() {
                             {/* Card 1 */}
                             <div
                                 className="w-full text-left border border-[#CDC697] p-5 flex flex-col items-center xl:items-start space-y-4">
-                                <div
+                                <LazyBackground
+                                    image={Experience}
                                     className="w-16 h-16 bg-contain bg-no-repeat bg-left"
-                                    style={{backgroundImage: `url(${Experience})`}}
-                                ></div>
+                                ></LazyBackground>
                                 <div className="font-barlow400 text-2xl text-white">{t("sakumlapaAbout.divAbout1")}</div>
                                 <p className="font-barlow400 text-sm text-center xl:text-left">{t("sakumlapaAbout.pAbout1")}</p>
                             </div>
@@ -148,10 +145,10 @@ function Sakumlapa() {
                             {/* Card 2 */}
                             <div
                                 className="w-full text-left border border-[#CDC697] p-5 flex flex-col items-center xl:items-start space-y-4">
-                                <div
+                                <LazyBackground
+                                    image={Check}
                                     className="w-16 h-16 bg-contain bg-no-repeat bg-left"
-                                    style={{backgroundImage: `url(${Check})`}}
-                                ></div>
+                                ></LazyBackground>
                                 <div className="text-2xl font-barlow400 text-white">{t("sakumlapaAbout.divAbout2")}</div>
                                 <p className="font-barlow400 text-sm text-center xl:text-left">
                                     {t("sakumlapaAbout.pAbout2")}
@@ -161,10 +158,10 @@ function Sakumlapa() {
                             {/* Card 3 */}
                             <div
                                 className="w-full text-left border border-[#CDC697] p-5 flex flex-col items-center xl:items-start space-y-4">
-                                <div
+                                <LazyBackground
+                                    image={Safety}
                                     className="w-16 h-16 bg-contain bg-no-repeat bg-left"
-                                    style={{backgroundImage: `url(${Safety})`}}
-                                ></div>
+                                ></LazyBackground>
                                 <div className="text-2xl font-barlow400 text-white">{t("sakumlapaAbout.divAbout3")}</div>
                                 <p className="font-barlow400 text-sm text-center xl:text-left">{t("sakumlapaAbout.pAbout3")}</p>
                             </div>
@@ -172,10 +169,10 @@ function Sakumlapa() {
                             {/* Card 4 */}
                             <div
                                 className="w-full text-left border border-[#CDC697] p-5 flex flex-col items-center xl:items-start space-y-4">
-                                <div
+                                <LazyBackground
+                                    image={Lanida}
                                     className="w-[95px] h-[72px] bg-contain bg-no-repeat bg-left"
-                                    style={{backgroundImage: `url(${Lanida})`}}
-                                ></div>
+                                ></LazyBackground>
                                 <div className="text-2xl font-barlow400 text-white">{t("sakumlapaAbout.divAbout4")}</div>
                                 <a
                                     href="https://lanida.lv/biedri/guna-jasko-2/"
@@ -200,10 +197,10 @@ function Sakumlapa() {
                     {/* Right Side: Image */}
                     <div className="xl:w-1/2 mt-10 xl:-mt-28 xl:ml-12 flex justify-center">
                         <div className="w-full">
-                            <div
+                            <LazyBackground
+                                image={GunaJasko}
                                 className="bg-cover bg-center w-[300px] h-[500px] md:w-[400px] md:h-[570px] lg:w-[500px] lg:h-[670px] 2xl:w-[558px] 2xl:h-[837px] relative"
-                                style={{backgroundImage: `url(${GunaJasko})`}}
-                            ></div>
+                            ></LazyBackground>
                         </div>
                     </div>
                 </div>
@@ -214,13 +211,9 @@ function Sakumlapa() {
             {/* Atsauksmes Section */}
             <section className="bg-white relative w-full flex items-center justify-center min-h-screen px-2">
                 {/* Background Image */}
-                <div
+                <LazyBackground
+                    image={Vannasistaba}
                     className="relative flex items-center justify-center w-full lg:w-4/6 h-[500px] sm:h-[645px]"
-                    style={{
-                        backgroundImage: `url(${Vannasistaba})`,
-                        backgroundSize: 'cover', // Keeps the image covering the container
-                        backgroundPosition: 'center', // Centers the image
-                    }}
                 >
                     {/* Left Arrow */}
                     <button
@@ -263,7 +256,7 @@ function Sakumlapa() {
                     >
                         <img src={ArrowLeft} alt="Right Arrow" className="w-[24px] h-[24px]"/>
                     </button>
-                </div>
+                </LazyBackground>
             </section>
 
             {/* Sadarbības Partneri Section */}
@@ -275,23 +268,35 @@ function Sakumlapa() {
                     <div
                         className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-6 lg:mx-32 place-items-center">
                         {/* Partner 1 */}
-                        <div className="w-[216px] h-[48px] bg-cover my-4"
-                             style={{backgroundImage: `url(${Swedbank})`}}></div>
+                        <LazyBackground
+                            image={Swedbank}
+                            className="w-[216px] h-[48px] bg-cover my-4"
+                        ></LazyBackground>
                         {/* Partner 2 */}
-                        <div className="w-[107px] h-[160px] bg-cover my-4"
-                             style={{backgroundImage: `url(${LatvijasNotars})`}}></div>
+                        <LazyBackground
+                            image={LatvijasNotars}
+                            className="w-[107px] h-[160px] bg-cover my-4"
+                        ></LazyBackground>
                         {/* Partner 3 */}
-                        <div className="w-[152px] h-[80px] bg-cover my-4"
-                             style={{backgroundImage: `url(${Altum})`}}></div>
+                        <LazyBackground
+                            image={Altum}
+                            className="w-[152px] h-[80px] bg-cover my-4"
+                        ></LazyBackground>
                         {/* Partner 4 */}
-                        <div className="w-[165px] h-[60px] bg-cover my-4"
-                             style={{backgroundImage: `url(${Luminor})`}}></div>
+                        <LazyBackground
+                            image={Luminor}
+                            className="w-[165px] h-[60px] bg-cover my-4"
+                        ></LazyBackground>
                         {/* Partner 5 */}
-                        <div className="w-[136px] h-[60px] bg-cover my-4"
-                             style={{backgroundImage: `url(${Seb})`}}></div>
+                        <LazyBackground
+                            image={Seb}
+                            className="w-[136px] h-[60px] bg-cover my-4"
+                        ></LazyBackground>
                         {/* Partner 6 */}
-                        <div className="w-[158px] h-[88px] bg-cover my-4"
-                             style={{backgroundImage: `url(${Citadele})`}}></div>
+                        <LazyBackground
+                            image={Citadele}
+                            className="w-[158px] h-[88px] bg-cover my-4"
+                        ></LazyBackground>
                     </div>
 
                     <div className="w-full max-w-screen-xl mx-auto mt-16">
