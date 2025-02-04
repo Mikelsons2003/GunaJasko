@@ -98,7 +98,7 @@
   },
   "pakalpojumi": {
     "h1Pakalpojumi1": "PAKALPOJUMI",
-    "h1Pakalpojumi2": "STARPNECĪBAS PAKALPOJUMI",
+    "h1Pakalpojumi2": "STARPNIECĪBAS PAKALPOJUMI",
     "h1Pakalpojumi3": "DARĪJUMA NOFORMĒŠANA",
     "h1Pakalpojumi4": "JAUNO PROJEKTU ATTĪSTĪTĀJIEM",
     "h1Pakalpojumi5": "Pakalpojums (pilns cikls) ietver:",
@@ -135,8 +135,7 @@
     "liObjekti2": "MĀJAS",
     "liObjekti3": "ZEME",
     "liObjekti4": "JAUNIE PROJEKTI",
-    "liObjekti5": "PROJEKTI NO ATTĪSTĪTĀJIEM",
-    "liObjekti6": "IVESTĪCIJUOBJEKTI",
+    "liObjekti6": "INVESTĪCIJU OBJEKTI",
     "liObjekti7": "PĀRDOD",
     "liObjekti8": "IZĪRĒ",
     "liObjekti9": "Grupēt pēc",
@@ -147,7 +146,7 @@
     "kontakti": {
       "h1Kontakti": "SAZIŅAS FORMA",
       "buttonKontakti": "SAZINĀTIES",
-      "pKontakti1": "NEKUSTAMO ĪPAŠUMU AGENTS",
+      "pKontakti1": "NEKUSTAMO ĪPAŠUMU AĢENTS",
       "pKontakti2": "TĀLR.: ",
       "pKontakti3": "E-PASTS: ",
       "placeholderKontakti": "Vārds, Uzvārds",

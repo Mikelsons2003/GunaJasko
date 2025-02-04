@@ -59,7 +59,6 @@ function Objekti() {
                             <li className="mt-3 md:mt-0">{t("objekti.liObjekti2")}</li>
                             <li className="mt-3 md:mt-0">{t("objekti.liObjekti3")}</li>
                             <li className="mt-3 md:mt-0">{t("objekti.liObjekti4")}</li>
-                            <li className="mt-3 md:mt-0">{t("objekti.liObjekti5")}</li>
                             <li className="mt-3 md:mt-0">{t("objekti.liObjekti6")}</li>
                         </ul>
                     </nav>

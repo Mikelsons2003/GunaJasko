@@ -96,7 +96,7 @@ function Sakumlapa() {
                 image={BedroomImage}
                 className="bg-black bg-opacity-40 h-[812px] lg:h-[900px] 2xl:h-[970px] relative overflow-hidden"
             >
-                <div className="absolute inset-0  bg-black bg-opacity-50 pointer-events-none"></div>
+                <div className="absolute inset-0  bg-black bg-opacity-60 pointer-events-none"></div>
 
                 {/* Text Section */}
                 <div
