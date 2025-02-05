@@ -1,24 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { PiArrowDownThin, PiArrowUpThin } from "react-icons/pi"; // Import icons
+import { PiArrowDownThin, PiArrowUpThin } from "react-icons/pi";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import objekts1 from '../../img/objekts1.webp';
 
 function Objekti() {
     const { t } = useTranslation();
     const [properties, setProperties] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const [sortCriteria, setSortCriteria] = useState("none"); // State for sorting criteria
-    const [sortOrder, setSortOrder] = useState("asc"); // State for sorting order (asc or desc)
+    const [sortCriteria, setSortCriteria] = useState("none");
+    const [sortOrder, setSortOrder] = useState("asc");
     const itemsPerPage = 6;
 
-    // Helper function to extract fields from the rendered HTML content
     const extractField = (content, fieldName) => {
         const regex = new RegExp(`<label>${fieldName}:<\\/label>\\s*([^<]+)`);
         const match = content.match(regex);
         return match ? match[1].trim() : "Not available";
     };
 
-    // Fetch data from the API
     useEffect(() => {
         const fetchProperties = async () => {
             try {
@@ -30,11 +29,11 @@ function Objekti() {
                     return {
                         id: item.id,
                         header: item.title.rendered,
-                        price: parseFloat(extractField(content, "Property Value")) || 0, // Convert to number for sorting
+                        price: parseFloat(extractField(content, "Property Value")) || 0,
                         address: extractField(content, "Address"),
                         type: extractField(content, "Property Type"),
-                        rooms: parseInt(extractField(content, "Room Count")) || 0, // Convert to number for sorting
-                        image: item.featured_media_src_url || objekts1, // Use featured image or fallback
+                        rooms: parseInt(extractField(content, "Room Count")) || 0,
+                        image: item.featured_media_src_url || objekts1,
                     };
                 });
                 setProperties(formattedData);
@@ -45,36 +44,31 @@ function Objekti() {
         fetchProperties();
     }, []);
 
-    // Sorting function
     const sortProperties = (criteria, order) => {
         const sortedProperties = [...properties].sort((a, b) => {
             if (criteria === "price") {
-                return order === "asc" ? a.price - b.price : b.price - a.price; // Sort by price
+                return order === "asc" ? a.price - b.price : b.price - a.price;
             } else if (criteria === "rooms") {
-                return order === "asc" ? a.rooms - b.rooms : b.rooms - a.rooms; // Sort by rooms
+                return order === "asc" ? a.rooms - b.rooms : b.rooms - a.rooms;
             } else {
-                return 0; // No sorting
+                return 0;
             }
         });
         setProperties(sortedProperties);
     };
 
-    // Handle sorting criteria change
     const handleSortChange = (criteria) => {
         if (criteria === sortCriteria) {
-            // Toggle sorting order if the same criteria is selected again
             const newOrder = sortOrder === "asc" ? "desc" : "asc";
             setSortOrder(newOrder);
             sortProperties(criteria, newOrder);
         } else {
-            // Set new criteria and default to ascending order
             setSortCriteria(criteria);
             setSortOrder("asc");
             sortProperties(criteria, "asc");
         }
     };
 
-    // Pagination logic
     const totalPages = Math.ceil(properties.length / itemsPerPage);
     const currentItems = properties.slice(
         (currentPage - 1) * itemsPerPage,
@@ -186,12 +180,12 @@ function Objekti() {
                                     <span className="font-bold text-right">{property.rooms}</span>
                                 </div>
                                 <div className="flex justify-start">
-                                    <a
-                                        href="#"
+                                    <Link
+                                        to={`/objekti/${property.id}`} // Link to the detailed view with property ID
                                         className="font-barlow500 text-[#CDC697] text-sm mt-6 inline-flex"
                                     >
                                         {t("jaunakieObjekti.aObjekti")} <span className="ml-1">&rarr;</span>
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
