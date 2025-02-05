@@ -157,48 +157,50 @@ const Header = () => {
                                 className="text-3xl text-white cursor-pointer"
                                 onClick={toggleMenu}
                             >
-                                <FaTimes />
+                                <FaTimes/>
                             </div>
                         </div>
                         <div className="w-full max-w-screen-xl mx-auto px-4">
                             <div className="border-b-[1px] border-[#CDC697] mt-2"></div>
                         </div>
-                        <Link
-                            to="/"
-                            className="p-1 block hover:text-[#CDC697] transition duration-300 ease-in-out"
-                            onClick={() => setMenuOpen(false)}
-                        >
-                            {t("menu.home")}
-                        </Link>
-                        <Link
-                            to="/par-mani"
-                            className="p-1 block hover:text-[#CDC697] transition duration-300 ease-in-out"
-                            onClick={() => setMenuOpen(false)}
-                        >
-                            {t("menu.about")}
-                        </Link>
-                        <Link
-                            to="/pakalpojumi"
-                            className="p-1 block hover:text-[#CDC697] transition duration-300 ease-in-out"
-                            onClick={() => setMenuOpen(false)}
-                        >
-                            {t("menu.services")}
-                        </Link>
-                        <Link
-                            to="/objekti"
-                            className="p-1 block hover:text-[#CDC697] transition duration-300 ease-in-out"
-                            onClick={() => setMenuOpen(false)}
-                        >
-                            {t("menu.projects")}
-                        </Link>
-                        <Link
-                            to="/kontakti"
-                            className="p-1 block hover:text-[#CDC697] transition duration-300 ease-in-out"
-                            onClick={() => setMenuOpen(false)}
-                        >
-                            {t("menu.contact")}
-                        </Link>
-                        <div className="flex items-center justify-center">
+
+                        {/* Centering the links */}
+                        <div className="flex flex-col items-center mt-4 space-y-2">
+                            <Link
+                                to="/"
+                                className="p-1 block hover:text-[#CDC697] transition duration-300 ease-in-out"
+                                onClick={() => setMenuOpen(false)}
+                            >
+                                {t("menu.home")}
+                            </Link>
+                            <Link
+                                to="/par-mani"
+                                className="p-1 block hover:text-[#CDC697] transition duration-300 ease-in-out"
+                                onClick={() => setMenuOpen(false)}
+                            >
+                                {t("menu.about")}
+                            </Link>
+                            <Link
+                                to="/pakalpojumi"
+                                className="p-1 block hover:text-[#CDC697] transition duration-300 ease-in-out"
+                                onClick={() => setMenuOpen(false)}
+                            >
+                                {t("menu.services")}
+                            </Link>
+                            <Link
+                                to="/objekti"
+                                className="p-1 block hover:text-[#CDC697] transition duration-300 ease-in-out"
+                                onClick={() => setMenuOpen(false)}
+                            >
+                                {t("menu.projects")}
+                            </Link>
+                            <Link
+                                to="/kontakti"
+                                className="p-1 block hover:text-[#CDC697] transition duration-300 ease-in-out"
+                                onClick={() => setMenuOpen(false)}
+                            >
+                                {t("menu.contact")}
+                            </Link>
                             <button
                                 onClick={toggleLanguage}
                                 className="p-1 block hover:text-[#CDC697] transition duration-300 ease-in-out"
