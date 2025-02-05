@@ -134,7 +134,7 @@ function Objekti() {
                         <span>&rarr;</span>
                         <span className="font-semibold">{t("objekti.liObjekti7")}</span>
                     </div>
-                    <div className="flex space-x-4">
+                    <div className="flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0">
                         <button
                             onClick={() => handleSortChange("price")}
                             className="font-barlow400 flex justify-between items-center border border-[#9C9150] text-[#9C9150] w-[223px] h-[63px] px-4 py-2"

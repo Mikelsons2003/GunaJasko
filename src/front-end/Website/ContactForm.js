@@ -24,10 +24,10 @@ export default function ContactForm() {
         <section className="bg-white w-full py-16 relative mt-16 min-h-screen">
             {/* Background Image */}
             <div
-                className="flex justify-center items-center w-[1440px] h-[711px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                className="flex justify-center items-center w-full h-[711px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                 <LazyBackground
                     image={SazinasForma}
-                    className="w-[1440px] h-[711px]"
+                    className="w-full h-[711px]"
                 ></LazyBackground>
             </div>
 
