@@ -120,7 +120,7 @@ function Objekti() {
             </section>
 
             <section className="w-full max-w-screen-xl mx-auto py-12 px-4 lg:px-12 bg-white text-[#5B3767]">
-                <div className="flex flex-col items-start space-y-4 mb-14">
+                <div className="flex flex-col items-center sm:items-start space-y-4 mb-14">
                     <div className="font-barlow400 flex items-center space-x-2 text-sm uppercase mb-10 mt-6">
                         <span className="font-semibold">{t("objekti.liObjekti10")}</span>
                         <span>&rarr;</span>
@@ -135,7 +135,7 @@ function Objekti() {
                         >
                             <span>{t("objekti.spanSort1")}</span>
                             {sortCriteria === "price" && (
-                                sortOrder === "asc" ? <PiArrowUpThin /> : <PiArrowDownThin />
+                                sortOrder === "asc" ? <PiArrowUpThin/> : <PiArrowDownThin/>
                             )}
                         </button>
                         <button
@@ -144,7 +144,7 @@ function Objekti() {
                         >
                             <span>{t("objekti.spanSort2")}</span>
                             {sortCriteria === "rooms" && (
-                                sortOrder === "asc" ? <PiArrowUpThin /> : <PiArrowDownThin />
+                                sortOrder === "asc" ? <PiArrowUpThin/> : <PiArrowDownThin/>
                             )}
                         </button>
                     </div>
@@ -152,13 +152,16 @@ function Objekti() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20">
                     {currentItems.map((property) => (
-                        <div
+                        <a
                             key={property.id}
-                            className="border border-[#CDC697] bg-white"
+                            href={`/objekti/${property.id}`} // Opens the detailed property page
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="border border-[#CDC697] bg-white block hover:shadow-lg transition-shadow duration-300"
                         >
                             <div className="w-full h-[254px] bg-gray-200">
                                 <img
-                                    className="w-full h-52 sm:h-64 object-cover transition-opacity duration-500 opacity-100"
+                                    className="w-full h-[254px] object-cover transition-opacity duration-500 opacity-100"
                                     src={property.image}
                                     alt="Property"
                                 />
@@ -179,16 +182,11 @@ function Objekti() {
                                     <span>{t("jaunakieObjekti.spanObjekti3")}</span>
                                     <span className="font-bold text-right">{property.rooms}</span>
                                 </div>
-                                <div className="flex justify-start">
-                                    <Link
-                                        to={`/objekti/${property.id}`} // Link to the detailed view with property ID
-                                        className="font-barlow500 text-[#CDC697] text-sm mt-6 inline-flex"
-                                    >
-                                        {t("jaunakieObjekti.aObjekti")} <span className="ml-1">&rarr;</span>
-                                    </Link>
+                                <div className="flex justify-start mt-6 text-[#CDC697] text-sm">
+                                    {t("jaunakieObjekti.aObjekti")} <span className="ml-1">&rarr;</span>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     ))}
                 </div>
 

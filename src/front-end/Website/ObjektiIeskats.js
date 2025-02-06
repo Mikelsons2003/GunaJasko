@@ -4,8 +4,10 @@ import objekts1 from "../../img/objekts1.webp";
 import GunaJaskoBlue from "../../img/GunaJaskoBlue.png";
 import { FaFacebookF, FaInstagram } from 'react-icons/fa';
 import LazyBackground from "./LazyBackground";
+import "react-image-lightbox/style.css";
 
 function ObjektiIeskats() {
+
     const { id } = useParams(); // Get the property ID from the URL
     const [property, setProperty] = useState(null);
 
