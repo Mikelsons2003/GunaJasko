@@ -8,7 +8,6 @@ import Lanida from "../../img/Lanida.webp";
 import GunaParMani from "../../img/GunaParMani.png";
 import { useTranslation } from "react-i18next";
 import LazyBackground from "./LazyBackground";
-import PrivatumaPolitikaImg from "../../img/PrivatumaPolitikaImg.webp";
 
 function ParMani() {
     const {t} = useTranslation();

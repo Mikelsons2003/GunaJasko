@@ -4,7 +4,6 @@ import {Link} from "react-router-dom";
 import Kabinets from "../../../img/Kabinets.webp";
 import { useTranslation } from "react-i18next";
 import LazyBackground from "../LazyBackground";
-import Kontaktu from "../../../img/Kontaktu.webp";
 
 
 function Starpniecibas() {

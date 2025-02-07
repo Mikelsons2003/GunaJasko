@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PopupMessage from "./PopupMessage"; // Import the PopupMessage component
-import Kontaktu from "../../img/Kontaktu.webp";
-import GunaKontakti from "../../img/GunaKontakti.webp";
+import Kontaktu from "../../img/Kontaktu.png";
+import GunaKontakti from "../../img/GunaKontakti.png";
 import { useTranslation } from "react-i18next";
 import LazyBackground from "./LazyBackground";
 import photo8 from "../../img/photo8.png";
@@ -22,12 +22,13 @@ const Kontakti = () => {
     return (
         <LazyBackground
             image={Kontaktu}
-            className="bg-cover bg-center text-white min-h-screen relative"
+            className="text-white min-h-[87vh] relative"
+            style={{ backgroundSize: "contain" }} // Override here
         >
             {/* Contact Form and Image Layout */}
-            <div className="flex justify-center items-center min-h-screen px-4 md:px-8 lg:px-0">
+            <div className="flex justify-center items-center min-h-[87vh] px-4 md:px-8 lg:px-0 pt-20">
                 <div
-                    className="w-full max-w-[1267px] bg-[#CDC697] flex flex-col lg:flex-row justify-between items-center py-12 px-6 lg:py-16 lg:px-8 mt-32 mb-10">
+                    className="w-full max-w-[1267px] bg-[#CDC697] flex flex-col lg:flex-row justify-between items-center py-12 px-6 lg:py-16 lg:px-8">
                     {/* Left Column: Form */}
                     <div className="w-full lg:w-1/2 lg:pr-8">
                         <h2 className="text-2xl lg:text-3xl text-[#5B3767] text-left mb-6">

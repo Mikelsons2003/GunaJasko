@@ -3,7 +3,6 @@ import PopupMessage from './PopupMessage';
 import SazinasForma from '../../img/SazinasForma.jpg';
 import { useTranslation } from "react-i18next";
 import LazyBackground from "./LazyBackground";
-import Kontaktu from "../../img/Kontaktu.webp";
 
 export default function ContactForm() {
     const { t } = useTranslation();

@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom"; // Import useParams to get the property ID
+import { useParams } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import objekts1 from "../../img/objekts1.webp";
 import GunaJaskoBlue from "../../img/GunaJaskoBlue.png";
-import { FaFacebookF, FaInstagram } from 'react-icons/fa';
+import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import LazyBackground from "./LazyBackground";
 import "react-image-lightbox/style.css";
 
 function ObjektiIeskats() {
-
-    const { id } = useParams(); // Get the property ID from the URL
+    const { id } = useParams();
     const [property, setProperty] = useState(null);
+    const [selectedImage, setSelectedImage] = useState(null);
+    const [currentIndex, setCurrentIndex] = useState(0);
 
     useEffect(() => {
         const fetchProperty = async () => {
@@ -17,14 +20,11 @@ function ObjektiIeskats() {
                 const response = await fetch(`https://backends.lucid-websites.com/wp-json/wp/v2/posts/${id}`);
                 const data = await response.json();
 
-                // Fetch the full-size featured image
-                const featuredMediaResponse = await fetch(data._links['wp:featuredmedia'][0].href);
+                const featuredMediaResponse = await fetch(data._links["wp:featuredmedia"][0].href);
                 const featuredMediaData = await featuredMediaResponse.json();
                 const fullSizeImageUrl = featuredMediaData.media_details.sizes.full.source_url;
 
                 const content = data.content.rendered;
-
-                // Extract full-size image URLs from <a> tags
                 const imageRegex = /<a[^>]+href="([^">]+)"/g;
                 const images = [];
                 let match;
@@ -45,7 +45,7 @@ function ObjektiIeskats() {
                     descriptionLV: content.match(/<label>Property Description LV:<\/label>\s*([\s\S]*?)<\/li>/)[1].trim(),
                     descriptionRU: content.match(/<label>Property Description RU:<\/label>\s*([\s\S]*?)<\/li>/)[1].trim(),
                     images: images,
-                    image: fullSizeImageUrl || objekts1, // Use full-size featured image
+                    image: fullSizeImageUrl || objekts1,
                 };
                 setProperty(formattedData);
             } catch (error) {
@@ -58,6 +58,30 @@ function ObjektiIeskats() {
     if (!property) {
         return <div>Loading...</div>;
     }
+
+    // Open Lightbox
+    const openImage = (index) => {
+        setCurrentIndex(index);
+        setSelectedImage(property.images[index]);
+    };
+
+    // Close Lightbox
+    const closeLightbox = () => {
+        setSelectedImage(null);
+    };
+
+    // Navigate Images
+    const prevImage = () => {
+        const newIndex = currentIndex === 0 ? property.images.length - 1 : currentIndex - 1;
+        setCurrentIndex(newIndex);
+        setSelectedImage(property.images[newIndex]);
+    };
+
+    const nextImage = () => {
+        const newIndex = currentIndex === property.images.length - 1 ? 0 : currentIndex + 1;
+        setCurrentIndex(newIndex);
+        setSelectedImage(property.images[newIndex]);
+    };
 
     return (
         <div className="mx-auto">
@@ -87,7 +111,7 @@ function ObjektiIeskats() {
                     </nav>
                 </div>
             </LazyBackground>
-
+            {/* Existing content unchanged */}
             <section className="w-full max-w-screen-xl mx-auto py-12 px-4 lg:px-6 bg-white text-[#5B3767]">
                 <div className="flex flex-col sm:items-start lg:items-start space-y-4 mb-14 text-center lg:text-left">
                     <div
@@ -139,7 +163,7 @@ function ObjektiIeskats() {
                 <div className="w-full text-left description">
                     <div
                         className="font-barlow400 text-[#5B3767] leading-relaxed"
-                        dangerouslySetInnerHTML={{ __html: property.descriptionLV }} // Render HTML
+                        dangerouslySetInnerHTML={{__html: property.descriptionLV}} // Render HTML
                     />
                 </div>
             </section>
@@ -152,7 +176,8 @@ function ObjektiIeskats() {
                             <img
                                 src={src}
                                 alt={`Property Image ${index + 1}`}
-                                className="w-[280px] h-[209px] object-cover"
+                                className="w-[280px] h-[209px] object-cover cursor-pointer"
+                                onClick={() => openImage(index)}
                             />
                         </div>
                     ))}
@@ -168,6 +193,59 @@ function ObjektiIeskats() {
                     </a>
                 </div>
             </div>
+
+            {/* Lightbox (Fullscreen Image View) */}
+            <AnimatePresence>
+                {selectedImage && (
+                    <motion.div
+                        className="fixed inset-0 bg-black bg-opacity-90 flex flex-col items-center justify-center z-50"
+                        initial={{opacity: 0}}
+                        animate={{opacity: 1}}
+                        exit={{opacity: 0}}
+                    >
+                        {/* Close Button */}
+                        <button className="absolute top-4 right-4 text-white text-3xl" onClick={closeLightbox}>
+                            <X size={32}/>
+                        </button>
+
+                        {/* Main Image */}
+                        <motion.img
+                            key={selectedImage}
+                            src={selectedImage}
+                            alt="Fullscreen"
+                            className="max-w-[90vw] max-h-[80vh] rounded-lg"
+                            initial={{scale: 0.8}}
+                            animate={{scale: 1}}
+                            exit={{scale: 0.8}}
+                        />
+
+                        {/* Navigation */}
+                        <div className="flex items-center justify-between w-full px-10 mt-4">
+                            <button className="text-white text-3xl" onClick={prevImage}>
+                                <ChevronLeft size={40}/>
+                            </button>
+                            <button className="text-white text-3xl" onClick={nextImage}>
+                                <ChevronRight size={40}/>
+                            </button>
+                        </div>
+
+                        {/* Thumbnails Under Image */}
+                        <div className="flex gap-4 mt-6">
+                            {property.images.map((src, index) => (
+                                <img
+                                    key={index}
+                                    src={src}
+                                    alt={`Thumbnail ${index}`}
+                                    className={`w-16 h-16 object-cover cursor-pointer rounded-md ${
+                                        currentIndex === index ? "border-4 border-white" : ""
+                                    }`}
+                                    onClick={() => openImage(index)}
+                                />
+                            ))}
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
 
             <section className="w-full max-w-screen-xl mx-auto py-12 px-4 lg:px-6 text-[#5B3767] mb-8">
                 <div
@@ -195,7 +273,7 @@ function ObjektiIeskats() {
                                 rel="noopener noreferrer"
                                 className="w-8 h-8 flex items-center justify-center border-2 border-[#5B3767] rounded-md"
                             >
-                                <FaFacebookF className="text-[#5B3767]" />
+                                <FaFacebookF className="text-[#5B3767]"/>
                             </a>
                             <a
                                 href="https://www.instagram.com/gunarealty/"
@@ -203,12 +281,13 @@ function ObjektiIeskats() {
                                 rel="noopener noreferrer"
                                 className="w-8 h-8 flex items-center justify-center border-2 border-[#5B3767] rounded-md"
                             >
-                                <FaInstagram className="text-[#5B3767]" />
+                                <FaInstagram className="text-[#5B3767]"/>
                             </a>
                         </div>
                     </div>
                 </div>
             </section>
+
         </div>
     );
 }
