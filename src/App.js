@@ -52,7 +52,7 @@ function App() {
                     <Route path="/darijuma" element={<Darijuma />} />
                     <Route path="/projekti" element={<Projekti />} />
                     <Route path="/objekti" element={<Objekti />} />
-                    <Route path="/objekti/:id" element={<ObjektiIeskats />} /> {/* Updated route */}
+                    <Route path="/objekti/:id" element={<ObjektiIeskats />} />
                     <Route path="/kontakti" element={<Kontakti />} />
                     <Route path="/privatuma-politika" element={<PrivatumaPolitika />} />
                 </Routes>

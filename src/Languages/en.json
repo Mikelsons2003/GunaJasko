@@ -23,15 +23,15 @@
     "pAbout4": "Member of the Latvian real estate association “Lanīda”.",
     "buttonAbout": "LEARN MORE"
   },
-  "jaunakieObjekti" : {
+  "jaunakieObjekti": {
     "headerObjekti": "NEWEST OBJECTS",
     "spanObjekti1": "Address",
-    "spanObjekti2": "Property type",
-    "spanObjekti3": "Room count",
-    "aObjekti": "SEE",
+    "spanObjekti2": "Type",
+    "spanObjekti3": "Rooms",
+    "aObjekti": "View Details",
     "buttonObjekti": "SEE ALL OBJECTS",
-    "h1Objekti1": "For Rent",
-    "h1Objekti2": "For Sale"
+    "h1Objekti1": "Rent",
+    "h1Objekti2": "Sell"
   },
   "atsauksmes" : {
     "h1Atsauksmes": "REVIEWS",
@@ -130,22 +130,22 @@
     "pPakalpojumi19": "by agreement",
     "buttonPakalpojumi": "CONTACT US"
   },
-  "objekti" : {
-    "liObjekti1": "Apartments",
-    "liObjekti2": "Property",
-    "liObjekti3": "Land",
-    "liObjekti4": "New projects",
-    "liObjekti5": "Projects from the developer",
-    "liObjekti6": "Investment Objects",
-    "liObjekti7": "For sale",
-    "liObjekti8": "For rent",
-    "liObjekti9": "Sort by",
-    "liObjekti10": "Objects",
+  "objekti": {
+    "liObjekti1": "All Properties",
+    "liObjekti2": "Apartments",
+    "liObjekti3": "Houses",
+    "liObjekti4": "Land",
+    "liObjekti6": "New Projects",
+    "liObjekti7": "All",
+    "liObjekti8": "Rent",
+    "liObjekti9": "Sell",
+    "liObjekti10": "Home",
     "liObjekti11": "Previous",
     "liObjekti12": "Next",
-    "spanSort1": "Sort by Price",
-    "spanSort2": "Sort by Rooms"
+    "spanSort1": "Price",
+    "spanSort2": "Rooms"
   },
+
   "kontakti": {
     "h1Kontakti": "CONTACT FORM",
     "buttonKontakti": "CONTACT US",

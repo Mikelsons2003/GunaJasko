@@ -1,15 +1,19 @@
-import React, { useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
-import { PiArrowDownThin, PiArrowUpThin } from "react-icons/pi";
-import { Link } from "react-router-dom"; // Import Link from react-router-dom
+import React, {useEffect, useState} from "react";
+import {useTranslation} from "react-i18next";
+import {PiArrowDownThin, PiArrowRightThin, PiArrowUpThin} from "react-icons/pi";
+import {useLocation, useNavigate} from "react-router-dom";
 import objekts1 from '../../img/objekts1.webp';
 
 function Objekti() {
-    const { t } = useTranslation();
+    const {t} = useTranslation();
+    const navigate = useNavigate();
+    const location = useLocation();
     const [properties, setProperties] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [sortCriteria, setSortCriteria] = useState("none");
     const [sortOrder, setSortOrder] = useState("asc");
+    const [propertyType, setPropertyType] = useState("all");
+    const [transactionType, setTransactionType] = useState("all");
     const itemsPerPage = 6;
 
     const extractField = (content, fieldName) => {
@@ -32,6 +36,7 @@ function Objekti() {
                         price: parseFloat(extractField(content, "Property Value")) || 0,
                         address: extractField(content, "Address"),
                         type: extractField(content, "Property Type"),
+                        transactionType: extractField(content, "Transaction Type"),
                         rooms: parseInt(extractField(content, "Room Count")) || 0,
                         image: item.featured_media_src_url || objekts1,
                     };
@@ -43,6 +48,14 @@ function Objekti() {
         };
         fetchProperties();
     }, []);
+
+    useEffect(() => {
+        const params = new URLSearchParams(location.search);
+        const propertyTypeParam = params.get("propertyType") || "all";
+        const transactionTypeParam = params.get("transactionType") || "all";
+        setPropertyType(propertyTypeParam);
+        setTransactionType(transactionTypeParam);
+    }, [location.search]);
 
     const sortProperties = (criteria, order) => {
         const sortedProperties = [...properties].sort((a, b) => {
@@ -69,8 +82,22 @@ function Objekti() {
         }
     };
 
-    const totalPages = Math.ceil(properties.length / itemsPerPage);
-    const currentItems = properties.slice(
+    const handleFilterChange = (type, value) => {
+        const params = new URLSearchParams(location.search);
+        if (type === "propertyType" && value === "all") {
+            params.set("transactionType", "all");
+        }
+        params.set(type, value);
+        navigate({search: params.toString()});
+    };
+
+    const filteredProperties = properties.filter(property => {
+        return (propertyType === "all" || property.type === propertyType) &&
+            (transactionType === "all" || property.transactionType === transactionType);
+    });
+
+    const totalPages = Math.ceil(filteredProperties.length / itemsPerPage);
+    const currentItems = filteredProperties.slice(
         (currentPage - 1) * itemsPerPage,
         currentPage * itemsPerPage
     );
@@ -102,31 +129,44 @@ function Objekti() {
                     <nav
                         className="font-garamond500 w-full max-w-[1267px] flex items-center justify-center md:justify-start text-white text-sm lg:text-xl uppercase tracking-wide px-6">
                         <ul className="grid grid-cols-1 md:flex md:space-x-4 lg:space-x-8 text-center">
-                            <li>{t("objekti.liObjekti1")}</li>
-                            <li className="mt-3 md:mt-0">{t("objekti.liObjekti2")}</li>
-                            <li className="mt-3 md:mt-0">{t("objekti.liObjekti3")}</li>
-                            <li className="mt-3 md:mt-0">{t("objekti.liObjekti4")}</li>
-                            <li className="mt-3 md:mt-0">{t("objekti.liObjekti6")}</li>
+                            <li className="cursor-pointer"
+                                onClick={() => handleFilterChange("propertyType", "all")}>{t("objekti.liObjekti13")}</li>
+                            <li className="mt-3 md:mt-0 cursor-pointer"
+                                onClick={() => handleFilterChange("propertyType", "Apartment")}>{t("objekti.liObjekti2")}</li>
+                            <li className="mt-3 md:mt-0 cursor-pointer"
+                                onClick={() => handleFilterChange("propertyType", "House")}>{t("objekti.liObjekti3")}</li>
+                            <li className="mt-3 md:mt-0 cursor-pointer"
+                                onClick={() => handleFilterChange("propertyType", "Land")}>{t("objekti.liObjekti4")}</li>
+                            <li className="mt-3 md:mt-0 cursor-pointer"
+                                onClick={() => handleFilterChange("propertyType", "New Project")}>{t("objekti.liObjekti5")}</li>
+                            <li className="mt-3 md:mt-0 cursor-pointer"
+                                onClick={() => handleFilterChange("propertyType", "Investment Property")}>{t("objekti.liObjekti6")}</li>
                         </ul>
                     </nav>
                     <nav
                         className="font-barlow400 w-full max-w-[1267px] flex justify-center md:justify-start items-center text-white text-sm lg:text-lg uppercase tracking-wide px-6">
                         <ul className="flex space-x-4 lg:space-x-8 mt-12">
-                            <li>{t("objekti.liObjekti7")}</li>
-                            <li>{t("objekti.liObjekti8")}</li>
+                            <li className="cursor-pointer"
+                                onClick={() => handleFilterChange("transactionType", "Rent")}>{t("objekti.liObjekti8")}</li>
+                            <li className="cursor-pointer"
+                                onClick={() => handleFilterChange("transactionType", "Sell")}>{t("objekti.liObjekti9")}</li>
                         </ul>
                     </nav>
                 </div>
             </section>
 
-            <section className="w-full max-w-screen-xl mx-auto py-12 px-4 lg:px-12 bg-white text-[#5B3767]">
+            <section className="w-full max-w-screen-xl mx-auto py-12 px-4 lg:px-12 bg-white text-[#9C9150]">
                 <div className="flex flex-col items-center sm:items-start space-y-4 mb-14">
                     <div className="font-barlow400 flex items-center space-x-2 text-sm uppercase mb-10 mt-6">
-                        <span className="font-semibold">{t("objekti.liObjekti10")}</span>
-                        <span>&rarr;</span>
-                        <span className="font-semibold">{t("objekti.liObjekti1")}</span>
-                        <span>&rarr;</span>
-                        <span className="font-semibold">{t("objekti.liObjekti7")}</span>
+                        <span>{t("objekti.liObjekti1")}</span>
+                        <PiArrowRightThin className="font-semibold"/>
+                        <span>{propertyType === "all" ? t("objekti.liObjekti7") : propertyType}</span>
+                        {transactionType !== "all" && (
+                            <>
+                                <PiArrowRightThin className="font-semibold"/>
+                                <span>{transactionType}</span>
+                            </>
+                        )}
                     </div>
                     <div className="flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0">
                         <button
@@ -154,10 +194,10 @@ function Objekti() {
                     {currentItems.map((property) => (
                         <a
                             key={property.id}
-                            href={`/objekti/${property.id}`} // Opens the detailed property page
+                            href={`/objekti/${property.id}`}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="border border-[#CDC697] bg-white block hover:shadow-lg transition-shadow duration-300"
+                            className="border border-[#9C9150] bg-white block hover:shadow-lg transition-shadow duration-300"
                         >
                             <div className="w-full h-[254px] bg-gray-200">
                                 <img
@@ -173,16 +213,17 @@ function Objekti() {
                                 <h2 className="font-infant600 text-[#5B3767] text-2xl font-bold mb-4 text-left">
                                     {property.price} EUR
                                 </h2>
-                                <div className="w-full border-b-[1px] border-[#CDC697] mb-4"></div>
-                                <div className="font-barlow400 grid grid-cols-2 text-sm gap-y-2 text-left">
+                                <div className="w-full border-b-[1px] border-[#9C9150] mb-4"></div>
+                                <div
+                                    className="font-barlow400 grid grid-cols-2 text-sm gap-y-2 text-left text-[#5B3767]">
                                     <span>{t("jaunakieObjekti.spanObjekti1")}</span>
-                                    <span className="font-bold text-right">{property.address}</span>
+                                    <span className="font-semibold text-right">{property.address}</span>
                                     <span>{t("jaunakieObjekti.spanObjekti2")}</span>
-                                    <span className="font-bold text-right">{property.type}</span>
+                                    <span className="font-semibold text-right">{property.type}</span>
                                     <span>{t("jaunakieObjekti.spanObjekti3")}</span>
-                                    <span className="font-bold text-right">{property.rooms}</span>
+                                    <span className="font-semibold text-right">{property.rooms}</span>
                                 </div>
-                                <div className="flex justify-start mt-6 text-[#CDC697] text-sm">
+                                <div className="flex justify-start mt-6 text-[#9C9150] text-sm">
                                     {t("jaunakieObjekti.aObjekti")} <span className="ml-1">&rarr;</span>
                                 </div>
                             </div>

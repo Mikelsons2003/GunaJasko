@@ -23,15 +23,15 @@
     "pAbout4": "Latvijas nekustamo īpašumu asociācijas “Lanīda” biedrs",
     "buttonAbout": "UZZINĀT VAIRĀK"
   },
-  "jaunakieObjekti" : {
+  "jaunakieObjekti": {
     "headerObjekti": "JAUNĀKIE OBJEKTI",
     "spanObjekti1": "Adrese",
-    "spanObjekti2": "Īpašuma tips",
-    "spanObjekti3": "istabu sk",
-    "aObjekti": "SKATĪT",
+    "spanObjekti2": "Tips",
+    "spanObjekti3": "Istabas",
+    "aObjekti": "Skatīt detaļas",
     "buttonObjekti": "SKATĪT VISUS OBJEKTUS",
-    "h1Objekti1": "Izīrē",
-    "h1Objekti2": "Pārdod"
+    "h1Objekti1": "Īre",
+    "h1Objekti2": "Pārdošana"
   },
   "atsauksmes" : {
     "h1Atsauksmes": "ATSAUKSMES",
@@ -130,21 +130,22 @@
     "pPakalpojumi19": "pēc vienošanās",
     "buttonPakalpojumi": "SAZINĀTIES"
   },
-  "objekti" : {
-    "liObjekti1": "DZĪVOKĻI",
-    "liObjekti2": "MĀJAS",
-    "liObjekti3": "ZEME",
-    "liObjekti4": "JAUNIE PROJEKTI",
-    "liObjekti5": "PROJEKTI NO ATTĪSTĪTĀJIEM",
-    "liObjekti6": "INVESTĪCIJU OBJEKTI",
-    "liObjekti7": "PĀRDOD",
-    "liObjekti8": "IZĪRĒ",
-    "liObjekti9": "Grupēt pēc",
-    "liObjekti10": "Objekti",
+  "objekti": {
+    "liObjekti1": "Īpašumi",
+    "liObjekti2": "Dzīvokļi",
+    "liObjekti3": "Mājas",
+    "liObjekti4": "Zeme",
+    "liObjekti5": "Jaunie projekti",
+    "liObjekti6": "Investīciju objekti",
+    "liObjekti7": "Visi",
+    "liObjekti8": "Izīrē",
+    "liObjekti9": "Pārdod",
+    "liObjekti10": "Sākums",
     "liObjekti11": "Iepriekšējā",
     "liObjekti12": "Nākamā",
-    "spanSort1": "Grupēt pēc Cenas",
-    "spanSort2": "Grupēt pēc Istabām"
+    "liObjekti13": "Visi",
+    "spanSort1": "Cena",
+    "spanSort2": "Istabas"
   },
     "kontakti": {
       "h1Kontakti": "SAZIŅAS FORMA",
