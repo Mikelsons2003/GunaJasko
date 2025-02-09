@@ -156,6 +156,14 @@
       "placeholderKontakti": "Vārds, Uzvārds",
       "placeholderKontakti1": "Ziņas Teksts"
     },
+  "objektiIeskats": {
+    "spanIeskats1": "Ēkas tips",
+    "spanIeskats2": "Platība",
+    "spanIeskats3": "Istabu sk.",
+    "spanIeskats4": "Stāvs",
+    "spanIeskats5": "DALĪTIES",
+    "spanIeskats6": "NEKUSTAMO ĪPAŠUMU AĢENTS"
+  },
   "button": {
     "language": "LV"
   }

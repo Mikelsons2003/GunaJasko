@@ -142,10 +142,10 @@
     "liObjekti10": "Home",
     "liObjekti11": "Previous",
     "liObjekti12": "Next",
+    "liObjekti13": "All",
     "spanSort1": "Price",
     "spanSort2": "Rooms"
   },
-
   "kontakti": {
     "h1Kontakti": "CONTACT FORM",
     "buttonKontakti": "CONTACT US",
@@ -154,6 +154,14 @@
     "pKontakti3": "EMAIL: ",
     "placeholderKontakti": "Name, Surname",
     "placeholderKontakti1": "Message Text"
+  },
+  "objektiIeskats": {
+    "spanIeskats1": "Building type",
+    "spanIeskats2": "Area",
+    "spanIeskats3": "Number of rooms",
+    "spanIeskats4": "Floor",
+    "spanIeskats5": "SHARE",
+    "spanIeskats6": "REAL ESTATE AGENT"
   },
   "button": {
     "language": "EN"
