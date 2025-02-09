@@ -89,26 +89,6 @@ function ObjektiIeskats() {
                 className="relative w-full h-[341px] bg-cover bg-center pt-24"
             >
                 <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-                <div className="relative w-full h-full flex flex-col items-center justify-center">
-                    <nav
-                        className="font-garamond500 w-full max-w-[1267px] flex items-center justify-center md:justify-start text-white text-sm lg:text-xl uppercase tracking-wide px-6">
-                        <ul className="grid grid-cols-1 md:flex md:space-x-4 lg:space-x-8 text-center">
-                            <li>Dzīvokļi</li>
-                            <li className="mt-3 md:mt-0">Mājas</li>
-                            <li className="mt-3 md:mt-0">Zeme</li>
-                            <li className="mt-3 md:mt-0">Jaunie projekti</li>
-                            <li className="mt-3 md:mt-0">Projekti no attīstītāja</li>
-                            <li className="mt-3 md:mt-0">InvestīcijuObjekti</li>
-                        </ul>
-                    </nav>
-                    <nav
-                        className="font-barlow400 w-full max-w-[1267px] flex justify-center md:justify-start items-center text-white text-sm lg:text-lg uppercase tracking-wide px-6">
-                        <ul className="flex space-x-4 lg:space-x-8 mt-12 mb-6 md:mb-0">
-                            <li>Pārdod</li>
-                            <li>Izīrē</li>
-                        </ul>
-                    </nav>
-                </div>
             </LazyBackground>
             {/* Existing content unchanged */}
             <section className="w-full max-w-screen-xl mx-auto py-12 px-4 lg:px-6 bg-white text-[#5B3767]">

@@ -129,26 +129,26 @@ function Objekti() {
                     <nav
                         className="font-garamond500 w-full max-w-[1267px] flex items-center justify-center md:justify-start text-white text-sm lg:text-xl uppercase tracking-wide px-6">
                         <ul className="grid grid-cols-1 md:flex md:space-x-4 lg:space-x-8 text-center">
-                            <li className="cursor-pointer"
+                            <li className={`cursor-pointer ${propertyType === "all" ? "text-[#9C9150]" : ""}`}
                                 onClick={() => handleFilterChange("propertyType", "all")}>{t("objekti.liObjekti13")}</li>
-                            <li className="mt-3 md:mt-0 cursor-pointer"
+                            <li className={`mt-3 md:mt-0 cursor-pointer ${propertyType === "Apartment" ? "text-[#9C9150]" : ""}`}
                                 onClick={() => handleFilterChange("propertyType", "Apartment")}>{t("objekti.liObjekti2")}</li>
-                            <li className="mt-3 md:mt-0 cursor-pointer"
+                            <li className={`mt-3 md:mt-0 cursor-pointer ${propertyType === "House" ? "text-[#9C9150]" : ""}`}
                                 onClick={() => handleFilterChange("propertyType", "House")}>{t("objekti.liObjekti3")}</li>
-                            <li className="mt-3 md:mt-0 cursor-pointer"
+                            <li className={`mt-3 md:mt-0 cursor-pointer ${propertyType === "Land" ? "text-[#9C9150]" : ""}`}
                                 onClick={() => handleFilterChange("propertyType", "Land")}>{t("objekti.liObjekti4")}</li>
-                            <li className="mt-3 md:mt-0 cursor-pointer"
+                            <li className={`mt-3 md:mt-0 cursor-pointer ${propertyType === "New Project" ? "text-[#9C9150]" : ""}`}
                                 onClick={() => handleFilterChange("propertyType", "New Project")}>{t("objekti.liObjekti5")}</li>
-                            <li className="mt-3 md:mt-0 cursor-pointer"
+                            <li className={`mt-3 md:mt-0 cursor-pointer ${propertyType === "Investment Property" ? "text-[#9C9150]" : ""}`}
                                 onClick={() => handleFilterChange("propertyType", "Investment Property")}>{t("objekti.liObjekti6")}</li>
                         </ul>
                     </nav>
                     <nav
                         className="font-barlow400 w-full max-w-[1267px] flex justify-center md:justify-start items-center text-white text-sm lg:text-lg uppercase tracking-wide px-6">
                         <ul className="flex space-x-4 lg:space-x-8 mt-12">
-                            <li className="cursor-pointer"
+                            <li className={`cursor-pointer ${transactionType === "Rent" ? "text-[#9C9150] underline underline-offset-8" : ""}`}
                                 onClick={() => handleFilterChange("transactionType", "Rent")}>{t("objekti.liObjekti8")}</li>
-                            <li className="cursor-pointer"
+                            <li className={`cursor-pointer ${transactionType === "Sell" ? "text-[#9C9150] underline underline-offset-8" : ""}`}
                                 onClick={() => handleFilterChange("transactionType", "Sell")}>{t("objekti.liObjekti9")}</li>
                         </ul>
                     </nav>
@@ -160,11 +160,15 @@ function Objekti() {
                     <div className="font-barlow400 flex items-center space-x-2 text-sm uppercase mb-10 mt-6">
                         <span>{t("objekti.liObjekti1")}</span>
                         <PiArrowRightThin className="font-semibold"/>
-                        <span>{propertyType === "all" ? t("objekti.liObjekti7") : propertyType}</span>
+
+                        <span className={transactionType === "all" ? "text-[#371243] font-semibold" : ""}>
+                {propertyType === "all" ? t("objekti.liObjekti7") : propertyType}
+            </span>
+
                         {transactionType !== "all" && (
                             <>
                                 <PiArrowRightThin className="font-semibold"/>
-                                <span>{transactionType}</span>
+                                <span className="text-[#371243] font-semibold">{transactionType}</span>
                             </>
                         )}
                     </div>
@@ -195,7 +199,6 @@ function Objekti() {
                         <a
                             key={property.id}
                             href={`/objekti/${property.id}`}
-                            target="_blank"
                             rel="noopener noreferrer"
                             className="border border-[#9C9150] bg-white block hover:shadow-lg transition-shadow duration-300"
                         >
@@ -234,7 +237,7 @@ function Objekti() {
                 <div className="flex justify-between items-center mt-8">
                     <button
                         onClick={handlePrevPage}
-                        className="text-[#5B3767] font-bold disabled:opacity-50"
+                        className="text-[#9C9150] disabled:opacity-50"
                         disabled={currentPage === 1}
                     >
                         &larr; {t("objekti.liObjekti11")}
@@ -244,7 +247,7 @@ function Objekti() {
                     </div>
                     <button
                         onClick={handleNextPage}
-                        className="text-[#5B3767] font-bold disabled:opacity-50"
+                        className="text-[#9C9150] disabled:opacity-50"
                         disabled={currentPage === totalPages}
                     >
                         {t("objekti.liObjekti12")} &rarr;
