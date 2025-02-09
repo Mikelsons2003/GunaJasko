@@ -1,19 +1,28 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import React, {useEffect, useState} from "react";
+import {AnimatePresence, motion} from "framer-motion";
+import {ChevronLeft, ChevronRight, X} from "lucide-react";
 import objekts1 from "../../img/objekts1.webp";
 import GunaJaskoBlue from "../../img/GunaJaskoBlue.png";
-import { FaFacebookF, FaInstagram } from "react-icons/fa";
+import {FaFacebookF, FaInstagram} from "react-icons/fa";
 import LazyBackground from "./LazyBackground";
+import {useLocation, useParams} from 'react-router-dom';
+import {useTranslation} from 'react-i18next';
+import {PiArrowRightThin} from "react-icons/pi";
 
 function ObjektiIeskats() {
-    const { id } = useParams();
-    const [property, setProperty] = useState(null);
+    const {id} = useParams();
     const [selectedImage, setSelectedImage] = useState(null);
     const [currentIndex, setCurrentIndex] = useState(0);
+    const location = useLocation();
+    const [property, setProperty] = useState(null);
+    const [propertyType, setPropertyType] = useState('all');
+    const [transactionType, setTransactionType] = useState('all');
+    const { t } = useTranslation();
 
     useEffect(() => {
+        const searchParams = new URLSearchParams(location.search);
+        setPropertyType(searchParams.get('propertyType') || 'all');
+        setTransactionType(searchParams.get('transactionType') || 'all');
         const fetchProperty = async () => {
             try {
                 const response = await fetch(`https://backends.lucid-websites.com/wp-json/wp/v2/posts/${id}`);
@@ -52,11 +61,38 @@ function ObjektiIeskats() {
             }
         };
         fetchProperty();
-    }, [id]);
+    }, [id, location.search]);
 
     if (!property) {
         return <div>Loading...</div>;
     }
+    const getTranslatedPropertyType = (type) => {
+        switch (type) {
+            case 'Apartment':
+                return t('objekti.liObjekti2');
+            case 'House':
+                return t('objekti.liObjekti3');
+            case 'Land':
+                return t('objekti.liObjekti4');
+            case 'all':
+                return t('objekti.liObjekti13');
+            default:
+                return type;
+        }
+    };
+
+    const getTranslatedTransactionType = (type) => {
+        switch (type) {
+            case 'Sell':
+                return t('objekti.liObjekti9');
+            case 'Rent':
+                return t('objekti.liObjekti8');
+            case 'all':
+                return t('objekti.liObjekti13');
+            default:
+                return type;
+        }
+    };
 
     // Open Lightbox
     const openImage = (index) => {
@@ -91,18 +127,25 @@ function ObjektiIeskats() {
                 <div className="absolute inset-0 bg-black bg-opacity-50"></div>
             </LazyBackground>
             {/* Existing content unchanged */}
-            <section className="w-full max-w-screen-xl mx-auto py-12 px-4 lg:px-6 bg-white text-[#5B3767]">
+            <section className="w-full max-w-screen-xl mx-auto py-12 px-4 lg:px-6 bg-white text-[#9C9150]">
                 <div className="flex flex-col sm:items-start lg:items-start space-y-4 mb-14 text-center lg:text-left">
-                    <div
-                        className="font-barlow400 flex items-center justify-center lg:justify-start space-x-2 text-sm uppercase mb-10 mt-6">
-                        <span className="font-semibold">Objekti</span>
-                        <span>&rarr;</span>
-                        <span className="font-semibold">Dzīvokļi</span>
-                        <span>&rarr;</span>
-                        <span className="font-semibold">Pārdod</span>
+                    <div className="font-barlow400 flex items-center space-x-2 text-sm uppercase mb-10 mt-6">
+                        <span>{t("objekti.liObjekti1")}</span>
+                        <PiArrowRightThin className="font-semibold"/>
+
+                        <span className={transactionType === "all" ? "text-[#371243] font-semibold" : ""}>
+                {propertyType === "all" ? t("objekti.liObjekti7") : propertyType}
+            </span>
+
+                        {transactionType !== "all" && (
+                            <>
+                                <PiArrowRightThin className="font-semibold"/>
+                                <span className="text-[#371243] font-semibold">{transactionType}</span>
+                            </>
+                        )}
                     </div>
-                    <h1 className="font-garamond500 text-2xl">{property.header}</h1>
-                    <h1 className="font-infant600 text-3xl">{property.price} EUR</h1>
+                    <h1 className="font-garamond500 text-2xl text-[#5B3767]">{property.header}</h1>
+                    <h1 className="font-infant600 text-3xl text-[#5B3767]">{property.price} EUR</h1>
                 </div>
 
                 <LazyBackground

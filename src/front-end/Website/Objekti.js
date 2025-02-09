@@ -15,6 +15,8 @@ function Objekti() {
     const [propertyType, setPropertyType] = useState("all");
     const [transactionType, setTransactionType] = useState("all");
     const itemsPerPage = 6;
+    const [recentProperties, setRecentProperties] = useState([]);
+
 
     const extractField = (content, fieldName) => {
         const regex = new RegExp(`<label>${fieldName}:<\\/label>\\s*([^<]+)`);
@@ -30,6 +32,9 @@ function Objekti() {
                 const formattedData = data.map((item) => {
                     const content = item.content.rendered;
 
+                    // Extract Extra Category
+                    const extraCategory = extractField(content, "Extra Category");
+
                     return {
                         id: item.id,
                         header: item.title.rendered,
@@ -39,9 +44,13 @@ function Objekti() {
                         transactionType: extractField(content, "Transaction Type"),
                         rooms: parseInt(extractField(content, "Room Count")) || 0,
                         image: item.featured_media_src_url || objekts1,
+                        date: new Date(item.date),
+                        isInvestmentProperty: extraCategory.includes("Investment Property"), // Check if it's an Investment Property
                     };
                 });
                 setProperties(formattedData);
+                const sortedByDate = [...formattedData].sort((a, b) => b.date - a.date);
+                setRecentProperties(sortedByDate.slice(0, 5));
             } catch (error) {
                 console.error("Error fetching properties:", error);
             }
@@ -90,11 +99,32 @@ function Objekti() {
         params.set(type, value);
         navigate({search: params.toString()});
     };
-
-    const filteredProperties = properties.filter(property => {
-        return (propertyType === "all" || property.type === propertyType) &&
-            (transactionType === "all" || property.transactionType === transactionType);
-    });
+    const filteredProperties = propertyType === "New Project"
+        ? recentProperties
+            .filter(property => {
+                return (transactionType === "all" || property.transactionType === transactionType);
+            })
+            .sort((a, b) => {
+                if (sortCriteria === "price") {
+                    return sortOrder === "asc" ? a.price - b.price : b.price - a.price;
+                } else if (sortCriteria === "rooms") {
+                    return sortOrder === "asc" ? a.rooms - b.rooms : b.rooms - a.rooms;
+                } else {
+                    return 0;
+                }
+            })
+        : properties.filter(property => {
+            return (propertyType === "all" || property.type === propertyType || (propertyType === "Investment Property" && property.isInvestmentProperty)) &&
+                (transactionType === "all" || property.transactionType === transactionType);
+        }).sort((a, b) => {
+            if (sortCriteria === "price") {
+                return sortOrder === "asc" ? a.price - b.price : b.price - a.price;
+            } else if (sortCriteria === "rooms") {
+                return sortOrder === "asc" ? a.rooms - b.rooms : b.rooms - a.rooms;
+            } else {
+                return 0;
+            }
+        });
 
     const totalPages = Math.ceil(filteredProperties.length / itemsPerPage);
     const currentItems = filteredProperties.slice(
@@ -198,7 +228,7 @@ function Objekti() {
                     {currentItems.map((property) => (
                         <a
                             key={property.id}
-                            href={`/objekti/${property.id}`}
+                            href={`/objekti/${property.id}?propertyType=${propertyType}&transactionType=${transactionType}`}
                             rel="noopener noreferrer"
                             className="border border-[#9C9150] bg-white block hover:shadow-lg transition-shadow duration-300"
                         >
