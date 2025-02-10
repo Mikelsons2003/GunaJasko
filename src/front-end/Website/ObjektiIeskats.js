@@ -158,17 +158,17 @@ function ObjektiIeskats() {
                 <div className="w-full md:w-[742px] py-12 bg-white text-[#5B3767]">
                     <div className="grid grid-cols-2 lg:grid-cols-4">
                         <div className="text-center lg:text-left space-y-2 font-barlow400">
-                            <span className="block">Adrese</span>
-                            <span className="block">Ēkas tips</span>
+                            <span className="block">{t("jaunakieObjekti.spanObjekti1")}</span>
+                            <span className="block">{t("objektiIeskats.spanIeskats1")}</span>
                         </div>
                         <div className="text-center lg:text-left space-y-2 font-barlow500">
                             <span className="block font-semibold">{property.address}</span>
                             <span className="block font-semibold">{property.type}</span>
                         </div>
                         <div className="text-center lg:text-right space-y-2 font-barlow400 mt-6 lg:mt-0">
-                            <span className="block">Platība</span>
-                            <span className="block">Istabu sk.</span>
-                            <span className="block">Stāvs</span>
+                            <span className="block">{t("objektiIeskats.spanIeskats2")}</span>
+                            <span className="block">{t("objektiIeskats.spanIeskats3")}</span>
+                            <span className="block">{t("objektiIeskats.spanIeskats4")}</span>
                         </div>
                         <div className="text-center lg:text-right space-y-2 font-barlow500 mt-6 lg:mt-0">
                             <span className="block font-semibold">{property.size} m²</span> {/* Display Size */}
@@ -210,7 +210,7 @@ function ObjektiIeskats() {
                     <a href="https://guna.lucid-websites.com/kontakti">
                         <button
                             className="font-barlow500 w-[274px] h-[55px] bg-[#5B3767] text-[#CDC697] text-sm hover:bg-[#371243] transition duration-300 ease-in-out">
-                            SAZINĀTIES
+                            {t("parmani.buttonParmani")}
                         </button>
                     </a>
                 </div>
@@ -280,14 +280,14 @@ function ObjektiIeskats() {
                         <div className="flex flex-col space-y-2">
                             <h2 className="font-garamond500 text-4xl">GUNA JASKO</h2>
                             <p className="font-barlow500 text-lg uppercase tracking-wide">
-                                NEKUSTAMO ĪPAŠUMU AĢENTS
+                                {t("objektiIeskats.spanIeskats6")}
                             </p>
                             <p className="font-barlow400 text-lg">TĀLR.: +371 20 016 688</p>
                             <p className="font-barlow400 text-lg">E-PASTS: JASKOGUNA@GMAIL.COM</p>
                         </div>
                     </div>
                     <div className="flex flex-col items-center lg:items-end space-y-4 mt-8 lg:mt-0">
-                        <h1 className="font-barlow500 text-[#9C9150] text-xl">DALĪTIES</h1>
+                        <h1 className="font-barlow500 text-[#9C9150] text-xl">{t("objektiIeskats.spanIeskats5")}</h1>
                         <div className="grid grid-cols-2 gap-4">
                             <a
                                 href="https://www.facebook.com/profile.php?id=100062951665076&mibextid=wwXIfr&rdid=hCVlgIdTGejCSuBS&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1u4u65Eu5izWGVmZ%2F%3Fmibextid%3DwwXIfr"

@@ -25,7 +25,7 @@ const Kontakti = () => {
             className="text-white min-h-[87vh] relative"
             style={{ backgroundSize: "contain" }} // Override heree
         >
-            {/* Contact Form and Image Layout */}
+            {/* Contact Form and Image Layoutt */}
             <div className="flex justify-center items-center min-h-[87vh] px-4 md:px-8 lg:px-0 pt-20 md:pt-28 pb-4">
                 <div
                     className="w-full max-w-[1267px] bg-[#CDC697] flex flex-col lg:flex-row justify-between items-center py-12 px-6 lg:py-16 lg:px-8">
