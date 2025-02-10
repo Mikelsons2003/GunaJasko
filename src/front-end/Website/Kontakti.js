@@ -23,7 +23,7 @@ const Kontakti = () => {
         <LazyBackground
             image={Kontaktu}
             className="text-white min-h-[87vh] relative"
-            style={{ backgroundSize: "contain" }} // Override here
+            style={{ backgroundSize: "contain" }} // Override heree
         >
             {/* Contact Form and Image Layout */}
             <div className="flex justify-center items-center min-h-[87vh] px-4 md:px-8 lg:px-0 pt-20 md:pt-28 pb-4">
