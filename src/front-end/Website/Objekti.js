@@ -144,6 +144,20 @@ function Objekti() {
         }
     };
 
+    const propertyTypeToTranslationKey = {
+        all: "objekti.liObjekti7", // "Visi" in Lv, "All" in Eng, "Все" in Ru
+        Apartment: "objekti.liObjekti2", // "Dzīvokļi" in Lv, "Apartments" in Eng, "Квартиры" in Ru
+        House: "objekti.liObjekti3", // "Mājas" in Lv, "Houses" in Eng, "Дома" in Ru
+        Land: "objekti.liObjekti4", // "Zeme" in Lv, "Land" in Eng, "Земля" in Ru
+        "New Project": "objekti.liObjekti5", // "Jaunie projekti" in Lv, "New Projects" in Eng, "Новые проекты" in Ru
+        "Investment Property": "objekti.liObjekti6", // "Investīciju objekti" in Lv, "Investment Properties" in Eng, "Инвестиционные объекты" in Ru
+    };
+
+    const transactionTypeToTranslationKey = {
+        Rent: "objekti.liObjekti8", // "Izīrē" in Lv, "Rent" in Eng, "Аренда" in Ru
+        Sell: "objekti.liObjekti9", // "Pārdod" in Lv, "Sell" in Eng, "Продажа" in Ru
+    };
+
     return (
         <div className="mx-auto text-white">
             <section
@@ -159,27 +173,73 @@ function Objekti() {
                     <nav
                         className="font-garamond500 w-full max-w-[1267px] flex items-center justify-center md:justify-start text-white text-sm lg:text-xl uppercase tracking-wide px-6">
                         <ul className="grid grid-cols-1 md:flex md:space-x-4 lg:space-x-8 text-center">
-                            <li className={`cursor-pointer ${propertyType === "all" ? "text-[#9C9150]" : ""}`}
-                                onClick={() => handleFilterChange("propertyType", "all")}>{t("objekti.liObjekti13")}</li>
-                            <li className={`mt-3 md:mt-0 cursor-pointer ${propertyType === "Apartment" ? "text-[#9C9150]" : ""}`}
-                                onClick={() => handleFilterChange("propertyType", "Apartment")}>{t("objekti.liObjekti2")}</li>
-                            <li className={`mt-3 md:mt-0 cursor-pointer ${propertyType === "House" ? "text-[#9C9150]" : ""}`}
-                                onClick={() => handleFilterChange("propertyType", "House")}>{t("objekti.liObjekti3")}</li>
-                            <li className={`mt-3 md:mt-0 cursor-pointer ${propertyType === "Land" ? "text-[#9C9150]" : ""}`}
-                                onClick={() => handleFilterChange("propertyType", "Land")}>{t("objekti.liObjekti4")}</li>
-                            <li className={`mt-3 md:mt-0 cursor-pointer ${propertyType === "New Project" ? "text-[#9C9150]" : ""}`}
-                                onClick={() => handleFilterChange("propertyType", "New Project")}>{t("objekti.liObjekti5")}</li>
-                            <li className={`mt-3 md:mt-0 cursor-pointer ${propertyType === "Investment Property" ? "text-[#9C9150]" : ""}`}
-                                onClick={() => handleFilterChange("propertyType", "Investment Property")}>{t("objekti.liObjekti6")}</li>
+                            {/* All */}
+                            <li
+                                className={`cursor-pointer ${propertyType === "all" ? "text-[#9C9150]" : ""}`}
+                                onClick={() => handleFilterChange("propertyType", "all")}
+                            >
+                                {t("objekti.liObjekti13")} {/* "Visi" in Lv, "All" in Eng, "все" in Ru */}
+                            </li>
+
+                            {/* Apartment */}
+                            <li
+                                className={`mt-3 md:mt-0 cursor-pointer ${propertyType === "Apartment" ? "text-[#9C9150]" : ""}`}
+                                onClick={() => handleFilterChange("propertyType", "Apartment")}
+                            >
+                                {t("objekti.liObjekti2")} {/* "Dzīvokļi" in Lv, "Apartments" in Eng, "Квартиры" in Ru */}
+                            </li>
+
+                            {/* House */}
+                            <li
+                                className={`mt-3 md:mt-0 cursor-pointer ${propertyType === "House" ? "text-[#9C9150]" : ""}`}
+                                onClick={() => handleFilterChange("propertyType", "House")}
+                            >
+                                {t("objekti.liObjekti3")} {/* "Mājas" in Lv, "Houses" in Eng, "Дома" in Ru */}
+                            </li>
+
+                            {/* Land */}
+                            <li
+                                className={`mt-3 md:mt-0 cursor-pointer ${propertyType === "Land" ? "text-[#9C9150]" : ""}`}
+                                onClick={() => handleFilterChange("propertyType", "Land")}
+                            >
+                                {t("objekti.liObjekti4")} {/* "Zeme" in Lv, "Land" in Eng, "Земля" in Ru */}
+                            </li>
+
+                            {/* New Project */}
+                            <li
+                                className={`mt-3 md:mt-0 cursor-pointer ${propertyType === "New Project" ? "text-[#9C9150]" : ""}`}
+                                onClick={() => handleFilterChange("propertyType", "New Project")}
+                            >
+                                {t("objekti.liObjekti5")} {/* "Jaunie projekti" in Lv, "New Projects" in Eng, "Новые проекты" in Ru */}
+                            </li>
+
+                            {/* Investment Property */}
+                            <li
+                                className={`mt-3 md:mt-0 cursor-pointer ${propertyType === "Investment Property" ? "text-[#9C9150]" : ""}`}
+                                onClick={() => handleFilterChange("propertyType", "Investment Property")}
+                            >
+                                {t("objekti.liObjekti6")} {/* "Investīciju objekti" in Lv, "Investment Properties" in Eng, "Инвестиционные объекты" in Ru */}
+                            </li>
                         </ul>
                     </nav>
                     <nav
                         className="font-barlow400 w-full max-w-[1267px] flex justify-center md:justify-start items-center text-white text-sm lg:text-lg uppercase tracking-wide px-6">
                         <ul className="flex space-x-4 lg:space-x-8 mt-12">
-                            <li className={`cursor-pointer ${transactionType === "Rent" ? "text-[#9C9150] underline underline-offset-8" : ""}`}
-                                onClick={() => handleFilterChange("transactionType", "Rent")}>{t("objekti.liObjekti8")}</li>
-                            <li className={`cursor-pointer ${transactionType === "Sell" ? "text-[#9C9150] underline underline-offset-8" : ""}`}
-                                onClick={() => handleFilterChange("transactionType", "Sell")}>{t("objekti.liObjekti9")}</li>
+                            {/* Rent */}
+                            <li
+                                className={`cursor-pointer ${transactionType === "Rent" ? "text-[#9C9150] underline underline-offset-8" : ""}`}
+                                onClick={() => handleFilterChange("transactionType", "Rent")}
+                            >
+                                {t(transactionTypeToTranslationKey.Rent)} {/* "Izīrē" in Lv, "Rent" in Eng, "Аренда" in Ru */}
+                            </li>
+
+                            {/* Sell */}
+                            <li
+                                className={`cursor-pointer ${transactionType === "Sell" ? "text-[#9C9150] underline underline-offset-8" : ""}`}
+                                onClick={() => handleFilterChange("transactionType", "Sell")}
+                            >
+                                {t(transactionTypeToTranslationKey.Sell)} {/* "Pārdod" in Lv, "Sell" in Eng, "Продажа" in Ru */}
+                            </li>
                         </ul>
                     </nav>
                 </div>
@@ -191,14 +251,21 @@ function Objekti() {
                         <span>{t("objekti.liObjekti1")}</span>
                         <PiArrowRightThin className="font-semibold"/>
 
+                        {/* Property Type */}
                         <span className={transactionType === "all" ? "text-[#371243] font-semibold" : ""}>
-                {propertyType === "all" ? t("objekti.liObjekti7") : propertyType}
-            </span>
+    {propertyType === "all"
+        ? t("objekti.liObjekti7") // "Visi" in Lv, "All" in Eng, "Все" in Ru
+        : t(propertyTypeToTranslationKey[propertyType]) // Use the mapping object for propertyType
+    }
+  </span>
 
+                        {/* Transaction Type (if not "all") */}
                         {transactionType !== "all" && (
                             <>
                                 <PiArrowRightThin className="font-semibold"/>
-                                <span className="text-[#371243] font-semibold">{transactionType}</span>
+                                <span className="text-[#371243] font-semibold">
+        {t(transactionTypeToTranslationKey[transactionType])} {/* Use the mapping object for transactionType */}
+      </span>
                             </>
                         )}
                     </div>

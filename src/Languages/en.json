@@ -131,11 +131,12 @@
     "buttonPakalpojumi": "CONTACT US"
   },
   "objekti": {
-    "liObjekti1": "All Properties",
-    "liObjekti2": "Apartments",
+    "liObjekti1": "Properties",
+    "liObjekti2": "Apartment",
     "liObjekti3": "Houses",
     "liObjekti4": "Land",
-    "liObjekti6": "New Projects",
+    "liObjekti5": "New Projects",
+    "liObjekti6": "Investment Properties",
     "liObjekti7": "All",
     "liObjekti8": "Rent",
     "liObjekti9": "Sell",
