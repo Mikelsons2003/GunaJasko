@@ -12,12 +12,14 @@ import LazyBackground from "./LazyBackground";
 function ParMani() {
     const {t} = useTranslation();
     return (
-        <div className="mx-auto font-sans text-white">
+        <div className="font-sans text-white">
+            <div className="bg-[#5B3767] ">
             <div
-                className="bg-[#5B3767] w-full mx-auto px-4 sm:px-8 flex flex-col lg:flex-row items-center lg:h-[810px]">
+                className="max-w-screen-xl mx-auto px-4 sm:px-8 flex flex-col lg:flex-row items-center lg:min-h-[810px] pt-24">
                 {/* Left: Text Section */}
-                <div className="w-full lg:w-1/2 space-y-6 px-6 lg:px-12 xl:pl-20 2xl:pl-40 mt-14 sm:mt-20 lg:mt-0">
-                    <div className="mt-16 lg:mt-32 2xl:ml-40">
+                <div
+                    className="w-full lg:w-1/2 space-y-6 flex flex-col justify-center h-full">
+                    <div className="lg:justify-start">
                         <h2 className="text-3xl sm:text-4xl text-center lg:text-left text-white">{t("parmani.h1Parmani")}</h2>
                         <p className="text-sm sm:text-lg leading-relaxed text-center lg:text-left mt-6 sm:mt-10 text-white">
                             {t("parmani.pParmani1")}
@@ -29,23 +31,26 @@ function ParMani() {
                             {t("parmani.pParmani3")}
                         </p>
                     </div>
-                    <div className="flex justify-center lg:justify-start 2xl:ml-40">
-                        <a href="https://guna.lucid-websites.com/kontakti"><button className="w-[274px] h-[55px] border border-[#CDC697] text-[#CDC697] mt-10 hover:text-[#9C9150] hover:border-[#9C9150] transition duration-300 ease-in-out">
-                            {t("parmani.buttonParmani")}
-                        </button></a>
+                    <div className="flex justify-center lg:justify-start pb-4">
+                        <a href="https://guna.lucid-websites.com/kontakti">
+                            <button
+                                className="w-[274px] h-[55px] border border-[#CDC697] text-[#CDC697] mt-10 hover:text-[#9C9150] hover:border-[#9C9150] transition duration-300 ease-in-out">
+                                {t("parmani.buttonParmani")}
+                            </button>
+                        </a>
                     </div>
                 </div>
 
                 {/* Right: Image Section */}
                 <div
-                    className="w-full lg:w-1/2 flex justify-center lg:justify-end lg:mr-12 xl:mr-20 2xl:mr-80 mt-10 lg:mt-32">
+                    className="w-full lg:w-1/2 justify-center lg:justify-end flex items-center h-full">
                     <LazyBackground
                         image={GunaParMani}
                         className="w-[300px] sm:w-[433px] h-[400px] sm:h-[605px] bg-cover bg-center mb-6 lg:mb-0 3xl:-mb-48"
                     ></LazyBackground>
                 </div>
             </div>
-
+            </div>
             {/* Main Container */}
             <div
                 className="w-full max-w-[1221px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 border border-[#CDC697] mt-10 mb-10 lg:mt-28 bg-[#F8F8F8]"
@@ -200,24 +205,24 @@ function ParMani() {
                 </div>
             </section>
 
-            <section className="bg-[#FBF8FB] text-[#5B3767] py-20 px-6 flex items-center justify-center">
-                <div className="container mx-auto text-center sm:text-left">
+            <section className="max-w-screen-xl mx-auto text-[#5B3767] py-20 px-8 flex items-center">
+                <div className="text-center sm:text-left">
                     {/* Education Section */}
                     <div className="mb-16">
-                        <h2 className="text-4xl mb-6 text-left sm:text-left sm:ml-10">
+                        <h2 className="text-4xl mb-6 text-left sm:text-left">
                             {t("izglitiba.h1Izglitiba1")}
                         </h2>
-                        <p className="text-lg leading-relaxed mx-auto max-w-6xl text-left sm:text-left sm:ml-10">
+                        <p className="text-lg leading-relaxed mx-auto max-w-6xl text-left sm:text-left">
                             {t("izglitiba.pIzglitiba1")}
                         </p>
                     </div>
 
                     {/* Personal Attributes Section */}
                     <div className="mb-16">
-                        <h2 className="text-4xl mb-6 text-left sm:text-left sm:ml-10">
+                        <h2 className="text-4xl mb-6 text-left sm:text-left">
                             {t("izglitiba.h1Izglitiba2")}
                         </h2>
-                        <p className="text-lg leading-relaxed mx-auto max-w-6xl text-left sm:text-left sm:ml-10">
+                        <p className="text-lg leading-relaxed mx-auto max-w-6xl text-left sm:text-left">
                             {t("izglitiba.pIzglitiba2")}
                         </p>
                     </div>
