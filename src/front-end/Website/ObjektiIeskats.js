@@ -1,37 +1,43 @@
-import React, {useEffect, useState} from "react";
-import {AnimatePresence, motion} from "framer-motion";
-import {ChevronLeft, ChevronRight, X} from "lucide-react";
+import React, { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import objekts1 from "../../img/objekts1.webp";
 import GunaJaskoBlue from "../../img/GunaJaskoBlue.png";
-import {FaFacebookF, FaInstagram} from "react-icons/fa";
+import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import LazyBackground from "./LazyBackground";
-import {useLocation, useParams} from 'react-router-dom';
-import {useTranslation} from 'react-i18next';
-import {PiArrowRightThin} from "react-icons/pi";
+import { useLocation, useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { PiArrowRightThin } from "react-icons/pi";
 
 function ObjektiIeskats() {
-    const {id} = useParams();
+    const { id } = useParams();
     const [selectedImage, setSelectedImage] = useState(null);
     const [currentIndex, setCurrentIndex] = useState(0);
-    const location = useLocation();
+    useLocation();
     const [property, setProperty] = useState(null);
-    const [propertyType, setPropertyType] = useState('all');
-    const [transactionType, setTransactionType] = useState('all');
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
+
+    // Helper function to extract field values from content
+    const extractField = (content, fieldName) => {
+        const regex = new RegExp(`<label>${fieldName}:<\\/label>\\s*([^<]+)`);
+        const match = content.match(regex);
+        return match ? match[1].trim() : "Not available";
+    };
 
     useEffect(() => {
-        const searchParams = new URLSearchParams(location.search);
-        setPropertyType(searchParams.get('propertyType') || 'all');
-        setTransactionType(searchParams.get('transactionType') || 'all');
         const fetchProperty = async () => {
             try {
+                // Fetch property data
                 const response = await fetch(`https://backends.lucid-websites.com/wp-json/wp/v2/posts/${id}`);
                 const data = await response.json();
+                console.log("Fetched Data:", data);
 
+                // Fetch featured media (main image)
                 const featuredMediaResponse = await fetch(data._links["wp:featuredmedia"][0].href);
                 const featuredMediaData = await featuredMediaResponse.json();
                 const fullSizeImageUrl = featuredMediaData.media_details.sizes.full.source_url;
 
+                // Extract images from content
                 const content = data.content.rendered;
                 const imageRegex = /<a[^>]+href="([^">]+)"/g;
                 const images = [];
@@ -40,72 +46,57 @@ function ObjektiIeskats() {
                     images.push(match[1]);
                 }
 
+                // Extract titles and descriptions
+                const titleLV = extractField(content, "Property Title LV");
+                const titleRU = extractField(content, "Property Title RU");
+                const titleENG = data.title.rendered;
+
+                const descriptionENG = extractField(content, "Property Description ENG");
+                const descriptionLV = extractField(content, "Property Description LV");
+                const descriptionRU = extractField(content, "Property Description RU");
+
+                // Format property data
                 const formattedData = {
                     id: data.id,
-                    header: data.title.rendered,
-                    price: parseFloat(content.match(/<label>Property Value:<\/label>\s*([^<]+)/)[1].trim()) || 0,
-                    address: content.match(/<label>Address:<\/label>\s*([^<]+)/)[1].trim(),
-                    type: content.match(/<label>Property Type:<\/label>\s*([^<]+)/)[1].trim(),
-                    size: parseFloat(content.match(/<label>Size:<\/label>\s*([^<]+)/)[1].trim()) || 0,
-                    rooms: parseInt(content.match(/<label>Room Count:<\/label>\s*([^<]+)/)[1].trim()) || 0,
-                    floors: parseInt(content.match(/<label>Floor\/s:<\/label>\s*([^<]+)/)[1].trim()) || 0,
-                    descriptionENG: content.match(/<label>Property Description ENG:<\/label>\s*([\s\S]*?)<\/li>/)[1].trim(),
-                    descriptionLV: content.match(/<label>Property Description LV:<\/label>\s*([\s\S]*?)<\/li>/)[1].trim(),
-                    descriptionRU: content.match(/<label>Property Description RU:<\/label>\s*([\s\S]*?)<\/li>/)[1].trim(),
+                    header: titleENG,
+                    titleLV: titleLV,
+                    titleRU: titleRU,
+                    price: parseFloat(extractField(content, "Property Value")) || 0,
+                    address: extractField(content, "Address"),
+                    type: extractField(content, "Property Type"),
+                    size: parseFloat(extractField(content, "Size")) || 0,
+                    rooms: parseInt(extractField(content, "Room Count")) || 0,
+                    floors: parseInt(extractField(content, "Floor/s")) || 0,
+                    descriptionENG: descriptionENG,
+                    descriptionLV: descriptionLV,
+                    descriptionRU: descriptionRU,
                     images: images,
-                    image: fullSizeImageUrl || objekts1,
+                    image: fullSizeImageUrl || objekts1, // Fallback to objekts1 if no image
                 };
+
                 setProperty(formattedData);
             } catch (error) {
                 console.error("Error fetching property:", error);
             }
         };
+
         fetchProperty();
-    }, [id, location.search]);
+    }, [id]);
 
     if (!property) {
         return <div>Loading...</div>;
     }
-    const getTranslatedPropertyType = (type) => {
-        switch (type) {
-            case 'Apartment':
-                return t('objekti.liObjekti2');
-            case 'House':
-                return t('objekti.liObjekti3');
-            case 'Land':
-                return t('objekti.liObjekti4');
-            case 'all':
-                return t('objekti.liObjekti13');
-            default:
-                return type;
-        }
-    };
 
-    const getTranslatedTransactionType = (type) => {
-        switch (type) {
-            case 'Sell':
-                return t('objekti.liObjekti9');
-            case 'Rent':
-                return t('objekti.liObjekti8');
-            case 'all':
-                return t('objekti.liObjekti13');
-            default:
-                return type;
-        }
-    };
-
-    // Open Lightbox
+    // Lightbox functions
     const openImage = (index) => {
         setCurrentIndex(index);
         setSelectedImage(property.images[index]);
     };
 
-    // Close Lightbox
     const closeLightbox = () => {
         setSelectedImage(null);
     };
 
-    // Navigate Images
     const prevImage = () => {
         const newIndex = currentIndex === 0 ? property.images.length - 1 : currentIndex - 1;
         setCurrentIndex(newIndex);
@@ -118,42 +109,52 @@ function ObjektiIeskats() {
         setSelectedImage(property.images[newIndex]);
     };
 
+    // Get the description based on the current language
+    const getDescription = () => {
+        switch (i18n.language) {
+            case "lv":
+                return property.descriptionLV;
+            case "ru":
+                return property.descriptionRU;
+            default:
+                return property.descriptionENG;
+        }
+    };
+
     return (
         <div className="mx-auto">
+            {/* Hero Section */}
             <LazyBackground
                 image={objekts1}
                 className="relative w-full h-[341px] bg-cover bg-center pt-24"
             >
                 <div className="absolute inset-0 bg-black bg-opacity-50"></div>
             </LazyBackground>
-            {/* Existing content unchanged */}
+
+            {/* Property Details Section */}
             <section className="w-full max-w-screen-xl mx-auto py-12 px-4 lg:px-6 bg-white text-[#9C9150]">
                 <div className="flex flex-col sm:items-start lg:items-start space-y-4 mb-14 text-center lg:text-left">
                     <div className="font-barlow400 flex items-center space-x-2 text-sm uppercase mb-10 mt-6">
                         <span>{t("objekti.liObjekti1")}</span>
-                        <PiArrowRightThin className="font-semibold"/>
-
-                        <span className={transactionType === "all" ? "text-[#371243] font-semibold" : ""}>
-                {propertyType === "all" ? t("objekti.liObjekti7") : propertyType}
-            </span>
-
-                        {transactionType !== "all" && (
-                            <>
-                                <PiArrowRightThin className="font-semibold"/>
-                                <span className="text-[#371243] font-semibold">{transactionType}</span>
-                            </>
-                        )}
+                        <PiArrowRightThin className="font-semibold" />
+                        <span className="text-[#371243] font-semibold">{property.type}</span>
                     </div>
-                    <h1 className="font-garamond500 text-2xl text-[#5B3767]">{property.header}</h1>
+                    <h1 className="font-garamond500 text-2xl text-[#5B3767]">
+                        {i18n.language === "lv" ? property.titleLV :
+                            i18n.language === "ru" ? property.titleRU :
+                                property.header}
+                    </h1>
                     <h1 className="font-infant600 text-3xl text-[#5B3767]">{property.price} EUR</h1>
                 </div>
 
+                {/* Main Image */}
                 <LazyBackground
                     image={property.image}
                     className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[662px] max-w-[1224px] mx-auto flex items-center justify-center bg-cover bg-center"
                 ></LazyBackground>
             </section>
 
+            {/* Property Info Section */}
             <section className="w-full max-w-screen-xl mx-auto px-4 lg:px-6">
                 <div className="w-full md:w-[742px] py-12 bg-white text-[#5B3767]">
                     <div className="grid grid-cols-2 lg:grid-cols-4">
@@ -171,13 +172,14 @@ function ObjektiIeskats() {
                             <span className="block">{t("objektiIeskats.spanIeskats4")}</span>
                         </div>
                         <div className="text-center lg:text-right space-y-2 font-barlow500 mt-6 lg:mt-0">
-                            <span className="block font-semibold">{property.size} m²</span> {/* Display Size */}
+                            <span className="block font-semibold">{property.size} m²</span>
                             <span className="block font-semibold">{property.rooms}</span>
-                            <span className="block font-semibold">{property.floors}</span> {/* Display Floors */}
+                            <span className="block font-semibold">{property.floors}</span>
                         </div>
                     </div>
                 </div>
 
+                {/* Description Section */}
                 <div className="w-full lg:w-[847px] max-w-screen-xl relative z-10 text-left mt-6 mb-12">
                     <div className="border-b-[1px] border-[#CDC697]"></div>
                 </div>
@@ -185,7 +187,7 @@ function ObjektiIeskats() {
                 <div className="w-full text-left description">
                     <div
                         className="font-barlow400 text-[#5B3767] leading-relaxed"
-                        dangerouslySetInnerHTML={{__html: property.descriptionLV}} // Render HTML
+                        dangerouslySetInnerHTML={{ __html: getDescription() }}
                     />
                 </div>
             </section>
@@ -205,53 +207,48 @@ function ObjektiIeskats() {
                     ))}
                 </div>
 
-                {/* Button Section */}
+                {/* Contact Button */}
                 <div className="mt-12 flex justify-center">
                     <a href="https://guna.lucid-websites.com/kontakti">
-                        <button
-                            className="font-barlow500 w-[274px] h-[55px] bg-[#5B3767] text-[#CDC697] text-sm hover:bg-[#371243] transition duration-300 ease-in-out">
+                        <button className="font-barlow500 w-[274px] h-[55px] bg-[#5B3767] text-[#CDC697] text-sm hover:bg-[#371243] transition duration-300 ease-in-out">
                             {t("parmani.buttonParmani")}
                         </button>
                     </a>
                 </div>
             </div>
 
-            {/* Lightbox (Fullscreen Image View) */}
+            {/* Lightbox */}
             <AnimatePresence>
                 {selectedImage && (
                     <motion.div
                         className="fixed inset-0 bg-black bg-opacity-90 flex flex-col items-center justify-center z-50"
-                        initial={{opacity: 0}}
-                        animate={{opacity: 1}}
-                        exit={{opacity: 0}}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
                     >
-                        {/* Close Button */}
                         <button className="absolute top-4 right-4 text-white text-3xl" onClick={closeLightbox}>
-                            <X size={32}/>
+                            <X size={32} />
                         </button>
 
-                        {/* Main Image */}
                         <motion.img
                             key={selectedImage}
                             src={selectedImage}
                             alt="Fullscreen"
                             className="max-w-[90vw] max-h-[80vh] rounded-lg"
-                            initial={{scale: 0.8}}
-                            animate={{scale: 1}}
-                            exit={{scale: 0.8}}
+                            initial={{ scale: 0.8 }}
+                            animate={{ scale: 1 }}
+                            exit={{ scale: 0.8 }}
                         />
 
-                        {/* Navigation */}
                         <div className="flex items-center justify-between w-full px-10 mt-4">
                             <button className="text-white text-3xl" onClick={prevImage}>
-                                <ChevronLeft size={40}/>
+                                <ChevronLeft size={40} />
                             </button>
                             <button className="text-white text-3xl" onClick={nextImage}>
-                                <ChevronRight size={40}/>
+                                <ChevronRight size={40} />
                             </button>
                         </div>
 
-                        {/* Thumbnails Under Image */}
                         <div className="flex gap-4 mt-6">
                             {property.images.map((src, index) => (
                                 <img
@@ -269,9 +266,9 @@ function ObjektiIeskats() {
                 )}
             </AnimatePresence>
 
+            {/* Footer Section */}
             <section className="w-full max-w-screen-xl mx-auto py-12 px-4 lg:px-6 text-[#5B3767] mb-8">
-                <div
-                    className="flex flex-col lg:flex-row justify-center lg:justify-between items-center lg:items-end lg:space-y-0 text-center lg:text-left">
+                <div className="flex flex-col lg:flex-row justify-center lg:justify-between items-center lg:items-end lg:space-y-0 text-center lg:text-left">
                     <div className="flex flex-col lg:flex-row items-center lg:items-end lg:space-x-8">
                         <LazyBackground
                             image={GunaJaskoBlue}
@@ -295,7 +292,7 @@ function ObjektiIeskats() {
                                 rel="noopener noreferrer"
                                 className="w-8 h-8 flex items-center justify-center border-2 border-[#5B3767] rounded-md"
                             >
-                                <FaFacebookF className="text-[#5B3767]"/>
+                                <FaFacebookF className="text-[#5B3767]" />
                             </a>
                             <a
                                 href="https://www.instagram.com/gunarealty/"
@@ -303,13 +300,12 @@ function ObjektiIeskats() {
                                 rel="noopener noreferrer"
                                 className="w-8 h-8 flex items-center justify-center border-2 border-[#5B3767] rounded-md"
                             >
-                                <FaInstagram className="text-[#5B3767]"/>
+                                <FaInstagram className="text-[#5B3767]" />
                             </a>
                         </div>
                     </div>
                 </div>
             </section>
-
         </div>
     );
 }

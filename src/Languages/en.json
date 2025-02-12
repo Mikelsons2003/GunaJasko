@@ -26,7 +26,7 @@
   "jaunakieObjekti": {
     "headerObjekti": "NEWEST OBJECTS",
     "spanObjekti1": "Address",
-    "spanObjekti2": "Type",
+    "spanObjekti2": "Property Type",
     "spanObjekti3": "Rooms",
     "aObjekti": "View Details",
     "buttonObjekti": "SEE ALL OBJECTS",
@@ -132,7 +132,7 @@
   },
   "objekti": {
     "liObjekti1": "Properties",
-    "liObjekti2": "Apartment",
+    "liObjekti2": "Apartments",
     "liObjekti3": "Houses",
     "liObjekti4": "Land",
     "liObjekti5": "New Projects",
@@ -144,6 +144,8 @@
     "liObjekti11": "Previous",
     "liObjekti12": "Next",
     "liObjekti13": "All",
+    "liObjekti14": "Apartment",
+    "liObjekti15": "House",
     "spanSort1": "Price",
     "spanSort2": "Rooms"
   },

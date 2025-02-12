@@ -26,14 +26,14 @@
   "jaunakieObjekti": {
     "headerObjekti": "JAUNĀKIE OBJEKTI",
     "spanObjekti1": "Adrese",
-    "spanObjekti2": "Tips",
-    "spanObjekti3": "Istabas",
+    "spanObjekti2": "Īpašuma tips",
+    "spanObjekti3": "Istabu sk.",
     "aObjekti": "Skatīt detaļas",
     "buttonObjekti": "SKATĪT VISUS OBJEKTUS",
     "h1Objekti1": "Īre",
     "h1Objekti2": "Pārdošana"
   },
-  "atsauksmes" : {
+  "atsauksmes": {
     "h1Atsauksmes": "ATSAUKSMES",
     "pAtsauksmes1": "Labdien, Guna! Ar novēlošanos gribu patiekties par padarīto aģenta darbiņu mājas pārdošanā un dzīvokļa iegādē! Ņemot vērā, ka viss notika attālināti, tad vispār trūkst vārdi, jo viss noritēja kā pa notīm! Paši mēs noteikti iekristu kādās lamatās! Pie iespējas noteikti Jūs rekomendēšu citiem. Veiksmi Jums it visā!",
     "pAtsauksmes2": "Guna Jasko, with her extensive knowledge of the market and her dedication to each client, has been instrumental in boosting my sales. I highly recommend her services to anyone seeking a proactive, reliable real estate agent who is capable of delivering exceptional results.",
@@ -144,18 +144,20 @@
     "liObjekti11": "Iepriekšējā",
     "liObjekti12": "Nākamā",
     "liObjekti13": "Visi",
+    "liObjekti14": "Dzīvoklis",
+    "liObjekti15": "Māja",
     "spanSort1": "Cena",
     "spanSort2": "Istabas"
   },
-    "kontakti": {
-      "h1Kontakti": "SAZIŅAS FORMA",
-      "buttonKontakti": "SAZINĀTIES",
-      "pKontakti1": "NEKUSTAMO ĪPAŠUMU AĢENTS",
-      "pKontakti2": "TĀLR.: ",
-      "pKontakti3": "E-PASTS: ",
-      "placeholderKontakti": "Vārds, Uzvārds",
-      "placeholderKontakti1": "Ziņas Teksts"
-    },
+  "kontakti": {
+    "h1Kontakti": "SAZIŅAS FORMA",
+    "buttonKontakti": "SAZINĀTIES",
+    "pKontakti1": "NEKUSTAMO ĪPAŠUMU AĢENTS",
+    "pKontakti2": "TĀLR.: ",
+    "pKontakti3": "E-PASTS: ",
+    "placeholderKontakti": "Vārds, Uzvārds",
+    "placeholderKontakti1": "Ziņas Teksts"
+  },
   "objektiIeskats": {
     "spanIeskats1": "Ēkas tips",
     "spanIeskats2": "Platība",

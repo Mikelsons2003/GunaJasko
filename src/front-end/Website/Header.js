@@ -1,13 +1,17 @@
-import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { FaBars, FaTimes } from "react-icons/fa";
-import { useTranslation } from "react-i18next";
+import React, {useEffect, useState} from "react";
+import {Link, useLocation, useNavigate} from "react-router-dom";
+import {FaBars, FaTimes} from "react-icons/fa";
+import {useTranslation} from "react-i18next";
 
 const Header = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     const [scrolling, setScrolling] = useState(false);
-    const { t, i18n } = useTranslation();
+    const {t, i18n} = useTranslation();
     const location = useLocation();  // Hook to get current location
+    const navigate = useNavigate();
+
+    const languages = ['lv', 'en', 'ru'];
+    const [currentLangIndex, setCurrentLangIndex] = useState(languages.indexOf(i18n.language));
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
@@ -22,10 +26,20 @@ const Header = () => {
     };
 
     const toggleLanguage = () => {
-        const languages = ["en", "lv", "ru"];
-        const currentIndex = languages.indexOf(i18n.language);
-        const nextIndex = (currentIndex + 1) % languages.length;
-        i18n.changeLanguage(languages[nextIndex]);
+        // Calculate the next language index
+        const nextLangIndex = (currentLangIndex + 1) % languages.length;
+        const nextLang = languages[nextLangIndex];
+
+        // Update the language in i18n
+        i18n.changeLanguage(nextLang);
+
+        // Update the URL with the new language
+        const params = new URLSearchParams(location.search);
+        params.set('lang', nextLang);
+        navigate({search: params.toString()});
+
+        // Update the current language index in state
+        setCurrentLangIndex(nextLangIndex);
     };
 
     const isActive = (path) => location.pathname === path ? 'text-[#9C9150]' : '';
@@ -73,7 +87,7 @@ const Header = () => {
                                 to="/"
                                 className={`hover:text-[#9C9150] transition duration-300 ease-in-out ${isActive('/')}`}
                                 onClick={() => {
-                                    window.scrollTo({ top: 0, behavior: "smooth" });
+                                    window.scrollTo({top: 0, behavior: "smooth"});
                                     setMenuOpen(false);
                                 }}
                             >
@@ -83,7 +97,7 @@ const Header = () => {
                                 to="/par-mani"
                                 className={`hover:text-[#9C9150] transition duration-300 ease-in-out ${isActive('/par-mani')}`}
                                 onClick={() => {
-                                    window.scrollTo({ top: 0, behavior: "smooth" });
+                                    window.scrollTo({top: 0, behavior: "smooth"});
                                     setMenuOpen(false);
                                 }}
                             >
@@ -93,7 +107,7 @@ const Header = () => {
                                 to="/pakalpojumi"
                                 className={`hover:text-[#9C9150] transition duration-300 ease-in-out ${isActive('/pakalpojumi')}`}
                                 onClick={() => {
-                                    window.scrollTo({ top: 0, behavior: "smooth" });
+                                    window.scrollTo({top: 0, behavior: "smooth"});
                                     setMenuOpen(false);
                                 }}
                             >
@@ -103,7 +117,7 @@ const Header = () => {
                                 to="/objekti"
                                 className={`hover:text-[#9C9150] transition duration-300 ease-in-out ${isActive('/objekti')}`}
                                 onClick={() => {
-                                    window.scrollTo({ top: 0, behavior: "smooth" });
+                                    window.scrollTo({top: 0, behavior: "smooth"});
                                     setMenuOpen(false);
                                 }}
                             >
@@ -113,7 +127,7 @@ const Header = () => {
                                 to="/kontakti"
                                 className={`hover:text-[#9C9150] transition duration-300 ease-in-out ${isActive('/kontakti')}`}
                                 onClick={() => {
-                                    window.scrollTo({ top: 0, behavior: "smooth" });
+                                    window.scrollTo({top: 0, behavior: "smooth"});
                                     setMenuOpen(false);
                                 }}
                             >
@@ -132,7 +146,7 @@ const Header = () => {
                             className="lg:hidden text-3xl cursor-pointer z-50 mr-1 xs:mr-3 md:mr-6 text-white"
                             onClick={toggleMenu}
                         >
-                            {!menuOpen && <FaBars />}
+                            {!menuOpen && <FaBars/>}
                         </div>
                     </div>
                     <div className="w-full max-w-screen-xl mx-auto px-8 mt-2 relative z-10">
@@ -198,11 +212,8 @@ const Header = () => {
                             >
                                 {t("menu.contact")}
                             </Link>
-                            <button
-                                onClick={toggleLanguage}
-                                className="p-1 block hover:text-[#9C9150] transition duration-300 ease-in-out"
-                            >
-                                {t("button.language")}
+                            <button onClick={toggleLanguage}>
+                                {languages[currentLangIndex].toUpperCase()}
                             </button>
                         </div>
                     </nav>

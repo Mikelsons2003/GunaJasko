@@ -26,8 +26,8 @@
   "jaunakieObjekti": {
     "headerObjekti": "НОВЕЙШИЕ ОБЪЕКТЫ",
     "spanObjekti1": "Адрес",
-    "spanObjekti2": "Тип",
-    "spanObjekti3": "Комнаты",
+    "spanObjekti2": "Тип недвижимости",
+    "spanObjekti3": "Комнатный",
     "aObjekti": "Подробнее",
     "buttonObjekti": "ПОСМОТРЕТЬ ВСЕ ОБЪЕКТЫ",
     "h1Objekti1": "Аренда",
@@ -144,6 +144,8 @@
     "liObjekti11": "Предыдущий",
     "liObjekti12": "Следующий",
     "liObjekti13": "все",
+    "liObjekti14": "Квартира",
+    "liObjekti15": "Дом",
     "spanSort1": "Цена",
     "spanSort2": "Комнаты"
   },

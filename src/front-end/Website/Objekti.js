@@ -5,7 +5,6 @@ import {useLocation, useNavigate} from "react-router-dom";
 import objekts1 from '../../img/objekts1.webp';
 
 function Objekti() {
-    const {t} = useTranslation();
     const navigate = useNavigate();
     const location = useLocation();
     const [properties, setProperties] = useState([]);
@@ -16,6 +15,7 @@ function Objekti() {
     const [transactionType, setTransactionType] = useState("all");
     const itemsPerPage = 6;
     const [recentProperties, setRecentProperties] = useState([]);
+    const {t, i18n} = useTranslation();
 
 
     const extractField = (content, fieldName) => {
@@ -35,14 +35,22 @@ function Objekti() {
                     // Extract Extra Category
                     const extraCategory = extractField(content, "Extra Category");
 
+                    // Extract Titles
+                    // const titleLV = extractField(content, "Property Title LV");
+                    // const titleRU = extractField(content, "Property Title RU");
+                    // const titleENG = item.title.rendered; // English title is directly available
+
                     return {
                         id: item.id,
-                        header: item.title.rendered,
+                        // header: titleENG, // Use the English title as the header
+                        // titleLV: titleLV,
+                        // titleRU: titleRU,
                         price: parseFloat(extractField(content, "Property Value")) || 0,
                         address: extractField(content, "Address"),
                         type: extractField(content, "Property Type"),
                         transactionType: extractField(content, "Transaction Type"),
                         rooms: parseInt(extractField(content, "Room Count")) || 0,
+                        size: parseFloat(content.match(/<label>Size:<\/label>\s*([^<]+)/)?.[1].trim()) || 0, // Directly use regex here
                         image: item.featured_media_src_url || objekts1,
                         date: new Date(item.date),
                         isInvestmentProperty: extraCategory.includes("Investment Property"), // Check if it's an Investment Property
@@ -57,7 +65,6 @@ function Objekti() {
         };
         fetchProperties();
     }, []);
-
     useEffect(() => {
         const params = new URLSearchParams(location.search);
         const propertyTypeParam = params.get("propertyType") || "all";
@@ -146,8 +153,8 @@ function Objekti() {
 
     const propertyTypeToTranslationKey = {
         all: "objekti.liObjekti7", // "Visi" in Lv, "All" in Eng, "Все" in Ru
-        Apartment: "objekti.liObjekti2", // "Dzīvokļi" in Lv, "Apartments" in Eng, "Квартиры" in Ru
-        House: "objekti.liObjekti3", // "Mājas" in Lv, "Houses" in Eng, "Дома" in Ru
+        Apartment: "objekti.liObjekti14", // "Dzīvokļi" in Lv, "Apartments" in Eng, "Квартиры" in Ru
+        House: "objekti.liObjekti15", // "Mājas" in Lv, "Houses" in Eng, "Дома" in Ru
         Land: "objekti.liObjekti4", // "Zeme" in Lv, "Land" in Eng, "Земля" in Ru
         "New Project": "objekti.liObjekti5", // "Jaunie projekti" in Lv, "New Projects" in Eng, "Новые проекты" in Ru
         "Investment Property": "objekti.liObjekti6", // "Investīciju objekti" in Lv, "Investment Properties" in Eng, "Инвестиционные объекты" in Ru
@@ -156,6 +163,10 @@ function Objekti() {
     const transactionTypeToTranslationKey = {
         Rent: "objekti.liObjekti8", // "Izīrē" in Lv, "Rent" in Eng, "Аренда" in Ru
         Sell: "objekti.liObjekti9", // "Pārdod" in Lv, "Sell" in Eng, "Продажа" in Ru
+    };
+    const propertySizeLabelKey = {
+        Land: "objektiIeskats.spanIeskats2", // "Platība" for Land
+        default: "jaunakieObjekti.spanObjekti3", // "Istabas" for others
     };
 
     return (
@@ -253,19 +264,19 @@ function Objekti() {
 
                         {/* Property Type */}
                         <span className={transactionType === "all" ? "text-[#371243] font-semibold" : ""}>
-    {propertyType === "all"
-        ? t("objekti.liObjekti7") // "Visi" in Lv, "All" in Eng, "Все" in Ru
-        : t(propertyTypeToTranslationKey[propertyType]) // Use the mapping object for propertyType
-    }
-  </span>
+                            {propertyType === "all"
+                                ? t("objekti.liObjekti7")
+                                : t(propertyTypeToTranslationKey[propertyType])
+                            }
+                        </span>
 
                         {/* Transaction Type (if not "all") */}
                         {transactionType !== "all" && (
                             <>
                                 <PiArrowRightThin className="font-semibold"/>
                                 <span className="text-[#371243] font-semibold">
-        {t(transactionTypeToTranslationKey[transactionType])} {/* Use the mapping object for transactionType */}
-      </span>
+                                    {t(transactionTypeToTranslationKey[transactionType])} {/* Use the mapping object for transactionType */}
+                                </span>
                             </>
                         )}
                     </div>
@@ -295,8 +306,7 @@ function Objekti() {
                     {currentItems.map((property) => (
                         <a
                             key={property.id}
-                            href={`/objekti/${property.id}?propertyType=${propertyType}&transactionType=${transactionType}`}
-                            rel="noopener noreferrer"
+                            href={`/objekti/${property.id}?propertyType=${propertyType}&transactionType=${transactionType}&lang=${i18n.language}`}
                             className="border border-[#9C9150] bg-white block hover:shadow-lg transition-shadow duration-300"
                         >
                             <div className="w-full h-[254px] bg-gray-200">
@@ -307,8 +317,13 @@ function Objekti() {
                                 />
                             </div>
                             <div className="p-6">
-                                <h1 className="font-garamond500 text-[#5B3767] text-xl mb-3 text-left">
-                                    {property.header}
+                                {/*<h1 className="font-garamond500 text-[#5B3767] text-xl mb-3 text-left">*/}
+                                {/*    {i18n.language === 'lv' ? property.titleLV :*/}
+                                {/*        i18n.language === 'ru' ? property.titleRU :*/}
+                                {/*            property.header}*/}
+                                {/*</h1>*/}
+                                <h1 className="font-garamond500 text-[#5B3767] text-2xl mb-3 text-left">
+                                    {t(transactionTypeToTranslationKey[property.transactionType] || property.transactionType)}
                                 </h1>
                                 <h2 className="font-infant600 text-[#5B3767] text-2xl font-bold mb-4 text-left">
                                     {property.price} EUR
@@ -316,12 +331,20 @@ function Objekti() {
                                 <div className="w-full border-b-[1px] border-[#9C9150] mb-4"></div>
                                 <div
                                     className="font-barlow400 grid grid-cols-2 text-sm gap-y-2 text-left text-[#5B3767]">
+                                    {/* Address */}
                                     <span>{t("jaunakieObjekti.spanObjekti1")}</span>
                                     <span className="font-semibold text-right">{property.address}</span>
+
+                                    {/* Property Type */}
                                     <span>{t("jaunakieObjekti.spanObjekti2")}</span>
-                                    <span className="font-semibold text-right">{property.type}</span>
-                                    <span>{t("jaunakieObjekti.spanObjekti3")}</span>
-                                    <span className="font-semibold text-right">{property.rooms}</span>
+                                    <span
+                                        className="font-semibold text-right">{t(propertyTypeToTranslationKey[property.type] || "objekti.liObjekti7")}</span>
+
+                                    {/* Size or Rooms */}
+                                    <span>{t(propertySizeLabelKey[property.type] || propertySizeLabelKey.default)}</span>
+                                    <span className="font-semibold text-right">
+                                        {property.type === "Land" ? `${property.size} m²` : property.rooms}
+                                    </span>
                                 </div>
                                 <div className="flex justify-start mt-6 text-[#9C9150] text-sm">
                                     {t("jaunakieObjekti.aObjekti")} <span className="ml-1">&rarr;</span>
