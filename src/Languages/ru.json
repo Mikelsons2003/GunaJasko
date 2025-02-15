@@ -164,7 +164,8 @@
     "spanIeskats3": "Количество комнат",
     "spanIeskats4": "Пол",
     "spanIeskats5": "ДЕЛИТЬСЯ",
-    "spanIeskats6": "АГЕНТ ПО НЕДВИЖИМОСТИ"
+    "spanIeskats6": "АГЕНТ ПО НЕДВИЖИМОСТИ",
+    "loadingTeksts": "Загрузка сведений о недвижимости..."
   },
   "button": {
     "language": "RU"

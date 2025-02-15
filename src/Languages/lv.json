@@ -164,7 +164,8 @@
     "spanIeskats3": "Istabu sk.",
     "spanIeskats4": "Stāvs",
     "spanIeskats5": "DALĪTIES",
-    "spanIeskats6": "NEKUSTAMO ĪPAŠUMU AĢENTS"
+    "spanIeskats6": "NEKUSTAMO ĪPAŠUMU AĢENTS",
+    "loadingTeksts": "Notiek īpašuma informācijas ielāde..."
   },
   "button": {
     "language": "LV"

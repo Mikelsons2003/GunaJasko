@@ -24,7 +24,6 @@ function App() {
     const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(true);
     const location = useLocation();
-    const { i18n } = useTranslation();
 
     useEffect(() => {
         const fetchPosts = async () => {
@@ -40,10 +39,6 @@ function App() {
 
         fetchPosts();
     }, []);
-
-    useEffect(() => {
-        i18n.changeLanguage("lv");
-    }, [i18n]);
 
     return (
         <Suspense fallback={<div>Loading...</div>}>

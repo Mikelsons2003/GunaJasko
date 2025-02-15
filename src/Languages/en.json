@@ -164,7 +164,8 @@
     "spanIeskats3": "Number of rooms",
     "spanIeskats4": "Floor",
     "spanIeskats5": "SHARE",
-    "spanIeskats6": "REAL ESTATE AGENT"
+    "spanIeskats6": "REAL ESTATE AGENT",
+    "loadingTeksts": "Loading Property Details..."
   },
   "button": {
     "language": "EN"

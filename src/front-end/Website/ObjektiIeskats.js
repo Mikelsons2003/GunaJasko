@@ -1,25 +1,32 @@
-import React, { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import React, {useEffect, useState} from "react";
+import {AnimatePresence, motion} from "framer-motion";
+import {ChevronLeft, ChevronRight, X} from "lucide-react";
 import objekts1 from "../../img/objekts1.webp";
 import GunaJaskoBlue from "../../img/GunaJaskoBlue.png";
-import { FaFacebookF, FaInstagram } from "react-icons/fa";
+import {FaFacebookF, FaInstagram} from "react-icons/fa";
 import LazyBackground from "./LazyBackground";
-import { useLocation, useParams } from "react-router-dom";
-import { useTranslation } from "react-i18next";
-import { PiArrowRightThin } from "react-icons/pi";
+import {useLocation, useParams} from "react-router-dom";
+import {useTranslation} from "react-i18next";
+import {PiArrowRightThin} from "react-icons/pi";
+import DOMPurify from "dompurify";
+import LoadingSpinner from "./Extra/LoadingSpinner";
+
 
 function ObjektiIeskats() {
-    const { id } = useParams();
+    const {id} = useParams();
     const [selectedImage, setSelectedImage] = useState(null);
     const [currentIndex, setCurrentIndex] = useState(0);
     useLocation();
     const [property, setProperty] = useState(null);
-    const { t, i18n } = useTranslation();
+    const {t, i18n} = useTranslation();
 
     // Helper function to extract field values from content
     const extractField = (content, fieldName) => {
-        const regex = new RegExp(`<label>${fieldName}:<\\/label>\\s*([^<]+)`);
+        // Create a regex to match the entire <li> block for the field
+        const regex = new RegExp(
+            `<li[^>]*>\\s*<label>${fieldName}:<\\/label>\\s*([\\s\\S]*?)<\\/li>`,
+            "i"
+        );
         const match = content.match(regex);
         return match ? match[1].trim() : "Not available";
     };
@@ -84,7 +91,7 @@ function ObjektiIeskats() {
     }, [id]);
 
     if (!property) {
-        return <div>Loading...</div>;
+        return <LoadingSpinner />;
     }
 
     // Lightbox functions
@@ -111,6 +118,7 @@ function ObjektiIeskats() {
 
     // Get the description based on the current language
     const getDescription = () => {
+        if (!property) return ""; // Return empty string if property is not loaded
         switch (i18n.language) {
             case "lv":
                 return property.descriptionLV;
@@ -120,6 +128,10 @@ function ObjektiIeskats() {
                 return property.descriptionENG;
         }
     };
+
+// Sanitize and render description
+    const description = getDescription();
+    const sanitizedDescription = description ? DOMPurify.sanitize(description) : "No description available.";
 
     return (
         <div className="mx-auto">
@@ -136,7 +148,7 @@ function ObjektiIeskats() {
                 <div className="flex flex-col sm:items-start lg:items-start space-y-4 mb-14 text-center lg:text-left">
                     <div className="font-barlow400 flex items-center space-x-2 text-sm uppercase mb-10 mt-6">
                         <span>{t("objekti.liObjekti1")}</span>
-                        <PiArrowRightThin className="font-semibold" />
+                        <PiArrowRightThin className="font-semibold"/>
                         <span className="text-[#371243] font-semibold">{property.type}</span>
                     </div>
                     <h1 className="font-garamond500 text-2xl text-[#5B3767]">
@@ -187,7 +199,7 @@ function ObjektiIeskats() {
                 <div className="w-full text-left description">
                     <div
                         className="font-barlow400 text-[#5B3767] leading-relaxed"
-                        dangerouslySetInnerHTML={{ __html: getDescription() }}
+                        dangerouslySetInnerHTML={{__html: sanitizedDescription}}
                     />
                 </div>
             </section>
@@ -210,7 +222,8 @@ function ObjektiIeskats() {
                 {/* Contact Button */}
                 <div className="mt-12 flex justify-center">
                     <a href="https://guna.lucid-websites.com/kontakti">
-                        <button className="font-barlow500 w-[274px] h-[55px] bg-[#5B3767] text-[#CDC697] text-sm hover:bg-[#371243] transition duration-300 ease-in-out">
+                        <button
+                            className="font-barlow500 w-[274px] h-[55px] bg-[#5B3767] text-[#CDC697] text-sm hover:bg-[#371243] transition duration-300 ease-in-out">
                             {t("parmani.buttonParmani")}
                         </button>
                     </a>
@@ -222,12 +235,12 @@ function ObjektiIeskats() {
                 {selectedImage && (
                     <motion.div
                         className="fixed inset-0 bg-black bg-opacity-90 flex flex-col items-center justify-center z-50"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
+                        initial={{opacity: 0}}
+                        animate={{opacity: 1}}
+                        exit={{opacity: 0}}
                     >
                         <button className="absolute top-4 right-4 text-white text-3xl" onClick={closeLightbox}>
-                            <X size={32} />
+                            <X size={32}/>
                         </button>
 
                         <motion.img
@@ -235,17 +248,17 @@ function ObjektiIeskats() {
                             src={selectedImage}
                             alt="Fullscreen"
                             className="max-w-[90vw] max-h-[80vh] rounded-lg"
-                            initial={{ scale: 0.8 }}
-                            animate={{ scale: 1 }}
-                            exit={{ scale: 0.8 }}
+                            initial={{scale: 0.8}}
+                            animate={{scale: 1}}
+                            exit={{scale: 0.8}}
                         />
 
                         <div className="flex items-center justify-between w-full px-10 mt-4">
                             <button className="text-white text-3xl" onClick={prevImage}>
-                                <ChevronLeft size={40} />
+                                <ChevronLeft size={40}/>
                             </button>
                             <button className="text-white text-3xl" onClick={nextImage}>
-                                <ChevronRight size={40} />
+                                <ChevronRight size={40}/>
                             </button>
                         </div>
 
@@ -268,7 +281,8 @@ function ObjektiIeskats() {
 
             {/* Footer Section */}
             <section className="w-full max-w-screen-xl mx-auto py-12 px-4 lg:px-6 text-[#5B3767] mb-8">
-                <div className="flex flex-col lg:flex-row justify-center lg:justify-between items-center lg:items-end lg:space-y-0 text-center lg:text-left">
+                <div
+                    className="flex flex-col lg:flex-row justify-center lg:justify-between items-center lg:items-end lg:space-y-0 text-center lg:text-left">
                     <div className="flex flex-col lg:flex-row items-center lg:items-end lg:space-x-8">
                         <LazyBackground
                             image={GunaJaskoBlue}
@@ -292,7 +306,7 @@ function ObjektiIeskats() {
                                 rel="noopener noreferrer"
                                 className="w-8 h-8 flex items-center justify-center border-2 border-[#5B3767] rounded-md"
                             >
-                                <FaFacebookF className="text-[#5B3767]" />
+                                <FaFacebookF className="text-[#5B3767]"/>
                             </a>
                             <a
                                 href="https://www.instagram.com/gunarealty/"
@@ -300,7 +314,7 @@ function ObjektiIeskats() {
                                 rel="noopener noreferrer"
                                 className="w-8 h-8 flex items-center justify-center border-2 border-[#5B3767] rounded-md"
                             >
-                                <FaInstagram className="text-[#5B3767]" />
+                                <FaInstagram className="text-[#5B3767]"/>
                             </a>
                         </div>
                     </div>
