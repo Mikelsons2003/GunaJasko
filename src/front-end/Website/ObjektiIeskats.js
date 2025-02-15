@@ -14,15 +14,32 @@ import LoadingSpinner from "./Extra/LoadingSpinner";
 
 function ObjektiIeskats() {
     const {id} = useParams();
-    const [selectedImage, setSelectedImage] = useState(null);
-    const [currentIndex, setCurrentIndex] = useState(0);
-    useLocation();
+    const location = useLocation();
     const [property, setProperty] = useState(null);
     const {t, i18n} = useTranslation();
+    const [selectedImage, setSelectedImage] = useState(null);
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const searchParams = new URLSearchParams(location.search);
+    const propertyType = searchParams.get("propertyType") || "all";
+    const transactionType = searchParams.get("transactionType") || "all";
+
+    // Translation mappings
+    const propertyTypeToTranslationKey = {
+        all: "objekti.liObjekti7", // "Visi" in Lv, "All" in Eng, "Все" in Ru
+        Apartment: "objekti.liObjekti14", // "Dzīvokļi" in Lv, "Apartments" in Eng, "Квартиры" in Ru
+        House: "objekti.liObjekti15", // "Mājas" in Lv, "Houses" in Eng, "Дома" in Ru
+        Land: "objekti.liObjekti4", // "Zeme" in Lv, "Land" in Eng, "Земля" in Ru
+        "New Project": "objekti.liObjekti5", // "Jaunie projekti" in Lv, "New Projects" in Eng, "Новые проекты" in Ru
+        "Investment Property": "objekti.liObjekti6", // "Investīciju objekti" in Lv, "Investment Properties" in Eng, "Инвестиционные объекты" in Ru
+    };
+
+    const transactionTypeToTranslationKey = {
+        Rent: "objekti.liObjekti8", // "Izīrē" in Lv, "Rent" in Eng, "Аренда" in Ru
+        Sell: "objekti.liObjekti9", // "Pārdod" in Lv, "Sell" in Eng, "Продажа" in Ru
+    };
 
     // Helper function to extract field values from content
     const extractField = (content, fieldName) => {
-        // Create a regex to match the entire <li> block for the field
         const regex = new RegExp(
             `<li[^>]*>\\s*<label>${fieldName}:<\\/label>\\s*([\\s\\S]*?)<\\/li>`,
             "i"
@@ -91,8 +108,16 @@ function ObjektiIeskats() {
     }, [id]);
 
     if (!property) {
-        return <LoadingSpinner />;
+        return <LoadingSpinner/>;
     }
+
+    const formatPrice = (price) => {
+        if (price > 99999) {
+            // Convert the number to a string and add a space every 3 digits
+            return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+        }
+        return price.toString(); // Return the number as is if it's less than 100000
+    };
 
     // Lightbox functions
     const openImage = (index) => {
@@ -149,14 +174,41 @@ function ObjektiIeskats() {
                     <div className="font-barlow400 flex items-center space-x-2 text-sm uppercase mb-10 mt-6">
                         <span>{t("objekti.liObjekti1")}</span>
                         <PiArrowRightThin className="font-semibold"/>
-                        <span className="text-[#371243] font-semibold">{property.type}</span>
+
+                        {/* Property Type */}
+                        <span className={transactionType === "all" ? "text-[#371243] font-semibold" : ""}>
+                            {propertyType === "all"
+                                ? t("objekti.liObjekti7")
+                                : t(propertyTypeToTranslationKey[propertyType])
+                            }
+                        </span>
+
+                        {/* Transaction Type (if not "all") */}
+                        {transactionType !== "all" && (
+                            <>
+                                <PiArrowRightThin className="font-semibold"/>
+                                <span className="text-[#371243] font-semibold">
+                                    {t(transactionTypeToTranslationKey[transactionType])}
+                                </span>
+                            </>
+                        )}
                     </div>
+                    {/* Title and Transaction Type */}
                     <h1 className="font-garamond500 text-2xl text-[#5B3767]">
+                        {transactionType !== "all" && (
+                            <span className="pr-1">
+                                {t(transactionTypeToTranslationKey[transactionType])}
+                            </span>
+                        )}
                         {i18n.language === "lv" ? property.titleLV :
                             i18n.language === "ru" ? property.titleRU :
                                 property.header}
                     </h1>
-                    <h1 className="font-infant600 text-3xl text-[#5B3767]">{property.price} EUR</h1>
+
+                    {/* Price */}
+                    <h1 className="font-infant600 text-3xl text-[#5B3767]">
+                        {formatPrice(property.price)} EUR
+                    </h1>
                 </div>
 
                 {/* Main Image */}
@@ -176,17 +228,29 @@ function ObjektiIeskats() {
                         </div>
                         <div className="text-center lg:text-left space-y-2 font-barlow500">
                             <span className="block font-semibold">{property.address}</span>
-                            <span className="block font-semibold">{property.type}</span>
+                            <span className="block font-semibold">
+                        {t(propertyTypeToTranslationKey[property.type])} {/* Translate property type */}
+                    </span>
                         </div>
                         <div className="text-center lg:text-right space-y-2 font-barlow400 mt-6 lg:mt-0">
                             <span className="block">{t("objektiIeskats.spanIeskats2")}</span>
-                            <span className="block">{t("objektiIeskats.spanIeskats3")}</span>
-                            <span className="block">{t("objektiIeskats.spanIeskats4")}</span>
+                            {/* Hide "Rooms" and "Floors" if property type is "Land" */}
+                            {property.type !== "Land" && (
+                                <>
+                                    <span className="block">{t("objektiIeskats.spanIeskats3")}</span>
+                                    <span className="block">{t("objektiIeskats.spanIeskats4")}</span>
+                                </>
+                            )}
                         </div>
                         <div className="text-center lg:text-right space-y-2 font-barlow500 mt-6 lg:mt-0">
                             <span className="block font-semibold">{property.size} m²</span>
-                            <span className="block font-semibold">{property.rooms}</span>
-                            <span className="block font-semibold">{property.floors}</span>
+                            {/* Hide "Rooms" and "Floors" if property type is "Land" */}
+                            {property.type !== "Land" && (
+                                <>
+                                    <span className="block font-semibold">{property.rooms}</span>
+                                    <span className="block font-semibold">{property.floors}</span>
+                                </>
+                            )}
                         </div>
                     </div>
                 </div>

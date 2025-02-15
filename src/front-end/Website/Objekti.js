@@ -31,20 +31,10 @@ function Objekti() {
                 const data = await response.json();
                 const formattedData = data.map((item) => {
                     const content = item.content.rendered;
-
-                    // Extract Extra Category
                     const extraCategory = extractField(content, "Extra Category");
-
-                    // Extract Titles
-                    // const titleLV = extractField(content, "Property Title LV");
-                    // const titleRU = extractField(content, "Property Title RU");
-                    // const titleENG = item.title.rendered; // English title is directly available
 
                     return {
                         id: item.id,
-                        // header: titleENG, // Use the English title as the header
-                        // titleLV: titleLV,
-                        // titleRU: titleRU,
                         price: parseFloat(extractField(content, "Property Value")) || 0,
                         address: extractField(content, "Address"),
                         type: extractField(content, "Property Type"),
@@ -189,7 +179,7 @@ function Objekti() {
                                 className={`cursor-pointer ${propertyType === "all" ? "text-[#9C9150]" : ""}`}
                                 onClick={() => handleFilterChange("propertyType", "all")}
                             >
-                                {t("objekti.liObjekti13")} {/* "Visi" in Lv, "All" in Eng, "все" in Ru */}
+                                {t("objekti.liObjekti13")}
                             </li>
 
                             {/* Apartment */}
@@ -197,7 +187,7 @@ function Objekti() {
                                 className={`mt-3 md:mt-0 cursor-pointer ${propertyType === "Apartment" ? "text-[#9C9150]" : ""}`}
                                 onClick={() => handleFilterChange("propertyType", "Apartment")}
                             >
-                                {t("objekti.liObjekti2")} {/* "Dzīvokļi" in Lv, "Apartments" in Eng, "Квартиры" in Ru */}
+                                {t("objekti.liObjekti2")}
                             </li>
 
                             {/* House */}
@@ -205,7 +195,7 @@ function Objekti() {
                                 className={`mt-3 md:mt-0 cursor-pointer ${propertyType === "House" ? "text-[#9C9150]" : ""}`}
                                 onClick={() => handleFilterChange("propertyType", "House")}
                             >
-                                {t("objekti.liObjekti3")} {/* "Mājas" in Lv, "Houses" in Eng, "Дома" in Ru */}
+                                {t("objekti.liObjekti3")}
                             </li>
 
                             {/* Land */}
@@ -213,7 +203,7 @@ function Objekti() {
                                 className={`mt-3 md:mt-0 cursor-pointer ${propertyType === "Land" ? "text-[#9C9150]" : ""}`}
                                 onClick={() => handleFilterChange("propertyType", "Land")}
                             >
-                                {t("objekti.liObjekti4")} {/* "Zeme" in Lv, "Land" in Eng, "Земля" in Ru */}
+                                {t("objekti.liObjekti4")}
                             </li>
 
                             {/* New Project */}
@@ -221,7 +211,7 @@ function Objekti() {
                                 className={`mt-3 md:mt-0 cursor-pointer ${propertyType === "New Project" ? "text-[#9C9150]" : ""}`}
                                 onClick={() => handleFilterChange("propertyType", "New Project")}
                             >
-                                {t("objekti.liObjekti5")} {/* "Jaunie projekti" in Lv, "New Projects" in Eng, "Новые проекты" in Ru */}
+                                {t("objekti.liObjekti5")}
                             </li>
 
                             {/* Investment Property */}
@@ -229,7 +219,7 @@ function Objekti() {
                                 className={`mt-3 md:mt-0 cursor-pointer ${propertyType === "Investment Property" ? "text-[#9C9150]" : ""}`}
                                 onClick={() => handleFilterChange("propertyType", "Investment Property")}
                             >
-                                {t("objekti.liObjekti6")} {/* "Investīciju objekti" in Lv, "Investment Properties" in Eng, "Инвестиционные объекты" in Ru */}
+                                {t("objekti.liObjekti6")}
                             </li>
                         </ul>
                     </nav>
