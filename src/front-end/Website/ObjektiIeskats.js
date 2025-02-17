@@ -232,8 +232,8 @@ function ObjektiIeskats() {
                         <div className="text-center lg:text-left space-y-2 font-barlow500">
                             <span className="block font-semibold">{property.address}</span>
                             <span className="block font-semibold">
-                        {t(propertyTypeToTranslationKey[property.type])} {/* Translate property type */}
-                    </span>
+                {t(propertyTypeToTranslationKey[property.type])} {/* Translate property type */}
+            </span>
                         </div>
                         <div className="text-center lg:text-right space-y-2 font-barlow400 mt-6 lg:mt-0">
                             <span className="block">{t("objektiIeskats.spanIeskats2")}</span>
@@ -241,7 +241,11 @@ function ObjektiIeskats() {
                             {property.type !== "Land" && (
                                 <>
                                     <span className="block">{t("objektiIeskats.spanIeskats3")}</span>
-                                    <span className="block">{t("objektiIeskats.spanIeskats4")}</span>
+                                    <span className="block">
+                        {property.type === "House"
+                            ? t("objektiIeskats.spanIeskats7")
+                            : t("objektiIeskats.spanIeskats4")}
+                    </span>
                                 </>
                             )}
                         </div>
@@ -257,6 +261,7 @@ function ObjektiIeskats() {
                         </div>
                     </div>
                 </div>
+
 
                 {/* Description Section */}
                 <div className="w-full lg:w-[847px] max-w-screen-xl relative z-10 text-left mt-6 mb-12">
