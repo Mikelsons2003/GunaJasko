@@ -147,7 +147,7 @@ const Kontakti = () => {
                             <h3 className="font-garamond500 text-xl lg:text-2xl">Guna Jasko</h3>
                             <p className="font-barlow500 mt-2">{t("kontakti.pKontakti1")}</p>
                             <p className="font-barlow500 mt-2">{t("kontakti.pKontakti2")} 20 016 688</p>
-                            <p className="font-barlow500 mt-2">{t("kontakti.pKontakti3")} jaskoguna18@gmail.com</p>
+                            <p className="font-barlow500 mt-2">{t("kontakti.pKontakti3")} guna.jasko@gmail.com</p>
                         </div>
                         <LazyBackground
                             image={GunaKontakti}

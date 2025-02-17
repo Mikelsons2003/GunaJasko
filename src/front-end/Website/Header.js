@@ -1,13 +1,13 @@
-import React, {useEffect, useState} from "react";
-import {Link, useLocation, useNavigate} from "react-router-dom";
-import {FaBars, FaTimes} from "react-icons/fa";
-import {useTranslation} from "react-i18next";
+import React, { useEffect, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { FaBars, FaTimes } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 
 const Header = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     const [scrolling, setScrolling] = useState(false);
-    const {t, i18n} = useTranslation();
-    const location = useLocation();  // Hook to get current location
+    const { t, i18n } = useTranslation();
+    const location = useLocation();
     const navigate = useNavigate();
 
     const languages = ['lv', 'en', 'ru'];
@@ -26,19 +26,12 @@ const Header = () => {
     };
 
     const toggleLanguage = () => {
-        // Calculate the next language index
         const nextLangIndex = (currentLangIndex + 1) % languages.length;
         const nextLang = languages[nextLangIndex];
-
-        // Update the language in i18n
         i18n.changeLanguage(nextLang);
-
-        // Update the URL with the new language
         const params = new URLSearchParams(location.search);
         params.set('lang', nextLang);
-        navigate({search: params.toString()});
-
-        // Update the current language index in state
+        navigate({ search: params.toString() });
         setCurrentLangIndex(nextLangIndex);
     };
 
@@ -71,8 +64,10 @@ const Header = () => {
                     className={`fixed top-0 w-full ${
                         scrolling
                             ? "bg-black bg-opacity-40 backdrop-blur-md h-[73px] md:h-[93px]"
-                            : "bg-transparent"
-                    } transition-all duration-300 ease-in-out`}
+                            : "bg-transparent h-auto"
+                    } transition-all duration-300 ease-in-out ${
+                        menuOpen ? "pointer-events-auto" : "pointer-events-none lg:pointer-events-auto"
+                    }`}
                 >
                     <div className="w-full max-w-screen-xl mx-auto px-8 flex justify-between items-center">
                         <a href="https://guna.lucid-websites.com/">
@@ -143,7 +138,7 @@ const Header = () => {
 
                         {/* Hamburger Menu Icon */}
                         <div
-                            className="lg:hidden text-3xl cursor-pointer z-50 mr-1 xs:mr-3 md:mr-6 text-white"
+                            className="lg:hidden text-3xl cursor-pointer z-50 mr-1 xs:mr-3 md:mr-6 text-white pointer-events-auto"
                             onClick={toggleMenu}
                         >
                             {!menuOpen && <FaBars/>}
@@ -155,10 +150,10 @@ const Header = () => {
 
                     {/* Mobile Navigation */}
                     <nav
-                        className={`uppercase lg:hidden text-white text-sm z-10 transition-all duration-500 ease-in-out ${
+                        className={`uppercase lg:hidden text-white text-sm transition-all duration-500 ease-in-out z-50 ${
                             menuOpen
-                                ? "opacity-100 translate-y-0 visible fixed top-0 left-0 w-full bg-[#5B3767] p-4"
-                                : "opacity-0 translate-y-[-100%] invisible"
+                                ? "opacity-100 translate-y-0 visible pointer-events-auto fixed top-0 left-0 w-full bg-[#5B3767] p-4"
+                                : "opacity-0 translate-y-[-100%] invisible pointer-events-none"
                         }`}
                     >
                         <div className="flex items-center justify-between px-3">
