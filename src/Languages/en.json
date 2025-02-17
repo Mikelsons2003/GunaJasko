@@ -8,7 +8,7 @@
   },
   "sakumlapa": {
     "header": "REAL ESTATE AGENT",
-    "p": "Selling real estate since 2006, specializing in housing stock: sale and rent of apartments, private houses and land in Riga and the Riga region. Experience in the sale of large-scale projects as a project manager (developer projects over 100 apartments).",
+    "p": "Selling real estate since 2006, specializing in housing stock: sale and rent of apartments, private houses and land in Riga and the Riga region. Experience in the sale of large-scale projects as a project manager (developer projects over 100 apartments)",
     "button": "CLAIM PROPERTY"
   },
   "sakumlapaAbout": {
@@ -20,7 +20,7 @@
     "pAbout1": "On the market since 2006",
     "pAbout2": "Registered in the Register of Brokers of the Ministry of Economics with No. 224",
     "pAbout3": "The activity is insured under civil law",
-    "pAbout4": "Member of the Latvian real estate association “Lanīda”.",
+    "pAbout4": "Member of the Latvian real estate association “Lanīda”",
     "buttonAbout": "LEARN MORE"
   },
   "jaunakieObjekti": {
@@ -61,19 +61,19 @@
     "optionSazina3": "Sell",
     "optionSazina4": "Region",
     "optionSazina5": "Riga",
-    "optionSazina6": "Latgale",
+    "optionSazina6": "Latvia",
     "optionSazina7": "Property type",
     "optionSazina8": "Apartment",
     "optionSazina9": "House",
     "placeholderSazina5": "Comment",
-    "pSazina": "I agree to the terms of personal data processing.",
+    "pSazina": "I agree to the terms of personal data processing",
     "buttonSazina": "SEND"
   },
   "parmani": {
     "h1Parmani": "About the agent",
-    "pParmani1": "In real estate sales since 2006, specialization – residential property: sale and rental of apartments, private houses and land in Riga and Riga district. Experience in sales of large-scale projects as a project manager (developer projects with over 100 apartments).",
-    "pParmani2": "Successfully completed more than 600 sales and rental transactions.",
-    "pParmani3": "I am fluent in three languages: Latvian, Russian, and English.",
+    "pParmani1": "In real estate sales since 2006, specialization – residential property: sale and rental of apartments, private houses and land in Riga and Riga district. Experience in sales of large-scale projects as a project manager (developer projects with over 100 apartments)",
+    "pParmani2": "Successfully completed more than 600 sales and rental transactions",
+    "pParmani3": "I am fluent in three languages: Latvian, Russian, and English",
     "buttonParmani": "CONTACT US"
   },
   "ramis": {
@@ -92,8 +92,8 @@
   "izglitiba": {
     "h1Izglitiba1": "Education",
     "h1Izglitiba2": "Personal qualities",
-    "pIzglitiba1": "I have completed business management studies at Riga Stradins University (bachelor's degree) and digital marketing studies at BA Turība. I have attended countless qualification improvement and sales courses, which are confirmed by certificates, I regularly participate in conferences for industry specialists organized by LANĪDA. I have learned English in the UK (Oxford school branch).",
-    "pIzglitiba2": "I am professional, correct and fast, available to my clients, with flexible working hours. I am able to adapt to the client's schedule.",
+    "pIzglitiba1": "I have completed business management studies at Riga Stradins University (bachelor's degree) and digital marketing studies at BA Turība. I have attended countless qualification improvement and sales courses, which are confirmed by certificates, I regularly participate in conferences for industry specialists organized by LANĪDA. I have learned English in the UK (Oxford school branch)",
+    "pIzglitiba2": "I am professional, correct and fast, available to my clients, with flexible working hours. I am able to adapt to the client's schedule",
     "buttonIzglitiba": "APPLY FOR PROPERTY"
   },
   "pakalpojumi": {
@@ -111,14 +111,14 @@
     "pPakalpojumi6": "Solving legal issues and preparing contracts (contracts are prepared by a qualified lawyer), scheduling a visit to a notary in person or digitally, submitting documents for registration in the land register",
     "pPakalpojumi7": "Closing of the transaction: acceptance and handover certificate and key handover",
     "specialpPakalpojumi1": "Service price:",
-    "specialpPakalpojumi2": "3-5 % of the transaction amount.",
+    "specialpPakalpojumi2": "3-5 % of the transaction amount",
     "specialpPakalpojumi3": "For rental transactions:",
     "specialpPakalpojumi4": "one month's rent",
     "pPakalpojumi8": "Legal strategy and steps of the transaction",
     "pPakalpojumi9": "Preparation of a down payment or deposit agreement",
     "pPakalpojumi10": "Preparation of the purchase contract",
     "pPakalpojumi11": "Preparation of the delivery and acceptance act (keys,utility meter readings)",
-    "specialpPakalpojumi5": "% of the transaction amount.",
+    "specialpPakalpojumi5": "% of the transaction amount",
     "specialpPakalpojumi6": "but not less than",
     "pPakalpojumi12": "Competitor and market research",
     "pPakalpojumi13": "Research on pricing policy",

@@ -8,7 +8,7 @@
   },
   "sakumlapa": {
     "header": "NEKUSTAMO ĪPAŠUMU AĢENTS",
-    "p": "Nekustamo īpašumu pārdošanā kopš 2006. gada, specializācija – dzīvojamais fonds: dzīvokļu, privātmāju un zemju tirdzniecība un īre Rīgā un Rīgas rajonā. Pieredze apjomīgu projektu tirdzniecībā kā projektu vadītājai (attīstītāju projekti virs 100 dzīvokļiem).",
+    "p": "Nekustamo īpašumu pārdošanā kopš 2006. gada, specializācija – dzīvojamais fonds: dzīvokļu, privātmāju un zemju tirdzniecība un īre Rīgā un Rīgas rajonā. Pieredze apjomīgu projektu tirdzniecībā kā projektu vadītājai (attīstītāju projekti virs 100 dzīvokļiem)",
     "button": "PIETEIKT ĪPAŠUMU"
   },
   "sakumlapaAbout": {
@@ -61,19 +61,19 @@
     "optionSazina3": "Pārdot",
     "optionSazina4": "Reģions",
     "optionSazina5": "Rīga",
-    "optionSazina6": "Latgale",
+    "optionSazina6": "Latvija",
     "optionSazina7": "Īpašuma tips",
     "optionSazina8": "Dzīvoklis",
     "optionSazina9": "Māja",
     "placeholderSazina5": "Komentārs",
-    "pSazina": "Piekrītu personas datu apstrādes noteikumiem.",
+    "pSazina": "Piekrītu personas datu apstrādes noteikumiem",
     "buttonSazina": "SŪTĪT"
   },
   "parmani": {
     "h1Parmani": "Par aģentu",
-    "pParmani1": "Nekustamo īpašumu pārdošanā kopš 2006. gada, specializācija – dzīvojamais fonds: dzīvokļu, privātmāju un zemju tirdzniecība un īre Rīgā un Rīgas rajonā. Pieredze apjomīgu projektu tirdzniecībā kā projektu vadītājai (attīstītāju projekti virs 100 dzīvokļiem).",
-    "pParmani2": "Vairāk ka 600 pārdošanas un īres darījumi.",
-    "pParmani3": "Brīvi runāju trīs valodās – latviešu, krievu un angļu valodā.",
+    "pParmani1": "Nekustamo īpašumu pārdošanā kopš 2006. gada, specializācija – dzīvojamais fonds: dzīvokļu, privātmāju un zemju tirdzniecība un īre Rīgā un Rīgas rajonā. Pieredze apjomīgu projektu tirdzniecībā kā projektu vadītājai (attīstītāju projekti virs 100 dzīvokļiem)",
+    "pParmani2": "Vairāk ka 600 pārdošanas un īres darījumi",
+    "pParmani3": "Brīvi runāju trīs valodās – latviešu, krievu un angļu valodā",
     "buttonParmani": "SAZINĀTIES"
   },
   "ramis": {
@@ -92,8 +92,8 @@
   "izglitiba": {
     "h1Izglitiba1": "Izglītība",
     "h1Izglitiba2": "Personīgās īpašības",
-    "pIzglitiba1": "Esmu pabeigusi uzņēmējdarbības vadības studijas Rīgas Stradiņa universitātē (bakalaura grāds) un digitālā mārketinga studijas BA Turība. Esmu apmeklējusi neskaitāmus kvalifikācijas paaugstināšanas  un pārdošanas kursus, kas ir apliecināti ar sertifikātiem, regulāri piedalos LANĪDA rīkotajās konferencēs nozares speciālistiem. Angļu valodu esmu apguvusi Lielbritānijā (Oxford school branch).",
-    "pIzglitiba2": "Esmu profesionāla, korekta un ātra, pieejama saviem klientiem, ar elastīgu darba laiku. Spēju pielāgoties klienta laika grafikam.",
+    "pIzglitiba1": "Esmu pabeigusi uzņēmējdarbības vadības studijas Rīgas Stradiņa universitātē (bakalaura grāds) un digitālā mārketinga studijas BA Turība. Esmu apmeklējusi neskaitāmus kvalifikācijas paaugstināšanas  un pārdošanas kursus, kas ir apliecināti ar sertifikātiem, regulāri piedalos LANĪDA rīkotajās konferencēs nozares speciālistiem. Angļu valodu esmu apguvusi Lielbritānijā (Oxford school branch)",
+    "pIzglitiba2": "Esmu profesionāla, korekta un ātra, pieejama saviem klientiem, ar elastīgu darba laiku. Spēju pielāgoties klienta laika grafikam",
     "buttonIzglitiba": "PIETEIKT ĪPAŠUMU"
   },
   "pakalpojumi": {
@@ -111,14 +111,14 @@
     "pPakalpojumi6": "Juridisko jautājumu risināšana un līgumu sagatavošana (līgumus sagatavo kvalificēts jurists), vizītes pieteikšana pie notāra klātienē vai digitinotāra, dokumentu iesniegšana reģistrācijai zemesgrāmatā",
     "pPakalpojumi7": "Darījuma noslēgums: pieņemšanas – nodošanas akts un atslēgu nodošana",
     "specialpPakalpojumi1": "Pakalpojuma cena:",
-    "specialpPakalpojumi2": "3-5% no darījuma summas.",
+    "specialpPakalpojumi2": "3-5% no darījuma summas",
     "specialpPakalpojumi3": "Īres darījumiem:",
     "specialpPakalpojumi4": "viena mēneša īres maksas apmērā",
     "pPakalpojumi8": "Darījuma juridiskā stratēģija un soļi",
     "pPakalpojumi9": "Rokasnaudas vai priekšlīguma sagatave",
     "pPakalpojumi10": "Pirkuma līguma sagatave",
     "pPakalpojumi11": "Pieņemšanas-nodošanas akta sagatavošana",
-    "specialpPakalpojumi5": "% no darījuma summas.",
+    "specialpPakalpojumi5": "% no darījuma summas",
     "specialpPakalpojumi6": "bet ne mazāk kā",
     "pPakalpojumi12": "Konkurentu un tirgus izpēte",
     "pPakalpojumi13": "Cenu politikas izpēte",

@@ -224,7 +224,7 @@ function ObjektiIeskats() {
             {/* Property Info Section */}
             <section className="w-full max-w-screen-xl mx-auto px-4 lg:px-6">
                 <div className="w-full md:w-[742px] py-12 bg-white text-[#5B3767]">
-                    <div className="grid grid-cols-2 lg:grid-cols-4">
+                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
                         <div className="text-center lg:text-left space-y-2 font-barlow400">
                             <span className="block">{t("jaunakieObjekti.spanObjekti1")}</span>
                             <span className="block">{t("objektiIeskats.spanIeskats1")}</span>
@@ -235,7 +235,7 @@ function ObjektiIeskats() {
                 {t(propertyTypeToTranslationKey[property.type])} {/* Translate property type */}
             </span>
                         </div>
-                        <div className="text-center lg:text-right space-y-2 font-barlow400 mt-6 lg:mt-0">
+                        <div className="text-center lg:text-right space-y-2 font-barlow400">
                             <span className="block">{t("objektiIeskats.spanIeskats2")}</span>
                             {/* Hide "Rooms" and "Floors" if property type is "Land" */}
                             {property.type !== "Land" && (
@@ -249,7 +249,7 @@ function ObjektiIeskats() {
                                 </>
                             )}
                         </div>
-                        <div className="text-center lg:text-right space-y-2 font-barlow500 mt-6 lg:mt-0">
+                        <div className="text-center lg:text-right space-y-2 font-barlow500">
                             <span className="block font-semibold">{property.size} m²</span>
                             {/* Hide "Rooms" and "Floors" if property type is "Land" */}
                             {property.type !== "Land" && (
@@ -366,7 +366,7 @@ function ObjektiIeskats() {
                                 {t("objektiIeskats.spanIeskats6")}
                             </p>
                             <p className="font-barlow400 text-lg">TĀLR.: +371 20 016 688</p>
-                            <p className="font-barlow400 text-lg">E-PASTS: JASKOGUNA@GMAIL.COM</p>
+                            <p className="font-barlow400 text-lg">E-PASTS: guna.jasko@gmail.com</p>
                         </div>
                     </div>
                     <div className="flex flex-col items-center lg:items-end space-y-4 mt-8 lg:mt-0">

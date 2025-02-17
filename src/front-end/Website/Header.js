@@ -6,12 +6,12 @@ import { useTranslation } from "react-i18next";
 const Header = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     const [scrolling, setScrolling] = useState(false);
-    const { t, i18n } = useTranslation();
+    const {t, i18n} = useTranslation();
     const location = useLocation();
     const navigate = useNavigate();
 
     const languages = ['lv', 'en', 'ru'];
-    const [currentLangIndex, setCurrentLangIndex] = useState(languages.indexOf(i18n.language));
+    const [currentLangIndex, setCurrentLangIndex] = useState(languages.indexOf(i18n.language) || 0);
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
@@ -31,7 +31,7 @@ const Header = () => {
         i18n.changeLanguage(nextLang);
         const params = new URLSearchParams(location.search);
         params.set('lang', nextLang);
-        navigate({ search: params.toString() });
+        navigate({search: params.toString()});
         setCurrentLangIndex(nextLangIndex);
     };
 
@@ -208,7 +208,7 @@ const Header = () => {
                                 {t("menu.contact")}
                             </Link>
                             <button onClick={toggleLanguage}>
-                                {languages[currentLangIndex].toUpperCase()}
+                                {languages[currentLangIndex] ? languages[currentLangIndex].toUpperCase() : 'LV'}
                             </button>
                         </div>
                     </nav>
