@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {Link} from "react-router-dom";
 import Kabinets from "../../../img/Kabinets.webp";
 import Pakalpojumaimg2 from "../../../img/Pakalpojumaimg2.webp";
-import { useTranslation } from "react-i18next";
+import {useTranslation} from "react-i18next";
 import LazyBackground from "../LazyBackground";
 
 function Darijuma() {
@@ -35,7 +35,7 @@ function Darijuma() {
                         to="/starpniecibas"
                         className="hover:underline text-lg lg:text-xl"
                         onClick={() => {
-                            window.scrollTo({ top: 0, behavior: "smooth" });
+                            window.scrollTo({top: 0, behavior: "smooth"});
                             setMenuOpen(false);
                         }}
                     >
@@ -46,7 +46,7 @@ function Darijuma() {
                         to="/darijuma"
                         className="hover:underline text-lg lg:text-xl"
                         onClick={() => {
-                            window.scrollTo({ top: 0, behavior: "smooth" });
+                            window.scrollTo({top: 0, behavior: "smooth"});
                             setMenuOpen(false);
                         }}
                     >
@@ -57,7 +57,7 @@ function Darijuma() {
                         to="/projekti"
                         className="hover:underline text-lg lg:text-xl"
                         onClick={() => {
-                            window.scrollTo({ top: 0, behavior: "smooth" });
+                            window.scrollTo({top: 0, behavior: "smooth"});
                             setMenuOpen(false);
                         }}
                     >
@@ -102,17 +102,22 @@ function Darijuma() {
                     <div
                         className="w-full lg:w-1/3 text-[#9C9150] text-lg sm:text-xl text-left lg:text-right flex flex-col justify-end space-y-4"> {/* Adjust this value */}
                         <p className="font-garamond500">{t("pakalpojumi.specialpPakalpojumi1")}</p>
-                        <p className="font-garamond500"><span className="font-infant600 font-bold text-2xl">1</span>{t("pakalpojumi.specialpPakalpojumi5")}</p>
-                        <p className="font-garamond500">{t("pakalpojumi.specialpPakalpojumi6")}<span className="font-infant600 text-2xl font-bold"> 500</span> EUR</p>
+                        <p className="font-garamond500"><span
+                            className="font-infant600 font-bold text-2xl">1</span>{t("pakalpojumi.specialpPakalpojumi5")}
+                        </p>
+                        <p className="font-garamond500">{t("pakalpojumi.specialpPakalpojumi6")}<span
+                            className="font-infant600 text-2xl font-bold"> 500</span> EUR</p>
                     </div>
                 </div>
 
                 {/* Centered Button */}
                 <div className="flex justify-center mt-12">
-                    <a href="https://guna.lucid-websites.com/kontakti"><button
+                    <a href="https://guna.lucid-websites.com/kontakti">
+                        <button
                             className="w-[274px] h-[55px] bg-[#5B3767] hover:bg-[#371243] transition duration-300 ease-in-out text-[#CDC697] font-medium">
-                        {t("pakalpojumi.buttonPakalpojumi")}
-                        </button></a>
+                            {t("pakalpojumi.buttonPakalpojumi")}
+                        </button>
+                    </a>
                 </div>
 
                 {/* Image Placeholder */}

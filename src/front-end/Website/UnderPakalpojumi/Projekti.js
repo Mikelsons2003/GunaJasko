@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import Pakalpojumaimg3 from "../../../img/Pakalpojumaimg3.webp";
 import {Link} from "react-router-dom";
 import Kabinets from "../../../img/Kabinets.webp";
-import { useTranslation } from "react-i18next";
+import {useTranslation} from "react-i18next";
 import LazyBackground from "../LazyBackground";
 
 
@@ -36,7 +36,7 @@ function Projekti() {
                         to="/starpniecibas"
                         className="hover:underline text-lg lg:text-xl"
                         onClick={() => {
-                            window.scrollTo({ top: 0, behavior: "smooth" });
+                            window.scrollTo({top: 0, behavior: "smooth"});
                             setMenuOpen(false);
                         }}
                     >
@@ -47,7 +47,7 @@ function Projekti() {
                         to="/darijuma"
                         className="hover:underline text-lg lg:text-xl"
                         onClick={() => {
-                            window.scrollTo({ top: 0, behavior: "smooth" });
+                            window.scrollTo({top: 0, behavior: "smooth"});
                             setMenuOpen(false);
                         }}
                     >
@@ -58,7 +58,7 @@ function Projekti() {
                         to="/projekti"
                         className="hover:underline text-lg lg:text-xl"
                         onClick={() => {
-                            window.scrollTo({ top: 0, behavior: "smooth" });
+                            window.scrollTo({top: 0, behavior: "smooth"});
                             setMenuOpen(false);
                         }}
                     >
@@ -122,7 +122,8 @@ function Projekti() {
                         <button
                             className="w-[274px] h-[55px] bg-[#5B3767] hover:bg-[#371243] transition duration-300 ease-in-out text-[#CDC697] font-medium">
                             {t("pakalpojumi.buttonPakalpojumi")}
-                        </button></a>
+                        </button>
+                    </a>
                 </div>
 
                 {/* Image Placeholder */}

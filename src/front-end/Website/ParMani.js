@@ -6,7 +6,7 @@ import Check from "../../img/Check.webp";
 import Safety from "../../img/Safety.webp";
 import Lanida from "../../img/Lanida.webp";
 import GunaParMani from "../../img/GunaParMani.png";
-import { useTranslation } from "react-i18next";
+import {useTranslation} from "react-i18next";
 import LazyBackground from "./LazyBackground";
 
 function ParMani() {
@@ -14,42 +14,42 @@ function ParMani() {
     return (
         <div className="font-sans text-white">
             <div className="bg-[#5B3767] ">
-            <div
-                className="max-w-screen-xl mx-auto px-4 sm:px-8 flex flex-col lg:flex-row items-center lg:min-h-[810px] pt-24">
-                {/* Left: Text Section */}
                 <div
-                    className="w-full lg:w-1/2 space-y-6 flex flex-col justify-center h-full">
-                    <div className="lg:justify-start">
-                        <h2 className="text-3xl sm:text-4xl text-center lg:text-left text-white">{t("parmani.h1Parmani")}</h2>
-                        <p className="text-sm sm:text-lg leading-relaxed text-center lg:text-left mt-6 sm:mt-10 text-white">
-                            {t("parmani.pParmani1")}
-                        </p>
-                        <p className="text-sm sm:text-lg leading-relaxed text-center lg:text-left mt-6 sm:mt-20 text-white">
-                            {t("parmani.pParmani2")}
-                        </p>
-                        <p className="text-sm sm:text-lg leading-relaxed text-center lg:text-left mt-6 sm:mt-10 text-white">
-                            {t("parmani.pParmani3")}
-                        </p>
+                    className="max-w-screen-xl mx-auto px-4 sm:px-8 flex flex-col lg:flex-row items-center lg:min-h-[810px] pt-24">
+                    {/* Left: Text Section */}
+                    <div
+                        className="w-full lg:w-1/2 space-y-6 flex flex-col justify-center h-full">
+                        <div className="lg:justify-start">
+                            <h2 className="text-3xl sm:text-4xl text-center lg:text-left text-white">{t("parmani.h1Parmani")}</h2>
+                            <p className="text-sm sm:text-lg leading-relaxed text-center lg:text-left mt-6 sm:mt-10 text-white">
+                                {t("parmani.pParmani1")}
+                            </p>
+                            <p className="text-sm sm:text-lg leading-relaxed text-center lg:text-left mt-6 sm:mt-20 text-white">
+                                {t("parmani.pParmani2")}
+                            </p>
+                            <p className="text-sm sm:text-lg leading-relaxed text-center lg:text-left mt-6 sm:mt-10 text-white">
+                                {t("parmani.pParmani3")}
+                            </p>
+                        </div>
+                        <div className="flex justify-center lg:justify-start pb-4">
+                            <a href="https://guna.lucid-websites.com/kontakti">
+                                <button
+                                    className="w-[274px] h-[55px] border border-[#CDC697] text-[#CDC697] mt-10 hover:text-[#9C9150] hover:border-[#9C9150] transition duration-300 ease-in-out">
+                                    {t("parmani.buttonParmani")}
+                                </button>
+                            </a>
+                        </div>
                     </div>
-                    <div className="flex justify-center lg:justify-start pb-4">
-                        <a href="https://guna.lucid-websites.com/kontakti">
-                            <button
-                                className="w-[274px] h-[55px] border border-[#CDC697] text-[#CDC697] mt-10 hover:text-[#9C9150] hover:border-[#9C9150] transition duration-300 ease-in-out">
-                                {t("parmani.buttonParmani")}
-                            </button>
-                        </a>
-                    </div>
-                </div>
 
-                {/* Right: Image Section */}
-                <div
-                    className="w-full lg:w-1/2 justify-center lg:justify-end flex items-center h-full">
-                    <LazyBackground
-                        image={GunaParMani}
-                        className="w-[300px] sm:w-[433px] h-[400px] sm:h-[605px] bg-cover bg-center mb-6 lg:mb-0 3xl:-mb-48"
-                    ></LazyBackground>
+                    {/* Right: Image Section */}
+                    <div
+                        className="w-full lg:w-1/2 justify-center lg:justify-end flex items-center h-full">
+                        <LazyBackground
+                            image={GunaParMani}
+                            className="w-[300px] sm:w-[433px] h-[400px] sm:h-[605px] bg-cover bg-center mb-6 lg:mb-0 3xl:-mb-48"
+                        ></LazyBackground>
+                    </div>
                 </div>
-            </div>
             </div>
             {/* Main Container */}
             <div
@@ -144,7 +144,8 @@ function ParMani() {
                                 className="w-16 h-16 bg-contain bg-no-repeat bg-left">
                             </LazyBackground>
                             {/* Title */}
-                            <div className="font-barlow400 text-xl lg:text-2xl text-white">{t("sakumlapaAbout.divAbout1")}</div>
+                            <div
+                                className="font-barlow400 text-xl lg:text-2xl text-white">{t("sakumlapaAbout.divAbout1")}</div>
                             {/* Description */}
                             <p className="text-sm">{t("sakumlapaAbout.pAbout1")}</p>
                         </div>
@@ -158,7 +159,8 @@ function ParMani() {
                                 className="w-16 h-16 bg-contain bg-no-repeat bg-left">
                             </LazyBackground>
                             {/* Title */}
-                            <div className="font-barlow400 text-xl lg:text-2xl text-white">{t("sakumlapaAbout.divAbout2")}</div>
+                            <div
+                                className="font-barlow400 text-xl lg:text-2xl text-white">{t("sakumlapaAbout.divAbout2")}</div>
                             {/* Description */}
                             <p className="text-sm">{t("sakumlapaAbout.pAbout2")}</p>
                         </div>
@@ -172,7 +174,8 @@ function ParMani() {
                                 className="w-16 h-16 bg-contain bg-no-repeat bg-left">
                             </LazyBackground>
                             {/* Title */}
-                            <div className="font-barlow400 text-xl lg:text-2xl text-white">{t("sakumlapaAbout.divAbout3")}</div>
+                            <div
+                                className="font-barlow400 text-xl lg:text-2xl text-white">{t("sakumlapaAbout.divAbout3")}</div>
                             {/* Description */}
                             <p className="text-sm">{t("sakumlapaAbout.pAbout3")}</p>
                         </div>
@@ -186,7 +189,8 @@ function ParMani() {
                                 className="w-[95px] h-[72px] bg-contain bg-no-repeat bg-left">
                             </LazyBackground>
                             {/* Title */}
-                            <div className="font-barlow400 text-xl lg:text-xl text-white">{t("sakumlapaAbout.divAbout4")}</div>
+                            <div
+                                className="font-barlow400 text-xl lg:text-xl text-white">{t("sakumlapaAbout.divAbout4")}</div>
                             {/* Description */}
                             <a href="https://lanida.lv/biedri/guna-jasko-2/"
                                className="font-barlow400 text-sm underline text-[#CDC697] hover:text-[#9C9150] transition duration-300">
@@ -197,10 +201,12 @@ function ParMani() {
 
                     {/* Button */}
                     <div className="mt-12">
-                        <a href="https://guna.lucid-websites.com/pakalpojumi"><button
-                            className="w-full max-w-[317px] h-[55px] border border-[#CDC697] text-[#CDC697] hover:text-[#9C9150] hover:border-[#9C9150] transition duration-300 ease-in-out text-sm">
-                            {t("sakumlapaAbout.buttonAbout")}
-                        </button></a>
+                        <a href="https://guna.lucid-websites.com/pakalpojumi">
+                            <button
+                                className="w-full max-w-[317px] h-[55px] border border-[#CDC697] text-[#CDC697] hover:text-[#9C9150] hover:border-[#9C9150] transition duration-300 ease-in-out text-sm">
+                                {t("sakumlapaAbout.buttonAbout")}
+                            </button>
+                        </a>
                     </div>
                 </div>
             </section>
@@ -229,10 +235,12 @@ function ParMani() {
 
                     {/* Button */}
                     <div className="flex justify-center">
-                        <a href="https://guna.lucid-websites.com/kontakti"><button
-                            className="w-[272px] h-[55px] sm:w-[317px] sm:h-[55px] bg-[#5B3767] hover:bg-[#371243] transition duration-300 ease-in-out text-[#CDC697]">
-                            {t("izglitiba.buttonIzglitiba")}
-                        </button></a>
+                        <a href="https://guna.lucid-websites.com/kontakti">
+                            <button
+                                className="w-[272px] h-[55px] sm:w-[317px] sm:h-[55px] bg-[#5B3767] hover:bg-[#371243] transition duration-300 ease-in-out text-[#CDC697]">
+                                {t("izglitiba.buttonIzglitiba")}
+                            </button>
+                        </a>
                     </div>
                 </div>
             </section>

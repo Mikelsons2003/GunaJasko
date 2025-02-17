@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import JaunakieObjekti from '../../img/JaunakieObjekti.webp';
 import ArrowLeft from '../../img/ArrowLeft.png';
 import ArrowRight from '../../img/ArrowRight.png';
-import { useTranslation } from "react-i18next";
+import {useTranslation} from "react-i18next";
 
 const JaunakieObjektiSection = () => {
-    const { t } = useTranslation();
+    const {t} = useTranslation();
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const cards = [
@@ -71,7 +71,8 @@ const JaunakieObjektiSection = () => {
                                         : "hidden lg:block" // Show all cards on large screens
                                 }`}
                             >
-                                <div className="border border-[#CDC697] w-[261px] md:w-[311px] 2xl:w-[341px] h-full mx-auto">
+                                <div
+                                    className="border border-[#CDC697] w-[261px] md:w-[311px] 2xl:w-[341px] h-full mx-auto">
                                     {/* Image */}
                                     <div
                                         className="w-[260px] md:w-[310px] 2xl:w-[340px] h-[254px] bg-gray-200"

@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import emailjs from "emailjs-com"; // Import EmailJS
 import PopupMessage from "./PopupMessage"; // Import PopupMessage
 import Kontaktu from "../../img/Kontaktu.png";
 import GunaKontakti from "../../img/GunaKontakti.png";
-import { useTranslation } from "react-i18next";
+import {useTranslation} from "react-i18next";
 import LazyBackground from "./LazyBackground";
 
 const Kontakti = () => {
-    const { t } = useTranslation();
+    const {t} = useTranslation();
     const [popupVisible, setPopupVisible] = useState(false);
     const [formData, setFormData] = useState({
         name: "",
@@ -17,7 +17,7 @@ const Kontakti = () => {
     });
 
     const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
+        setFormData({...formData, [e.target.name]: e.target.value});
     };
 
     const handleFormSubmit = (e) => {
@@ -32,7 +32,7 @@ const Kontakti = () => {
         emailjs.send(serviceID, templateID, formData, userID)
             .then(() => {
                 setPopupVisible(true);
-                setFormData({ name: "", email: "", phone: "", message: "" }); // Reset form
+                setFormData({name: "", email: "", phone: "", message: ""}); // Reset form
             })
             .catch((error) => {
                 console.error("Error sending email:", error);
@@ -43,10 +43,11 @@ const Kontakti = () => {
         <LazyBackground
             image={Kontaktu}
             className="text-white min-h-[87vh] relative"
-            style={{ backgroundSize: "contain" }}
+            style={{backgroundSize: "contain"}}
         >
             <div className="flex justify-center items-center min-h-[87vh] px-4 md:px-8 lg:px-0 pt-20 md:pt-28 pb-4">
-                <div className="w-full max-w-[1267px] bg-[#CDC697] flex flex-col lg:flex-row justify-between items-center py-12 px-6 lg:py-16 lg:px-8">
+                <div
+                    className="w-full max-w-[1267px] bg-[#CDC697] flex flex-col lg:flex-row justify-between items-center py-12 px-6 lg:py-16 lg:px-8">
                     {/* Left Column: Form */}
                     <div className="w-full lg:w-1/2 lg:pr-8">
                         <h2 className="text-2xl lg:text-3xl text-[#5B3767] text-left mb-6">

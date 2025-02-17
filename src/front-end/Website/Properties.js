@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { getProperties } from "../../services/api";
+import React, {useEffect, useState} from "react";
+import {getProperties} from "../../services/api";
 
 const Properties = () => {
     const [properties, setProperties] = useState([]);

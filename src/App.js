@@ -1,8 +1,8 @@
-import React, { Suspense, useEffect, useState } from "react";
-import { Route, Routes, useLocation } from "react-router-dom";
+import React, {Suspense, useEffect, useState} from "react";
+import {Route, Routes, useLocation} from "react-router-dom";
 import "./App.css";
 import "./i18n";
-import { useTranslation } from "react-i18next";
+import {useTranslation} from "react-i18next";
 import Sakumlapa from "./front-end/Website/Sakumlapa";
 import ParMani from "./front-end/Website/ParMani";
 import Footer from "./front-end/Website/Footer";
@@ -20,7 +20,7 @@ import axios from "axios";
 axios.defaults.baseURL = "https://backends.lucid-websites.com/wp-json/wp/v2";
 
 function App() {
-    const { t } = useTranslation();
+    const {t} = useTranslation();
     const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(true);
     const location = useLocation();
@@ -43,20 +43,20 @@ function App() {
     return (
         <Suspense fallback={<div>Loading...</div>}>
             <div>
-                <Header />
+                <Header/>
                 <Routes>
-                    <Route path="/" element={<Sakumlapa />} />
-                    <Route path="/par-mani" element={<ParMani />} />
-                    <Route path="/pakalpojumi" element={<Pakalpojumi />} />
-                    <Route path="/starpniecibas" element={<Starpniecibas />} />
-                    <Route path="/darijuma" element={<Darijuma />} />
-                    <Route path="/projekti" element={<Projekti />} />
-                    <Route path="/objekti" element={<Objekti />} />
-                    <Route path="/objekti/:id" element={<ObjektiIeskats />} />
-                    <Route path="/kontakti" element={<Kontakti />} />
-                    <Route path="/privatuma-politika" element={<PrivatumaPolitika />} />
+                    <Route path="/" element={<Sakumlapa/>}/>
+                    <Route path="/par-mani" element={<ParMani/>}/>
+                    <Route path="/pakalpojumi" element={<Pakalpojumi/>}/>
+                    <Route path="/starpniecibas" element={<Starpniecibas/>}/>
+                    <Route path="/darijuma" element={<Darijuma/>}/>
+                    <Route path="/projekti" element={<Projekti/>}/>
+                    <Route path="/objekti" element={<Objekti/>}/>
+                    <Route path="/objekti/:id" element={<ObjektiIeskats/>}/>
+                    <Route path="/kontakti" element={<Kontakti/>}/>
+                    <Route path="/privatuma-politika" element={<PrivatumaPolitika/>}/>
                 </Routes>
-                <Footer />
+                <Footer/>
             </div>
         </Suspense>
     );

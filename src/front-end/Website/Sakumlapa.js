@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, {useRef, useState} from "react";
 import JaunakieObjekti from "./JaunakieObjekti";
 import BedroomImage from '../../img/BedroomImage.jpg';
 import GunaJasko from '../../img/GunaJasko.png';
@@ -16,7 +16,7 @@ import Lanida from '../../img/Lanida.webp';
 import ArrowLeft from '../../img/ArrowLeft.png';
 import ArrowRight from '../../img/ArrowRight.png';
 import ContactForm from "./ContactForm";
-import { useTranslation } from "react-i18next";
+import {useTranslation} from "react-i18next";
 import LazyBackground from "./LazyBackground";
 
 function Sakumlapa() {
@@ -27,7 +27,7 @@ function Sakumlapa() {
             : nameParts[0][0]; // If only one name exists
     };
 
-    const { t } = useTranslation();
+    const {t} = useTranslation();
 
     const contactFormRef = useRef(null); // Create a reference for ContactForm
     const [currentIndex, setCurrentIndex] = useState(0); // State for testimonials
@@ -94,7 +94,7 @@ function Sakumlapa() {
         <div className="mx-auto text-white">
             <LazyBackground
                 image={BedroomImage}
-                className="bg-black bg-opacity-40 h-[812px] lg:h-[900px] 2xl:h-[970px] relative overflow-hidden mb-5"
+                className="bg-black bg-opacity-40 h-[830px] lg:h-[900px] 2xl:h-[970px] relative overflow-hidden mb-5"
             >
                 <div className="absolute inset-0  bg-black bg-opacity-60 pointer-events-none"></div>
 
@@ -138,7 +138,8 @@ function Sakumlapa() {
                                     image={Experience}
                                     className="w-16 h-16 bg-contain bg-no-repeat bg-left"
                                 ></LazyBackground>
-                                <div className="font-barlow400 text-2xl text-white">{t("sakumlapaAbout.divAbout1")}</div>
+                                <div
+                                    className="font-barlow400 text-2xl text-white">{t("sakumlapaAbout.divAbout1")}</div>
                                 <p className="font-barlow400 text-sm text-center xl:text-left">{t("sakumlapaAbout.pAbout1")}</p>
                             </div>
 
@@ -149,7 +150,8 @@ function Sakumlapa() {
                                     image={Check}
                                     className="w-16 h-16 bg-contain bg-no-repeat bg-left"
                                 ></LazyBackground>
-                                <div className="text-2xl font-barlow400 text-white">{t("sakumlapaAbout.divAbout2")}</div>
+                                <div
+                                    className="text-2xl font-barlow400 text-white">{t("sakumlapaAbout.divAbout2")}</div>
                                 <p className="font-barlow400 text-sm text-center xl:text-left">
                                     {t("sakumlapaAbout.pAbout2")}
                                 </p>
@@ -162,7 +164,8 @@ function Sakumlapa() {
                                     image={Safety}
                                     className="w-16 h-16 bg-contain bg-no-repeat bg-left"
                                 ></LazyBackground>
-                                <div className="text-2xl font-barlow400 text-white">{t("sakumlapaAbout.divAbout3")}</div>
+                                <div
+                                    className="text-2xl font-barlow400 text-white">{t("sakumlapaAbout.divAbout3")}</div>
                                 <p className="font-barlow400 text-sm text-center xl:text-left">{t("sakumlapaAbout.pAbout3")}</p>
                             </div>
 
@@ -173,7 +176,8 @@ function Sakumlapa() {
                                     image={Lanida}
                                     className="w-[95px] h-[72px] bg-contain bg-no-repeat bg-left"
                                 ></LazyBackground>
-                                <div className="text-2xl font-barlow400 text-white">{t("sakumlapaAbout.divAbout4")}</div>
+                                <div
+                                    className="text-2xl font-barlow400 text-white">{t("sakumlapaAbout.divAbout4")}</div>
                                 <a
                                     href="https://lanida.lv/biedri/guna-jasko-2/"
                                     className="font-barlow400 text-sm underline text-center xl:text-left"
@@ -230,10 +234,12 @@ function Sakumlapa() {
                         </h2>
 
                         {/* Testimonial Box */}
-                        <div className="relative bg-white w-full max-w-[320px] sm:max-w-[782px] h-auto opacity-90 p-6 sm:p-12 flex flex-col items-center">
+                        <div
+                            className="relative bg-white w-full max-w-[320px] sm:max-w-[782px] h-auto opacity-90 p-6 sm:p-12 flex flex-col items-center">
 
                             {/* Initials Circle */}
-                            <div className="w-[80px] sm:w-[100px] h-[80px] sm:h-[100px] bg-[#CDC697] rounded-full flex items-center justify-center text-[#5B3767] font-garamond500 text-2xl sm:text-3xl">
+                            <div
+                                className="w-[80px] sm:w-[100px] h-[80px] sm:h-[100px] bg-[#CDC697] rounded-full flex items-center justify-center text-[#5B3767] font-garamond500 text-2xl sm:text-3xl">
                                 {getInitials(testimonials[currentIndex].author)}
                             </div>
 

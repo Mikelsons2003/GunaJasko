@@ -4,28 +4,28 @@
 
 /* Global Styles */
 body {
-  margin: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 500;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
 }
 
 p {
-  font-family: 'Barlow Semi Condensed', sans-serif;
-  font-weight: 400;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-weight: 400;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
 /* Scoped Styles for Control Panel */
 .admin-panel {
-  font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 .admin-panel h1,
@@ -35,9 +35,9 @@ code {
 .admin-panel h5,
 .admin-panel h6,
 .admin-panel p {
-  font-family: inherit;
+    font-family: inherit;
 }
 
 .description p {
-  margin-bottom: 1.5em; /* Add space after each paragraph */
+    margin-bottom: 1.5em; /* Add space after each paragraph */
 }

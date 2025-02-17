@@ -2,9 +2,8 @@ import React, {useState} from "react";
 import Pakalpojumaimg1 from "../../img/Pakalpojumaimg1.jpg";
 import {Link} from "react-router-dom";
 import Kabinets from "../../img/Kabinets.webp";
-import { useTranslation } from "react-i18next";
+import {useTranslation} from "react-i18next";
 import LazyBackground from "./LazyBackground";
-import PrivatumaPolitikaImg from "../../img/PrivatumaPolitikaImg.webp";
 
 
 function Pakalpojumi() {
@@ -37,7 +36,7 @@ function Pakalpojumi() {
                         to="/starpniecibas"
                         className="hover:underline text-lg lg:text-xl"
                         onClick={() => {
-                            window.scrollTo({ top: 0, behavior: "smooth" });
+                            window.scrollTo({top: 0, behavior: "smooth"});
                             setMenuOpen(false);
                         }}
                     >
@@ -48,7 +47,7 @@ function Pakalpojumi() {
                         to="/darijuma"
                         className="hover:underline text-lg lg:text-xl"
                         onClick={() => {
-                            window.scrollTo({ top: 0, behavior: "smooth" });
+                            window.scrollTo({top: 0, behavior: "smooth"});
                             setMenuOpen(false);
                         }}
                     >
@@ -59,7 +58,7 @@ function Pakalpojumi() {
                         to="/projekti"
                         className="hover:underline text-lg lg:text-xl"
                         onClick={() => {
-                            window.scrollTo({ top: 0, behavior: "smooth" });
+                            window.scrollTo({top: 0, behavior: "smooth"});
                             setMenuOpen(false);
                         }}
                     >
@@ -81,7 +80,8 @@ function Pakalpojumi() {
                 </h1>
 
                 {/* Content Section */}
-                <div className="flex flex-col lg:flex-row justify-between items-start lg:items-stretch space-y-10 lg:space-y-0">
+                <div
+                    className="flex flex-col lg:flex-row justify-between items-start lg:items-stretch space-y-10 lg:space-y-0">
                     {/* Left Column */}
                     <div className="font-barlow400 w-full lg:w-2/3 text-left">
                         <ul className="space-y-6 text-base sm:text-lg leading-relaxed">
@@ -121,10 +121,12 @@ function Pakalpojumi() {
 
                 {/* Centered Button */}
                 <div className="flex justify-center mt-12">
-                    <a href="https://guna.lucid-websites.com/kontakti"><button
-                        className="w-[274px] h-[55px] bg-[#5B3767] hover:bg-[#371243] transition duration-300 ease-in-out text-[#CDC697]">
-                        {t("pakalpojumi.buttonPakalpojumi")}
-                    </button></a>
+                    <a href="https://guna.lucid-websites.com/kontakti">
+                        <button
+                            className="w-[274px] h-[55px] bg-[#5B3767] hover:bg-[#371243] transition duration-300 ease-in-out text-[#CDC697]">
+                            {t("pakalpojumi.buttonPakalpojumi")}
+                        </button>
+                    </a>
                 </div>
 
                 {/* Image Placeholder */}

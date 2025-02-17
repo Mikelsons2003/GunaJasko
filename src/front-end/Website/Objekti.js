@@ -159,6 +159,14 @@ function Objekti() {
         default: "jaunakieObjekti.spanObjekti3", // "Istabas" for others
     };
 
+    const formatPrice = (price) => {
+        if (price > 99999) {
+            // Convert the number to a string and add a space every 3 digits
+            return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+        }
+        return price.toString(); // Return the number as is if it's less than 100000
+    };
+
     return (
         <div className="mx-auto text-white">
             <section
@@ -307,28 +315,24 @@ function Objekti() {
                                 />
                             </div>
                             <div className="p-6">
-                                {/*<h1 className="font-garamond500 text-[#5B3767] text-xl mb-3 text-left">*/}
-                                {/*    {i18n.language === 'lv' ? property.titleLV :*/}
-                                {/*        i18n.language === 'ru' ? property.titleRU :*/}
-                                {/*            property.header}*/}
-                                {/*</h1>*/}
                                 <h1 className="font-garamond500 text-[#5B3767] text-2xl mb-3 text-left">
                                     {t(transactionTypeToTranslationKey[property.transactionType] || property.transactionType)}
                                 </h1>
                                 <h2 className="font-infant600 text-[#5B3767] text-2xl font-bold mb-4 text-left">
-                                    {property.price} EUR
+                                    {formatPrice(property.price)} EUR
                                 </h2>
                                 <div className="w-full border-b-[1px] border-[#9C9150] mb-4"></div>
                                 <div
-                                    className="font-barlow400 grid grid-cols-2 text-sm gap-y-2 text-left text-[#5B3767]">
+                                    className="font-barlow400 grid grid-cols-[auto_1fr] text-sm gap-y-2 text-left text-[#5B3767]">
                                     {/* Address */}
                                     <span>{t("jaunakieObjekti.spanObjekti1")}</span>
-                                    <span className="font-semibold text-right">{property.address}</span>
+                                    <span className="font-semibold text-right break-words">{property.address}</span>
 
                                     {/* Property Type */}
                                     <span>{t("jaunakieObjekti.spanObjekti2")}</span>
-                                    <span
-                                        className="font-semibold text-right">{t(propertyTypeToTranslationKey[property.type] || "objekti.liObjekti7")}</span>
+                                    <span className="font-semibold text-right">
+                                        {t(propertyTypeToTranslationKey[property.type] || "objekti.liObjekti7")}
+                                    </span>
 
                                     {/* Size or Rooms */}
                                     <span>{t(propertySizeLabelKey[property.type] || propertySizeLabelKey.default)}</span>

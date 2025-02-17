@@ -1,6 +1,6 @@
 import React from "react";
 import PrivatumaPolitikaImg from '../../img/PrivatumaPolitikaImg.webp';
-import { useTranslation } from "react-i18next";
+import {useTranslation} from "react-i18next";
 import LazyBackground from "./LazyBackground";
 
 function PrivatumaPolitika() {

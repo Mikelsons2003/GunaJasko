@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, {useEffect, useRef, useState} from "react";
 
-const LazyBackground = ({ image, className, children, backgroundSize = "cover" }) => {
+const LazyBackground = ({image, className, children, backgroundSize = "cover"}) => {
     const [isVisible, setIsVisible] = useState(false);
     const bgRef = useRef(null);
 
@@ -12,7 +12,7 @@ const LazyBackground = ({ image, className, children, backgroundSize = "cover" }
                     observer.unobserve(bgRef.current);
                 }
             },
-            { rootMargin: "0px", threshold: 0.1 }
+            {rootMargin: "0px", threshold: 0.1}
         );
 
         if (bgRef.current) {

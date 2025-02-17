@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import Pakalpojumaimg1 from "../../../img/Pakalpojumaimg1.jpg";
 import {Link} from "react-router-dom";
 import Kabinets from "../../../img/Kabinets.webp";
-import { useTranslation } from "react-i18next";
+import {useTranslation} from "react-i18next";
 import LazyBackground from "../LazyBackground";
 
 
@@ -36,7 +36,7 @@ function Starpniecibas() {
                         to="/starpniecibas"
                         className="hover:underline text-lg lg:text-xl"
                         onClick={() => {
-                            window.scrollTo({ top: 0, behavior: "smooth" });
+                            window.scrollTo({top: 0, behavior: "smooth"});
                             setMenuOpen(false);
                         }}
                     >
@@ -47,7 +47,7 @@ function Starpniecibas() {
                         to="/darijuma"
                         className="hover:underline text-lg lg:text-xl"
                         onClick={() => {
-                            window.scrollTo({ top: 0, behavior: "smooth" });
+                            window.scrollTo({top: 0, behavior: "smooth"});
                             setMenuOpen(false);
                         }}
                     >
@@ -58,7 +58,7 @@ function Starpniecibas() {
                         to="/projekti"
                         className="hover:underline text-lg lg:text-xl"
                         onClick={() => {
-                            window.scrollTo({ top: 0, behavior: "smooth" });
+                            window.scrollTo({top: 0, behavior: "smooth"});
                             setMenuOpen(false);
                         }}
                     >

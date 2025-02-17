@@ -1,10 +1,10 @@
 import React from "react";
-import { FaFacebookF, FaTiktok, FaLinkedinIn, FaInstagram, FaYoutube } from 'react-icons/fa';
-import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";
+import {FaFacebookF, FaInstagram, FaLinkedinIn, FaTiktok} from 'react-icons/fa';
+import {Link} from "react-router-dom";
+import {useTranslation} from "react-i18next";
 
 function Footer() {
-    const { t } = useTranslation();
+    const {t} = useTranslation();
     return (
         <div className="mx-auto font-sans text-white">
             <div className="footer bg-[#5B3767] text-white py-6">
