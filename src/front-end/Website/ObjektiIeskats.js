@@ -23,21 +23,6 @@ function ObjektiIeskats() {
     const propertyType = searchParams.get("propertyType") || "all";
     const transactionType = searchParams.get("transactionType") || "all";
 
-    // Translation mappings
-    const propertyTypeToTranslationKey = {
-        all: "objekti.liObjekti7", // "Visi" in Lv, "All" in Eng, "Все" in Ru
-        Apartment: "objekti.liObjekti14", // "Dzīvokļi" in Lv, "Apartments" in Eng, "Квартиры" in Ru
-        House: "objekti.liObjekti15", // "Mājas" in Lv, "Houses" in Eng, "Дома" in Ru
-        Land: "objekti.liObjekti4", // "Zeme" in Lv, "Land" in Eng, "Земля" in Ru
-        "New Project": "objekti.liObjekti5", // "Jaunie projekti" in Lv, "New Projects" in Eng, "Новые проекты" in Ru
-        "Investment Property": "objekti.liObjekti6", // "Investīciju objekti" in Lv, "Investment Properties" in Eng, "Инвестиционные объекты" in Ru
-    };
-
-    const transactionTypeToTranslationKey = {
-        Rent: "objekti.liObjekti8", // "Izīrē" in Lv, "Rent" in Eng, "Аренда" in Ru
-        Sell: "objekti.liObjekti9", // "Pārdod" in Lv, "Sell" in Eng, "Продажа" in Ru
-    };
-
     // Helper function to extract field values from content
     const extractField = (content, fieldName) => {
         const regex = new RegExp(
@@ -96,6 +81,7 @@ function ObjektiIeskats() {
                     descriptionRU: descriptionRU,
                     images: images,
                     image: fullSizeImageUrl || objekts1, // Fallback to objekts1 if no image
+                    transactionType: extractField(content, "Transaction Type"),
                 };
 
                 setProperty(formattedData);
@@ -110,6 +96,25 @@ function ObjektiIeskats() {
     if (!property) {
         return <LoadingSpinner/>;
     }
+    // Translation mappings
+    const propertyTypeToTranslationKey = {
+        all: "objekti.liObjekti7", // "Visi" in Lv, "All" in Eng, "Все" in Ru
+        Apartment: "objekti.liObjekti14", // "Dzīvokļi" in Lv, "Apartments" in Eng, "Квартиры" in Ru
+        House: "objekti.liObjekti15", // "Mājas" in Lv, "Houses" in Eng, "Дома" in Ru
+        Land: "objekti.liObjekti4", // "Zeme" in Lv, "Land" in Eng, "Земля" in Ru
+        "New Project": "objekti.liObjekti5", // "Jaunie projekti" in Lv, "New Projects" in Eng, "Новые проекты" in Ru
+        "Investment Property": "objekti.liObjekti6", // "Investīciju objekti" in Lv, "Investment Properties" in Eng, "Инвестиционные объекты" in Ru
+    };
+
+    const transactionTypeToTranslationKey = {
+        Rent: "objekti.liObjekti8", // "Izīrē" in Lv, "Rent" in Eng, "Аренда" in Ru
+        Sell: "objekti.liObjekti9", // "Pārdod" in Lv, "Sell" in Eng, "Продажа" in Ru
+    };
+
+    const transactionTypeToDisplay = {
+        Rent: "objekti.liObjekti8", // "Izīrē" in Lv, "Rent" in Eng, "Аренда" in Ru
+        Sell: "objekti.liObjekti9", // "Pārdod" in Lv, "Sell" in Eng, "Продажа" in Ru
+    };
 
     const formatPrice = (price) => {
         if (price > 99999) {
@@ -195,11 +200,9 @@ function ObjektiIeskats() {
                     </div>
                     {/* Title and Transaction Type */}
                     <h1 className="font-garamond500 text-2xl text-[#5B3767]">
-                        {transactionType !== "all" && (
-                            <span className="pr-1">
-                                {t(transactionTypeToTranslationKey[transactionType])}
-                            </span>
-                        )}
+                        <span className="pr-1">
+                            {t(transactionTypeToDisplay[property.transactionType])}
+                        </span>
                         {i18n.language === "lv" ? property.titleLV :
                             i18n.language === "ru" ? property.titleRU :
                                 property.header}
@@ -207,7 +210,7 @@ function ObjektiIeskats() {
 
                     {/* Price */}
                     <h1 className="font-infant600 text-3xl text-[#5B3767]">
-                        {formatPrice(property.price)} EUR
+                    {formatPrice(property.price)} EUR
                     </h1>
                 </div>
 
