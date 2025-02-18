@@ -281,7 +281,7 @@ function ObjektiIeskats() {
                     <div className="border-b-[1px] border-[#CDC697]"></div>
                 </div>
 
-                <div className="w-full text-left description">
+                <div className="w-full text-center description lg:text-left">
                     <div
                         className="font-barlow400 text-[#5B3767] leading-relaxed"
                         dangerouslySetInnerHTML={{__html: sanitizedDescription}}
