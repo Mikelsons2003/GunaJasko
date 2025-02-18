@@ -43,14 +43,11 @@ const Kontakti = () => {
         <div className="flex justify-center items-center w-full">
             <LazyBackground
                 image={Kontaktu}
-                className="text-white relative w-full xl:max-w-[1440px] specialSize:max-w-full" // Adjusted width to be responsive
-                style={{
-                    backgroundSize: "contain", // Ensures it fully fills the screen
-                    backgroundPosition: "center", // Centers the image properly
-                    backgroundRepeat: "no-repeat", // Prevents tiling
-                }}
+                className="text-white relative w-full xl:max-w-[1440px] specialSize:max-w-full"
+                backgroundSize="cover" // Zoom effect here
             >
-                <div className="flex justify-center items-center min-h-[87vh] px-4 md:px-8 lg:px-0 pt-20 md:pt-28 pb-4">
+
+            <div className="flex justify-center items-center min-h-[87vh] px-4 md:px-8 lg:px-0 pt-20 md:pt-28 pb-4">
                     <div
                         className="w-full max-w-[1267px] bg-[#CDC697] flex flex-col lg:flex-row justify-between items-center py-12 px-6 lg:py-16 lg:px-8">
                         {/* Left Column: Form */}

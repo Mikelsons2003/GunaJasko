@@ -210,7 +210,7 @@ function ObjektiIeskats() {
 
                     {/* Price */}
                     <h1 className="font-infant600 text-3xl text-[#5B3767]">
-                    {formatPrice(property.price)} EUR
+                        {formatPrice(property.price)} EUR
                     </h1>
                 </div>
 
