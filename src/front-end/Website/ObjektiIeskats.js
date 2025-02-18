@@ -64,6 +64,9 @@ function ObjektiIeskats() {
                 const descriptionLV = extractField(content, "Property Description LV");
                 const descriptionRU = extractField(content, "Property Description RU");
 
+                // Extract extra category
+                const extraCategory = extractField(content, "Extra Category");
+
                 // Format property data
                 const formattedData = {
                     id: data.id,
@@ -82,6 +85,9 @@ function ObjektiIeskats() {
                     images: images,
                     image: fullSizeImageUrl || objekts1, // Fallback to objekts1 if no image
                     transactionType: extractField(content, "Transaction Type"),
+                    isNewProject: extraCategory.toLowerCase().includes("new project"), // Check if it's a New Project
+                    isInvestmentProperty: extraCategory.toLowerCase().includes("investment property"), // Check if it's an Investment Property
+                    projectName: extractField(content, "Project Name"), // Extract Project Name
                 };
 
                 setProperty(formattedData);
@@ -200,9 +206,11 @@ function ObjektiIeskats() {
                     </div>
                     {/* Title and Transaction Type */}
                     <h1 className="font-garamond500 text-2xl text-[#5B3767]">
-                        <span className="pr-1">
-                            {t(transactionTypeToDisplay[property.transactionType])}
-                        </span>
+                        {!property.isNewProject && !property.isInvestmentProperty && (
+                            <span className="pr-1">
+                                {t(transactionTypeToDisplay[property.transactionType])}
+                            </span>
+                        )}
                         {i18n.language === "lv" ? property.titleLV :
                             i18n.language === "ru" ? property.titleRU :
                                 property.header}
@@ -233,42 +241,42 @@ function ObjektiIeskats() {
 
                         {/* Second Column: Values */}
                         <div className="text-center lg:text-left space-y-2 font-barlow500">
-            <span className="block font-semibold break-words w-full xxs:whitespace-nowrap">
-                {property.address}
-            </span>
+                                <span className="block font-semibold break-words w-full xxs:whitespace-nowrap">
+                                    {property.address}
+                                </span>
                             <span className="block font-semibold break-words whitespace-nowrap">
-                {t(propertyTypeToTranslationKey[property.type])} {/* Translate property type */}
-            </span>
+                                {t(propertyTypeToTranslationKey[property.type])} {/* Translate property type */}
+                            </span>
                         </div>
 
                         {/* Third Column: Labels */}
                         <div className="text-center lg:text-right space-y-2 font-barlow400">
                             <span className="block">{t("objektiIeskats.spanIeskats2")}</span>
-                            {property.type !== "Land" && (
+                            {property.type !== "Land" && !property.isNewProject && !property.isInvestmentProperty && (
                                 <>
                                     <span className="block">{t("objektiIeskats.spanIeskats3")}</span>
                                     <span className="block">
-                        {property.type === "House"
-                            ? t("objektiIeskats.spanIeskats7")
-                            : t("objektiIeskats.spanIeskats4")}
-                    </span>
+                                        {property.type === "House"
+                                            ? t("objektiIeskats.spanIeskats7")
+                                            : t("objektiIeskats.spanIeskats4")}
+                                    </span>
                                 </>
                             )}
                         </div>
 
                         {/* Fourth Column: Values */}
                         <div className="text-center lg:text-right space-y-2 font-barlow500">
-            <span className="block font-semibold break-words whitespace-nowrap">
-                {property.size} m²
-            </span>
-                            {property.type !== "Land" && (
-                                <>
-                    <span className="block font-semibold break-words whitespace-nowrap">
-                        {property.rooms}
-                    </span>
                                     <span className="block font-semibold break-words whitespace-nowrap">
-                        {property.floors}
-                    </span>
+                                        {property.size} m²
+                                    </span>
+                            {property.type !== "Land" && !property.isNewProject && !property.isInvestmentProperty && (
+                                <>
+                                    <span className="block font-semibold break-words whitespace-nowrap">
+                                        {property.rooms}
+                                    </span>
+                                    <span className="block font-semibold break-words whitespace-nowrap">
+                                        {property.floors}
+                                    </span>
                                 </>
                             )}
                         </div>
@@ -320,13 +328,13 @@ function ObjektiIeskats() {
                 {selectedImage && (
                     <motion.div
                         className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
+                        initial={{opacity: 0}}
+                        animate={{opacity: 1}}
+                        exit={{opacity: 0}}
                     >
                         {/* Close button */}
                         <button className="absolute top-4 right-4 text-white text-3xl" onClick={closeLightbox}>
-                            <X size={32} />
+                            <X size={32}/>
                         </button>
 
                         {/* Left Arrow */}
@@ -334,7 +342,7 @@ function ObjektiIeskats() {
                             className="absolute left-4 text-white text-3xl top-1/2 transform -translate-y-1/2"
                             onClick={prevImage}
                         >
-                            <ChevronLeft size={40} />
+                            <ChevronLeft size={40}/>
                         </button>
 
                         {/* Big Image */}
@@ -343,9 +351,9 @@ function ObjektiIeskats() {
                             src={selectedImage}
                             alt="Fullscreen"
                             className="max-w-[90vw] max-h-[80vh] rounded-lg"
-                            initial={{ scale: 0.8 }}
-                            animate={{ scale: 1 }}
-                            exit={{ scale: 0.8 }}
+                            initial={{scale: 0.8}}
+                            animate={{scale: 1}}
+                            exit={{scale: 0.8}}
                         />
 
                         {/* Right Arrow */}
@@ -353,7 +361,7 @@ function ObjektiIeskats() {
                             className="absolute right-4 text-white text-3xl top-1/2 transform -translate-y-1/2"
                             onClick={nextImage}
                         >
-                            <ChevronRight size={40} />
+                            <ChevronRight size={40}/>
                         </button>
 
                         {/* Thumbnails */}

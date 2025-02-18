@@ -14,7 +14,6 @@ function Objekti() {
     const [propertyType, setPropertyType] = useState("all");
     const [transactionType, setTransactionType] = useState("all");
     const itemsPerPage = 6;
-    const [recentProperties, setRecentProperties] = useState([]);
     const {t, i18n} = useTranslation();
 
 
@@ -32,6 +31,7 @@ function Objekti() {
                 const formattedData = data.map((item) => {
                     const content = item.content.rendered;
                     const extraCategory = extractField(content, "Extra Category");
+                    const projectName = extractField(content, "Project Name");
 
                     return {
                         id: item.id,
@@ -40,15 +40,15 @@ function Objekti() {
                         type: extractField(content, "Property Type"),
                         transactionType: extractField(content, "Transaction Type"),
                         rooms: parseInt(extractField(content, "Room Count")) || 0,
-                        size: parseFloat(content.match(/<label>Size:<\/label>\s*([^<]+)/)?.[1].trim()) || 0, // Directly use regex here
+                        size: parseFloat(content.match(/<label>Size:<\/label>\s*([^<]+)/)?.[1].trim()) || 0,
                         image: item.featured_media_src_url || objekts1,
                         date: new Date(item.date),
-                        isInvestmentProperty: extraCategory.includes("Investment Property"), // Check if it's an Investment Property
+                        isInvestmentProperty: extraCategory.includes("Investment Property"),
+                        isNewProject: extraCategory.toLowerCase().includes("new project"),
+                        projectName: projectName || null,
                     };
                 });
                 setProperties(formattedData);
-                const sortedByDate = [...formattedData].sort((a, b) => b.date - a.date);
-                setRecentProperties(sortedByDate.slice(0, 5));
             } catch (error) {
                 console.error("Error fetching properties:", error);
             }
@@ -96,32 +96,29 @@ function Objekti() {
         params.set(type, value);
         navigate({search: params.toString()});
     };
-    const filteredProperties = propertyType === "New Project"
-        ? recentProperties
-            .filter(property => {
-                return (transactionType === "all" || property.transactionType === transactionType);
-            })
-            .sort((a, b) => {
-                if (sortCriteria === "price") {
-                    return sortOrder === "asc" ? a.price - b.price : b.price - a.price;
-                } else if (sortCriteria === "rooms") {
-                    return sortOrder === "asc" ? a.rooms - b.rooms : b.rooms - a.rooms;
-                } else {
-                    return 0;
-                }
-            })
-        : properties.filter(property => {
-            return (propertyType === "all" || property.type === propertyType || (propertyType === "Investment Property" && property.isInvestmentProperty)) &&
+    const filteredProperties = properties.filter(property => {
+        // Handle "New Project" category
+        if (propertyType === "New Project") {
+            return property.isNewProject && (transactionType === "all" || property.transactionType === transactionType);
+        }
+        // Handle "Investment Property" category
+        else if (propertyType === "Investment Property") {
+            return property.isInvestmentProperty && (transactionType === "all" || property.transactionType === transactionType);
+        }
+        // Handle other property types (Apartment, House, Land, etc.)
+        else {
+            return (propertyType === "all" || property.type === propertyType) &&
                 (transactionType === "all" || property.transactionType === transactionType);
-        }).sort((a, b) => {
-            if (sortCriteria === "price") {
-                return sortOrder === "asc" ? a.price - b.price : b.price - a.price;
-            } else if (sortCriteria === "rooms") {
-                return sortOrder === "asc" ? a.rooms - b.rooms : b.rooms - a.rooms;
-            } else {
-                return 0;
-            }
-        });
+        }
+    }).sort((a, b) => {
+        if (sortCriteria === "price") {
+            return sortOrder === "asc" ? a.price - b.price : b.price - a.price;
+        } else if (sortCriteria === "rooms") {
+            return sortOrder === "asc" ? a.rooms - b.rooms : b.rooms - a.rooms;
+        } else {
+            return 0;
+        }
+    });
 
     const totalPages = Math.ceil(filteredProperties.length / itemsPerPage);
     const currentItems = filteredProperties.slice(
@@ -321,31 +318,62 @@ function Objekti() {
                                 />
                             </div>
                             <div className="p-6">
-                                <h1 className="font-garamond500 text-[#5B3767] text-2xl mb-3 text-left">
-                                    {t(transactionTypeToTranslationKey[property.transactionType] || property.transactionType)}
-                                </h1>
-                                <h2 className="font-infant600 text-[#5B3767] text-2xl font-bold mb-4 text-left">
-                                    {formatPrice(property.price)} EUR
-                                </h2>
-                                <div className="w-full border-b-[1px] border-[#9C9150] mb-4"></div>
-                                <div
-                                    className="font-barlow400 grid grid-cols-[auto_1fr] text-sm gap-y-2 text-left text-[#5B3767]">
-                                    {/* Address */}
-                                    <span>{t("jaunakieObjekti.spanObjekti1")}</span>
-                                    <span className="font-semibold text-right break-words">{property.address}</span>
+                                {/* Conditional Rendering for New Projects */}
+                                {property.isNewProject || property.isInvestmentProperty ? (
+                                    <>
+                                        {/* Display Project Name instead of Transaction Type */}
+                                        <h1 className="font-garamond500 text-[#5B3767] text-2xl mb-3 text-left">
+                                            {property.projectName}
+                                        </h1>
+                                        <h2 className="font-infant600 text-[#5B3767] text-2xl font-bold mb-4 text-left">
+                                            {formatPrice(property.price)} EUR
+                                        </h2>
+                                        <div className="w-full border-b-[1px] border-[#9C9150] mb-4"></div>
+                                        <div
+                                            className="font-barlow400 grid grid-cols-[auto_1fr] text-sm gap-y-2 text-left text-[#5B3767]">
+                                            {/* Address */}
+                                            <span>{t("jaunakieObjekti.spanObjekti1")}</span>
+                                            <span
+                                                className="font-semibold text-right break-words">{property.address}</span>
 
-                                    {/* Property Type */}
-                                    <span>{t("jaunakieObjekti.spanObjekti2")}</span>
-                                    <span className="font-semibold text-right">
-                                        {t(propertyTypeToTranslationKey[property.type] || "objekti.liObjekti7")}
-                                    </span>
+                                            {/* Property Type */}
+                                            <span>{t("jaunakieObjekti.spanObjekti2")}</span>
+                                            <span className="font-semibold text-right">
+                                {t(propertyTypeToTranslationKey[property.type] || "objekti.liObjekti7")}
+                            </span>
+                                        </div>
+                                    </>
+                                ) : (
+                                    <>
+                                        {/* Default Display for Non-New Projects */}
+                                        <h1 className="font-garamond500 text-[#5B3767] text-2xl mb-3 text-left">
+                                            {t(transactionTypeToTranslationKey[property.transactionType] || property.transactionType)}
+                                        </h1>
+                                        <h2 className="font-infant600 text-[#5B3767] text-2xl font-bold mb-4 text-left">
+                                            {formatPrice(property.price)} EUR
+                                        </h2>
+                                        <div className="w-full border-b-[1px] border-[#9C9150] mb-4"></div>
+                                        <div
+                                            className="font-barlow400 grid grid-cols-[auto_1fr] text-sm gap-y-2 text-left text-[#5B3767]">
+                                            {/* Address */}
+                                            <span>{t("jaunakieObjekti.spanObjekti1")}</span>
+                                            <span
+                                                className="font-semibold text-right break-words">{property.address}</span>
 
-                                    {/* Size or Rooms */}
-                                    <span>{t(propertySizeLabelKey[property.type] || propertySizeLabelKey.default)}</span>
-                                    <span className="font-semibold text-right">
-                                        {property.type === "Land" ? `${property.size} m²` : property.rooms}
-                                    </span>
-                                </div>
+                                            {/* Property Type */}
+                                            <span>{t("jaunakieObjekti.spanObjekti2")}</span>
+                                            <span className="font-semibold text-right">
+                                                {t(propertyTypeToTranslationKey[property.type] || "objekti.liObjekti7")}
+                                            </span>
+
+                                            {/* Size or Rooms (Hidden for New Projects) */}
+                                            <span>{t(propertySizeLabelKey[property.type] || propertySizeLabelKey.default)}</span>
+                                            <span className="font-semibold text-right">
+                                                {property.type === "Land" ? `${property.size} m²` : property.rooms}
+                                            </span>
+                                        </div>
+                                    </>
+                                )}
                                 <div className="flex justify-start mt-6 text-[#9C9150] text-sm">
                                     {t("jaunakieObjekti.aObjekti")} <span className="ml-1">&rarr;</span>
                                 </div>
