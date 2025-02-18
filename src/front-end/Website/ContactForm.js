@@ -137,7 +137,7 @@ export default function ContactForm() {
                     {/* Submit Button */}
                     <div className="text-center mt-6">
                         <button type="submit"
-                                className="w-full sm:w-[238px] h-[55px] bg-[#5B3767] text-[#CDC697] hover:bg-[#371243] transition duration-300">
+                                className="font-barlow500 w-full sm:w-[238px] h-[55px] bg-[#5B3767] text-[#CDC697] hover:bg-[#371243] transition duration-300">
                             {t("sazina.buttonSazina")}
                         </button>
                     </div>
