@@ -252,7 +252,7 @@ function ObjektiIeskats() {
                         {/* Third Column: Labels */}
                         <div className="text-center lg:text-right space-y-2 font-barlow400">
                             <span className="block">{t("objektiIeskats.spanIeskats2")}</span>
-                            {property.type !== "Land" && !property.isNewProject && !property.isInvestmentProperty && (
+                            {property.type !== "Land" && !property.isInvestmentProperty && (
                                 <>
                                     <span className="block">{t("objektiIeskats.spanIeskats3")}</span>
                                     <span className="block">
@@ -269,7 +269,7 @@ function ObjektiIeskats() {
                                     <span className="block font-semibold break-words whitespace-nowrap">
                                         {property.size} m²
                                     </span>
-                            {property.type !== "Land" && !property.isNewProject && !property.isInvestmentProperty && (
+                            {property.type !== "Land" && !property.isInvestmentProperty && (
                                 <>
                                     <span className="block font-semibold break-words whitespace-nowrap">
                                         {property.rooms}

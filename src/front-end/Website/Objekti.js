@@ -9,13 +9,13 @@ function Objekti() {
     const location = useLocation();
     const [properties, setProperties] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    // const [sortCriteria, setSortCriteria] = useState("none");
-    // const [sortOrder, setSortOrder] = useState("asc");
+    const [sortCriteria, setSortCriteria] = useState("none");
+    const [sortOrder, setSortOrder] = useState("asc");
     const [propertyType, setPropertyType] = useState("all");
     const [transactionType, setTransactionType] = useState("all");
+    const [selectedProject, setSelectedProject] = useState("all"); // New state for project filtering
     const itemsPerPage = 6;
     const {t, i18n} = useTranslation();
-
 
     const extractField = (content, fieldName) => {
         const regex = new RegExp(`<label>${fieldName}:<\\/label>\\s*([^<]+)`);
@@ -41,6 +41,7 @@ function Objekti() {
                         transactionType: extractField(content, "Transaction Type"),
                         rooms: parseInt(extractField(content, "Room Count")) || 0,
                         size: parseFloat(content.match(/<label>Size:<\/label>\s*([^<]+)/)?.[1].trim()) || 0,
+                        floors: parseInt(extractField(content, "Floor/s")) || 0,
                         image: item.featured_media_src_url || objekts1,
                         date: new Date(item.date),
                         isInvestmentProperty: extraCategory.includes("Investment Property"),
@@ -55,6 +56,7 @@ function Objekti() {
         };
         fetchProperties();
     }, []);
+
     useEffect(() => {
         const params = new URLSearchParams(location.search);
         const propertyTypeParam = params.get("propertyType") || "all";
@@ -63,30 +65,31 @@ function Objekti() {
         setTransactionType(transactionTypeParam);
     }, [location.search]);
 
-    // const sortProperties = (criteria, order) => {
-    //     const sortedProperties = [...properties].sort((a, b) => {
-    //         if (criteria === "price") {
-    //             return order === "asc" ? a.price - b.price : b.price - a.price;
-    //         } else if (criteria === "rooms") {
-    //             return order === "asc" ? a.rooms - b.rooms : b.rooms - a.rooms;
-    //         } else {
-    //             return 0;
-    //         }
-    //     });
-    //     setProperties(sortedProperties);
-    // };
+    const sortProperties = (criteria, order) => {
+        const sortedProperties = [...properties].sort((a, b) => {
+            if (criteria === "price") {
+                return order === "asc" ? a.price - b.price : b.price - a.price;
+            } else if (criteria === "rooms") {
+                return order === "asc" ? a.rooms - b.rooms : b.rooms - a.rooms;
+            } else if (criteria === "size") {
+                return order === "asc" ? a.size - b.size : b.size - a.size;
+            } else {
+                return 0;
+            }
+        });
+        setProperties(sortedProperties);
+    };
 
-    // const handleSortChange = (criteria) => {
-    //     if (criteria === sortCriteria) {
-    //         const newOrder = sortOrder === "asc" ? "desc" : "asc";
-    //         setSortOrder(newOrder);
-    //         sortProperties(criteria, newOrder);
-    //     } else {
-    //         setSortCriteria(criteria);
-    //         setSortOrder("asc");
-    //         sortProperties(criteria, "asc");
-    //     }
-    // };
+    const handleSortChange = (event) => {
+        const [criteria, order] = event.target.value.split("-");
+        setSortCriteria(criteria);
+        setSortOrder(order);
+        sortProperties(criteria, order);
+    };
+
+    const handleProjectFilterChange = (event) => {
+        setSelectedProject(event.target.value);
+    };
 
     const handleFilterChange = (type, value) => {
         const params = new URLSearchParams(location.search);
@@ -96,10 +99,12 @@ function Objekti() {
         params.set(type, value);
         navigate({search: params.toString()});
     };
+
     const filteredProperties = properties.filter(property => {
         // Handle "New Project" category
         if (propertyType === "New Project") {
-            return property.isNewProject && (transactionType === "all" || property.transactionType === transactionType);
+            return property.isNewProject && (transactionType === "all" || property.transactionType === transactionType) &&
+                (selectedProject === "all" || property.projectName === selectedProject);
         }
         // Handle "Investment Property" category
         else if (propertyType === "Investment Property") {
@@ -110,16 +115,17 @@ function Objekti() {
             return (propertyType === "all" || property.type === propertyType) &&
                 (transactionType === "all" || property.transactionType === transactionType);
         }
+    }).sort((a, b) => {
+        if (sortCriteria === "price") {
+            return sortOrder === "asc" ? a.price - b.price : b.price - a.price;
+        } else if (sortCriteria === "rooms") {
+            return sortOrder === "asc" ? a.rooms - b.rooms : b.rooms - a.rooms;
+        } else if (sortCriteria === "size") {
+            return sortOrder === "asc" ? a.size - b.size : b.size - a.size;
+        } else {
+            return 0;
+        }
     });
-    //     .sort((a, b) => {
-    //     if (sortCriteria === "price") {
-    //         return sortOrder === "asc" ? a.price - b.price : b.price - a.price;
-    //     } else if (sortCriteria === "rooms") {
-    //         return sortOrder === "asc" ? a.rooms - b.rooms : b.rooms - a.rooms;
-    //     } else {
-    //         return 0;
-    //     }
-    // });
 
     const totalPages = Math.ceil(filteredProperties.length / itemsPerPage);
     const currentItems = filteredProperties.slice(
@@ -170,6 +176,13 @@ function Objekti() {
         }
         return price.toString(); // Return the number as is if it's less than 100000
     };
+
+    // Get project names only from the "New Project" category
+    const projectNames = [...new Set(properties
+        .filter(property => property.isNewProject)
+        .map(property => property.projectName)
+        .filter(Boolean)
+    )];
 
     return (
         <div className="mx-auto text-white">
@@ -282,26 +295,36 @@ function Objekti() {
                             </>
                         )}
                     </div>
-                    {/*<div className="flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0">*/}
-                    {/*    <button*/}
-                    {/*        onClick={() => handleSortChange("price")}*/}
-                    {/*        className="font-barlow400 flex justify-between items-center border border-[#9C9150] text-[#9C9150] w-[223px] h-[63px] px-4 py-2"*/}
-                    {/*    >*/}
-                    {/*        <span>{t("objekti.spanSort1")}</span>*/}
-                    {/*        {sortCriteria === "price" && (*/}
-                    {/*            sortOrder === "asc" ? <PiArrowUpThin/> : <PiArrowDownThin/>*/}
-                    {/*        )}*/}
-                    {/*    </button>*/}
-                    {/*    <button*/}
-                    {/*        onClick={() => handleSortChange("rooms")}*/}
-                    {/*        className="font-barlow400 flex justify-between items-center border border-[#9C9150] text-[#9C9150] w-[223px] h-[63px] px-4 py-2"*/}
-                    {/*    >*/}
-                    {/*        <span>{t("objekti.spanSort2")}</span>*/}
-                    {/*        {sortCriteria === "rooms" && (*/}
-                    {/*            sortOrder === "asc" ? <PiArrowUpThin/> : <PiArrowDownThin/>*/}
-                    {/*        )}*/}
-                    {/*    </button>*/}
-                    {/*</div>*/}
+
+                    {/* Sorting and Project Filtering (Only for New Projects) */}
+                    {propertyType === "New Project" && (
+                        <div className="flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0">
+                            {/* Sorting Dropdown */}
+                            <select
+                                onChange={handleSortChange}
+                                className="font-barlow400 flex justify-between items-center border border-[#9C9150] text-[#9C9150] w-[223px] h-[63px] px-4 py-2"
+                            >
+                                <option value="none">Sort by</option>
+                                <option value="price-asc">Price Ascending</option>
+                                <option value="price-desc">Price Descending</option>
+                                <option value="size-asc">Size (m²) Ascending</option>
+                                <option value="size-desc">Size (m²) Descending</option>
+                                <option value="rooms-asc">Rooms Ascending</option>
+                                <option value="rooms-desc">Rooms Descending</option>
+                            </select>
+
+                            {/* Project Filter Dropdown */}
+                            <select
+                                onChange={handleProjectFilterChange}
+                                className="font-barlow400 flex justify-between items-center border border-[#9C9150] text-[#9C9150] w-[223px] h-[63px] px-4 py-2"
+                            >
+                                <option value="all">All Projects</option>
+                                {projectNames.map((projectName) => (
+                                    <option key={projectName} value={projectName}>{projectName}</option>
+                                ))}
+                            </select>
+                        </div>
+                    )}
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20">
@@ -309,7 +332,7 @@ function Objekti() {
                         <a
                             key={property.id}
                             href={`/objekti/${property.id}?propertyType=${propertyType}&transactionType=${transactionType}&lang=${i18n.language}`}
-                            className="border border-[#9C9150] bg-white block hover:shadow-lg transition-shadow duration-300 flex flex-col h-full"
+                            className="border border-[#9C9150] bg-white hover:shadow-lg transition-shadow duration-300 flex flex-col h-full"
                         >
                             <div className="w-full h-[254px] bg-gray-200">
                                 <img
@@ -322,7 +345,7 @@ function Objekti() {
                             {/* This div now expands and ensures the link stays at the bottom */}
                             <div className="p-6 flex flex-col justify-between flex-grow">
                                 {/* Conditional Rendering for New Projects */}
-                                {property.isNewProject || property.isInvestmentProperty ? (
+                                {property.isNewProject ? (
                                     <>
                                         <h1 className="font-garamond500 text-[#5B3767] text-2xl mb-3 text-left">
                                             {property.projectName}
@@ -333,14 +356,25 @@ function Objekti() {
                                         <div className="w-full border-b-[1px] border-[#9C9150] mb-4"></div>
                                         <div
                                             className="font-barlow400 grid grid-cols-[auto_1fr] text-sm gap-y-2 text-left text-[#5B3767]">
-                                            <span>{t("jaunakieObjekti.spanObjekti1")}</span>
-                                            <span
-                                                className="font-semibold text-right break-words">{property.address}</span>
-
                                             <span>{t("jaunakieObjekti.spanObjekti2")}</span>
                                             <span className="font-semibold text-right">
-                        {t(propertyTypeToTranslationKey[property.type] || "objekti.liObjekti7")}
-                    </span>
+                                                {t(propertyTypeToTranslationKey[property.type] || "objekti.liObjekti7")}
+                                            </span>
+
+                                            <span>{t("objektiIeskats.spanIeskats2")}</span>
+                                            <span className="font-semibold text-right">
+                                                {property.size} m²
+                                            </span>
+
+                                            <span>{t("objektiIeskats.spanIeskats3")}</span>
+                                            <span className="font-semibold text-right">
+                                                {property.rooms}
+                                            </span>
+
+                                            <span>{t("objektiIeskats.spanIeskats4")}</span>
+                                            <span className="font-semibold text-right">
+                                                {property.floors}
+                                            </span>
                                         </div>
                                     </>
                                 ) : (
@@ -450,7 +484,7 @@ function Objekti() {
                         className="text-[#9C9150] disabled:opacity-50"
                         disabled={currentPage === totalPages}
                     >
-                    &rarr;
+                        &rarr;
                     </button>
                 </div>
 
