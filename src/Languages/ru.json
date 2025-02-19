@@ -138,8 +138,8 @@
     "liObjekti5": "Новые проекты",
     "liObjekti6": "Инвестиционные объекты",
     "liObjekti7": "Все",
-    "liObjekti8": "В аренду",
-    "liObjekti9": "Для продажи",
+    "liObjekti8": "Аренда",
+    "liObjekti9": "Продажа",
     "liObjekti10": "Главная",
     "liObjekti11": "Предыдущий",
     "liObjekti12": "Следующий",
@@ -159,7 +159,7 @@
     "placeholderKontakti1": "Текст сообщения"
   },
   "objektiIeskats": {
-    "spanIeskats1": "Тип здания",
+    "spanIeskats1": "Тип",
     "spanIeskats2": "Область",
     "spanIeskats3": "Количество комнат",
     "spanIeskats4": "Пол",
