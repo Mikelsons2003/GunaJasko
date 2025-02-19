@@ -309,7 +309,7 @@ function Objekti() {
                         <a
                             key={property.id}
                             href={`/objekti/${property.id}?propertyType=${propertyType}&transactionType=${transactionType}&lang=${i18n.language}`}
-                            className="border border-[#9C9150] bg-white block hover:shadow-lg transition-shadow duration-300"
+                            className="border border-[#9C9150] bg-white block hover:shadow-lg transition-shadow duration-300 flex flex-col h-full"
                         >
                             <div className="w-full h-[254px] bg-gray-200">
                                 <img
@@ -318,11 +318,12 @@ function Objekti() {
                                     alt="Property"
                                 />
                             </div>
-                            <div className="p-6">
+
+                            {/* This div now expands and ensures the link stays at the bottom */}
+                            <div className="p-6 flex flex-col justify-between flex-grow">
                                 {/* Conditional Rendering for New Projects */}
                                 {property.isNewProject || property.isInvestmentProperty ? (
                                     <>
-                                        {/* Display Project Name instead of Transaction Type */}
                                         <h1 className="font-garamond500 text-[#5B3767] text-2xl mb-3 text-left">
                                             {property.projectName}
                                         </h1>
@@ -332,21 +333,18 @@ function Objekti() {
                                         <div className="w-full border-b-[1px] border-[#9C9150] mb-4"></div>
                                         <div
                                             className="font-barlow400 grid grid-cols-[auto_1fr] text-sm gap-y-2 text-left text-[#5B3767]">
-                                            {/* Address */}
                                             <span>{t("jaunakieObjekti.spanObjekti1")}</span>
                                             <span
                                                 className="font-semibold text-right break-words">{property.address}</span>
 
-                                            {/* Property Type */}
                                             <span>{t("jaunakieObjekti.spanObjekti2")}</span>
                                             <span className="font-semibold text-right">
-                                {t(propertyTypeToTranslationKey[property.type] || "objekti.liObjekti7")}
-                            </span>
+                        {t(propertyTypeToTranslationKey[property.type] || "objekti.liObjekti7")}
+                    </span>
                                         </div>
                                     </>
                                 ) : (
                                     <>
-                                        {/* Default Display for Non-New Projects */}
                                         <h1 className="font-garamond500 text-[#5B3767] text-2xl mb-3 text-left">
                                             {t(transactionTypeToTranslationKey[property.transactionType] || property.transactionType)}
                                         </h1>
@@ -356,30 +354,30 @@ function Objekti() {
                                         <div className="w-full border-b-[1px] border-[#9C9150] mb-4"></div>
                                         <div
                                             className="font-barlow400 grid grid-cols-[auto_1fr] text-sm gap-y-2 text-left text-[#5B3767]">
-                                            {/* Address */}
                                             <span>{t("jaunakieObjekti.spanObjekti1")}</span>
                                             <span
                                                 className="font-semibold text-right break-words">{property.address}</span>
 
-                                            {/* Property Type */}
                                             <span>{t("jaunakieObjekti.spanObjekti2")}</span>
                                             <span className="font-semibold text-right">
-                                                {t(propertyTypeToTranslationKey[property.type] || "objekti.liObjekti7")}
-                                            </span>
+                        {t(propertyTypeToTranslationKey[property.type] || "objekti.liObjekti7")}
+                    </span>
 
-                                            {/* Size or Rooms (Hidden for New Projects) */}
                                             <span>{t(propertySizeLabelKey[property.type] || propertySizeLabelKey.default)}</span>
                                             <span className="font-semibold text-right">
-                                                {property.type === "Land" ? `${property.size} m²` : property.rooms}
-                                            </span>
+                        {property.type === "Land" ? `${property.size} m²` : property.rooms}
+                    </span>
                                         </div>
                                     </>
                                 )}
-                                <div className="flex justify-start mt-6 text-[#9C9150] text-sm">
+
+                                {/* This will now always be at the bottom */}
+                                <div className="flex justify-start text-[#9C9150] text-sm mt-auto pt-4">
                                     {t("jaunakieObjekti.aObjekti")} <span className="ml-1">&rarr;</span>
                                 </div>
                             </div>
                         </a>
+
                     ))}
                 </div>
                 <div className="font-infant600 flex justify-center items-center mt-8 space-x-2">
@@ -452,7 +450,7 @@ function Objekti() {
                         className="text-[#9C9150] disabled:opacity-50"
                         disabled={currentPage === totalPages}
                     >
-                        &rarr;
+                    &rarr;
                     </button>
                 </div>
 

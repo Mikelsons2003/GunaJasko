@@ -1,7 +1,7 @@
 import React, {useRef, useState} from 'react';
 import emailjs from '@emailjs/browser';
 import PopupMessage from './PopupMessage';
-import SazinasForma from '../../img/SazinasForma.jpg';
+import SazinasForma from '../../img/SazinasForma.png';
 import {useTranslation} from "react-i18next";
 import LazyBackground from "./LazyBackground";
 
@@ -42,7 +42,7 @@ export default function ContactForm() {
 
             {/* Form Container */}
             <div
-                className="relative z-10 w-full lg:w-8/12 xl:w-7/12 2xl:w-5/12 mx-auto bg-[#E8E1D3] p-6 sm:p-10 shadow-lg -mt-16 mr-0 lg:mr-24 2xl:mr-96">
+                className="relative z-10 w-full lg:w-8/12 xl:w-7/12 2xl:w-5/12 mx-auto bg-[#E8E1D3] p-6 sm:p-10 shadow-lg mr-0 lg:mr-24 2xl:mr-96">
                 <h2 className="uppercase font-garamond500 text-[#6C256B] text-4xl mb-8 text-center xs:text-left">
                     {t("sazina.h1Sazina")}
                 </h2>
@@ -51,7 +51,7 @@ export default function ContactForm() {
                 <form ref={formRef} onSubmit={sendEmail} className="grid gap-6">
                     {/* First Name & Last Name */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div className="relative">
+                        <div className="relative font-barlow400">
                             <input type="text" name="user_name"
                                    className="peer text-[#9C9150] w-full p-4 pt-5 placeholder-transparent border border-[#E8E1D3] focus:outline-none hover:border-[#CDC697]"
                                    placeholder="Vārds" required/>
@@ -59,7 +59,7 @@ export default function ContactForm() {
                                        peer-focus:top-2 peer-focus:text-sm peer-focus:text-[#9C9150]
                                        peer-placeholder-shown:top-4 peer-placeholder-shown:text-[#9C9150]">{t("sazina.placeholderSazina1")}</label>
                         </div>
-                        <div className="relative">
+                        <div className="relative font-barlow400">
                             <input type="text" name="user_surname"
                                    className="peer text-[#9C9150] w-full p-4 pt-5 placeholder-transparent border border-[#E8E1D3] focus:outline-none hover:border-[#CDC697]"
                                    placeholder="Uzvārds" required/>
@@ -71,7 +71,7 @@ export default function ContactForm() {
 
                     {/* Email & Phone */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div className="relative">
+                        <div className="relative font-barlow400">
                             <input type="email" name="user_email"
                                    className="peer text-[#9C9150] w-full p-4 pt-5 placeholder-transparent border border-[#E8E1D3] focus:outline-none hover:border-[#CDC697]"
                                    placeholder="E-pasts" required/>
@@ -79,7 +79,7 @@ export default function ContactForm() {
                                        peer-focus:top-2 peer-focus:text-sm peer-focus:text-[#9C9150]
                                        peer-placeholder-shown:top-4 peer-placeholder-shown:text-[#9C9150]">{t("sazina.placeholderSazina3")}</label>
                         </div>
-                        <div className="relative">
+                        <div className="relative font-barlow400">
                             <input type="tel" name="user_phone"
                                    className="peer text-[#9C9150] w-full p-4 pt-5 placeholder-transparent border border-[#E8E1D3] focus:outline-none hover:border-[#CDC697]"
                                    placeholder="Tālrunis" required/>
@@ -90,7 +90,7 @@ export default function ContactForm() {
                     </div>
 
                     {/* Dropdowns (Transaction Type, Region, Property Type) */}
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 font-barlow400">
                         <div>
                             <select name="transaction_type"
                                     className="w-full p-4 text-[#9C9150] border border-[#E8E1D3] focus:outline-none hover:border-[#CDC697]">
@@ -118,7 +118,7 @@ export default function ContactForm() {
                     </div>
 
                     {/* Comments */}
-                    <div className="relative">
+                    <div className="relative font-barlow400">
                         <textarea name="message" rows="4"
                                   className="peer text-[#9C9150] w-full p-4 pt-5 placeholder-transparent border border-[#E8E1D3] focus:outline-none hover:border-[#CDC697]"
                                   placeholder="Komentārs"></textarea>
@@ -128,14 +128,14 @@ export default function ContactForm() {
                     </div>
 
                     {/* Checkbox */}
-                    <div className="flex items-center">
+                    <div className="flex items-center font-barlow400">
                         <input type="checkbox" id="agree" className="mr-2 w-4 h-4 border-[#6C256B] checked:bg-[#6C256B]"
                                required/>
                         <label htmlFor="agree" className="text-sm text-[#5B3767]">{t("sazina.pSazina")}</label>
                     </div>
 
                     {/* Submit Button */}
-                    <div className="text-center mt-6">
+                    <div className="text-center mt-6 ">
                         <button type="submit"
                                 className="font-barlow500 w-full sm:w-[238px] h-[55px] bg-[#5B3767] text-[#CDC697] hover:bg-[#371243] transition duration-300">
                             {t("sazina.buttonSazina")}

@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import emailjs from "emailjs-com"; // Import EmailJS
 import PopupMessage from "./PopupMessage"; // Import PopupMessage
-import Kontaktu from "../../img/Kontaktu.png";
+import Kontaktu from "../../img/Kontaktu.jpg";
 import GunaKontakti from "../../img/GunaKontakti.png";
 import {useTranslation} from "react-i18next";
 import LazyBackground from "./LazyBackground";
