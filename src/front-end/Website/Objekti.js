@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {useTranslation} from "react-i18next";
-import {PiArrowDownThin, PiArrowRightThin, PiArrowUpThin} from "react-icons/pi";
+import {PiArrowRightThin} from "react-icons/pi";
 import {useLocation, useNavigate} from "react-router-dom";
 import objekts1 from '../../img/objekts1.webp';
 
@@ -9,8 +9,8 @@ function Objekti() {
     const location = useLocation();
     const [properties, setProperties] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const [sortCriteria, setSortCriteria] = useState("none");
-    const [sortOrder, setSortOrder] = useState("asc");
+    // const [sortCriteria, setSortCriteria] = useState("none");
+    // const [sortOrder, setSortOrder] = useState("asc");
     const [propertyType, setPropertyType] = useState("all");
     const [transactionType, setTransactionType] = useState("all");
     const itemsPerPage = 6;
@@ -63,30 +63,30 @@ function Objekti() {
         setTransactionType(transactionTypeParam);
     }, [location.search]);
 
-    const sortProperties = (criteria, order) => {
-        const sortedProperties = [...properties].sort((a, b) => {
-            if (criteria === "price") {
-                return order === "asc" ? a.price - b.price : b.price - a.price;
-            } else if (criteria === "rooms") {
-                return order === "asc" ? a.rooms - b.rooms : b.rooms - a.rooms;
-            } else {
-                return 0;
-            }
-        });
-        setProperties(sortedProperties);
-    };
+    // const sortProperties = (criteria, order) => {
+    //     const sortedProperties = [...properties].sort((a, b) => {
+    //         if (criteria === "price") {
+    //             return order === "asc" ? a.price - b.price : b.price - a.price;
+    //         } else if (criteria === "rooms") {
+    //             return order === "asc" ? a.rooms - b.rooms : b.rooms - a.rooms;
+    //         } else {
+    //             return 0;
+    //         }
+    //     });
+    //     setProperties(sortedProperties);
+    // };
 
-    const handleSortChange = (criteria) => {
-        if (criteria === sortCriteria) {
-            const newOrder = sortOrder === "asc" ? "desc" : "asc";
-            setSortOrder(newOrder);
-            sortProperties(criteria, newOrder);
-        } else {
-            setSortCriteria(criteria);
-            setSortOrder("asc");
-            sortProperties(criteria, "asc");
-        }
-    };
+    // const handleSortChange = (criteria) => {
+    //     if (criteria === sortCriteria) {
+    //         const newOrder = sortOrder === "asc" ? "desc" : "asc";
+    //         setSortOrder(newOrder);
+    //         sortProperties(criteria, newOrder);
+    //     } else {
+    //         setSortCriteria(criteria);
+    //         setSortOrder("asc");
+    //         sortProperties(criteria, "asc");
+    //     }
+    // };
 
     const handleFilterChange = (type, value) => {
         const params = new URLSearchParams(location.search);
@@ -110,15 +110,16 @@ function Objekti() {
             return (propertyType === "all" || property.type === propertyType) &&
                 (transactionType === "all" || property.transactionType === transactionType);
         }
-    }).sort((a, b) => {
-        if (sortCriteria === "price") {
-            return sortOrder === "asc" ? a.price - b.price : b.price - a.price;
-        } else if (sortCriteria === "rooms") {
-            return sortOrder === "asc" ? a.rooms - b.rooms : b.rooms - a.rooms;
-        } else {
-            return 0;
-        }
     });
+    //     .sort((a, b) => {
+    //     if (sortCriteria === "price") {
+    //         return sortOrder === "asc" ? a.price - b.price : b.price - a.price;
+    //     } else if (sortCriteria === "rooms") {
+    //         return sortOrder === "asc" ? a.rooms - b.rooms : b.rooms - a.rooms;
+    //     } else {
+    //         return 0;
+    //     }
+    // });
 
     const totalPages = Math.ceil(filteredProperties.length / itemsPerPage);
     const currentItems = filteredProperties.slice(
@@ -281,26 +282,26 @@ function Objekti() {
                             </>
                         )}
                     </div>
-                    <div className="flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0">
-                        <button
-                            onClick={() => handleSortChange("price")}
-                            className="font-barlow400 flex justify-between items-center border border-[#9C9150] text-[#9C9150] w-[223px] h-[63px] px-4 py-2"
-                        >
-                            <span>{t("objekti.spanSort1")}</span>
-                            {sortCriteria === "price" && (
-                                sortOrder === "asc" ? <PiArrowUpThin/> : <PiArrowDownThin/>
-                            )}
-                        </button>
-                        <button
-                            onClick={() => handleSortChange("rooms")}
-                            className="font-barlow400 flex justify-between items-center border border-[#9C9150] text-[#9C9150] w-[223px] h-[63px] px-4 py-2"
-                        >
-                            <span>{t("objekti.spanSort2")}</span>
-                            {sortCriteria === "rooms" && (
-                                sortOrder === "asc" ? <PiArrowUpThin/> : <PiArrowDownThin/>
-                            )}
-                        </button>
-                    </div>
+                    {/*<div className="flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0">*/}
+                    {/*    <button*/}
+                    {/*        onClick={() => handleSortChange("price")}*/}
+                    {/*        className="font-barlow400 flex justify-between items-center border border-[#9C9150] text-[#9C9150] w-[223px] h-[63px] px-4 py-2"*/}
+                    {/*    >*/}
+                    {/*        <span>{t("objekti.spanSort1")}</span>*/}
+                    {/*        {sortCriteria === "price" && (*/}
+                    {/*            sortOrder === "asc" ? <PiArrowUpThin/> : <PiArrowDownThin/>*/}
+                    {/*        )}*/}
+                    {/*    </button>*/}
+                    {/*    <button*/}
+                    {/*        onClick={() => handleSortChange("rooms")}*/}
+                    {/*        className="font-barlow400 flex justify-between items-center border border-[#9C9150] text-[#9C9150] w-[223px] h-[63px] px-4 py-2"*/}
+                    {/*    >*/}
+                    {/*        <span>{t("objekti.spanSort2")}</span>*/}
+                    {/*        {sortCriteria === "rooms" && (*/}
+                    {/*            sortOrder === "asc" ? <PiArrowUpThin/> : <PiArrowDownThin/>*/}
+                    {/*        )}*/}
+                    {/*    </button>*/}
+                    {/*</div>*/}
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20">
