@@ -1,4 +1,4 @@
-import React, {useRef, useState} from "react";
+import React, { useRef, useState } from "react";
 import JaunakieObjekti from "./JaunakieObjekti";
 import BedroomImage from '../../img/BedroomImage.jpg';
 import GunaJasko from '../../img/GunaJasko.png';
@@ -16,7 +16,7 @@ import Lanida from '../../img/Lanida.webp';
 import ArrowLeft from '../../img/ArrowLeft.png';
 import ArrowRight from '../../img/ArrowRight.png';
 import ContactForm from "./ContactForm";
-import {useTranslation} from "react-i18next";
+import { useTranslation } from "react-i18next";
 import LazyBackground from "./LazyBackground";
 
 function Sakumlapa() {
@@ -27,8 +27,7 @@ function Sakumlapa() {
             : nameParts[0][0]; // If only one name exists
     };
 
-    const {t} = useTranslation();
-
+    const { t, i18n } = useTranslation(); // Destructure i18n for language detection
     const contactFormRef = useRef(null); // Create a reference for ContactForm
     const [currentIndex, setCurrentIndex] = useState(0); // State for testimonials
 
@@ -92,95 +91,120 @@ function Sakumlapa() {
 
     return (
         <div className="mx-auto text-white">
+            {/* Hero Section */}
             <LazyBackground
                 image={BedroomImage}
                 className="bg-black bg-opacity-40 h-[830px] lg:h-[900px] 2xl:h-[970px] relative overflow-hidden mb-5"
             >
-                <div className="absolute inset-0  bg-black bg-opacity-60 pointer-events-none"></div>
+                <div className="absolute inset-0 bg-black bg-opacity-60 pointer-events-none"></div>
 
                 {/* Text Section */}
-                <div
-                    className="w-full max-w-screen-xl mx-auto absolute top-80 left-1/2 transform -translate-x-1/2 text-white space-y-6 xs:px-8">
-                    <h2 className="text-4xl text-center xs:text-left font-garamond500 pl-3">
+                <div className="w-full max-w-screen-xl mx-auto absolute top-80 left-1/2 transform -translate-x-1/2 text-white space-y-6 xs:px-8">
+                    <h2 className={`text-4xl text-center xs:text-left font-garamond500 pl-3 ${
+                        i18n.language === 'ru' ? 'text-ru-h' : ''
+                    }`}>
                         {t("sakumlapa.header")}
                     </h2>
-                    <p className="max-w-lg text-center xs:text-left font-barlow400 pl-3">
+                    <p className={`max-w-lg text-center xs:text-left font-barlow400 pl-3 ${
+                        i18n.language === 'ru' ? 'text-ru-p' : ''
+                    }`}>
                         {t("sakumlapa.p")}
                     </p>
                     <div className="text-center xs:text-left">
-                        {/* Button that triggers custom smooth scroll */}
                         <button
                             onClick={scrollToContactForm}
-                            className="font-barlow500 w-[272px] h-[55px] sm:w-[317px] sm:h-[55px] bg-[#5B3767] hover:bg-[#371243] transition duration-300 ease-in-out text-[#CDC697] font-medium sm:ml-3"
-                        >
+                            className={`font-barlow500 w-[272px] h-[55px] sm:w-[317px] sm:h-[55px] bg-[#5B3767] hover:bg-[#371243] transition duration-300 ease-in-out text-[#CDC697] font-medium sm:ml-3 ${
+                        i18n.language === 'ru' ? 'text-ru-button' : ''
+                    }`}>
                             {t("sakumlapa.button")}
                         </button>
                     </div>
                 </div>
             </LazyBackground>
-            {/* about section */}
+
+            {/* About Section */}
             <section className="bg-[#5B3767] text-white py-16 -mt-5">
-                <div
-                    className="w-full max-w-screen-xl mx-auto container px-6 flex flex-col xl:flex-row items-center xl:items-start text-center xl:text-left">
+                <div className="w-full max-w-screen-xl mx-auto container px-6 flex flex-col xl:flex-row items-center xl:items-start text-center xl:text-left">
                     {/* Left Side */}
                     <div className="xl:w-1/2">
-                        {/* Heading */}
-                        <h1 className="font-garamond500 text-[#CDC697] text-4xl mb-12">
+                        <h1 className={`font-garamond500 text-[#CDC697] text-4xl mb-12 ${
+                            i18n.language === 'ru' ? 'text-ru-h' : ''
+                        }`}>
                             {t("sakumlapaAbout.headerAbout")}
                         </h1>
 
                         {/* Information Cards */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 justify-center">
                             {/* Card 1 */}
-                            <div
-                                className="w-full text-left border border-[#CDC697] p-5 flex flex-col items-center xl:items-start space-y-4">
+                            <div className="w-full text-left border border-[#CDC697] p-5 flex flex-col items-center xl:items-start space-y-4">
                                 <LazyBackground
                                     image={Experience}
                                     className="w-16 h-16 bg-contain bg-no-repeat bg-left"
                                 ></LazyBackground>
-                                <div
-                                    className="font-barlow400 text-2xl text-white">{t("sakumlapaAbout.divAbout1")}</div>
-                                <p className="font-barlow400 text-sm text-center xl:text-left">{t("sakumlapaAbout.pAbout1")}</p>
+                                <div className={`font-barlow400 text-2xl text-white ${
+                                    i18n.language === 'ru' ? 'text-ru-header' : ''
+                                }`}>
+                                    {t("sakumlapaAbout.divAbout1")}
+                                </div>
+                                <p className={`font-barlow400 text-sm text-center xl:text-left ${
+                                    i18n.language === 'ru' ? 'text-ru-p' : ''
+                                }`}>
+                                    {t("sakumlapaAbout.pAbout1")}
+                                </p>
                             </div>
 
                             {/* Card 2 */}
-                            <div
-                                className="w-full text-left border border-[#CDC697] p-5 flex flex-col items-center xl:items-start space-y-4">
+                            <div className="w-full text-left border border-[#CDC697] p-5 flex flex-col items-center xl:items-start space-y-4">
                                 <LazyBackground
                                     image={Check}
                                     className="w-16 h-16 bg-contain bg-no-repeat bg-left"
                                 ></LazyBackground>
-                                <div
-                                    className="text-2xl font-barlow400 text-white">{t("sakumlapaAbout.divAbout2")}</div>
-                                <p className="font-barlow400 text-sm text-center xl:text-left">
+                                <div className={`text-2xl font-barlow400 text-white ${
+                                    i18n.language === 'ru' ? 'text-ru-header' : ''
+                                }`}>
+                                    {t("sakumlapaAbout.divAbout2")}
+                                </div>
+                                <p className={`font-barlow400 text-sm text-center xl:text-left ${
+                                    i18n.language === 'ru' ? 'text-ru-p' : ''
+                                }`}>
                                     {t("sakumlapaAbout.pAbout2")}
                                 </p>
                             </div>
 
                             {/* Card 3 */}
-                            <div
-                                className="w-full text-left border border-[#CDC697] p-5 flex flex-col items-center xl:items-start space-y-4">
+                            <div className="w-full text-left border border-[#CDC697] p-5 flex flex-col items-center xl:items-start space-y-4">
                                 <LazyBackground
                                     image={Safety}
                                     className="w-16 h-16 bg-contain bg-no-repeat bg-left"
                                 ></LazyBackground>
-                                <div
-                                    className="text-2xl font-barlow400 text-white">{t("sakumlapaAbout.divAbout3")}</div>
-                                <p className="font-barlow400 text-sm text-center xl:text-left">{t("sakumlapaAbout.pAbout3")}</p>
+                                <div className={`text-2xl font-barlow400 text-white ${
+                                    i18n.language === 'ru' ? 'text-ru-header' : ''
+                                }`}>
+                                    {t("sakumlapaAbout.divAbout3")}
+                                </div>
+                                <p className={`font-barlow400 text-sm text-center xl:text-left ${
+                                    i18n.language === 'ru' ? 'text-ru-p' : ''
+                                }`}>
+                                    {t("sakumlapaAbout.pAbout3")}
+                                </p>
                             </div>
 
                             {/* Card 4 */}
-                            <div
-                                className="w-full text-left border border-[#CDC697] p-5 flex flex-col items-center xl:items-start space-y-4">
+                            <div className="w-full text-left border border-[#CDC697] p-5 flex flex-col items-center xl:items-start space-y-4">
                                 <LazyBackground
                                     image={Lanida}
                                     className="w-[95px] h-[72px] bg-contain bg-no-repeat bg-left"
                                 ></LazyBackground>
-                                <div
-                                    className="text-2xl font-barlow400 text-white">{t("sakumlapaAbout.divAbout4")}</div>
+                                <div className={`text-2xl font-barlow400 text-white ${
+                                    i18n.language === 'ru' ? 'text-ru-header' : ''
+                                }`}>
+                                    {t("sakumlapaAbout.divAbout4")}
+                                </div>
                                 <a
                                     href="https://lanida.lv/biedri/guna-jasko-2/"
-                                    className="font-barlow400 text-sm underline text-center xl:text-left"
+                                    className={`font-barlow400 text-sm underline text-center xl:text-left ${
+                                        i18n.language === 'ru' ? 'text-ru-p' : ''
+                                    }`}
                                 >
                                     {t("sakumlapaAbout.pAbout4")}
                                 </a>
@@ -191,7 +215,9 @@ function Sakumlapa() {
                         <div className="mt-12">
                             <a href="https://guna.lucid-websites.com/par-mani">
                                 <button
-                                    className="font-barlow500 w-full xl:w-[317px] h-[55px] border border-[#CDC697] text-[#CDC697] hover:text-[#9C9150] hover:border-[#9C9150] transition duration-300 ease-in-out font-medium text-sm">
+                                    className={`font-barlow500 w-full xl:w-[317px] h-[55px] border border-[#CDC697] text-[#CDC697] hover:text-[#9C9150] hover:border-[#9C9150] transition duration-300 ease-in-out font-medium text-sm ${
+                                    i18n.language === 'ru' ? 'text-ru-button' : ''
+                                }`}>
                                     {t("sakumlapaAbout.buttonAbout")}
                                 </button>
                             </a>
@@ -210,11 +236,11 @@ function Sakumlapa() {
                 </div>
             </section>
 
-            <JaunakieObjekti/>
+            {/* Jaunakie Objekti Section */}
+            <JaunakieObjekti />
 
             {/* Atsauksmes Section */}
             <section className="bg-white relative w-full flex items-center justify-center min-h-screen px-2">
-                {/* Background Image */}
                 <LazyBackground
                     image={Vannasistaba}
                     className="relative flex items-center justify-center w-full lg:w-4/6 h-[500px] sm:h-[645px]"
@@ -224,32 +250,35 @@ function Sakumlapa() {
                         className="absolute left-[2%] sm:left-[2%] 2xl:left-[14%] sm:top-[54%] top-1/2 transform -translate-y-1/2 z-20"
                         onClick={() => handleSwitchContent("left")}
                     >
-                        <img src={ArrowRight} alt="Left Arrow" className="w-[24px] h-[24px]"/>
+                        <img src={ArrowRight} alt="Left Arrow" className="w-[24px] h-[24px]" />
                     </button>
 
                     <div className="relative z-10 flex flex-col items-center justify-center h-full w-full">
                         {/* Heading */}
-                        <h2 className="font-garamond500 text-[#CDC697] text-2xl sm:text-4xl sm:mb-12 text-center">
+                        <h2 className={`font-garamond500 text-[#CDC697] text-2xl sm:text-4xl sm:mb-12 text-center ${
+                            i18n.language === 'ru' ? 'text-ru-header' : ''
+                        }`}>
                             {t("atsauksmes.h1Atsauksmes")}
                         </h2>
 
                         {/* Testimonial Box */}
-                        <div
-                            className="relative bg-white w-full max-w-[320px] sm:max-w-[782px] h-auto opacity-90 p-6 sm:p-12 flex flex-col items-center">
-
+                        <div className="relative bg-white w-full max-w-[320px] sm:max-w-[782px] h-auto opacity-90 p-6 sm:p-12 flex flex-col items-center">
                             {/* Initials Circle */}
-                            <div
-                                className="w-[80px] sm:w-[100px] h-[80px] sm:h-[100px] bg-[#CDC697] rounded-full flex items-center justify-center text-[#5B3767] font-garamond500 text-2xl sm:text-3xl">
+                            <div className="w-[80px] sm:w-[100px] h-[80px] sm:h-[100px] bg-[#CDC697] rounded-full flex items-center justify-center text-[#5B3767] font-garamond500 text-2xl sm:text-3xl">
                                 {getInitials(testimonials[currentIndex].author)}
                             </div>
 
                             {/* Testimonial Content */}
-                            <p className="font-barlow400 text-[#5B3767] text-base sm:text-lg mb-4 leading-relaxed text-center">
+                            <p className={`font-barlow400 text-[#5B3767] text-base sm:text-lg mb-4 leading-relaxed text-center ${
+                                i18n.language === 'ru' ? 'text-ru' : ''
+                            }`}>
                                 {testimonials[currentIndex].content}
                             </p>
 
                             {/* Author Name */}
-                            <p className="font-barlow400 text-[#9C9150] mt-4 text-center text-sm sm:text-base">
+                            <p className={`font-barlow400 text-[#9C9150] mt-4 text-center text-sm sm:text-base ${
+                                i18n.language === 'ru' ? 'text-ru' : ''
+                            }`}>
                                 {testimonials[currentIndex].author}
                             </p>
                         </div>
@@ -260,19 +289,24 @@ function Sakumlapa() {
                         className="absolute right-[2%] sm:right-[2%] 2xl:right-[14%] sm:top-[54%] top-1/2 transform -translate-y-1/2 z-20"
                         onClick={() => handleSwitchContent("right")}
                     >
-                        <img src={ArrowLeft} alt="Right Arrow" className="w-[24px] h-[24px]"/>
+                        <img src={ArrowLeft} alt="Right Arrow" className="w-[24px] h-[24px]" />
                     </button>
                 </LazyBackground>
             </section>
 
             {/* Sadarbības Partneri Section */}
             <section className="mx-auto bg-white">
-                <div className="mx-auto px-4 sm:px-8 text-center">
-                    <h1 className="font-garamond500 text-[#6C256B] text-4xl mb-12 sm:mb-24">{t("partneri.h1Partneri")}</h1>
+                <div className={`mx-auto px-4 sm:px-8 text-center ${
+                    i18n.language === 'ru' ? 'text-ru' : ''
+                }`}>
+                    <h1 className={`font-garamond500 text-[#6C256B] text-4xl mb-12 sm:mb-24 ${
+                        i18n.language === 'ru' ? 'text-ru-h' : ''
+                    }`}>
+                        {t("partneri.h1Partneri")}
+                    </h1>
 
                     {/* Partners Logos */}
-                    <div
-                        className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-6 lg:mx-32 place-items-center">
+                    <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-6 lg:mx-32 place-items-center">
                         {/* Partner 1 */}
                         <LazyBackground
                             image={Swedbank}

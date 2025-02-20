@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 const Header = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     const [scrolling, setScrolling] = useState(false);
-    const {t, i18n} = useTranslation();
+    const { t, i18n } = useTranslation();
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -31,7 +31,7 @@ const Header = () => {
         i18n.changeLanguage(nextLang);
         const params = new URLSearchParams(location.search);
         params.set('lang', nextLang);
-        navigate({search: params.toString()});
+        navigate({ search: params.toString() });
         setCurrentLangIndex(nextLangIndex);
     };
 
@@ -77,12 +77,12 @@ const Header = () => {
                         </a>
 
                         {/* Desktop Navigation */}
-                        <nav className="uppercase hidden lg:flex lg:space-x-8 text-white text-sm font-barlow400">
+                        <nav className={`uppercase hidden lg:flex lg:space-x-8 text-white text-sm font-barlow400 ${ i18n.language === 'ru' ? 'text-ru' : '' }`}>
                             <Link
                                 to="/"
                                 className={`hover:text-[#9C9150] transition duration-300 ease-in-out ${isActive('/')}`}
                                 onClick={() => {
-                                    window.scrollTo({top: 0, behavior: "smooth"});
+                                    window.scrollTo({ top: 0, behavior: "smooth" });
                                     setMenuOpen(false);
                                 }}
                             >
@@ -92,7 +92,7 @@ const Header = () => {
                                 to="/par-mani"
                                 className={`hover:text-[#9C9150] transition duration-300 ease-in-out ${isActive('/par-mani')}`}
                                 onClick={() => {
-                                    window.scrollTo({top: 0, behavior: "smooth"});
+                                    window.scrollTo({ top: 0, behavior: "smooth" });
                                     setMenuOpen(false);
                                 }}
                             >
@@ -102,7 +102,7 @@ const Header = () => {
                                 to="/pakalpojumi"
                                 className={`hover:text-[#9C9150] transition duration-300 ease-in-out ${isActive('/pakalpojumi')}`}
                                 onClick={() => {
-                                    window.scrollTo({top: 0, behavior: "smooth"});
+                                    window.scrollTo({ top: 0, behavior: "smooth" });
                                     setMenuOpen(false);
                                 }}
                             >
@@ -112,7 +112,7 @@ const Header = () => {
                                 to="/objekti"
                                 className={`hover:text-[#9C9150] transition duration-300 ease-in-out ${isActive('/objekti')}`}
                                 onClick={() => {
-                                    window.scrollTo({top: 0, behavior: "smooth"});
+                                    window.scrollTo({ top: 0, behavior: "smooth" });
                                     setMenuOpen(false);
                                 }}
                             >
@@ -122,7 +122,7 @@ const Header = () => {
                                 to="/kontakti"
                                 className={`hover:text-[#9C9150] transition duration-300 ease-in-out ${isActive('/kontakti')}`}
                                 onClick={() => {
-                                    window.scrollTo({top: 0, behavior: "smooth"});
+                                    window.scrollTo({ top: 0, behavior: "smooth" });
                                     setMenuOpen(false);
                                 }}
                             >
@@ -141,7 +141,7 @@ const Header = () => {
                             className="lg:hidden text-3xl cursor-pointer z-50 mr-1 xs:mr-3 md:mr-6 text-white pointer-events-auto"
                             onClick={toggleMenu}
                         >
-                            {!menuOpen && <FaBars/>}
+                            {!menuOpen && <FaBars />}
                         </div>
                     </div>
                     <div className="w-full max-w-screen-xl mx-auto px-8 mt-2 relative z-10">
@@ -164,14 +164,16 @@ const Header = () => {
                                 className="text-3xl text-white cursor-pointer"
                                 onClick={toggleMenu}
                             >
-                                <FaTimes/>
+                                <FaTimes />
                             </div>
                         </div>
                         <div className="w-full max-w-screen-xl mx-auto px-4">
                             <div className="border-b-[1px] border-[#9C9150] mt-2"></div>
                         </div>
 
-                        <div className="flex flex-col items-center mt-4 space-y-2">
+                        <div className={`flex flex-col items-center mt-4 space-y-2 ${
+                            i18n.language === 'ru' ? 'text-ru' : ''
+                        }`}>
                             <Link
                                 to="/"
                                 className={`p-1 block hover:text-[#9C9150] transition duration-300 ease-in-out ${isActive('/')}`}

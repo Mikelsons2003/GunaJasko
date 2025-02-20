@@ -41,3 +41,31 @@ code {
 .description p {
     margin-bottom: 1.5em; /* Add space after each paragraph */
 }
+
+/* Global CSS file (e.g., index.css or App.css) */
+.text-ru {
+    font-size: 0.7em; /* Adjust font size for Russian */
+    letter-spacing: -0.4px; /* Adjust letter spacing for Russian */
+}
+
+/* Global CSS file (e.g., index.css or App.css) */
+.text-ru-header {
+    font-size: 1.20em; /* Slightly larger than the regular Russian text */
+    letter-spacing: -0.4px; /* Adjust letter spacing for Russian */
+}
+
+.text-ru-h {
+    font-size: 2.00em; /* Slightly larger than the regular Russian text */
+    letter-spacing: -0.4px; /* Adjust letter spacing for Russian */
+    text-transform: uppercase;
+}
+
+.text-ru-button {
+    font-size: 1.00em; /* Slightly larger than the regular Russian text */
+    letter-spacing: -0.4px; /* Adjust letter spacing for Russian */
+}
+
+.text-ru-p {
+    font-size: 0.9em; /* Slightly larger than the regular Russian text */
+    letter-spacing: -0.4px; /* Adjust letter spacing for Russian */
+}
