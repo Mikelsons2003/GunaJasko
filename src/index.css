@@ -44,28 +44,48 @@ code {
 
 /* Global CSS file (e.g., index.css or App.css) */
 .text-ru {
-    font-size: 0.7em; /* Adjust font size for Russian */
-    letter-spacing: -0.4px; /* Adjust letter spacing for Russian */
+    font-size: 0.7em !important; /* Adjust font size for Russian */
+    letter-spacing: -0.4px !important; /* Adjust letter spacing for Russian */
 }
 
 /* Global CSS file (e.g., index.css or App.css) */
 .text-ru-header {
-    font-size: 1.20em; /* Slightly larger than the regular Russian text */
-    letter-spacing: -0.4px; /* Adjust letter spacing for Russian */
+    font-size: 1.20em !important; /* Slightly larger than the regular Russian text */
+    letter-spacing: -0.4px !important; /* Adjust letter spacing for Russian */
 }
 
 .text-ru-h {
-    font-size: 2.00em; /* Slightly larger than the regular Russian text */
-    letter-spacing: -0.4px; /* Adjust letter spacing for Russian */
-    text-transform: uppercase;
+    font-size: 2.00em !important; /* Slightly larger than the regular Russian text */
+    letter-spacing: -0.4px !important; /* Adjust letter spacing for Russian */
+    text-transform: uppercase !important;
+}
+
+.text-ru-h1{
+    font-size: 2.00em !important; /* Slightly larger than the regular Russian text */
+    letter-spacing: -0.4px !important; /* Adjust letter spacing for Russian */
+}
+
+.text-ru-h2{
+    font-size: 1.35em !important; /* Slightly larger than the regular Russian text */
+    letter-spacing: -0.4px !important; /* Adjust letter spacing for Russian */
 }
 
 .text-ru-button {
-    font-size: 1.00em; /* Slightly larger than the regular Russian text */
-    letter-spacing: -0.4px; /* Adjust letter spacing for Russian */
+    font-size: 1.00em !important; /* Slightly larger than the regular Russian text */
+    letter-spacing: -0.4px !important; /* Adjust letter spacing for Russian */
 }
 
 .text-ru-p {
-    font-size: 0.9em; /* Slightly larger than the regular Russian text */
-    letter-spacing: -0.4px; /* Adjust letter spacing for Russian */
+    font-size: 0.90em !important; /* Slightly larger than the regular Russian text */
+    letter-spacing: -0.4px !important; /* Adjust letter spacing for Russian */
 }
+
+.text-ru-p1 {
+    font-size: 1.00em !important; /* Slightly larger than the regular Russian text */
+    letter-spacing: -0.4px !important; /* Adjust letter spacing for Russian */
+}
+.text-ru-p2 {
+    font-size: 1.15em !important; /* Slightly larger than the regular Russian text */
+    letter-spacing: -0.4px !important; /* Adjust letter spacing for Russian */
+}
+

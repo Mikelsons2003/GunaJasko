@@ -6,7 +6,7 @@ import {useTranslation} from "react-i18next";
 import LazyBackground from "./LazyBackground";
 
 export default function ContactForm() {
-    const {t} = useTranslation();
+    const { t, i18n } = useTranslation(); // Destructure i18n for language detection
     const formRef = useRef();
     const [isPopupVisible, setPopupVisible] = useState(false);
 
@@ -43,7 +43,9 @@ export default function ContactForm() {
             {/* Form Container */}
             <div
                 className="relative z-10 w-full lg:w-8/12 xl:w-7/12 2xl:w-5/12 mx-auto bg-[#E8E1D3] p-6 sm:p-10 shadow-lg mr-0 lg:mr-24 2xl:mr-96">
-                <h2 className="uppercase font-garamond500 text-[#6C256B] text-4xl mb-8 text-center xs:text-left">
+                <h2 className={`uppercase font-garamond500 text-[#6C256B] text-4xl mb-8 text-center xs:text-left ${
+                        i18n.language === 'ru' ? 'text-ru-h' : ''
+                    }`}>
                     {t("sazina.h1Sazina")}
                 </h2>
 

@@ -16,7 +16,7 @@ function ObjektiIeskats() {
     const {id} = useParams();
     const location = useLocation();
     const [property, setProperty] = useState(null);
-    const {t, i18n} = useTranslation();
+    const { t, i18n } = useTranslation();
     const [selectedImage, setSelectedImage] = useState(null);
     const [currentIndex, setCurrentIndex] = useState(0);
     const searchParams = new URLSearchParams(location.search);
@@ -289,7 +289,7 @@ function ObjektiIeskats() {
                     <div className="border-b-[1px] border-[#CDC697]"></div>
                 </div>
 
-                <div className="w-full text-center description lg:text-left">
+                <div className={`w-full text-center description lg:text-left ${i18n.language === 'ru' ? 'text-ru-p' : ''}`}>
                     <div
                         className="font-barlow400 text-[#5B3767] leading-relaxed"
                         dangerouslySetInnerHTML={{__html: sanitizedDescription}}
@@ -393,7 +393,7 @@ function ObjektiIeskats() {
                         ></LazyBackground>
                         <div className="flex flex-col space-y-2">
                             <h2 className="font-garamond500 text-4xl">GUNA JASKO</h2>
-                            <p className="font-barlow500 text-lg uppercase tracking-wide">
+                            <p className={`font-barlow500 text-lg uppercase tracking-wide ${i18n.language === 'ru' ? 'text-ru-p1' : ''}`}>
                                 {t("objektiIeskats.spanIeskats6")}
                             </p>
                             <p className="font-barlow400 text-lg">TĀLR.: +371 20 016 688</p>
@@ -401,7 +401,7 @@ function ObjektiIeskats() {
                         </div>
                     </div>
                     <div className="flex flex-col items-center lg:items-end space-y-4 mt-8 lg:mt-0">
-                        <h1 className="font-barlow500 text-[#9C9150] text-xl">{t("objektiIeskats.spanIeskats5")}</h1>
+                        <h1 className={`font-barlow500 text-[#9C9150] text-xl ${i18n.language === 'ru' ? 'text-ru-p2' : ''}`}>{t("objektiIeskats.spanIeskats5")}</h1>
                         <div className="grid grid-cols-2 gap-4">
                             <a
                                 href="https://www.facebook.com/profile.php?id=100062951665076&mibextid=wwXIfr&rdid=hCVlgIdTGejCSuBS&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1u4u65Eu5izWGVmZ%2F%3Fmibextid%3DwwXIfr"

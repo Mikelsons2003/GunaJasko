@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 import {useTranslation} from "react-i18next";
 
 function Footer() {
-    const {t} = useTranslation();
+    const { t, i18n } = useTranslation();
     return (
         <div className="mx-auto font-sans text-white">
             <div className="footer bg-[#5B3767] text-white py-6">
@@ -59,7 +59,7 @@ function Footer() {
 
                     {/* Right Section */}
                     <div className="text-right text-sm mt-4 sm:mt-0">
-                        <Link to="/privatuma-politika" className="font-barlow500 hover:underline">
+                        <Link to="/privatuma-politika" className={`font-barlow500 hover:underline ${i18n.language === 'ru' ? 'text-ru-p' : ''}`}>
                             {t("footer.h1Footer")}
                         </Link>
                         <br/>

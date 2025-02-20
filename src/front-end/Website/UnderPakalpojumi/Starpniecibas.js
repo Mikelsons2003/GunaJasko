@@ -9,7 +9,7 @@ import LazyBackground from "../LazyBackground";
 function Starpniecibas() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [scrolling, setScrolling] = useState(false); // State to detect scroll
-    const {t} = useTranslation();
+    const { t, i18n } = useTranslation();
     return (
         <div className="mx-auto text-white bg-[#FBF8FB] overflow-hidden">
             <div
@@ -19,7 +19,7 @@ function Starpniecibas() {
                 <div
                     className="lg:w-1/2 text-white text-center lg:text-left space-y-6"
                 >
-                    <h1 className="text-3xl sm:text-4xl lg:mr-6 xl:ml-40 2xl:ml-80">{t("pakalpojumi.h1Pakalpojumi1")}</h1>
+                    <h1 className={`text-3xl sm:text-4xl lg:mr-6 xl:ml-40 2xl:ml-80 ${i18n.language === 'ru' ? 'text-ru-h1' : ''}`}>{t("pakalpojumi.h1Pakalpojumi1")}</h1>
                 </div>
 
                 {/* Right: Image Section */}
@@ -34,34 +34,34 @@ function Starpniecibas() {
                 <ul className="font-barlow500 flex flex-row justify-center items-center gap-x-6">
                     <Link
                         to="/starpniecibas"
-                        className="hover:underline text-lg lg:text-xl"
+                        className={`hover:underline text-lg lg:text-xl
                         onClick={() => {
                             window.scrollTo({top: 0, behavior: "smooth"});
                             setMenuOpen(false);
                         }}
-                    >
+                        ${i18n.language === 'ru' ? 'text-ru-h2' : ''}`}>
                         {t("pakalpojumi.h1Pakalpojumi2")}
                     </Link>
 
                     <Link
                         to="/darijuma"
-                        className="hover:underline text-lg lg:text-xl"
+                        className={`hover:underline text-lg lg:text-xl
                         onClick={() => {
                             window.scrollTo({top: 0, behavior: "smooth"});
                             setMenuOpen(false);
                         }}
-                    >
+                        ${i18n.language === 'ru' ? 'text-ru-h2' : ''}`}>
                         {t("pakalpojumi.h1Pakalpojumi3")}
                     </Link>
 
                     <Link
                         to="/projekti"
-                        className="hover:underline text-lg lg:text-xl"
+                        className={`hover:underline text-lg lg:text-xl
                         onClick={() => {
                             window.scrollTo({top: 0, behavior: "smooth"});
                             setMenuOpen(false);
                         }}
-                    >
+                        ${i18n.language === 'ru' ? 'text-ru-h2' : ''}`}>
                         {t("pakalpojumi.h1Pakalpojumi4")}
                     </Link>
                 </ul>
@@ -74,7 +74,7 @@ function Starpniecibas() {
             {/* Main Section */}
             <div className="container mx-auto px-6 sm:px-8 lg:px-20 py-16 text-[#5B3767]">
                 {/* Centered Title */}
-                <h1 className="text-2xl sm:text-3xl lg:text-4xl text-center mb-12">
+                <h1 className={`text-2xl sm:text-3xl lg:text-4xl text-center mb-12 ${i18n.language === 'ru' ? 'text-ru-h' : ''}`}>
                     {t("pakalpojumi.h1Pakalpojumi5")}
                 </h1>
 
@@ -83,7 +83,7 @@ function Starpniecibas() {
                     className="flex flex-col lg:flex-row justify-between items-start lg:items-stretch space-y-10 lg:space-y-0">
                     {/* Left Column */}
                     <div className="font-barlow400 w-full lg:w-2/3 text-left">
-                        <ul className="space-y-6 text-base sm:text-lg leading-relaxed">
+                        <ul className={`space-y-6 text-base sm:text-lg leading-relaxed ${i18n.language === 'ru' ? 'text-ru-p1' : ''}`}>
                             <li className="pl-6 relative">
                                 <span className="absolute left-0">—</span> {t("pakalpojumi.pPakalpojumi1")}
                             </li>
@@ -110,7 +110,7 @@ function Starpniecibas() {
 
                     {/* Right Column (Yellow Text) */}
                     <div
-                        className="w-full lg:w-1/3 text-[#9C9150] text-lg sm:text-xl text-left lg:text-right flex flex-col justify-end space-y-4">
+                        className={`w-full lg:w-1/3 text-[#9C9150] text-lg sm:text-xl text-left lg:text-right flex flex-col justify-end space-y-4 ${i18n.language === 'ru' ? 'text-ru-p2' : ''}`}>
                         <p className="font-garamond500">{t("pakalpojumi.specialpPakalpojumi1")}</p>
                         <p className="font-garamond500">{t("pakalpojumi.specialpPakalpojumi2")}</p>
                         <p className="font-garamond500">{t("pakalpojumi.specialpPakalpojumi3")}</p>

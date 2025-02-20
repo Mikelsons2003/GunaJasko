@@ -255,11 +255,9 @@ function Sakumlapa() {
 
                     <div className="relative z-10 flex flex-col items-center justify-center h-full w-full">
                         {/* Heading */}
-                        <h2 className={`font-garamond500 text-[#CDC697] text-2xl sm:text-4xl sm:mb-12 text-center ${
-                            i18n.language === 'ru' ? 'text-ru-header' : ''
-                        }`}>
+                        <h1 className={`font-garamond500 text-[#CDC697] text-2xl sm:text-4xl sm:mb-12 text-center ${ i18n.language === 'ru' ? 'text-ru-h' : '' }`}>
                             {t("atsauksmes.h1Atsauksmes")}
-                        </h2>
+                        </h1>
 
                         {/* Testimonial Box */}
                         <div className="relative bg-white w-full max-w-[320px] sm:max-w-[782px] h-auto opacity-90 p-6 sm:p-12 flex flex-col items-center">
@@ -270,14 +268,14 @@ function Sakumlapa() {
 
                             {/* Testimonial Content */}
                             <p className={`font-barlow400 text-[#5B3767] text-base sm:text-lg mb-4 leading-relaxed text-center ${
-                                i18n.language === 'ru' ? 'text-ru' : ''
+                                i18n.language === 'ru' ? 'text-ru-p' : ''
                             }`}>
                                 {testimonials[currentIndex].content}
                             </p>
 
                             {/* Author Name */}
                             <p className={`font-barlow400 text-[#9C9150] mt-4 text-center text-sm sm:text-base ${
-                                i18n.language === 'ru' ? 'text-ru' : ''
+                                i18n.language === 'ru' ? 'text-ru-p' : ''
                             }`}>
                                 {testimonials[currentIndex].author}
                             </p>
@@ -296,9 +294,7 @@ function Sakumlapa() {
 
             {/* Sadarbības Partneri Section */}
             <section className="mx-auto bg-white">
-                <div className={`mx-auto px-4 sm:px-8 text-center ${
-                    i18n.language === 'ru' ? 'text-ru' : ''
-                }`}>
+                <div className="mx-auto px-4 sm:px-8 text-center">
                     <h1 className={`font-garamond500 text-[#6C256B] text-4xl mb-12 sm:mb-24 ${
                         i18n.language === 'ru' ? 'text-ru-h' : ''
                     }`}>

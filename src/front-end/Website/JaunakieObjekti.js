@@ -5,7 +5,7 @@ import ArrowRight from '../../img/ArrowRight.png';
 import {useTranslation} from "react-i18next";
 
 const JaunakieObjektiSection = () => {
-    const {t} = useTranslation();
+    const { t, i18n } = useTranslation();
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const cards = [
@@ -47,7 +47,7 @@ const JaunakieObjektiSection = () => {
         <section className="py-16 bg-white flex items-center justify-center min-h-screen">
             <div className="container mx-auto flex flex-col items-center justify-center">
                 {/* Heading */}
-                <h1 className="font-garamond500 text-center text-[#5B3767] text-4xl mb-12">{t("jaunakieObjekti.headerObjekti")}</h1>
+                <h1 className={`font-garamond500 text-center text-[#5B3767] text-4xl mb-12 ${ i18n.language === 'ru' ? 'text-ru-h' : '' }`}>{t("jaunakieObjekti.headerObjekti")}</h1>
 
                 {/* Responsive Cards Section */}
                 <div className="relative flex items-center justify-center lg:justify-between">
