@@ -1,53 +1,79 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import JaunakieObjekti from '../../img/JaunakieObjekti.webp';
 import ArrowLeft from '../../img/ArrowLeft.png';
 import ArrowRight from '../../img/ArrowRight.png';
 import {useTranslation} from "react-i18next";
 
 const JaunakieObjektiSection = () => {
-    const { t, i18n } = useTranslation();
+    const {t, i18n} = useTranslation();
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [recentProjects, setRecentProjects] = useState([]);
 
-    const cards = [
-        {
-            header: <div className="mb-3">&nbsp;</div>, // Empty space for the first box
-            price: "120 000 EUR",
-            address: "Alberta 1, Rīga",
-            type: "Dzīvoklis",
-            rooms: "5",
-            image: JaunakieObjekti,
-        },
-        {
-            header: <h1 className="text-[#5B3767] text-xl mb-3">{t("jaunakieObjekti.h1Objekti1")}</h1>, // Header for the second box
-            price: "760 EUR / mēn",
-            address: "Alberta 1, Rīga",
-            type: "Dzīvoklis",
-            rooms: "5",
-            image: JaunakieObjekti,
-        },
-        {
-            header: <h1 className="text-[#5B3767] text-xl mb-3">{t("jaunakieObjekti.h1Objekti2")}</h1>, // Header for the third box
-            price: "120 000 EUR",
-            address: "Alberta 1, Rīga",
-            type: "Dzīvoklis",
-            rooms: "5",
-            image: JaunakieObjekti,
-        },
-    ];
+    useEffect(() => {
+        const fetchProperties = async () => {
+            try {
+                const response = await fetch("https://backends.lucid-websites.com/wp-json/wp/v2/posts");
+                const data = await response.json();
+                const formattedData = data.map((item) => {
+                    const content = item.content.rendered;
+                    const extraCategory = extractField(content, "Extra Category");
+                    const projectName = extractField(content, "Project Name");
+
+                    return {
+                        id: item.id,
+                        price: parseFloat(extractField(content, "Property Value")) || 0,
+                        address: extractField(content, "Address"),
+                        type: extractField(content, "Property Type"),
+                        transactionType: extractField(content, "Transaction Type"),
+                        rooms: parseInt(extractField(content, "Room Count")) || 0,
+                        size: parseFloat(content.match(/<label>Size:<\/label>\s*([^<]+)/)?.[1].trim()) || 0,
+                        floors: parseInt(extractField(content, "Floor/s")) || 0,
+                        image: item.featured_media_src_url || JaunakieObjekti,
+                        date: new Date(item.date),
+                        isInvestmentProperty: extraCategory.includes("Investment Property"),
+                        isNewProject: extraCategory.toLowerCase().includes("new project"),
+                        projectName: projectName || null,
+                    };
+                });
+
+                // Sort by date and get the 3 most recent projects
+                const sortedProjects = formattedData.sort((a, b) => b.date - a.date).slice(0, 3);
+                setRecentProjects(sortedProjects);
+            } catch (error) {
+                console.error("Error fetching properties:", error);
+            }
+        };
+        fetchProperties();
+    }, []);
+
+    const extractField = (content, fieldName) => {
+        const regex = new RegExp(`<label>${fieldName}:<\\/label>\\s*([^<]+)`);
+        const match = content.match(regex);
+        return match ? match[1].trim() : "Not available";
+    };
 
     const handlePrev = () => {
-        setCurrentIndex((prevIndex) => (prevIndex - 1 + cards.length) % cards.length);
+        setCurrentIndex((prevIndex) => (prevIndex - 1 + recentProjects.length) % recentProjects.length);
     };
 
     const handleNext = () => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % cards.length);
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % recentProjects.length);
+    };
+
+    const propertyTypeToTranslationKey = {
+        all: "objekti.liObjekti7", // "Visi" in Lv, "All" in Eng, "Все" in Ru
+        Apartment: "objekti.liObjekti14", // "Dzīvokļi" in Lv, "Apartments" in Eng, "Квартиры" in Ru
+        House: "objekti.liObjekti15", // "Mājas" in Lv, "Houses" in Eng, "Дома" in Ru
+        Land: "objekti.liObjekti4", // "Zeme" in Lv, "Land" in Eng, "Земля" in Ru
+        "New Project": "objekti.liObjekti5", // "Jaunie projekti" in Lv, "New Projects" in Eng, "Новые проекты" in Ru
+        "Investment Property": "objekti.liObjekti6", // "Investīciju objekti" in Lv, "Investment Properties" in Eng, "Инвестиционные объекты" in Ru
     };
 
     return (
         <section className="py-16 bg-white flex items-center justify-center min-h-screen">
             <div className="container mx-auto flex flex-col items-center justify-center">
                 {/* Heading */}
-                <h1 className={`font-garamond500 text-center text-[#5B3767] text-4xl mb-12 ${ i18n.language === 'ru' ? 'text-ru-h' : '' }`}>{t("jaunakieObjekti.headerObjekti")}</h1>
+                <h1 className={`font-garamond500 text-center text-[#5B3767] text-4xl mb-12 ${i18n.language === 'ru' ? 'text-ru-h' : ''}`}>{t("jaunakieObjekti.headerObjekti")}</h1>
 
                 {/* Responsive Cards Section */}
                 <div className="relative flex items-center justify-center lg:justify-between">
@@ -62,9 +88,9 @@ const JaunakieObjektiSection = () => {
                     {/* Cards Container */}
                     <div
                         className="relative w-full flex items-center gap-4 md:gap-6 lg:gap-8 overflow-hidden lg:overflow-visible">
-                        {cards.map((card, index) => (
+                        {recentProjects.map((project, index) => (
                             <div
-                                key={index}
+                                key={project.id}
                                 className={`w-full md:w-1/2 lg:w-1/3 transition-transform duration-[700ms] ease-in-out ${
                                     index === currentIndex
                                         ? "translate-x-0 opacity-100 visible"
@@ -77,7 +103,7 @@ const JaunakieObjektiSection = () => {
                                     <div
                                         className="w-[260px] md:w-[310px] 2xl:w-[340px] h-[254px] bg-gray-200"
                                         style={{
-                                            backgroundImage: `url(${card.image})`,
+                                            backgroundImage: `url(${project.image})`,
                                             backgroundSize: "cover",
                                             backgroundPosition: "center",
                                         }}
@@ -86,11 +112,13 @@ const JaunakieObjektiSection = () => {
                                     {/* Content */}
                                     <div className="p-4 sm:p-6">
                                         {/* Header */}
-                                        <div className="font-garamond500 text-left">{card.header}</div>
+                                        <div className="font-garamond500 text-left">
+                                            <h1 className="text-[#5B3767] text-xl mb-3">{project.projectName}</h1>
+                                        </div>
 
                                         {/* Price */}
                                         <div className="text-left">
-                                            <h2 className="font-infant600 text-[#5B3767] text-2xl font-bold mb-4">{card.price}</h2>
+                                            <h2 className="font-infant600 text-[#5B3767] text-2xl font-bold mb-4">{project.price} EUR</h2>
                                         </div>
 
                                         {/* Divider */}
@@ -100,20 +128,20 @@ const JaunakieObjektiSection = () => {
 
                                         {/* Details */}
                                         <div className="font-barlow400 grid grid-cols-2 text-sm text-[#5B3767] gap-y-2">
-                                            <span className="text-left py-1">{t("jaunakieObjekti.spanObjekti1")}:</span>
-                                            <span className="text-right font-semibold">{card.address}</span>
+                                            <span className="text-left py-1">{t("jaunakieObjekti.spanObjekti1")}</span>
+                                            <span className="text-right font-semibold">{project.address}</span>
 
-                                            <span className="text-left pb-1">{t("jaunakieObjekti.spanObjekti2")}:</span>
-                                            <span className="text-right font-semibold">{card.type}</span>
+                                            <span className="text-left pb-1">{t("jaunakieObjekti.spanObjekti2")}</span>
+                                            <span className="text-right font-semibold">{t(propertyTypeToTranslationKey[project.type] || "objekti.liObjekti7")}</span>
 
-                                            <span className="text-left">{t("jaunakieObjekti.spanObjekti3")}.:</span>
-                                            <span className="text-right font-semibold">{card.rooms}</span>
+                                            <span className="text-left">{t("objektiIeskats.spanIeskats3")}</span>
+                                            <span className="text-right font-semibold">{project.rooms}</span>
                                         </div>
 
                                         {/* View More Link */}
                                         <div className="text-left">
                                             <a
-                                                href="#"
+                                                href={`/objekti/${project.id}?propertyType=${project.type}&transactionType=${project.transactionType}&lang=${i18n.language}`}
                                                 className="font-barlow500 text-[#CDC697] text-sm mt-6 inline-flex items-center"
                                             >
                                                 {t("jaunakieObjekti.aObjekti")} <span className="ml-1">&rarr;</span>
