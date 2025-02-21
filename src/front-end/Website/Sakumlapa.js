@@ -105,17 +105,13 @@ function Sakumlapa() {
                     }`}>
                         {t("sakumlapa.header")}
                     </h2>
-                    <p className={`max-w-lg text-center xs:text-left font-barlow400 pl-3 ${
-                        i18n.language === 'ru' ? 'text-ru-p' : ''
-                    }`}>
+                    <p className="max-w-lg text-center xs:text-left font-barlow400 pl-3">
                         {t("sakumlapa.p")}
                     </p>
                     <div className="text-center xs:text-left">
                         <button
                             onClick={scrollToContactForm}
-                            className={`font-barlow500 w-[272px] h-[55px] sm:w-[317px] sm:h-[55px] bg-[#5B3767] hover:bg-[#371243] transition duration-300 ease-in-out text-[#CDC697] font-medium sm:ml-3 ${
-                        i18n.language === 'ru' ? 'text-ru-button' : ''
-                    }`}>
+                            className="font-barlow500 w-[272px] h-[55px] sm:w-[317px] sm:h-[55px] bg-[#5B3767] hover:bg-[#371243] transition duration-300 ease-in-out text-[#CDC697] font-medium sm:ml-3">
                             {t("sakumlapa.button")}
                         </button>
                     </div>
@@ -141,14 +137,10 @@ function Sakumlapa() {
                                     image={Experience}
                                     className="w-16 h-16 bg-contain bg-no-repeat bg-left"
                                 ></LazyBackground>
-                                <div className={`font-barlow400 text-2xl text-white ${
-                                    i18n.language === 'ru' ? 'text-ru-header' : ''
-                                }`}>
+                                <div className="font-barlow400 text-2xl text-white">
                                     {t("sakumlapaAbout.divAbout1")}
                                 </div>
-                                <p className={`font-barlow400 text-sm text-center xl:text-left ${
-                                    i18n.language === 'ru' ? 'text-ru-p' : ''
-                                }`}>
+                                <p className="font-barlow400 text-sm text-center xl:text-left">
                                     {t("sakumlapaAbout.pAbout1")}
                                 </p>
                             </div>
@@ -159,14 +151,10 @@ function Sakumlapa() {
                                     image={Check}
                                     className="w-16 h-16 bg-contain bg-no-repeat bg-left"
                                 ></LazyBackground>
-                                <div className={`text-2xl font-barlow400 text-white ${
-                                    i18n.language === 'ru' ? 'text-ru-header' : ''
-                                }`}>
+                                <div className="text-2xl font-barlow400 text-white">
                                     {t("sakumlapaAbout.divAbout2")}
                                 </div>
-                                <p className={`font-barlow400 text-sm text-center xl:text-left ${
-                                    i18n.language === 'ru' ? 'text-ru-p' : ''
-                                }`}>
+                                <p className="font-barlow400 text-sm text-center xl:text-left">
                                     {t("sakumlapaAbout.pAbout2")}
                                 </p>
                             </div>
@@ -177,14 +165,10 @@ function Sakumlapa() {
                                     image={Safety}
                                     className="w-16 h-16 bg-contain bg-no-repeat bg-left"
                                 ></LazyBackground>
-                                <div className={`text-2xl font-barlow400 text-white ${
-                                    i18n.language === 'ru' ? 'text-ru-header' : ''
-                                }`}>
+                                <div className="text-2xl font-barlow400 text-white">
                                     {t("sakumlapaAbout.divAbout3")}
                                 </div>
-                                <p className={`font-barlow400 text-sm text-center xl:text-left ${
-                                    i18n.language === 'ru' ? 'text-ru-p' : ''
-                                }`}>
+                                <p className="font-barlow400 text-sm text-center xl:text-left">
                                     {t("sakumlapaAbout.pAbout3")}
                                 </p>
                             </div>
@@ -195,17 +179,12 @@ function Sakumlapa() {
                                     image={Lanida}
                                     className="w-[95px] h-[72px] bg-contain bg-no-repeat bg-left"
                                 ></LazyBackground>
-                                <div className={`text-2xl font-barlow400 text-white ${
-                                    i18n.language === 'ru' ? 'text-ru-header' : ''
-                                }`}>
+                                <div className="text-2xl font-barlow400 text-white">
                                     {t("sakumlapaAbout.divAbout4")}
                                 </div>
                                 <a
                                     href="https://lanida.lv/biedri/guna-jasko-2/"
-                                    className={`font-barlow400 text-sm underline text-center xl:text-left ${
-                                        i18n.language === 'ru' ? 'text-ru-p' : ''
-                                    }`}
-                                >
+                                    className="font-barlow400 text-sm underline text-center xl:text-left">
                                     {t("sakumlapaAbout.pAbout4")}
                                 </a>
                             </div>
@@ -215,9 +194,7 @@ function Sakumlapa() {
                         <div className="mt-12">
                             <a href="https://guna.lucid-websites.com/par-mani">
                                 <button
-                                    className={`font-barlow500 w-full xl:w-[317px] h-[55px] border border-[#CDC697] text-[#CDC697] hover:text-[#9C9150] hover:border-[#9C9150] transition duration-300 ease-in-out font-medium text-sm ${
-                                    i18n.language === 'ru' ? 'text-ru-button' : ''
-                                }`}>
+                                    className="font-barlow500 w-full xl:w-[317px] h-[55px] border border-[#CDC697] text-[#CDC697] hover:text-[#9C9150] hover:border-[#9C9150] transition duration-300 ease-in-out font-medium text-sm">
                                     {t("sakumlapaAbout.buttonAbout")}
                                 </button>
                             </a>
@@ -267,16 +244,12 @@ function Sakumlapa() {
                             </div>
 
                             {/* Testimonial Content */}
-                            <p className={`font-barlow400 text-[#5B3767] text-base sm:text-lg mb-4 leading-relaxed text-center ${
-                                i18n.language === 'ru' ? 'text-ru-p' : ''
-                            }`}>
+                            <p className="font-barlow400 text-[#5B3767] text-base sm:text-lg mb-4 leading-relaxed text-center">
                                 {testimonials[currentIndex].content}
                             </p>
 
                             {/* Author Name */}
-                            <p className={`font-barlow400 text-[#9C9150] mt-4 text-center text-sm sm:text-base ${
-                                i18n.language === 'ru' ? 'text-ru-p' : ''
-                            }`}>
+                            <p className="font-barlow400 text-[#9C9150] mt-4 text-center text-sm sm:text-base">
                                 {testimonials[currentIndex].author}
                             </p>
                         </div>

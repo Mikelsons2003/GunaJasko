@@ -23,13 +23,13 @@ function ParMani() {
                             <h2 className={`text-3xl sm:text-4xl text-center lg:text-left text-white ${i18n.language === 'ru' ? 'text-ru-h1' : ''}`}>
                                 {t("parmani.h1Parmani")}
                             </h2>
-                            <p className={`text-sm sm:text-lg leading-relaxed text-center lg:text-left mt-6 sm:mt-10 text-white ${i18n.language === 'ru' ? 'text-ru-p' : ''}`}>
+                            <p className="text-sm sm:text-lg leading-relaxed text-center lg:text-left mt-6 sm:mt-10 text-white">
                                 {t("parmani.pParmani1")}
                             </p>
-                            <p className={`text-sm sm:text-lg leading-relaxed text-center lg:text-left mt-6 sm:mt-20 text-white ${i18n.language === 'ru' ? 'text-ru-p' : ''}`}>
+                            <p className="text-sm sm:text-lg leading-relaxed text-center lg:text-left mt-6 sm:mt-20 text-white">
                                 {t("parmani.pParmani2")}
                             </p>
-                            <p className={`text-sm sm:text-lg leading-relaxed text-center lg:text-left mt-6 sm:mt-10 text-white ${i18n.language === 'ru' ? 'text-ru-p' : ''}`}>
+                            <p className="text-sm sm:text-lg leading-relaxed text-center lg:text-left mt-6 sm:mt-10 text-white">
                                 {t("parmani.pParmani3")}
                             </p>
                         </div>
@@ -62,7 +62,7 @@ function ParMani() {
                     <h2 className={`text-[#5B3767] text-2xl sm:text-4xl mb-4 sm:mb-6 text-left ${i18n.language === 'ru' ? 'text-ru-h1' : ''}`}>
                         {t("ramis.h1Ramis1")}
                     </h2>
-                    <ul className={`font-barlow400 space-y-4 text-[#5B3767] pt-4 ${i18n.language === 'ru' ? 'text-ru-p' : ''}`}>
+                    <ul className="font-barlow400 space-y-4 text-[#5B3767] pt-4">
                         <li className="flex items-center">
                             <span className="text-[#CDC697] text-2xl sm:text-4xl mr-4">✔</span>
                             {t("ramis.liRamis1")}
@@ -107,7 +107,7 @@ function ParMani() {
                     <h2 className={`text-[#5B3767] text-2xl sm:text-4xl mb-4 sm:mb-6 text-left ${i18n.language === 'ru' ? 'text-ru-h1' : ''}`}>
                         {t("ramis.h1Ramis2")}
                     </h2>
-                    <ul className={`font-barlow400 space-y-4 text-[#5B3767] ${i18n.language === 'ru' ? 'text-ru-p' : ''}`}>
+                    <ul className="font-barlow400 space-y-4 text-[#5B3767]">
                         <li className="flex items-center text-left">
                             <span className="text-[#CDC697] text-2xl sm:text-4xl mr-4">✔</span>
                             {t("ramis.liRamis6")}
@@ -147,9 +147,9 @@ function ParMani() {
                             </LazyBackground>
                             {/* Title */}
                             <div
-                                className={`font-barlow400 text-xl lg:text-2xl text-white ${i18n.language === 'ru' ? 'text-ru-header' : ''}`}>{t("sakumlapaAbout.divAbout1")}</div>
+                                className="font-barlow400 text-xl lg:text-2xl text-white">{t("sakumlapaAbout.divAbout1")}</div>
                             {/* Description */}
-                            <p className={`text-sm ${i18n.language === 'ru' ? 'text-ru-p' : ''}`}> {t("sakumlapaAbout.pAbout1")}</p>
+                            <p className="text-sm"> {t("sakumlapaAbout.pAbout1")}</p>
                         </div>
 
                         {/* Card 2 */}
@@ -162,9 +162,9 @@ function ParMani() {
                             </LazyBackground>
                             {/* Title */}
                             <div
-                                className={`font-barlow400 text-xl lg:text-2xl text-white ${i18n.language === 'ru' ? 'text-ru-header' : ''}`}>{t("sakumlapaAbout.divAbout2")}</div>
+                                className="font-barlow400 text-xl lg:text-2xl text-white">{t("sakumlapaAbout.divAbout2")}</div>
                             {/* Description */}
-                            <p className={`text-sm ${i18n.language === 'ru' ? 'text-ru-p' : ''}`}> {t("sakumlapaAbout.pAbout2")}</p>
+                            <p className="text-sm"> {t("sakumlapaAbout.pAbout2")}</p>
                         </div>
 
                         {/* Card 3 */}
@@ -177,9 +177,9 @@ function ParMani() {
                             </LazyBackground>
                             {/* Title */}
                             <div
-                                className={`font-barlow400 text-xl lg:text-2xl text-white ${i18n.language === 'ru' ? 'text-ru-header' : ''}`}>{t("sakumlapaAbout.divAbout3")}</div>
+                                className="font-barlow400 text-xl lg:text-2xl text-white">{t("sakumlapaAbout.divAbout3")}</div>
                             {/* Description */}
-                            <p className={`text-sm ${i18n.language === 'ru' ? 'text-ru-p' : ''}`}> {t("sakumlapaAbout.pAbout3")} </p>
+                            <p className="text-sm"> {t("sakumlapaAbout.pAbout3")} </p>
                         </div>
 
                         {/* Card 4 */}
@@ -192,10 +192,10 @@ function ParMani() {
                             </LazyBackground>
                             {/* Title */}
                             <div
-                                className={`font-barlow400 text-xl lg:text-xl text-white ${i18n.language === 'ru' ? 'text-ru-header' : ''}`}>{t("sakumlapaAbout.divAbout4")}</div>
+                                className="font-barlow400 text-xl lg:text-xl text-white">{t("sakumlapaAbout.divAbout4")}</div>
                             {/* Description */}
                             <a href="https://lanida.lv/biedri/guna-jasko-2/"
-                               className={`font-barlow400 text-sm underline text-[#CDC697] hover:text-[#9C9150] transition duration-300 ${i18n.language === 'ru' ? 'text-ru-p' : ''}`}>
+                               className="font-barlow400 text-sm underline text-[#CDC697] hover:text-[#9C9150] transition duration-300">
                                 {t("sakumlapaAbout.pAbout4")}
                             </a>
                         </div>
@@ -220,7 +220,7 @@ function ParMani() {
                         <h2 className={`text-4xl mb-6 text-left sm:text-left ${i18n.language === 'ru' ? 'text-ru-h1' : ''}`}>
                             {t("izglitiba.h1Izglitiba1")}
                         </h2>
-                        <p className={`text-lg leading-relaxed mx-auto max-w-6xl text-left sm:text-left ${i18n.language === 'ru' ? 'text-ru-p' : ''}`}>
+                        <p className="text-lg leading-relaxed mx-auto max-w-6xl text-left sm:text-left">
                             {t("izglitiba.pIzglitiba1")}
                         </p>
                     </div>
@@ -230,7 +230,7 @@ function ParMani() {
                         <h2 className={`text-4xl mb-6 text-left sm:text-left ${i18n.language === 'ru' ? 'text-ru-h1' : ''}`}>
                             {t("izglitiba.h1Izglitiba2")}
                         </h2>
-                        <p className={`text-lg leading-relaxed mx-auto max-w-6xl text-left sm:text-left ${i18n.language === 'ru' ? 'text-ru-p' : ''}`}>
+                        <p className="text-lg leading-relaxed mx-auto max-w-6xl text-left sm:text-left">
                             {t("izglitiba.pIzglitiba2")}
                         </p>
                     </div>

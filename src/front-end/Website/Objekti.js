@@ -197,7 +197,7 @@ function Objekti() {
                 <div className="absolute inset-0 bg-black bg-opacity-50"></div>
                 <div className="relative w-full h-full flex flex-col items-center justify-center">
                     <nav
-                        className={`font-garamond500 w-full max-w-[1267px] flex items-center justify-center md:justify-start text-white text-sm lg:text-xl uppercase tracking-wide px-6 ${i18n.language === 'ru' ? 'text-ru-p2' : ''}`}>
+                        className="font-garamond500 w-full max-w-[1267px] flex items-center justify-center md:justify-start text-white text-sm lg:text-xl uppercase tracking-wide px-6">
                         <ul className="grid grid-cols-1 md:flex md:space-x-4 lg:space-x-8 text-center">
                             {/* All */}
                             <li

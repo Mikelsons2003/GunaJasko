@@ -148,9 +148,9 @@ const Kontakti = () => {
                             className="w-full lg:w-1/2 flex flex-col md:flex-row items-center md:items-end mt-12 lg:mt-0">
                             <div className="flex-1 text-left md:text-right pr-0 lg:pr-8 text-[#5B3767] mr-6">
                                 <h3 className="font-garamond500 text-xl lg:text-2xl">Guna Jasko</h3>
-                                <p className={`font-barlow500 mt-2 ${i18n.language === 'ru' ? 'text-ru-p' : ''}`}>{t("kontakti.pKontakti1")}</p>
-                                <p className={`font-barlow500 mt-2 ${i18n.language === 'ru' ? 'text-ru-p' : ''}`}>{t("kontakti.pKontakti2")} 20 016 688</p>
-                                <p className={`font-barlow500 mt-2 ${i18n.language === 'ru' ? 'text-ru-p' : ''}`}>{t("kontakti.pKontakti3")} guna.jasko@gmail.com</p>
+                                <p className="font-barlow500 mt-2">{t("kontakti.pKontakti1")}</p>
+                                <p className="font-barlow500 mt-2">{t("kontakti.pKontakti2")} 20 016 688</p>
+                                <p className="font-barlow500 mt-2">{t("kontakti.pKontakti3")} guna.jasko@gmail.com</p>
                             </div>
                             <LazyBackground
                                 image={GunaKontakti}

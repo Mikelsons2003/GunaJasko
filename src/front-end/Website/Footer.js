@@ -59,7 +59,7 @@ function Footer() {
 
                     {/* Right Section */}
                     <div className="text-right text-sm mt-4 sm:mt-0">
-                        <Link to="/privatuma-politika" className={`font-barlow500 hover:underline ${i18n.language === 'ru' ? 'text-ru-p' : ''}`}>
+                        <Link to="/privatuma-politika" className="font-barlow500 hover:underline">
                             {t("footer.h1Footer")}
                         </Link>
                         <br/>

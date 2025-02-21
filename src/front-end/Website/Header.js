@@ -77,7 +77,7 @@ const Header = () => {
                         </a>
 
                         {/* Desktop Navigation */}
-                        <nav className={`uppercase hidden lg:flex lg:space-x-8 text-white text-sm font-barlow400 ${ i18n.language === 'ru' ? 'text-ru' : '' }`}>
+                        <nav className="uppercase hidden lg:flex lg:space-x-8 text-white text-sm font-barlow400">
                             <Link
                                 to="/"
                                 className={`hover:text-[#9C9150] transition duration-300 ease-in-out ${isActive('/')}`}
@@ -171,9 +171,7 @@ const Header = () => {
                             <div className="border-b-[1px] border-[#9C9150] mt-2"></div>
                         </div>
 
-                        <div className={`flex flex-col items-center mt-4 space-y-2 ${
-                            i18n.language === 'ru' ? 'text-ru' : ''
-                        }`}>
+                        <div className="flex flex-col items-center mt-4 space-y-2">
                             <Link
                                 to="/"
                                 className={`p-1 block hover:text-[#9C9150] transition duration-300 ease-in-out ${isActive('/')}`}
