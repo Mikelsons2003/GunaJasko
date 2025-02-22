@@ -37,7 +37,7 @@ function ObjektiIeskats() {
         const fetchProperty = async () => {
             try {
                 // Fetch property data
-                const response = await fetch(`https://backends.lucid-websites.com/wp-json/wp/v2/posts/${id}`);
+                const response = await fetch(`http://intra.gunajasko.lv/wp-json/wp/v2/posts/${id}`);
                 const data = await response.json();
                 console.log("Fetched Data:", data);
 

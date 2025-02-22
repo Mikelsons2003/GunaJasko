@@ -17,7 +17,7 @@ import PrivatumaPolitika from "./front-end/Website/PrivatumaPolitika";
 import Header from "./front-end/Website/Header";
 import axios from "axios";
 
-axios.defaults.baseURL = "https://backends.lucid-websites.com/wp-json/wp/v2";
+axios.defaults.baseURL = "http://intra.gunajasko.lv/wp-json/wp/v2/posts";
 
 function App() {
     const {t} = useTranslation();

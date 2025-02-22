@@ -26,7 +26,7 @@ function Objekti() {
     useEffect(() => {
         const fetchProperties = async () => {
             try {
-                const response = await fetch("https://backends.lucid-websites.com/wp-json/wp/v2/posts");
+                const response = await fetch("http://intra.gunajasko.lv/wp-json/wp/v2/posts");
                 const data = await response.json();
                 const formattedData = data.map((item) => {
                     const content = item.content.rendered;
@@ -394,18 +394,17 @@ function Objekti() {
 
                                             <span>{t("jaunakieObjekti.spanObjekti2")}</span>
                                             <span className="font-semibold text-right">
-                        {t(propertyTypeToTranslationKey[property.type] || "objekti.liObjekti7")}
-                    </span>
+                                                {t(propertyTypeToTranslationKey[property.type] || "objekti.liObjekti7")}
+                                            </span>
 
                                             <span>{t(propertySizeLabelKey[property.type] || propertySizeLabelKey.default)}</span>
                                             <span className="font-semibold text-right">
-                        {property.type === "Land" ? `${property.size} m²` : property.rooms}
-                    </span>
+                                                {property.type === "Land" ? `${property.size} m²` : property.rooms}
+                                            </span>
                                         </div>
                                     </>
                                 )}
 
-                                {/* This will now always be at the bottom */}
                                 <div className="flex justify-start text-[#9C9150] text-sm mt-auto pt-4">
                                     {t("jaunakieObjekti.aObjekti")} <span className="ml-1">&rarr;</span>
                                 </div>
