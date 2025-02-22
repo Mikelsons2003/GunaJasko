@@ -69,6 +69,11 @@ const JaunakieObjektiSection = () => {
         "Investment Property": "objekti.liObjekti6", // "Investīciju objekti" in Lv, "Investment Properties" in Eng, "Инвестиционные объекты" in Ru
     };
 
+    const transactionTypeToTranslationKey = {
+        Rent: "objekti.liObjekti8", // "Izīrē" in Lv, "Rent" in Eng, "Аренда" in Ru
+        Sell: "objekti.liObjekti9", // "Pārdod" in Lv, "Sell" in Eng, "Продажа" in Ru
+    };
+
     return (
         <section className="py-16 bg-white flex items-center justify-center min-h-screen">
             <div className="container mx-auto flex flex-col items-center justify-center">
@@ -113,7 +118,13 @@ const JaunakieObjektiSection = () => {
                                     <div className="p-4 sm:p-6">
                                         {/* Header */}
                                         <div className="font-garamond500 text-left">
-                                            <h1 className="text-[#5B3767] text-xl mb-3">{project.projectName}</h1>
+                                            <h1 className="text-[#5B3767] text-xl mb-3">
+                                                {project.projectName !== "Not available"
+                                                    ? project.projectName
+                                                    : transactionTypeToTranslationKey[project.transactionType]
+                                                        ? t(transactionTypeToTranslationKey[project.transactionType])
+                                                        : "Unnamed Project"}
+                                            </h1>
                                         </div>
 
                                         {/* Price */}
@@ -132,7 +143,8 @@ const JaunakieObjektiSection = () => {
                                             <span className="text-right font-semibold">{project.address}</span>
 
                                             <span className="text-left pb-1">{t("jaunakieObjekti.spanObjekti2")}</span>
-                                            <span className="text-right font-semibold">{t(propertyTypeToTranslationKey[project.type] || "objekti.liObjekti7")}</span>
+                                            <span
+                                                className="text-right font-semibold">{t(propertyTypeToTranslationKey[project.type] || "objekti.liObjekti7")}</span>
 
                                             <span className="text-left">{t("objektiIeskats.spanIeskats3")}</span>
                                             <span className="text-right font-semibold">{project.rooms}</span>
