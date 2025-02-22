@@ -1,4 +1,4 @@
-import React, {Suspense, useEffect, useState} from "react";
+import React, {Suspense} from "react";
 import {Route, Routes, useLocation} from "react-router-dom";
 import "./App.css";
 import "./i18n";
@@ -15,30 +15,10 @@ import Darijuma from "./front-end/Website/UnderPakalpojumi/Darijuma";
 import Projekti from "./front-end/Website/UnderPakalpojumi/Projekti";
 import PrivatumaPolitika from "./front-end/Website/PrivatumaPolitika";
 import Header from "./front-end/Website/Header";
-import axios from "axios";
-
-axios.defaults.baseURL = "http://intra.gunajasko.lv/wp-json/wp/v2/posts";
 
 function App() {
     const {t} = useTranslation();
-    const [posts, setPosts] = useState([]);
-    const [loading, setLoading] = useState(true);
     const location = useLocation();
-
-    useEffect(() => {
-        const fetchPosts = async () => {
-            try {
-                const response = await axios.get("/posts");
-                setPosts(response.data);
-            } catch (error) {
-                console.error("Error fetching posts:", error);
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        fetchPosts();
-    }, []);
 
     return (
         <Suspense fallback={<div>Loading...</div>}>
