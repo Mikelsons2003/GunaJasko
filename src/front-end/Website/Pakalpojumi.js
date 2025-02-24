@@ -31,7 +31,7 @@ function Pakalpojumi() {
 
             {/* Header Links */}
             <nav className="text-center py-6 text-sm mt-4 xl:mt-24 text-[#5B3767]">
-                <ul className="font-barlow500 flex flex-row justify-center items-center gap-x-6">
+                <ul className="font-barlow500 flex flex-row justify-center items-center gap-x-9">
                     <Link
                         to="/starpniecibas"
                         className="hover:underline text-lg lg:text-xl"

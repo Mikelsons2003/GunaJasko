@@ -106,6 +106,7 @@ export default function ContactForm() {
                                     className="w-full p-4 text-[#9C9150] border border-[#E8E1D3] focus:outline-none hover:border-[#CDC697]">
                                 <option value="">{t("sazina.optionSazina4")}</option>
                                 <option>{t("sazina.optionSazina5")}</option>
+                                <option>{t("sazina.optionSazina11")}</option>
                                 <option>{t("sazina.optionSazina6")}</option>
                             </select>
                         </div>
@@ -114,6 +115,7 @@ export default function ContactForm() {
                                     className="w-full p-4 text-[#9C9150] border border-[#E8E1D3] focus:outline-none hover:border-[#CDC697]">
                                 <option value="">{t("sazina.optionSazina7")}</option>
                                 <option>{t("sazina.optionSazina8")}</option>
+                                <option>{t("sazina.optionSazina10")}</option>
                                 <option>{t("sazina.optionSazina9")}</option>
                             </select>
                         </div>

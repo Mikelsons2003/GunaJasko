@@ -70,7 +70,7 @@ const Header = () => {
                     }`}
                 >
                     <div className="w-full max-w-screen-xl mx-auto px-8 flex justify-between items-center">
-                        <a href="http://gunajasko.lv/">
+                        <a href="https://gunajasko.lv/">
                             <h1 className="text-3xl xs:text-4xl md:text-6xl text-[#9C9150] font-marcellus tracking-wide p-3 drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)]">
                                 GUNA JASKO
                             </h1>
@@ -157,7 +157,7 @@ const Header = () => {
                         }`}
                     >
                         <div className="flex items-center justify-between px-3">
-                            <a href="http://gunajasko.lv/">
+                            <a href="https://gunajasko.lv/">
                             <h1 className="text-3xl xs:text-4xl md:text-6xl text-[#9C9150] font-marcellus tracking-wide">
                                 GUNA JASKO
                             </h1>
