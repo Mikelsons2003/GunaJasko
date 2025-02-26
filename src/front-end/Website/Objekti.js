@@ -26,8 +26,7 @@ function Objekti() {
     useEffect(() => {
         const fetchProperties = async () => {
             try {
-                const response = await fetch("http://intra.gunajasko.lv/wp-json/wp/v2/posts");
-                const data = await response.json();
+                const response = await fetch("http://intra.gunajasko.lv/wp-json/wp/v2/posts?per_page=100");                const data = await response.json();
                 const formattedData = data.map((item) => {
                     const content = item.content.rendered;
                     const extraCategory = extractField(content, "Extra Category");
