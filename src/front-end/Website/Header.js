@@ -10,32 +10,48 @@ const Header = () => {
     const location = useLocation();
     const navigate = useNavigate();
 
-    const languages = ['lv', 'en', 'ru'];
-    const [currentLangIndex, setCurrentLangIndex] = useState(languages.indexOf(i18n.language) || 0);
+    const languages = ["lv", "en", "ru"];
+
+    // Function to get initial language from URL, localStorage or default
+    const getInitialLanguage = () => {
+        const params = new URLSearchParams(location.search);
+        const langFromURL = params.get("lang");
+
+        if (langFromURL && languages.includes(langFromURL)) {
+            return langFromURL;
+        }
+
+        return localStorage.getItem("language") || "lv"; // Default always to 'lv'
+    };
+
+    const [currentLang, setCurrentLang] = useState(getInitialLanguage());
+
+    useEffect(() => {
+        i18n.changeLanguage(currentLang);
+        localStorage.setItem("language", currentLang);
+
+        const params = new URLSearchParams(location.search);
+        if (!params.get("lang") || params.get("lang") !== currentLang) {
+            params.set("lang", currentLang);
+            navigate({ search: params.toString() }, { replace: true });
+        }
+    }, [currentLang, i18n, location.search, navigate]);
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
     };
 
     const handleScroll = () => {
-        if (window.scrollY > 0) {
-            setScrolling(true);
-        } else {
-            setScrolling(false);
-        }
+        setScrolling(window.scrollY > 0);
     };
 
     const toggleLanguage = () => {
-        const nextLangIndex = (currentLangIndex + 1) % languages.length;
+        const nextLangIndex = (languages.indexOf(currentLang) + 1) % languages.length;
         const nextLang = languages[nextLangIndex];
-        i18n.changeLanguage(nextLang);
-        const params = new URLSearchParams(location.search);
-        params.set('lang', nextLang);
-        navigate({ search: params.toString() });
-        setCurrentLangIndex(nextLangIndex);
+        setCurrentLang(nextLang);
     };
 
-    const isActive = (path) => location.pathname === path ? 'text-[#9C9150]' : '';
+    const isActive = (path) => (location.pathname === path ? "text-[#9C9150]" : "");
 
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
@@ -132,7 +148,7 @@ const Header = () => {
                                 onClick={toggleLanguage}
                                 className="hover:text-[#9C9150] transition duration-300 ease-in-out"
                             >
-                                {t("button.language")}
+                                {currentLang.toUpperCase()}
                             </button>
                         </nav>
 
@@ -158,9 +174,9 @@ const Header = () => {
                     >
                         <div className="flex items-center justify-between px-3">
                             <a href="https://gunajasko.lv/">
-                            <h1 className="text-3xl xs:text-4xl md:text-6xl text-[#9C9150] font-marcellus tracking-wide">
-                                GUNA JASKO
-                            </h1>
+                                <h1 className="text-3xl xs:text-4xl md:text-6xl text-[#9C9150] font-marcellus tracking-wide">
+                                    GUNA JASKO
+                                </h1>
                             </a>
                             <div
                                 className="text-3xl text-white cursor-pointer"
@@ -210,7 +226,7 @@ const Header = () => {
                                 {t("menu.contact")}
                             </Link>
                             <button onClick={toggleLanguage}>
-                                {languages[currentLangIndex] ? languages[currentLangIndex].toUpperCase() : 'LV'}
+                                {currentLang.toUpperCase()}
                             </button>
                         </div>
                     </nav>

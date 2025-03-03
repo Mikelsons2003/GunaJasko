@@ -176,7 +176,7 @@ const JaunakieObjektiSection = () => {
 
                 {/* View All Button */}
                 <div className="mt-12 flex justify-center">
-                    <a href="https://guna.lucid-websites.com/objekti">
+                    <a href="https://gunajasko.lv/objekti">
                         <button
                             className="font-barlow500 w-[280px] sm:w-[356px] h-[55px] bg-[#5B3767] text-[#CDC697] text-sm hover:bg-[#371243] transition duration-300 ease-in-out">
                             {t("jaunakieObjekti.buttonObjekti")}

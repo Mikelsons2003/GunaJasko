@@ -184,6 +184,8 @@ function Sakumlapa() {
                                 </div>
                                 <a
                                     href="https://lanida.lv/biedri/guna-jasko-2/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     className="font-barlow400 text-sm underline text-center xl:text-left">
                                     {t("sakumlapaAbout.pAbout4")}
                                 </a>
@@ -192,7 +194,7 @@ function Sakumlapa() {
 
                         {/* Button */}
                         <div className="mt-12">
-                            <a href="https://guna.lucid-websites.com/par-mani">
+                            <a href="https://gunajasko.lv/par-mani">
                                 <button
                                     className="font-barlow500 w-full xl:w-[317px] h-[55px] border border-[#CDC697] text-[#CDC697] hover:text-[#9C9150] hover:border-[#9C9150] transition duration-300 ease-in-out font-medium text-sm">
                                     {t("sakumlapaAbout.buttonAbout")}
@@ -227,19 +229,21 @@ function Sakumlapa() {
                         className="absolute left-[2%] sm:left-[2%] 2xl:left-[14%] sm:top-[54%] top-1/2 transform -translate-y-1/2 z-20"
                         onClick={() => handleSwitchContent("left")}
                     >
-                        <img src={ArrowRight} alt="Left Arrow" className="w-[24px] h-[24px]" />
+                        <img src={ArrowRight} alt="Left Arrow" className="w-[24px] h-[24px]"/>
                     </button>
 
                     <div className="relative z-10 flex flex-col items-center justify-center h-full w-full">
                         {/* Heading */}
-                        <h1 className={`font-garamond500 text-[#CDC697] text-2xl sm:text-4xl sm:mb-12 text-center ${ i18n.language === 'ru' ? 'text-ru-h' : '' }`}>
+                        <h1 className={`font-garamond500 text-[#CDC697] text-2xl sm:text-4xl sm:mb-12 text-center ${i18n.language === 'ru' ? 'text-ru-h' : ''}`}>
                             {t("atsauksmes.h1Atsauksmes")}
                         </h1>
 
                         {/* Testimonial Box */}
-                        <div className="relative bg-white w-full max-w-[320px] sm:max-w-[782px] h-auto opacity-90 p-6 sm:p-12 flex flex-col items-center">
+                        <div
+                            className="relative bg-white w-full max-w-[320px] sm:max-w-[782px] h-[400px] sm:h-[450px] opacity-90 p-6 sm:p-12 flex flex-col items-center justify-center overflow-y-auto">
                             {/* Initials Circle */}
-                            <div className="w-[80px] sm:w-[100px] h-[80px] sm:h-[100px] bg-[#CDC697] rounded-full flex items-center justify-center text-[#5B3767] font-garamond500 text-2xl sm:text-3xl">
+                            <div
+                                className="w-[80px] sm:w-[100px] h-[80px] sm:h-[100px] bg-[#CDC697] rounded-full flex items-center justify-center text-[#5B3767] font-garamond500 text-2xl sm:text-3xl mb-6">
                                 {getInitials(testimonials[currentIndex].author)}
                             </div>
 
@@ -260,7 +264,7 @@ function Sakumlapa() {
                         className="absolute right-[2%] sm:right-[2%] 2xl:right-[14%] sm:top-[54%] top-1/2 transform -translate-y-1/2 z-20"
                         onClick={() => handleSwitchContent("right")}
                     >
-                        <img src={ArrowLeft} alt="Right Arrow" className="w-[24px] h-[24px]" />
+                        <img src={ArrowLeft} alt="Right Arrow" className="w-[24px] h-[24px]"/>
                     </button>
                 </LazyBackground>
             </section>
@@ -314,7 +318,7 @@ function Sakumlapa() {
                 </div>
             </section>
             <div ref={contactFormRef}>
-                <ContactForm/>
+            <ContactForm/>
             </div>
         </div>
     );

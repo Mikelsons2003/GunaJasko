@@ -314,7 +314,7 @@ function ObjektiIeskats() {
 
                 {/* Contact Button */}
                 <div className="mt-12 flex justify-center">
-                    <a href="https://guna.lucid-websites.com/kontakti">
+                    <a href="https://gunajasko.lv/kontakti">
                         <button
                             className="font-barlow500 w-[274px] h-[55px] bg-[#5B3767] text-[#CDC697] text-sm hover:bg-[#371243] transition duration-300 ease-in-out">
                             {t("parmani.buttonParmani")}

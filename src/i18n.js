@@ -16,9 +16,19 @@ i18n
             ru: { translation: ru },
         },
         fallbackLng: 'lv', // Default language
+        supportedLngs: ['lv', 'en', 'ru'], // Ensure only these are allowed
+        detection: {
+            order: ['querystring', 'localStorage', 'cookie', 'navigator', 'htmlTag'],
+            caches: ['localStorage', 'cookie'], // Save detected language
+        },
         interpolation: {
             escapeValue: false,
         },
     });
+
+// If the detected language is not supported, force 'lv'
+if (!['lv', 'en', 'ru'].includes(i18n.language)) {
+    i18n.changeLanguage('lv');
+}
 
 export default i18n;

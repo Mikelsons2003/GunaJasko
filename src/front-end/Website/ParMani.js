@@ -34,7 +34,7 @@ function ParMani() {
                             </p>
                         </div>
                         <div className="flex justify-center lg:justify-start pb-4">
-                            <a href="https://guna.lucid-websites.com/kontakti">
+                            <a href="https://gunajasko.lv/kontakti">
                                 <button
                                     className="w-[274px] h-[55px] border border-[#CDC697] text-[#CDC697] mt-10 hover:text-[#9C9150] hover:border-[#9C9150] transition duration-300 ease-in-out">
                                     {t("parmani.buttonParmani")}
@@ -194,16 +194,20 @@ function ParMani() {
                             <div
                                 className="font-barlow400 text-xl lg:text-xl text-white">{t("sakumlapaAbout.divAbout4")}</div>
                             {/* Description */}
-                            <a href="https://lanida.lv/biedri/guna-jasko-2/"
-                               className="font-barlow400 text-sm underline text-[#CDC697] hover:text-[#9C9150] transition duration-300">
-                                {t("sakumlapaAbout.pAbout4")}
+                            <a
+                            href="https://lanida.lv/biedri/guna-jasko-2/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="font-barlow400 text-sm underline text-[#CDC697] hover:text-[#9C9150] transition duration-300"
+                            >
+                            {t("sakumlapaAbout.pAbout4")}
                             </a>
                         </div>
                     </div>
 
                     {/* Button */}
                     <div className="mt-12">
-                        <a href="https://guna.lucid-websites.com/pakalpojumi">
+                        <a href="https://gunajasko.lv/pakalpojumi">
                             <button
                                 className="w-full max-w-[317px] h-[55px] border border-[#CDC697] text-[#CDC697] hover:text-[#9C9150] hover:border-[#9C9150] transition duration-300 ease-in-out text-sm">
                                 {t("sakumlapaAbout.buttonAbout")}
@@ -237,7 +241,7 @@ function ParMani() {
 
                     {/* Button */}
                     <div className="flex justify-center">
-                        <a href="https://guna.lucid-websites.com/kontakti">
+                        <a href="https://gunajasko.lv/kontakti">
                             <button
                                 className="w-[272px] h-[55px] sm:w-[317px] sm:h-[55px] bg-[#5B3767] hover:bg-[#371243] transition duration-300 ease-in-out text-[#CDC697]">
                                 {t("izglitiba.buttonIzglitiba")}

@@ -34,7 +34,7 @@ function Projekti() {
                 <ul className="font-barlow500 flex flex-row justify-center items-center gap-x-6">
                     <Link
                         to="/starpniecibas"
-                        className="hover:underline text-lg lg:text-xl"
+                        className="hover:font-medium text-lg lg:text-xl"
                         onClick={() => {
                             window.scrollTo({top: 0, behavior: "smooth"});
                             setMenuOpen(false);
@@ -45,7 +45,7 @@ function Projekti() {
 
                     <Link
                         to="/darijuma"
-                        className="hover:underline text-lg lg:text-xl"
+                        className="hover:font-medium text-lg lg:text-xl"
                         onClick={() => {
                             window.scrollTo({top: 0, behavior: "smooth"});
                             setMenuOpen(false);
@@ -56,7 +56,7 @@ function Projekti() {
 
                     <Link
                         to="/projekti"
-                        className="hover:underline text-lg lg:text-xl"
+                        className="text-lg lg:text-xl font-medium font-barlow500"
                         onClick={() => {
                             window.scrollTo({top: 0, behavior: "smooth"});
                             setMenuOpen(false);
@@ -118,7 +118,7 @@ function Projekti() {
 
                 {/* Centered Button */}
                 <div className="flex justify-center mt-12">
-                    <a href="https://guna.lucid-websites.com/kontakti">
+                    <a href="https://gunajasko.lv/kontakti">
                         <button
                             className="w-[274px] h-[55px] bg-[#5B3767] hover:bg-[#371243] transition duration-300 ease-in-out text-[#CDC697] font-medium">
                             {t("pakalpojumi.buttonPakalpojumi")}
