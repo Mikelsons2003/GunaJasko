@@ -51,7 +51,30 @@ const Header = () => {
         setCurrentLang(nextLang);
     };
 
-    const isActive = (path) => (location.pathname === path ? "text-[#9C9150]" : "");
+    const isActive = (path) => {
+        const currentPath = location.pathname;
+
+        // Define all paths that should keep "PAKALPOJUMI" active
+        const pakalpojumiPaths = [
+            "/pakalpojumi",
+            "/darijuma",
+            "/projekti",
+            "/starpniecibas"
+        ];
+
+        // Keep "PAKALPOJUMI" active
+        if (path === "/pakalpojumi" && pakalpojumiPaths.includes(currentPath)) {
+            return "text-[#9C9150]";
+        }
+
+        // Keep "OBJEKTI" active, including dynamic object pages (e.g., /objekti/702)
+        if (path === "/objekti" && currentPath.startsWith("/objekti")) {
+            return "text-[#9C9150]";
+        }
+
+        return currentPath === path ? "text-[#9C9150]" : "";
+    };
+
 
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
@@ -86,7 +109,7 @@ const Header = () => {
                     }`}
                 >
                     <div className="w-full max-w-screen-xl mx-auto px-8 flex justify-between items-center">
-                        <a href="https://gunajasko.lv/">
+                        <a href="https://gunajasko.lv/" className="relative">
                             <h1 className="text-3xl xs:text-4xl md:text-6xl text-[#9C9150] font-marcellus tracking-wide p-3 drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)]">
                                 GUNA JASKO
                             </h1>
@@ -98,7 +121,7 @@ const Header = () => {
                                 to="/"
                                 className={`hover:text-[#9C9150] transition duration-300 ease-in-out ${isActive('/')}`}
                                 onClick={() => {
-                                    window.scrollTo({ top: 0, behavior: "smooth" });
+                                    window.scrollTo({top: 0, behavior: "smooth"});
                                     setMenuOpen(false);
                                 }}
                             >
@@ -108,7 +131,7 @@ const Header = () => {
                                 to="/par-mani"
                                 className={`hover:text-[#9C9150] transition duration-300 ease-in-out ${isActive('/par-mani')}`}
                                 onClick={() => {
-                                    window.scrollTo({ top: 0, behavior: "smooth" });
+                                    window.scrollTo({top: 0, behavior: "smooth"});
                                     setMenuOpen(false);
                                 }}
                             >
@@ -118,7 +141,7 @@ const Header = () => {
                                 to="/pakalpojumi"
                                 className={`hover:text-[#9C9150] transition duration-300 ease-in-out ${isActive('/pakalpojumi')}`}
                                 onClick={() => {
-                                    window.scrollTo({ top: 0, behavior: "smooth" });
+                                    window.scrollTo({top: 0, behavior: "smooth"});
                                     setMenuOpen(false);
                                 }}
                             >
@@ -128,7 +151,7 @@ const Header = () => {
                                 to="/objekti"
                                 className={`hover:text-[#9C9150] transition duration-300 ease-in-out ${isActive('/objekti')}`}
                                 onClick={() => {
-                                    window.scrollTo({ top: 0, behavior: "smooth" });
+                                    window.scrollTo({top: 0, behavior: "smooth"});
                                     setMenuOpen(false);
                                 }}
                             >
@@ -138,7 +161,7 @@ const Header = () => {
                                 to="/kontakti"
                                 className={`hover:text-[#9C9150] transition duration-300 ease-in-out ${isActive('/kontakti')}`}
                                 onClick={() => {
-                                    window.scrollTo({ top: 0, behavior: "smooth" });
+                                    window.scrollTo({top: 0, behavior: "smooth"});
                                     setMenuOpen(false);
                                 }}
                             >
@@ -157,7 +180,7 @@ const Header = () => {
                             className="lg:hidden text-3xl cursor-pointer z-50 mr-1 xs:mr-3 md:mr-6 text-white pointer-events-auto"
                             onClick={toggleMenu}
                         >
-                            {!menuOpen && <FaBars />}
+                            {!menuOpen && <FaBars/>}
                         </div>
                     </div>
                     <div className="w-full max-w-screen-xl mx-auto px-8 mt-2 relative z-10">
@@ -182,7 +205,7 @@ const Header = () => {
                                 className="text-3xl text-white cursor-pointer"
                                 onClick={toggleMenu}
                             >
-                                <FaTimes />
+                                <FaTimes/>
                             </div>
                         </div>
                         <div className="w-full max-w-screen-xl mx-auto px-4">

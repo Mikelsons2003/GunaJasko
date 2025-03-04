@@ -414,33 +414,37 @@ function Objekti() {
                 </div>
                 <div className="font-infant600 flex justify-center items-center mt-8 space-x-2">
                     {/* Previous Page Button */}
-                    <button
-                        onClick={handlePrevPage}
-                        className="text-[#9C9150] disabled:opacity-50"
-                        disabled={currentPage === 1}
-                    >
-                        &larr;
-                    </button>
+                    {totalPages > 1 && (
+                        <button
+                            onClick={handlePrevPage}
+                            className="text-[#9C9150] disabled:opacity-50"
+                            disabled={currentPage === 1}
+                        >
+                            &larr;
+                        </button>
+                    )}
 
                     {/* Page Numbers */}
                     <div className="flex space-x-2">
                         {/* Always show the first page */}
-                        <button
-                            onClick={() => handlePageChange(1)}
-                            className={`px-3 py-1 text-sm ${
-                                currentPage === 1
-                                    ? "text-[#9C9150] font-bold border border-[#9C9150]"
-                                    : "text-[#9C9150]"
-                            }`}
-                        >
-                            1
-                        </button>
+                        {totalPages > 1 && (
+                            <button
+                                onClick={() => handlePageChange(1)}
+                                className={`px-3 py-1 text-sm ${
+                                    currentPage === 1
+                                        ? "text-[#9C9150] font-bold border border-[#9C9150]"
+                                        : "text-[#9C9150]"
+                                }`}
+                            >
+                                1
+                            </button>
+                        )}
 
                         {/* Show dots if currentPage is greater than 3 */}
-                        {currentPage > 3 && <span className="text-[#9C9150]">...</span>}
+                        {totalPages > 1 && currentPage > 3 && <span className="text-[#9C9150]">...</span>}
 
                         {/* Show 3 pages around the current page */}
-                        {Array.from({length: 5}, (_, index) => {
+                        {totalPages > 1 && Array.from({length: 5}, (_, index) => {
                             const page = currentPage - 2 + index;
                             if (page > 1 && page < totalPages) {
                                 return (
@@ -461,29 +465,42 @@ function Objekti() {
                         })}
 
                         {/* Show dots if currentPage is less than totalPages - 2 */}
-                        {currentPage < totalPages - 2 && <span className="text-[#9C9150]">...</span>}
+                        {totalPages > 1 && currentPage < totalPages - 2 && <span className="text-[#9C9150]">...</span>}
 
                         {/* Always show the last page */}
-                        <button
-                            onClick={() => handlePageChange(totalPages)}
-                            className={`px-3 py-1 text-sm ${
-                                currentPage === totalPages
-                                    ? "text-[#9C9150] font-bold border border-[#9C9150]"
-                                    : "text-[#9C9150]"
-                            }`}
-                        >
-                            {totalPages}
-                        </button>
+                        {totalPages > 1 && (
+                            <button
+                                onClick={() => handlePageChange(totalPages)}
+                                className={`px-3 py-1 text-sm ${
+                                    currentPage === totalPages
+                                        ? "text-[#9C9150] font-bold border border-[#9C9150]"
+                                        : "text-[#9C9150]"
+                                }`}
+                            >
+                                {totalPages}
+                            </button>
+                        )}
+
+                        {/* Show only one page if totalPages is 1 */}
+                        {totalPages === 1 && (
+                            <button
+                                className="px-3 py-1 text-sm text-[#9C9150] font-bold border border-[#9C9150]"
+                            >
+                                1
+                            </button>
+                        )}
                     </div>
 
                     {/* Next Page Button */}
-                    <button
-                        onClick={handleNextPage}
-                        className="text-[#9C9150] disabled:opacity-50"
-                        disabled={currentPage === totalPages}
-                    >
-                        &rarr;
-                    </button>
+                    {totalPages > 1 && (
+                        <button
+                            onClick={handleNextPage}
+                            className="text-[#9C9150] disabled:opacity-50"
+                            disabled={currentPage === totalPages}
+                        >
+                            &rarr;
+                        </button>
+                    )}
                 </div>
 
             </section>

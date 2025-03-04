@@ -71,7 +71,7 @@ function Darijuma() {
             </div>
 
             {/* Main Section */}
-            <div className="container mx-auto px-6 sm:px-8 lg:px-20 py-16 text-[#5B3767]">
+            <div className="max-w-screen-xl mx-auto px-6 py-16 text-[#5B3767]">
                 {/* Centered Title */}
                 <h1 className={`text-2xl sm:text-3xl lg:text-4xl text-center mb-12 ${i18n.language === 'ru' ? 'text-ru-h' : ''}`}>
                     {t("pakalpojumi.h1Pakalpojumi6")}
