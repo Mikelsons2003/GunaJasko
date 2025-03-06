@@ -303,13 +303,13 @@ function Objekti() {
                                 onChange={handleSortChange}
                                 className="font-barlow400 flex justify-between items-center border border-[#9C9150] text-[#9C9150] w-[223px] h-[63px] px-4 py-2"
                             >
-                                <option value="none">Sort by</option>
-                                <option value="price-asc">Price Ascending</option>
-                                <option value="price-desc">Price Descending</option>
-                                <option value="size-asc">Size (m²) Ascending</option>
-                                <option value="size-desc">Size (m²) Descending</option>
-                                <option value="rooms-asc">Rooms Ascending</option>
-                                <option value="rooms-desc">Rooms Descending</option>
+                                <option value="none">{t("sorting.sortBy")}</option>
+                                <option value="price-asc">{t("sorting.priceAsc")}</option>
+                                <option value="price-desc">{t("sorting.priceDesc")}</option>
+                                <option value="size-asc">{t("sorting.sizeAsc")}</option>
+                                <option value="size-desc">{t("sorting.sizeDesc")}</option>
+                                <option value="rooms-asc">{t("sorting.roomAsc")}</option>
+                                <option value="rooms-desc">{t("sorting.roomDesc")}</option>
                             </select>
 
                             {/* Project Filter Dropdown */}
@@ -317,7 +317,7 @@ function Objekti() {
                                 onChange={handleProjectFilterChange}
                                 className="font-barlow400 flex justify-between items-center border border-[#9C9150] text-[#9C9150] w-[223px] h-[63px] px-4 py-2"
                             >
-                                <option value="all">All Projects</option>
+                                <option value="all">{t("sorting.allProjects")}</option>
                                 {projectNames.map((projectName) => (
                                     <option key={projectName} value={projectName}>{projectName}</option>
                                 ))}

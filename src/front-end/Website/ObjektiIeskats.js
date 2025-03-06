@@ -5,7 +5,7 @@ import objekts1 from "../../img/objekts1.webp";
 import GunaJaskoBlue from "../../img/GunaJaskoBlue.png";
 import {FaFacebookF, FaInstagram} from "react-icons/fa";
 import LazyBackground from "./LazyBackground";
-import {useLocation, useParams} from "react-router-dom";
+import {useLocation, useNavigate, useParams} from "react-router-dom";
 import {useTranslation} from "react-i18next";
 import {PiArrowRightThin} from "react-icons/pi";
 import DOMPurify from "dompurify";
@@ -15,11 +15,15 @@ import LoadingSpinner from "./Extra/LoadingSpinner";
 function ObjektiIeskats() {
     const {id} = useParams();
     const location = useLocation();
+    const navigate = useNavigate();
+    const {t, i18n} = useTranslation();
     const [property, setProperty] = useState(null);
-    const { t, i18n } = useTranslation();
     const [selectedImage, setSelectedImage] = useState(null);
     const [currentIndex, setCurrentIndex] = useState(0);
+
     const searchParams = new URLSearchParams(location.search);
+    const lang = searchParams.get("lang") || i18n.language;
+
     const propertyType = searchParams.get("propertyType") || "all";
     const transactionType = searchParams.get("transactionType") || "all";
 
@@ -36,17 +40,14 @@ function ObjektiIeskats() {
     useEffect(() => {
         const fetchProperty = async () => {
             try {
-                // Fetch property data
                 const response = await fetch(`http://intra.gunajasko.lv/wp-json/wp/v2/posts/${id}`);
                 const data = await response.json();
                 console.log("Fetched Data:", data);
 
-                // Fetch featured media (main image)
                 const featuredMediaResponse = await fetch(data._links["wp:featuredmedia"][0].href);
                 const featuredMediaData = await featuredMediaResponse.json();
                 const fullSizeImageUrl = featuredMediaData.media_details.sizes.full.source_url;
 
-                // Extract images from content
                 const content = data.content.rendered;
                 const imageRegex = /<a[^>]+href="([^">]+)"/g;
                 const images = [];
@@ -55,7 +56,6 @@ function ObjektiIeskats() {
                     images.push(match[1]);
                 }
 
-                // Extract titles and descriptions
                 const titleLV = extractField(content, "Property Title LV");
                 const titleRU = extractField(content, "Property Title RU");
                 const titleENG = data.title.rendered;
@@ -64,10 +64,8 @@ function ObjektiIeskats() {
                 const descriptionLV = extractField(content, "Property Description LV");
                 const descriptionRU = extractField(content, "Property Description RU");
 
-                // Extract extra category
                 const extraCategory = extractField(content, "Extra Category");
 
-                // Format property data
                 const formattedData = {
                     id: data.id,
                     header: titleENG,
@@ -83,11 +81,11 @@ function ObjektiIeskats() {
                     descriptionLV: descriptionLV,
                     descriptionRU: descriptionRU,
                     images: images,
-                    image: fullSizeImageUrl || objekts1, // Fallback to objekts1 if no image
+                    image: fullSizeImageUrl || objekts1,
                     transactionType: extractField(content, "Transaction Type"),
-                    isNewProject: extraCategory.toLowerCase().includes("new project"), // Check if it's a New Project
-                    isInvestmentProperty: extraCategory.toLowerCase().includes("investment property"), // Check if it's an Investment Property
-                    projectName: extractField(content, "Project Name"), // Extract Project Name
+                    isNewProject: extraCategory.toLowerCase().includes("new project"),
+                    isInvestmentProperty: extraCategory.toLowerCase().includes("investment property"),
+                    projectName: extractField(content, "Project Name"),
                 };
 
                 setProperty(formattedData);
@@ -98,6 +96,20 @@ function ObjektiIeskats() {
 
         fetchProperty();
     }, [id]);
+
+    const handleFilterChange = (filterType, value) => {
+        let newPropertyType = propertyType;
+        let newTransactionType = transactionType;
+
+        if (filterType === "propertyType") {
+            newPropertyType = value;
+        } else if (filterType === "transactionType") {
+            newTransactionType = value;
+        }
+
+        // Redirect to Objekti.js with updated filters
+        navigate(`/objekti?propertyType=${newPropertyType}&transactionType=${newTransactionType}&lang=${lang}`);
+    };
 
     if (!property) {
         return <LoadingSpinner/>;
@@ -177,6 +189,59 @@ function ObjektiIeskats() {
                 className="relative w-full h-[341px] bg-cover bg-center pt-24"
             >
                 <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+                <section className="relative w-full h-[200px] bg-contain bg-center pt-24" style={{
+                    backgroundImage: `url(${objekts1})`,
+                    backgroundSize: "contain",
+                    backgroundPosition: "center"
+                }}>
+                    <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+                    <div className="relative w-full h-full flex flex-col items-center justify-center">
+                        <nav
+                            className="font-garamond500 w-full max-w-[1267px] flex items-center justify-center md:justify-start text-white text-sm lg:text-xl uppercase tracking-wide px-6">
+                            <ul className="grid grid-cols-1 md:flex md:space-x-4 lg:space-x-8 text-center">
+                                <li className={`cursor-pointer ${propertyType === "all" ? "text-[#9C9150]" : ""}`}
+                                    onClick={() => handleFilterChange("propertyType", "all")}>
+                                    {t("objekti.liObjekti13")}
+                                </li>
+                                <li className={`mt-3 md:mt-0 cursor-pointer ${propertyType === "Apartment" ? "text-[#9C9150]" : ""}`}
+                                    onClick={() => handleFilterChange("propertyType", "Apartment")}>
+                                    {t("objekti.liObjekti2")}
+                                </li>
+                                <li className={`mt-3 md:mt-0 cursor-pointer ${propertyType === "House" ? "text-[#9C9150]" : ""}`}
+                                    onClick={() => handleFilterChange("propertyType", "House")}>
+                                    {t("objekti.liObjekti3")}
+                                </li>
+                                <li className={`mt-3 md:mt-0 cursor-pointer ${propertyType === "Land" ? "text-[#9C9150]" : ""}`}
+                                    onClick={() => handleFilterChange("propertyType", "Land")}>
+                                    {t("objekti.liObjekti4")}
+                                </li>
+                                <li className={`mt-3 md:mt-0 cursor-pointer ${propertyType === "New Project" ? "text-[#9C9150]" : ""}`}
+                                    onClick={() => handleFilterChange("propertyType", "New Project")}>
+                                    {t("objekti.liObjekti5")}
+                                </li>
+                                <li className={`mt-3 md:mt-0 cursor-pointer ${propertyType === "Investment Property" ? "text-[#9C9150]" : ""}`}
+                                    onClick={() => handleFilterChange("propertyType", "Investment Property")}>
+                                    {t("objekti.liObjekti6")}
+                                </li>
+                            </ul>
+                        </nav>
+
+                        {/* Transaction Type Filters */}
+                        <nav
+                            className="font-barlow400 w-full max-w-[1267px] flex justify-center md:justify-start items-center text-white text-sm lg:text-lg uppercase tracking-wide px-6">
+                            <ul className="flex space-x-4 lg:space-x-8 mt-12">
+                                <li className={`cursor-pointer ${transactionType === "Rent" ? "text-[#9C9150] underline underline-offset-8" : ""}`}
+                                    onClick={() => handleFilterChange("transactionType", "Rent")}>
+                                    {t(transactionTypeToTranslationKey.Rent)}
+                                </li>
+                                <li className={`cursor-pointer ${transactionType === "Sell" ? "text-[#9C9150] underline underline-offset-8" : ""}`}
+                                    onClick={() => handleFilterChange("transactionType", "Sell")}>
+                                    {t(transactionTypeToTranslationKey.Sell)}
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </section>
             </LazyBackground>
 
             {/* Property Details Section */}
@@ -187,20 +252,34 @@ function ObjektiIeskats() {
                         <PiArrowRightThin className="font-semibold"/>
 
                         {/* Property Type */}
-                        <span className={transactionType === "all" ? "text-[#371243] font-semibold" : ""}>
+                        <a
+                            href="#"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                navigate(`/objekti?propertyType=${propertyType}&transactionType=all&lang=${lang}`);
+                            }}
+                            className={transactionType === "all" ? "text-[#371243] font-semibold" : ""}
+                        >
                             {propertyType === "all"
                                 ? t("objekti.liObjekti7")
                                 : t(propertyTypeToTranslationKey[propertyType])
                             }
-                        </span>
+                        </a>
 
                         {/* Transaction Type (if not "all") */}
                         {transactionType !== "all" && (
                             <>
                                 <PiArrowRightThin className="font-semibold"/>
-                                <span className="text-[#371243] font-semibold">
+                                <a
+                                    href="#"
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        navigate(`/objekti?propertyType=${propertyType}&transactionType=${transactionType}&lang=${lang}`);
+                                    }}
+                                    className="text-[#371243] font-semibold"
+                                >
                                     {t(transactionTypeToTranslationKey[transactionType])}
-                                </span>
+                                </a>
                             </>
                         )}
                     </div>

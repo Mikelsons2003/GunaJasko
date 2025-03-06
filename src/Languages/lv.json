@@ -172,5 +172,15 @@
   },
   "button": {
     "language": "LV"
+  },
+  "sorting": {
+    "sortBy": "Kārtot pēc",
+    "priceAsc": "Cena Augoša",
+    "priceDesc": "Cena Dilstoša",
+    "sizeAsc": "Izmērs (m²) Augošs",
+    "sizeDesc": "Izmērs (m²) Dilstošs",
+    "roomAsc": "Istabas Augošā",
+    "roomDesc": "Istabas Dilstošā",
+    "allProjects": "Visi Projekti"
   }
 }

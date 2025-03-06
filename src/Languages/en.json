@@ -172,5 +172,15 @@
   },
   "button": {
     "language": "EN"
+  },
+  "sorting": {
+    "sortBy": "Sort by",
+    "priceAsc": "Price Ascending",
+    "priceDesc": "Price Descending",
+    "sizeAsc": "Size (m²) Ascending",
+    "sizeDesc": "Size (m²) Descending",
+    "roomAsc": "Rooms Ascending",
+    "roomDesc": "Rooms Descending",
+    "allProjects": "All Projects"
   }
 }
