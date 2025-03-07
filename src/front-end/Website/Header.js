@@ -105,7 +105,7 @@ const Header = () => {
                             ? "bg-black bg-opacity-40 backdrop-blur-md h-[73px] md:h-[93px]"
                             : "bg-transparent h-auto"
                     } transition-all duration-300 ease-in-out ${
-                        menuOpen ? "pointer-events-auto" : "pointer-events-none lg:pointer-events-auto"
+                        menuOpen ? "pointer-events-auto" : "lg:pointer-events-auto"
                     }`}
                 >
                     <div className="w-full max-w-screen-xl mx-auto px-8 flex justify-between items-center">
