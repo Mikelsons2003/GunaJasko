@@ -94,7 +94,7 @@ function Sakumlapa() {
             {/* Hero Section */}
             <LazyBackground
                 image={BedroomImage}
-                className="bg-black bg-opacity-40 h-[830px] lg:h-[900px] 2xl:h-[970px] relative overflow-hidden mb-5 z-0 pointer-events-none"
+                className="bg-black bg-opacity-40 h-[830px] lg:h-[900px] 2xl:h-[970px] relative overflow-hidden mb-5 z-0" // Removed pointer-events-none
             >
                 <div className="absolute inset-0 bg-black bg-opacity-60 pointer-events-none"></div>
 
